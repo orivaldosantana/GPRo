@@ -1,0 +1,7 @@
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/install.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/list_install_components.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/rebuild_cache.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/install/strip.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/install/local.dir
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/edit_cache.dir

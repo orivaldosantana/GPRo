@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/v_repConst.h
+
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/main.cpp
+remoteApi/extApi.h
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApi.h
+iostream
+-
+string
+-
+
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApi.h
+extApiPlatform.h
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApiPlatform.h
+v_repConst.h
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/v_repConst.h
+
+/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApiPlatform.h
+stdint.h
+-
+
