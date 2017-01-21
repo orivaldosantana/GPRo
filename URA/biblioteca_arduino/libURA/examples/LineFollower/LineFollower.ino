@@ -1,9 +1,9 @@
 
 #include "DCMotor.h"
-#include "LineFollower.h"
+#include "LineFollowerSensor.h"
 
 DCMotor dcMotor(5, 4, 3, 2);
-LineFollower lineFollower(A0,A2,500); 
+LineFollowerSensor lineFollower(A0,A2,500); 
 
 int firstSensor = 0;    // first analog sensor
 int secondSensor = 0;   // second analog sensor
