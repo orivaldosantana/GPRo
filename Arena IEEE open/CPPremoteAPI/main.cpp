@@ -41,15 +41,13 @@ int main(int argc, char **argv)
   int motor_tras_esquerdo = 0;
   int motor_frente_direito =0;
   int motor_frente_esquerdo =0;
+  //GARRA
+  int Garra =0;
+  float position[3] = {10,10,10};
 
 
   // variaveis de cena e movimentação do mamador
-  float noDetectionDist=0.5;
-  float maxDetectionDist=0.2;
-  float detect[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  float braitenbergL[16]={-0.2,-0.4,-0.6,-0.8,-1,-1.2,-1.4,-1.6, 0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
-  float braitenbergR[16]={-1.6,-1.4,-1.2,-1,-0.8,-0.6,-0.4,-0.2, 0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
-  float v0=2;
+
 
   int clientID=simxStart((simxChar*)serverIP.c_str(),serverPort,true,true,2000,5);
 
@@ -79,6 +77,11 @@ int main(int argc, char **argv)
     else
       cout << "Conectado ao Motor_direito_Frente!" << std::endl;
 
+    if(simxGetObjectHandle(clientID,(const simxChar*) "P_Grip_straight_motor",(simxInt *) &Garra, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+      cout << "Garra nao encontrado!" << std::endl;
+    else
+      cout << "Conectado a Garra" << std::endl;
+
     // inicialização dos sensores (remoteApi)
     for(int i = 0; i < 6; i++)
     {
@@ -96,46 +99,68 @@ int main(int argc, char **argv)
 
     while(simxGetConnectionId(clientID)!=-1) // enquanto a simulação estiver ativa
     {
-      for(int i = 0; i < 16; i++)
+
+    vLeft  = 2;
+    vRight = 2;
+
+      for(int i = 0; i < 6; i++)
       {
 	simxUChar state;
 	simxFloat coord[3]; //cordenada x,y,z
+
 
         // LENDO OS SENSORES             \/ Variavel que você declarou
 	if (simxReadProximitySensor(clientID,proximity_sensor[i],&state,coord,NULL,NULL,simx_opmode_buffer)==simx_return_ok)
 	{
 	  float dist = coord[2]; //    no caso, pegamos as informações da cordenada   Z
-	  if(state > 0 && (dist<noDetectionDist)) //noDetectionDist = 0.5
-	  {
-	    if(dist<maxDetectionDist)
-	    {
-	      dist=maxDetectionDist;
-	    }
 
-	    detect[i]=1-((dist-maxDetectionDist)/(noDetectionDist-maxDetectionDist)); // calculo copiado do pioneer
+
+	  if(state > 0) // State fica >0  se o sensor achou algo
+	  {            // State ficar <0  deu ruim
+                  // State fica 0 quando não acha nada
+
+
+                                                                                   // por algum motivo a distãncia volta em cm, logo 15 = 0.15 m
+                                                                                  //           |      |
+                                                                                 //            |      |
+                                                                                // ----[3+1]=[5+1]==[4+1]=[2+1]-----
+                                                                               //        !                  !
+         if (1+i%2!=0 && dist < 25 ) // IMPAR== DIREITO                       //         !                  !
+        {                                                                    //    ----[1+1]==============[0+1]-----
+            vRight = 3;                                                     //
+            vLeft  = 1.5;                                                  //      LEMBRE-SE: VETOR COMEÇA COM 0 !
+
+        }
+
+         if (1+i%2==0 && dist < 25) // PAR == LADO ESQUERDO
+        {
+            vLeft =  3;
+            vRight = 1.5;
+        }
+
+
 	  }
-	  else
-	    detect[i] = 0;
+
+
 	}
-	else
-	  detect[i] = 0;
+
       }
 
-      vLeft = v0;
-      vRight = v0;
 
-      for(int i = 0; i < 16; i++)
-      {
-	vLeft=vLeft+braitenbergL[i]*detect[i];
-        vRight=vRight+braitenbergR[i]*detect[i];
-      }
+
+/*cout<<"motor direito: "<<vRight<<endl;
+cout<<"motor esquerdo: "<< vLeft<<endl; */
 
       // atualiza velocidades dos motores (motores da frente, só ativar)
       simxSetJointTargetVelocity(clientID, motor_tras_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_tras_direito, (simxFloat) vRight, simx_opmode_streaming);
-/*    simxSetJointTargetVelocity(clientID, motor_frente_esquerdo_direito, (simxFloat) vRight, simx_opmode_streaming);
-      simxSetJointTargetVelocity(clientID, motor_frente_esquerdo_direito, (simxFloat) vRight, simx_opmode_streaming);
-*/
+      simxSetJointTargetVelocity(clientID, motor_frente_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
+      simxSetJointTargetVelocity(clientID, motor_frente_direito, (simxFloat) vRight, simx_opmode_streaming);
+    // atualizar a garra
+   //   simxSetJointTargetVelocity(clientID, Garra, (simxFloat) vRight, simx_opmode_streaming);
+       simxSetJointTargetPosition(clientID,Garra,(simxFloat) position,simx_opmode_streaming);
+
+
 
       // espera um pouco antes de reiniciar a leitura dos sensores
       extApi_sleepMs(5);
