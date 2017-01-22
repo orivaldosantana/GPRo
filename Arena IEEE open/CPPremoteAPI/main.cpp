@@ -41,9 +41,13 @@ int main(int argc, char **argv)
   int motor_tras_esquerdo = 0;
   int motor_frente_direito =0;
   int motor_frente_esquerdo =0;
-  //GARRA
+  //GARRA                   NÃO SEI COMO USAR !!
   int Garra =0;
-  float position[3] = {10,10,10};
+  float position = 0;
+  //Sensor vision
+  int Webcam;
+
+
 
 
   // variaveis de cena e movimentação do mamador
@@ -55,7 +59,7 @@ int main(int argc, char **argv)
   {
     cout << "Servidor conectado!" << std::endl;
 
-    // inicialização dos motores traseiros                       NOME DO JOIN MOTOR\/    AONDE ELE VAI GUARDAR \/
+    // inicialização dos motores traseiros           NOME DO JOIN MOTOR\/    AONDE ELE VAI GUARDAR \/
     if(simxGetObjectHandle(clientID,(const simxChar*) "Motor_esquerdo_Tras",(simxInt *) &motor_tras_esquerdo, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
       cout << "Motor_esquerdo_Tras nao encontrado!" << std::endl;
     else
@@ -66,7 +70,7 @@ int main(int argc, char **argv)
     else
       cout << "Conectado ao Motor_direito_Tras!" << std::endl;
 
-      // inicialização dos motores da frente     OBS:NÃO UTILIZEI NO CODIGO
+      // inicialização dos motores da frente
     if(simxGetObjectHandle(clientID,(const simxChar*) "Motor_esquerdo_frente",(simxInt *) &motor_frente_esquerdo, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
       cout << "Motor_esquerdo_Frente nao encontrado!" << std::endl;
     else
@@ -77,10 +81,21 @@ int main(int argc, char **argv)
     else
       cout << "Conectado ao Motor_direito_Frente!" << std::endl;
 
-    if(simxGetObjectHandle(clientID,(const simxChar*) "P_Grip_straight_motor",(simxInt *) &Garra, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+        // GARRA
+  /*  if(simxGetObjectHandle(clientID,(const simxChar*) "P_Grip_straight_motor",(simxInt *) &Garra, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
       cout << "Garra nao encontrado!" << std::endl;
     else
       cout << "Conectado a Garra" << std::endl;
+*/
+
+                // camera
+    if(simxGetObjectHandle(clientID,(const simxChar*) " Webcam ",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
+      cout << "Webcam nao encontrado!" << std::endl;
+    else
+      cout << "Conectado ao Webcam" << std::endl;
+
+
+
 
     // inicialização dos sensores (remoteApi)
     for(int i = 0; i < 6; i++)
@@ -145,6 +160,18 @@ int main(int argc, char **argv)
 	}
 
       }
+/* simxGetVisionSensorImage(clientID,Webcam,simxInt* resolution,simxUChar** image,simxUChar options,simxInt operationMode)*/
+int resolution[2];
+char **image=NULL;                      //ENTENDER
+char options;
+
+if (simxGetVisionSensorImage(clientID,Webcam,resolution,(simxUChar**)image,(simxUChar)options,simx_opmode_buffer) )
+{
+    cout<<" resolution: "<<resolution<<endl;
+    cout<<" image: " <<image;
+}
+
+
 
 
 
