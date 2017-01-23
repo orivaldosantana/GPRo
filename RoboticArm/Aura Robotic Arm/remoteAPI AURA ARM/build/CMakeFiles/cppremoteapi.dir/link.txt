@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall -std=c++0x -DBUILD_SHARED_LIBS=OFF   CMakeFiles/cppremoteapi.dir/main.cpp.o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o  -o cppremoteapi -rdynamic -lpthread 

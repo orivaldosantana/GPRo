@@ -1,0 +1,7 @@
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/install/strip.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/install/local.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/cppremoteapi.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/edit_cache.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/rebuild_cache.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/install.dir
+/home/samuel/Documentos/Simulador/Cenas/Aura Robotic Arm/remoteAPI AURA ARM/build/CMakeFiles/list_install_components.dir
