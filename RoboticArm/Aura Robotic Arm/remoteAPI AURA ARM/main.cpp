@@ -37,6 +37,7 @@ int main(int argc, char **argv)
   int Joint1;
   int Joint2;
   int Joint3;
+  float angulo =0;
 
 /*GARRA                   NÃO SEI COMO USAR !!
   int Garra; */
@@ -67,7 +68,7 @@ int main(int argc, char **argv)
       cout << "Conectado ao Joint#2!" << std::endl;
 
       // inicialização dos motores da frente
-    if(simxGetObjectHandle(clientID,(const simxChar*) "Join#3",(simxInt *) &Joint3, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+    if(simxGetObjectHandle(clientID,(const simxChar*) "Joint#3",(simxInt *) &Joint3, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
       cout << "Joint#3 nao encontrado!" << std::endl;
     else
       cout << "Conectado ao Joint#3!" << std::endl;
@@ -75,11 +76,11 @@ int main(int argc, char **argv)
 
 
                 // camera
-    if(simxGetObjectHandle(clientID,(const simxChar*) " Webcam ",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
+  /*  if(simxGetObjectHandle(clientID,(const simxChar*) "Webcam",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
       cout << "Webcam nao encontrado!" << std::endl;
     else
       cout << "Conectado ao Webcam" << std::endl;
-
+*/
 
 
 
@@ -88,32 +89,23 @@ int main(int argc, char **argv)
 
     while(simxGetConnectionId(clientID)!=-1) // enquanto a simulação estiver ativa
     {
-        /*        FUNÇOES PÁRA DAR UMA OLHADA !!
 
-        simxGetJointForce:
-    simxInt simxGetJointForce(simxInt clientID,simxInt jointHandle,simxFloat* force,simxInt operationMode)
 
-        simxGetJointMatrix:
-    simxInt simxGetJointMatrix(simxInt clientID,simxInt jointHandle,simxFloat* matrix,simxInt operationMode)
+simxFloat angle = 90;
+simxFloat* j =0;
 
-        simxGetJointPosition:
-    simxInt simxGetJointPosition(simxInt clientID,simxInt jointHandle,simxFloat* position,simxInt operationMode)
+simxSetJointPosition(clientID,Joint3,angulo, simx_opmode_oneshot);
 
-        simxSetJointForce:
-    simxInt simxSetJointForce(simxInt clientID,simxInt jointHandle,simxFloat force,simxInt operationMode)
 
-        simxSetJointPosition:
-    simxInt simxSetJointPosition(simxInt clientID,simxInt jointHandle,simxFloat position,simxInt operationMode)
-
-        simxSetJointTargetPosition
-    simxInt simxSetJointTargetPosition(simxInt clientID,simxInt jointHandle,simxFloat targetPosition,simxInt operationMode)
+  cout<<"angulo: "<<angulo<<endl;
 
 
 
 
-*/
+angulo=1.5;
+
       // espera um pouco antes de reiniciar a leitura dos sensores
-      extApi_sleepMs(5);
+      extApi_sleepMs(50);
     }
 
     simxFinish(clientID); // fechando conexao com o servidor
