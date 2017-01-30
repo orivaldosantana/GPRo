@@ -42,8 +42,11 @@ int main(int argc, char **argv)
   int motor_frente_direito =0;
   int motor_frente_esquerdo =0;
   //GARRA                   NÃO SEI COMO USAR !!
-  int Garra =0;
-  float position = 0;
+  int Joint_1;
+  int Joint_3;
+  int Garra_sensor;
+  float dist;
+  float angulo = 0;
   //Sensor vision
   int Webcam;
 
@@ -82,11 +85,28 @@ int main(int argc, char **argv)
       cout << "Conectado ao Motor_direito_Frente!" << std::endl;
 
         // GARRA
-  /*  if(simxGetObjectHandle(clientID,(const simxChar*) "P_Grip_straight_motor",(simxInt *) &Garra, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
-      cout << "Garra nao encontrado!" << std::endl;
-    else
-      cout << "Conectado a Garra" << std::endl;
-*/
+
+        if(simxGetObjectHandle(clientID,(const simxChar*) "Joint#1",(simxInt *) &Joint_1, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+          cout << "Joint#1 nao encontrado!" << std::endl;
+        else
+          cout << "Conectado ao Joint#1!" << std::endl;
+
+        if(simxGetObjectHandle(clientID,(const simxChar*) "Joint#3",(simxInt *) &Joint_3, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+          cout << "Joint#3 nao encontrado!" << std::endl;
+        else
+          cout << "Conectado ao Joint#3!" << std::endl;
+
+        if(simxGetObjectHandle(clientID,(const simxChar*) "Garra_sensor",(simxInt *) &Garra_sensor, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+           cout << "Garra_sensor nao encontrado" << std::endl;
+        else
+          {
+            cout << "Conectado ao Garra_sensor " << std::endl;
+          simxReadProximitySensor(clientID,Garra_sensor,NULL,NULL,NULL,NULL,simx_opmode_streaming);
+          }
+
+
+
+
 
                 // camera
     if(simxGetObjectHandle(clientID,(const simxChar*) " Webcam ",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
@@ -160,7 +180,7 @@ int main(int argc, char **argv)
 	}
 
       }
-/* simxGetVisionSensorImage(clientID,Webcam,simxInt* resolution,simxUChar** image,simxUChar options,simxInt operationMode)*/
+/* simxGetVisionSensorImage(clientID,Webcam,simxInt* resolution,simxUChar** image,simxUChar options,simxInt operationMode)
 int resolution[2];
 char **image=NULL;                      //ENTENDER
 char options;
@@ -170,22 +190,39 @@ if (simxGetVisionSensorImage(clientID,Webcam,resolution,(simxUChar**)image,(simx
     cout<<" resolution: "<<resolution<<endl;
     cout<<" image: " <<image;
 }
+*/
+
+
+simxUChar state;
+simxFloat coord[3];
+if (simxReadProximitySensor(clientID,Garra_sensor,&state,coord,NULL,NULL,simx_opmode_buffer)==simx_return_ok)
+{
+  dist = coord[2];
+
+  if(dist <= 0.0516552 && angulo <= 0.734006)
+  {
+    angulo+=0.0005;
+    simxSetJointPosition(clientID,Joint_3,angulo, simx_opmode_oneshot);
+    cout<<angulo<<endl;
+  }
+
+
+}
 
 
 
 
 
-/*cout<<"motor direito: "<<vRight<<endl;
-cout<<"motor esquerdo: "<< vLeft<<endl; */
+
+
+
 
       // atualiza velocidades dos motores (motores da frente, só ativar)
       simxSetJointTargetVelocity(clientID, motor_tras_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_tras_direito, (simxFloat) vRight, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_direito, (simxFloat) vRight, simx_opmode_streaming);
-    // atualizar a garra
-   //   simxSetJointTargetVelocity(clientID, Garra, (simxFloat) vRight, simx_opmode_streaming);
-       simxSetJointTargetPosition(clientID,Garra,(simxFloat) position,simx_opmode_streaming);
+
 
 
 
