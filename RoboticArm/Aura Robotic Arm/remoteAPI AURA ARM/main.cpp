@@ -37,7 +37,11 @@ int main(int argc, char **argv)
   int Joint1;
   int Joint2;
   int Joint3;
-  float angulo =0;
+  float alfa =0;
+  float beta =0;
+  float gama =0;
+  float origem_beta = 0.95;
+  float origem_gama = 0.25;
 
 /*GARRA                   NÃO SEI COMO USAR !!
   int Garra; */
@@ -91,18 +95,18 @@ int main(int argc, char **argv)
     {
 
 
-simxFloat angle = 90;
-simxFloat* j =0;
-
-simxSetJointPosition(clientID,Joint3,angulo, simx_opmode_oneshot);
-
-
-  cout<<"angulo: "<<angulo<<endl;
+simxSetJointPosition(clientID,Joint1,alfa, simx_opmode_oneshot);
+simxSetJointPosition(clientID,Joint2,beta+origem_beta, simx_opmode_oneshot);
+simxSetJointPosition(clientID,Joint3,origem_gama+gama, simx_opmode_oneshot);
 
 
 
 
-angulo=1.5;
+
+
+
+
+
 
       // espera um pouco antes de reiniciar a leitura dos sensores
       extApi_sleepMs(50);
