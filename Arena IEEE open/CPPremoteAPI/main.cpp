@@ -41,14 +41,15 @@ int main(int argc, char **argv)
   int motor_tras_esquerdo = 0;
   int motor_frente_direito =0;
   int motor_frente_esquerdo =0;
-  //GARRA                   NÃO SEI COMO USAR !!
-  int Joint_1;
-  int Joint_3;
+  //GARRA
+  string Joint[5];
+  int joint[5];
   int Garra_sensor;
-  float dist;
   float angulo = 0;
+  float angulo2 =0;
+  float angulo3 =0;
   //Sensor vision
-  int Webcam;
+    int Webcam;
 
 
 
@@ -84,25 +85,34 @@ int main(int argc, char **argv)
     else
       cout << "Conectado ao Motor_direito_Frente!" << std::endl;
 
+
+
         // GARRA
+for(int i=0; i<5 ;i++)
+{
 
-        if(simxGetObjectHandle(clientID,(const simxChar*) "Joint#1",(simxInt *) &Joint_1, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
-          cout << "Joint#1 nao encontrado!" << std::endl;
-        else
-          cout << "Conectado ao Joint#1!" << std::endl;
+Joint[i] = "Joint#" + to_string(i+1);
 
-        if(simxGetObjectHandle(clientID,(const simxChar*) "Joint#3",(simxInt *) &Joint_3, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
-          cout << "Joint#3 nao encontrado!" << std::endl;
-        else
-          cout << "Conectado ao Joint#3!" << std::endl;
+    if(simxGetObjectHandle(clientID,(const simxChar*) Joint[i].c_str(),(simxInt *) &joint[i], (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+      cout << "Joint#"<< i << " não encontrado" << std::endl;
+    else
+      cout << "Conectado ao Joint#"<< i+1 << std::endl;
 
-        if(simxGetObjectHandle(clientID,(const simxChar*) "Garra_sensor",(simxInt *) &Garra_sensor, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
-           cout << "Garra_sensor nao encontrado" << std::endl;
-        else
-          {
-            cout << "Conectado ao Garra_sensor " << std::endl;
-          simxReadProximitySensor(clientID,Garra_sensor,NULL,NULL,NULL,NULL,simx_opmode_streaming);
-          }
+
+}
+
+
+   if(simxGetObjectHandle(clientID,(const simxChar*) "Garra_sensor",(simxInt *) &Garra_sensor, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
+     cout << "Garra_sensor nao encontrado!" << endl;
+   else
+     {
+       cout << "Conectado ao Garra_sensor " << endl;
+       simxReadProximitySensor(clientID,Garra_sensor,NULL,NULL,NULL,NULL,simx_opmode_streaming);
+     }
+
+
+
+
 
 
 
@@ -155,22 +165,24 @@ int main(int argc, char **argv)
                   // State fica 0 quando não acha nada
 
 
-                                                                                   // por algum motivo a distãncia volta em cm, logo 15 = 0.15 m
-                                                                                  //           |      |
-                                                                                 //            |      |
-                                                                                // ----[3+1]=[5+1]==[4+1]=[2+1]-----
-                                                                               //        !                  !
-         if (1+i%2!=0 && dist < 25 ) // IMPAR== DIREITO                       //         !                  !
-        {                                                                    //    ----[1+1]==============[0+1]-----
-            vRight = 3;                                                     //
-            vLeft  = 1.5;                                                  //      LEMBRE-SE: VETOR COMEÇA COM 0 !
+
+
+
+
+
+         if (i > 4 && dist <=((+0.335576)/5)) // IMPAR== DIREITO
+        {
+          vLeft  = 0;
+          vRight = 0;
+
 
         }
 
-         if (1+i%2==0 && dist < 25) // PAR == LADO ESQUERDO
+        else
         {
-            vLeft =  3;
-            vRight = 1.5;
+          vLeft  = 2;
+          vRight = 2;
+
         }
 
 
@@ -182,32 +194,69 @@ int main(int argc, char **argv)
       }
 /* simxGetVisionSensorImage(clientID,Webcam,simxInt* resolution,simxUChar** image,simxUChar options,simxInt operationMode)
 int resolution[2];
+resolution[0]=1280;
+resolution[1]=720;
 char **image=NULL;                      //ENTENDER
 char options;
 
 if (simxGetVisionSensorImage(clientID,Webcam,resolution,(simxUChar**)image,(simxUChar)options,simx_opmode_buffer) )
 {
-    cout<<" resolution: "<<resolution<<endl;
-    cout<<" image: " <<image;
+
+    cout<<"ok"<<endl;
+
 }
+
 */
 
+    // vez da Garra
 
-simxUChar state;
-simxFloat coord[3];
+    simxUChar state;
+    simxFloat coord[3];
+
 if (simxReadProximitySensor(clientID,Garra_sensor,&state,coord,NULL,NULL,simx_opmode_buffer)==simx_return_ok)
-{
-  dist = coord[2];
-
-  if(dist <= 0.0516552 && angulo <= 0.734006)
   {
-    angulo+=0.0005;
-    simxSetJointPosition(clientID,Joint_3,angulo, simx_opmode_oneshot);
-    cout<<angulo<<endl;
+    if(state>0)
+    {
+
+       if(coord[2]<=0.0413 && angulo<0.700411169)
+       {
+         angulo++;
+          simxSetJointPosition(clientID,joint[2],angulo, simx_opmode_oneshot);
+
+       }
+
+
+    }
+
+
+
+  }
+
+  for(int i=0;i<5;i++)
+  {
+    if(i==1 && angulo3<0.030)
+     {
+       angulo3+=0.001;
+       simxSetJointPosition(clientID,joint[i],angulo3, simx_opmode_oneshot);
+
+     }
+
+     if (i==2 && angulo<1.73703 && angulo3 >= 0.030) // Joint#3
+     {
+       angulo+=0.01;
+       simxSetJointPosition(clientID,joint[i],angulo, simx_opmode_oneshot);
+     }
+
+    if(i==0 && angulo2>-1.57079633 && angulo3 >= 0.030 && angulo >= 1.73703) //joint#1
+   {
+     angulo2-=0.01;
+     simxSetJointPosition(clientID,joint[i],angulo2, simx_opmode_oneshot);
+   }
+
+
   }
 
 
-}
 
 
 
@@ -217,17 +266,21 @@ if (simxReadProximitySensor(clientID,Garra_sensor,&state,coord,NULL,NULL,simx_op
 
 
 
-      // atualiza velocidades dos motores (motores da frente, só ativar)
+
+
+
+  /*   // atualiza velocidades dos motores (motores da frente, só ativar)
       simxSetJointTargetVelocity(clientID, motor_tras_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_tras_direito, (simxFloat) vRight, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_direito, (simxFloat) vRight, simx_opmode_streaming);
+*/
 
 
 
 
       // espera um pouco antes de reiniciar a leitura dos sensores
-      extApi_sleepMs(5);
+      extApi_sleepMs(50);
     }
 
     simxFinish(clientID); // fechando conexao com o servidor

@@ -17,7 +17,7 @@ set(SOURCES
     #remoteApi/extApiCustom.c
     remoteApi/extApiPlatform.c
 )
- 
+
 set(HEADERS
     remoteApi/extApi.h
     #remoteApi/extApiCustom.h
@@ -31,11 +31,11 @@ include_directories("remoteApi/")
 
 find_package (Threads)
 
-add_executable(cppremoteapi 
-               main.cpp 
+add_executable(cppremoteapi
+               main.cpp
                ${SOURCES}
 	       ${HEADERS})
-	       
+
 target_link_libraries (cppremoteapi ${CMAKE_THREAD_LIBS_INIT})
 
 install(TARGETS cppremoteapi RUNTIME DESTINATION bin)

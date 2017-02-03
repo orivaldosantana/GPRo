@@ -8,21 +8,21 @@
 
 ../include/v_repConst.h
 
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/main.cpp
 remoteApi/extApi.h
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.h
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi/extApi.h
 iostream
 -
 string
 -
 
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.h
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi/extApi.h
 extApiPlatform.h
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.h
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi/extApiPlatform.h
 v_repConst.h
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/v_repConst.h
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi/v_repConst.h
 
-/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.h
+/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi/extApiPlatform.h
 stdint.h
 -
 
