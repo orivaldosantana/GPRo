@@ -40,8 +40,8 @@ int main(int argc, char **argv)
   float alfa =0;
   float beta =0;
   float gama =0;
-  float origem_beta = 0.95;
-  float origem_gama = 0.25;
+  float origem_beta = 0;
+  float origem_gama = 0;
 
 /*GARRA                   NÃO SEI COMO USAR !!
   int Garra; */
@@ -80,11 +80,11 @@ int main(int argc, char **argv)
 
 
                 // camera
-  /*  if(simxGetObjectHandle(clientID,(const simxChar*) "Webcam",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
+    if(simxGetObjectHandle(clientID,(const simxChar*) "Webcam",(simxInt *) &Webcam, (simxInt) simx_opmode_streaming) != simx_return_ok)
       cout << "Webcam nao encontrado!" << std::endl;
     else
       cout << "Conectado ao Webcam" << std::endl;
-*/
+
 
 
 
