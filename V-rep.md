@@ -126,4 +126,9 @@ Y = 1.1000e-01
  ![resultado2](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/resultado2.png)  
 
 
- ## PARABÉNS VOCÊ TERMINOU A 1° ETAPA :)  
+ ## PARABÉNS VOCÊ TERMINOU A 1° ETAPA :)    
+
+
+
+       papelão é um seguidor de linha, logo ele precisa seguir  uma linha  
+caso não saiba fazer uma linha linha [clique aqui]()
