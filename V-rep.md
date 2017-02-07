@@ -256,7 +256,8 @@ e  se formos ao [site](http://www.coppeliarobotics.com/helpFiles/en/remoteApiFun
 
 vemos que temos que declarar ao menos 3 variaveis tipo  simx são elas:  
 ```C++
-
+//  é assim que declara elas  
+      
 simxUChar* detectionState;
 simxFloat* auxValues;
 simxInt* auxValuesCount;
