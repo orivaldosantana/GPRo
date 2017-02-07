@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApi.c" "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
-  "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/remoteApi/extApiPlatform.c" "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+  "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/remoteApi/extApi.c" "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
+  "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/remoteApi/extApiPlatform.c" "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -22,7 +22,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../remoteApi"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/main.cpp" "/home/player/Documentos/Simulador/Cenas/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
+  "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/main.cpp" "/home/samuel/Documentos/Simulador/aula2/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
