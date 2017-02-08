@@ -185,8 +185,7 @@ Caso queria maior detalhe sobre o código  veja o [vídeo](https://youtu.be/kOjQ
 
 
 descomente o `while simGetSimulationState()`  
-![foto 16](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/RoboticArm/Tutorial/foto%2015.png)
-
+![foto 16](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/RoboticArm/Tutorial/foto%2016.png)
 Não esqueça do `end`    
 
 
@@ -200,7 +199,7 @@ No meu caso por exemplo, o nome da peça é Vision_sensor e o nome que vou dar �
 ```LUA  
 tekpix=simGetObjectHandle("Vision_sensor")
 ```
-![foto 17](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/RoboticArm/Tutorial/foto%2016.png)
+![foto 17](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/RoboticArm/Tutorial/foto%2017.png)
 
 Depois de chamar a peça, precisamos fazer o script que será executado durante a simulação  
 ou seja,  `enquanto`= `while` a simulação estiver rolando, execute isso...  
@@ -230,6 +229,11 @@ Onde pack2  é aonde vai voltar as informações do filtro, ficando assim:
  e  esse %0.2f significa que apenas 2 numeros apos o zero será mostrado, se você alterar o valor  
 verá que mais numeros seram mostrados e a medita que aumenta e menos numeros seram vistos  
  caso coloque um valor menor que 2  
+ `result` é uma variavel de estado que volta 3 situações:  
+
+ *  -1 == quer dizer que tem algo de errado  
+ *   0 == quer dizer que não está pegando nada  
+ *   1 ==  quer dizer que pegou algo 
 
  ### programando em C++  
 
