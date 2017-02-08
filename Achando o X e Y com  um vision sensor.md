@@ -233,7 +233,7 @@ verá que mais numeros seram mostrados e a medita que aumenta e menos numeros se
 
  *  -1 == quer dizer que tem algo de errado  
  *   0 == quer dizer que não está pegando nada  
- *   1 ==  quer dizer que pegou algo 
+ *   1 ==  quer dizer que pegou algo
 
  ### programando em C++  
 
@@ -247,7 +247,7 @@ verá que mais numeros seram mostrados e a medita que aumenta e menos numeros se
         simxReadVisionSensor(clientID,Webcam,NULL,NULL,NULL,simx_opmode_streaming);
 
         simxReadVisionSensor(clientID,Webcam,&state,&auxValues,&auxValuesCount,simx_opmode_buffer);
-        if(state>0)
+        if(state>-1)
         {
           for(int i=16; i<18;i++)
           {
