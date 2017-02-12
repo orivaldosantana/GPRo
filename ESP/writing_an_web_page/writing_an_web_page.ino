@@ -66,7 +66,7 @@ void setup() {
  
 void loop() {
   /////////////////////////////////////////////////////////////////////////
-  // código para registra o tempo (milisegundos) que o sensor foi ativado 
+  // código para registras o tempo (milisegundos) que o sensor foi ativado 
   if ( digitalRead(REFLECTANCE_SENSOR) == 0 ){
     currentTime = millis(); 
     sensorState = true;  

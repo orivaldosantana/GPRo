@@ -11,7 +11,7 @@ Código para registra os momentos que o sensor passa do estado desativado para a
 
 ```c++
 /////////////////////////////////////////////////////////////////////////
- // código para registra o tempo (milisegundos) que o sensor foi ativado
+ // código para registrar o tempo (milisegundos) que o sensor foi ativado
  if ( digitalRead(REFLECTANCE_SENSOR) == 0 ){
    currentTime = millis();
    sensorState = true;  
