@@ -36,4 +36,4 @@ void loop() {
 
 ## Referência
 
-* Placa ESP WeMos D1 R2 - Semelhante ao Arduíno UNO http://pedrominatel.com.br/pt/esp32/wemos-d1-o-esp8266-com-cara-de-arduino/
+* Placa ESP WeMos D1 R2 - Semelhante ao Arduíno UNO <http://pedrominatel.com.br/pt/esp32/wemos-d1-o-esp8266-com-cara-de-arduino/>.
