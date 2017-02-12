@@ -89,7 +89,7 @@ int main(int argc, char **argv)
 
 
 
-
+    int teste1[15] = {}; 
 
     while(simxGetConnectionId(clientID)!=-1) // enquanto a simulação estiver ativa
     {
