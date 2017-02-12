@@ -7,7 +7,7 @@ Teste de construção de uma página web para mostrar as leituras de um sensor. 
 O objetivo deste exemplo é realizar algumas leituras no sensor de reflectância e registrar o tempo que estas leituras ocorreram. Toda vez que uma leitura ocorre é verificado se existe uma transição entre os estados do sensor desativado e ativado. Uma nova leitura é gravada apenas se esta condição for verdadeira. Assim, se o sensor estiver ativo por algum tempo novos registros de tempo não serão gravados desnecessariamente.
 
 
-Código para registra os momentos que o sensor passado do estado desativado para ativado:
+Código para registra os momentos que o sensor passa do estado desativado para ativado:
 
 ```c++
 /////////////////////////////////////////////////////////////////////////
