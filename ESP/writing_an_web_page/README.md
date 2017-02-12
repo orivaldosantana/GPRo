@@ -37,7 +37,7 @@ Código para registra os momentos que o sensor passado do estado desativado para
 
 Tela do computador exibindo a página web produzida pelo ESP e a saída da porta serial para acompanhar a execução do código:
 
-![Captura de Tela.](https://github.com/orivaldosantana/GPRo/tree/master/ESP/writing_an_web_page/captura_de_tela.png)
+![Captura](https://github.com/orivaldosantana/GPRo/tree/master/ESP/writing_an_web_page/captura_de_tela.png)
 
 ## Próximos Passos
 
