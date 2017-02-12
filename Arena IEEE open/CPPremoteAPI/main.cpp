@@ -49,6 +49,7 @@ int main(int argc, char **argv)
   float angulo2 =0;
   float angulo3 =0;
   float angulo4 =0;
+  float cont =0;
   //Sensor vision
     int Webcam;
 
@@ -146,7 +147,7 @@ Joint[i] = "Joint#" + to_string(i+1);
     while(simxGetConnectionId(clientID)!=-1) // enquanto a simulação estiver ativa
     {
 
-    vLeft  = 1;
+    vLeft  = 2;
     vRight = 1;
 
       for(int i = 0; i < 6; i++)
@@ -235,34 +236,36 @@ if (simxReadProximitySensor(clientID,Garra_sensor,&state,coord,NULL,NULL,simx_op
 
   for(int i=0;i<5;i++)
   {
-    if(i==1 && angulo3<0.030)
+    if(i==1 && angulo3<0.030) //Joint#2
      {
        angulo3+=0.0003;
        simxSetJointPosition(clientID,joint[i],angulo3, simx_opmode_oneshot);
 
      }
 
-     if (i==2 && angulo<1.57079633 && angulo3 >= 0.030) // Joint#3
+  else if (i==2 && angulo<1.57079633 && angulo3 >= 0.030) // Joint#3
      {
-       angulo+=0.010;
+       angulo+=0.01;
        simxSetJointPosition(clientID,joint[i],angulo, simx_opmode_oneshot);
      }
 
-    if(i==0 && angulo2>-1.57079633 && angulo3 >= 0.030 && angulo >= 1.57079633) //joint#1
+  else if(i==0 && angulo2>-1.57079633 && angulo3 >= 0.030 && angulo >= 1.57079633) //joint#1
    {
-     angulo2-=0.01;
+     angulo2-=0.001+ cont;
      simxSetJointPosition(clientID,joint[i],angulo2, simx_opmode_oneshot);
+     if(cont<0.003)
+     cont+=0.001;
    }
-
-   if(i==3) //joint#1
+//*/
+   if(i==4) //joint#5
   {
-
+    angulo4+=0.01;
     simxSetJointPosition(clientID,joint[i],angulo4, simx_opmode_oneshot);
   }
 
 
 
-  }
+}
 
 
 
@@ -277,12 +280,12 @@ if (simxReadProximitySensor(clientID,Garra_sensor,&state,coord,NULL,NULL,simx_op
 
 
 
-     // atualiza velocidades dos motores (motores da frente, só ativar)
+     // atualiza velocidades dos motores
       simxSetJointTargetVelocity(clientID, motor_tras_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_tras_direito, (simxFloat) vRight, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_esquerdo, (simxFloat) vLeft, simx_opmode_streaming);
       simxSetJointTargetVelocity(clientID, motor_frente_direito, (simxFloat) vRight, simx_opmode_streaming);
-
+//*/
 
 
 
