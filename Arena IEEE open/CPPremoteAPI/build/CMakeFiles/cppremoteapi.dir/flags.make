@@ -7,11 +7,11 @@ C_FLAGS =
 
 C_DEFINES = -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING
 
-C_INCLUDES = -I"/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/include" -I"/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi" 
+C_INCLUDES = -I"/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/include" -I"/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi" 
 
 CXX_FLAGS =  -Wall -std=c++0x -DBUILD_SHARED_LIBS=OFF  
 
 CXX_DEFINES = -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING
 
-CXX_INCLUDES = -I"/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/include" -I"/home/samuel/Documentos/Simulador/Cenas/IEEE Open/CPPremoteAPI/remoteApi" 
+CXX_INCLUDES = -I"/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/include" -I"/home/samuel/Documentos/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi" 
 
