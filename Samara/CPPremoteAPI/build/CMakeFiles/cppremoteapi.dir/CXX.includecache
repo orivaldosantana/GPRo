@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/v_repConst.h
+
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/main.cpp
+remoteApi/extApi.h
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/remoteApi/extApi.h
+iostream
+-
+string
+-
+
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/remoteApi/extApi.h
+extApiPlatform.h
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/remoteApi/extApiPlatform.h
+v_repConst.h
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/remoteApi/v_repConst.h
+
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/remoteApi/extApiPlatform.h
+stdint.h
+-
+

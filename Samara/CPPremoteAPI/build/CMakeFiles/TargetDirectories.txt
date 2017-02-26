@@ -1,0 +1,6 @@
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/install/local.dir
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/edit_cache.dir
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/rebuild_cache.dir
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/install.dir
+/home/samuel/Documentos/Simulador/GPRo/Samara/CPPremoteAPI/build/CMakeFiles/list_install_components.dir
