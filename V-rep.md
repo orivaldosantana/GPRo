@@ -1,4 +1,7 @@
-# Inicio do meu estudo sobre  V-rep
+# Início do meu estudo sobre  V-rep
+
+_Por Samuel Cavalcanti_
+
 Primeiro passo que fiz foi baixar/instalar o [V-rep](http://www.coppeliarobotics.com/downloads.html)
 
 Após ter baixando, assistir as seguintes vídeos aulas:
