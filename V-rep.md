@@ -1,53 +1,42 @@
 # Inicio do meu estudo sobre  V-rep
-Primeira  que fiz foi  baixar/instalar o  [V-rep](http://www.coppeliarobotics.com/downloads.html)
+Primeiro passo que fiz foi baixar/instalar o [V-rep](http://www.coppeliarobotics.com/downloads.html)
 
-após ter baixando, assistir as seguintes vídeos aulas
+Após ter baixando, assistir as seguintes vídeos aulas:
 
 *OBS*: as aulas 1 mostra como usar o v-rep no linux mas caso tenha entendido aqui vai  
 extraia o arquivo .tar.gz e pelo terminal vá até a pasta e execute o arquivo V-rep.sh  
 assim: ./vrep.sh
 
 
-###### noções básicas do V-rep
+* Noções básicas do V-rep
 [aula 1](https://www.youtube.com/watch?v=LGMYDb6IkPM)
 
-###### programando em c++ no V-rep
+* Programando em c++ no V-rep
 [aula 2](https://www.youtube.com/watch?v=QQ3M55bXjQw)
 
-## meu primeiro desafio: papelão azul
-O meu objetivo era fazer um seguidor de linha no V-rep utilizando um remote API  
-para programa-lo em C++
+## Meu primeiro desafio: papelão azul
+O meu objetivo era fazer um seguidor de linha no V-rep utilizando um remote API para programa-lo em C++.
 
- o trabalho foi divido em duas etapas:
+O trabalho foi divido em duas etapas:
 
- #### 1° etapa: moldar o papelão no V-rep
-![papelão](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/papelao_azul/Papel%C3%A3o.png)      *esse em tuda a sua glória é pepelão azul*   
+* 1° etapa: moldar o papelão no V-rep
+![Papelão](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/papelao_azul/Papel%C3%A3o.png) *esse em tuda a sua glória é pepelão azul*   
 
-para fazer um papelão azul é simples, pois a humildade está no sangue apesar dele ser azul  
+Para fazer um papelão azul é simples, pois a humildade está no sangue apesar dele ser azul  
 *Primeiro* pegue um seguidor de linha padrão do v-rep
 ![seguidor de linha](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/seguidor%20de%20linha%20padr%C3%A3o.png)
 
-desmonte ele, pegue apenas apenas as partes importantes: rodas, a base e sensores (apenas dois sensores)
+Desmonte-o, pegue apenas apenas as partes importantes: rodas, a base e sensores (apenas dois sensores)
 
-para fazer isso você precisa ter um certo conhecimento de umas coisas no v-rep:  
+Para fazer isso você precisa ter um certo conhecimento sobre no v-rep:  
 
- o de separar e juntar peças:
-![separar/juntar](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/juntar%20e%20separar.png)
-a função ungroup serve para seprar(desagrupar) e a que está mais em cima do mouse (group) serve para juntar
+* O de separar e juntar peças:
+![separar/juntar](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/juntar%20e%20separar.png) a função ungroup serve para seprar(desagrupar) e a que está mais em cima do mouse (group) serve para juntar
 
- o Fato de que quase todas  todas as peças que realmente influenciam na simulação estão *INVISÍVEIS por padrão* e para ver  
- tem que habilitar a opção:
- ![ver_o_nao_visto](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/ver%20o%20invisivel.png)
+* O Fato de que quase todas todas as peças que realmente influenciam na simulação estão *INVISÍVEIS por padrão* e para ver  
+ tem que habilitar a opção: ![ver_o_nao_visto](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/ver%20o%20invisivel.png) Para ter acesso a essa opção, você precisa selecionar a peça em questão e clicar duas vezes cima  da peça ou clique na lupazinha no canto superior esquerdo e clique em _COMMON_
 
-
-
-
-
-Para ter acesso a essa opção você precisa selecionar a peça em questão e clique duas vezes cima  
-da peça ou clique na lupazinha no canto superior esquerdo e clique em  _COMMON_
-
-
-Pronto agora selecione o line_tracer desgrupe as peças dele e comece a deletar tudo menos a base  
+Pronto agora selecione o _line_tracer_ desagrupe as peças dele e comece a deletar tudo menos a base  
 (Dica: a base se chama line tracer),as rodas (os dynamicJoints NADA DESSAS CADEIAS DEVERAM SER DELETADOS) e não delte também a rodinha da frente(Force_sensor e sua cadeia) com tudo devidamente deletado  as coisas ficaram assim:  
 
 ![resto](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/resto.png)
@@ -60,7 +49,7 @@ deixei também o graph porque ele deixa um rastro amarelo que eu acho legal  :)
  Se o seu ficou assim então ta quase CLAN!  
 
 
-agora  é necessário mais um conhecimento para fazer o mito (papelao azul) é necessário criar uma peça  
+Agora é necessário mais um conhecimento para fazer o mito (papelao azul) é necessário criar uma peça  
 do tipo cuboide, siga os passos:
 
 vá barra superior e clique em ADD >> PRIMITIVE SHAPE >> CUBOID
