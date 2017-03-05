@@ -94,12 +94,11 @@ Selecione a base clique de novo na lupazinha depois em _View/modifify geometry_,
 
 Desabilite a opção keep proportions, pois você não quer manter as proporções:  
 
-* coloque o X e o Y do papelão   ![sem keepar](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/sem%20keepar.png)  
+* Coloque o X e o Y do papelão   ![sem keepar](https://raw.githubusercontent.com/orivaldosantana/GPRo/master/URA/How%20to%20fazer%20papel%C3%A3o%20azul/sem%20keepar.png)  
  * X= 1.5000e-01  
  * Y = 1.1000e-01  
 
-* agora  é só AGRUPAR!
-
+* Agora  é só AGRUPAR!
  para juntar o corpo de papelão com a base selecione as duas peças e depois vai em:  
  Edit >> Gruoping\Merging >> Group selected shapes   
  DICA: para selecionar mais de uma peça clique com o botão esquerdo do mouse precionando shift  
@@ -109,10 +108,9 @@ Desabilite a opção keep proportions, pois você não quer manter as proporçõ
 
 ### PARABÉNS VOCÊ TERMINOU A 1° ETAPA :)    
 
-Papelão é um seguidor de linha, logo ele precisa seguir  uma linha  
-caso não saiba fazer uma linha linha [clique aqui](https://www.youtube.com/watch?v=lKHZFHUOng8)
+Papelão é um seguidor de linha, logo ele precisa seguir  uma linha. Caso não saiba fazer uma linha linha [clique aqui](https://www.youtube.com/watch?v=lKHZFHUOng8)
 
-Agora você sabe criar papelão, seguimentos de linha agora só falta o código.
+Agora você sabe criar papelão e seguimentos de linha, só falta o código.
 
 ## Inicio da 2° etapa colocando o código seguidor de linha
 
