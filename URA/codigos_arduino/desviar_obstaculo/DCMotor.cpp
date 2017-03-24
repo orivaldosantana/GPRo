@@ -25,8 +25,9 @@ void DCMotor::left(){
 }
 
 void DCMotor::right(){
+  antiClockwise(_in3,_in4);
   clockwise(_in1,_in2);
-  clockwise(_in3,_in4);
+   
 }
 
 void DCMotor::stop() {
