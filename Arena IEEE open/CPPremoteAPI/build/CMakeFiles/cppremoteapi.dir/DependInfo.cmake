@@ -20,8 +20,10 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "../remoteApi"
+  "../VDC"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp" "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o"
   "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -36,6 +38,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../remoteApi"
+  "../VDC"
   )
 
 # Targets to which this target links.

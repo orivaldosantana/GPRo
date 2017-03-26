@@ -19,6 +19,8 @@
           <df name="cppremoteapi.dir">
             <df name="remoteApi">
             </df>
+            <df name="VDC">
+            </df>
           </df>
           <df name="Progress">
           </df>
@@ -37,6 +39,10 @@
         <in>extApiInternal.h</in>
         <in>extApiPlatform.c</in>
         <in>extApiPlatform.h</in>
+      </df>
+      <df name="VDC">
+        <in>VDC.cpp</in>
+        <in>VDC.h</in>
       </df>
       <in>main.cpp</in>
     </df>

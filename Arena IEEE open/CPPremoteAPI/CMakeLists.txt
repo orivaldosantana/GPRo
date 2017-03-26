@@ -16,6 +16,7 @@ set(SOURCES
     remoteApi/extApi.c
     #remoteApi/extApiCustom.c
     remoteApi/extApiPlatform.c
+    VDC/VDC.cpp
 )
 
 set(HEADERS
@@ -25,9 +26,12 @@ set(HEADERS
     remoteApi/extApiPlatform.h
     include/v_repConst.h
     include/v_repLib.h
+    VDC/VDC.h
+    
 )
 include_directories("include/")
 include_directories("remoteApi/")
+include_directories("VDC/")
 
 find_package (Threads)
 

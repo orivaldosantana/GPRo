@@ -60,15 +60,15 @@ include CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/main.cpp.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppremoteapi.dir/main.cpp.o"
-	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppremoteapi.dir/main.cpp.o -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppremoteapi.dir/main.cpp.o -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp"
 
 CMakeFiles/cppremoteapi.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppremoteapi.dir/main.cpp.i"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" > CMakeFiles/cppremoteapi.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" > CMakeFiles/cppremoteapi.dir/main.cpp.i
 
 CMakeFiles/cppremoteapi.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppremoteapi.dir/main.cpp.s"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" -o CMakeFiles/cppremoteapi.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" -o CMakeFiles/cppremoteapi.dir/main.cpp.s
 
 CMakeFiles/cppremoteapi.dir/main.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/cppremoteapi.dir/main.cpp.o.provides.build: CMakeFiles/cppremoteapi.d
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o: ../remoteApi/extApi.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o   -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o   -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c"
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c" > CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c" > CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c" -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.c" -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o.requires:
 
@@ -108,15 +108,15 @@ CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o.provides.build: CMakeFiles/cppr
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: ../remoteApi/extApiPlatform.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o   -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o   -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c"
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c" > CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c" > CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c" -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c" -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o.requires:
 
@@ -129,11 +129,36 @@ CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o.provides: CMakeFiles/cp
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o.provides.build: CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o
 
 
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: CMakeFiles/cppremoteapi.dir/flags.make
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../VDC/VDC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o -c "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp"
+
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp" > CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.i
+
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp" -o CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.s
+
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.requires:
+
+.PHONY : CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.requires
+
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.provides: CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cppremoteapi.dir/build.make CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.provides.build
+.PHONY : CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.provides
+
+CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.provides.build: CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o
+
+
 # Object files for target cppremoteapi
 cppremoteapi_OBJECTS = \
 "CMakeFiles/cppremoteapi.dir/main.cpp.o" \
 "CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o" \
-"CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+"CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o" \
+"CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o"
 
 # External object files for target cppremoteapi
 cppremoteapi_EXTERNAL_OBJECTS =
@@ -141,9 +166,10 @@ cppremoteapi_EXTERNAL_OBJECTS =
 cppremoteapi: CMakeFiles/cppremoteapi.dir/main.cpp.o
 cppremoteapi: CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o
 cppremoteapi: CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o
+cppremoteapi: CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o
 cppremoteapi: CMakeFiles/cppremoteapi.dir/build.make
 cppremoteapi: CMakeFiles/cppremoteapi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable cppremoteapi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable cppremoteapi"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cppremoteapi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +180,7 @@ CMakeFiles/cppremoteapi.dir/build: cppremoteapi
 CMakeFiles/cppremoteapi.dir/requires: CMakeFiles/cppremoteapi.dir/main.cpp.o.requires
 CMakeFiles/cppremoteapi.dir/requires: CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o.requires
 CMakeFiles/cppremoteapi.dir/requires: CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o.requires
+CMakeFiles/cppremoteapi.dir/requires: CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o.requires
 
 .PHONY : CMakeFiles/cppremoteapi.dir/requires
 

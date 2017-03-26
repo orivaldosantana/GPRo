@@ -6,6 +6,9 @@
         <in>extApi.c</in>
         <in>extApiPlatform.c</in>
       </df>
+      <df name="VDC">
+        <in>VDC.cpp</in>
+      </df>
       <in>main.cpp</in>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -44,6 +47,7 @@
             <incDir>
               <pElem>include</pElem>
               <pElem>remoteApi</pElem>
+              <pElem>VDC</pElem>
               <pElem>build</pElem>
             </incDir>
             <preprocessorList>
@@ -55,6 +59,7 @@
             <incDir>
               <pElem>include</pElem>
               <pElem>remoteApi</pElem>
+              <pElem>VDC</pElem>
               <pElem>build</pElem>
             </incDir>
             <preprocessorList>
@@ -69,13 +74,17 @@
           <preBuildCommand>${CMAKE} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=${IDE_CC} -DCMAKE_CXX_COMPILER=${IDE_CXX} -DCMAKE_C_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_CXX_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..</preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="VDC/VDC.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="0">
+      <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="2">
       </item>
-      <item path="remoteApi/extApiPlatform.c" ex="false" tool="0" flavor2="0">
+      <item path="remoteApi/extApiPlatform.c" ex="false" tool="0" flavor2="2">
       </item>
     </conf>
   </confs>

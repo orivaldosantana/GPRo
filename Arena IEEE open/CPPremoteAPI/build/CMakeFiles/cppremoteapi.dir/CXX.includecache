@@ -6,7 +6,29 @@
 
 #IncludeRegexTransform: 
 
+../VDC/VDC.h
+string
+-
+iostream
+-
+
 ../include/v_repConst.h
+
+../remoteApi/extApi.h
+extApiPlatform.h
+../remoteApi/extApiPlatform.h
+v_repConst.h
+../remoteApi/v_repConst.h
+
+../remoteApi/extApiPlatform.h
+stdint.h
+-
+
+/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp
+extApi.h
+/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/extApi.h
+VDC.h
+-
 
 /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp
 remoteApi/extApi.h
@@ -14,6 +36,8 @@ remoteApi/extApi.h
 iostream
 -
 string
+-
+VDC.h
 -
 
 /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApi.h
