@@ -10,6 +10,11 @@ CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o
  /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.c
  /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/remoteApi/extApiPlatform.h
+CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o
+ ../VDC/Skills.h
+ ../VDC/Utilities.h
+ ../VDC/VDC.h
+ /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/Skills.cpp
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o
  ../VDC/VDC.h
  ../include/v_repConst.h
@@ -17,6 +22,7 @@ CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o
  ../remoteApi/extApiPlatform.h
  /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp
 CMakeFiles/cppremoteapi.dir/main.cpp.o
+ ../VDC/Skills.h
  ../VDC/VDC.h
  ../include/v_repConst.h
  /home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp

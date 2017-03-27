@@ -22,8 +22,6 @@
             <df name="VDC">
             </df>
           </df>
-          <df name="Progress">
-          </df>
           <in>feature_tests.c</in>
           <in>feature_tests.cxx</in>
         </df>
@@ -41,6 +39,9 @@
         <in>extApiPlatform.h</in>
       </df>
       <df name="VDC">
+        <in>Skills.cpp</in>
+        <in>Skills.h</in>
+        <in>Utilities.h</in>
         <in>VDC.cpp</in>
         <in>VDC.h</in>
       </df>

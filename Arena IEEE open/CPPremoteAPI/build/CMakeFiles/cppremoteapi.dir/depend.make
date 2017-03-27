@@ -10,12 +10,18 @@ CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o: ../remoteApi/extApiPlatform.h
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: ../remoteApi/extApiPlatform.c
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: ../remoteApi/extApiPlatform.h
 
+CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o: ../VDC/Skills.h
+CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o: ../VDC/Utilities.h
+CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o: ../VDC/VDC.h
+CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o: ../VDC/Skills.cpp
+
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../VDC/VDC.h
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../include/v_repConst.h
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../remoteApi/extApi.h
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../remoteApi/extApiPlatform.h
 CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o: ../VDC/VDC.cpp
 
+CMakeFiles/cppremoteapi.dir/main.cpp.o: ../VDC/Skills.h
 CMakeFiles/cppremoteapi.dir/main.cpp.o: ../VDC/VDC.h
 CMakeFiles/cppremoteapi.dir/main.cpp.o: ../include/v_repConst.h
 CMakeFiles/cppremoteapi.dir/main.cpp.o: ../main.cpp

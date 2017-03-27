@@ -17,6 +17,7 @@ set(SOURCES
     #remoteApi/extApiCustom.c
     remoteApi/extApiPlatform.c
     VDC/VDC.cpp
+    VDC/Skills.cpp
 )
 
 set(HEADERS
@@ -27,6 +28,8 @@ set(HEADERS
     include/v_repConst.h
     include/v_repLib.h
     VDC/VDC.h
+    VDC/Skills.h
+    VDC/Utilities.h
     
 )
 include_directories("include/")

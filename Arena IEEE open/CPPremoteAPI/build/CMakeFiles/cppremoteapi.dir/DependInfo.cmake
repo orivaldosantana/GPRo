@@ -23,6 +23,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../VDC"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/Skills.cpp" "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o"
   "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/VDC/VDC.cpp" "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/VDC/VDC.cpp.o"
   "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/main.cpp" "/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
   )

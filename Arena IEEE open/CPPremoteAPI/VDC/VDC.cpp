@@ -4,24 +4,29 @@ extern "C" {
 #include <VDC.h>
 
 
+VDC::VDC() {
+    
 
-
-
- VDC::VDC(){
- }
- 
-VDC::VDC(const VDC& orig){
 }
 
-void VDC::conectJoints(std::string nameInVrep, int &nameInRemoteAPI, int clientID) {
+VDC::VDC(const VDC& orig) {
+}
+
+void VDC::conectJoints(std::string nameInVrep, int &nameInRemoteAPI) {
 
     if (simxGetObjectHandle(clientID, (const simxChar*) nameInVrep.c_str(), (simxInt *) & nameInRemoteAPI, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
         std::cout << nameInVrep << " nao encontrado!" << std::endl;
     else
         std::cout << "Conectado ao " << nameInVrep << std::endl;
+    
+    
+    
+    
+
+  
 }
 
-void VDC::conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI, int clientID) {
+void VDC::conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI) {
 
 
     if (simxGetObjectHandle(clientID, (const simxChar*) nameInVrep.c_str(), (simxInt *) & nameInRemoteAPI, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
@@ -32,30 +37,56 @@ void VDC::conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI, i
 
     }
 
+ 
 }
 
-void VDC::seguidorDeParede(){
-    
-    
-}
+
 
 void VDC::setClientID(int clientID) {
     this->clientID = clientID;
 }
 
-void VDC::setJoints(int setJoint) {
-    this->numbJoints +=1;
-    this->joint[numbJoints] = setJoint;
+
+
+
+
+double VDC::getDistance(int sensor) {
+    simxUChar state;
+    simxFloat coord[3];
+
+    if (simxReadProximitySensor(clientID, sensor, &state, coord, NULL, NULL, simx_opmode_buffer) == simx_return_ok) {
+        if (state > 0) {
+            if (coord[2] > 0)
+                return coord[2];
+
+
+        }
+        else if (state == 0)
+            return 500;
+
+    }
+    return -1;
+
+
+
 }
 
-void VDC::setSensors(int setSensor) {
-    this->numbSensors +=1;
-    this->sensors[numbSensors] = setSensor;
-}
-
-
-VDC::~VDC(){
+void VDC::setJointPosition(int joint, double angle){
+    simxSetJointPosition(clientID, joint, angle, simx_opmode_oneshot);
     
+}
+
+void VDC::setJointVelocity(int joint,float velocity){
+    simxSetJointTargetVelocity(clientID, joint, (simxFloat)velocity, simx_opmode_streaming);
+    
+    
+}
+
+
+
+
+VDC::~VDC() {
+
 }
 
 

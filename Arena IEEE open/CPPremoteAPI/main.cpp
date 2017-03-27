@@ -25,96 +25,37 @@ extern "C" {
 
 #include <iostream>
 #include <string>
-#include <VDC.h>
+#include <Skills.h>
 
 
 using namespace std;
 
 
-VDC vdc;
+
+SKILLS skills;
 
 int main(int argc, char **argv) {
-    
+
     string serverIP = "127.0.0.1";
     int serverPort = 19999;
     int clientID = simxStart((simxChar*) serverIP.c_str(), serverPort, true, true, 2000, 5);
-    string Joint;
-    string sensorNome;
-    int proximity_Sensor[8];
-    int joint[9];
-    
-    
-   
-    
-    
-  
-      
-    
-    
 
 
-    // variaveis de cena e movimentação do mamador
-
-
-    
 
     if (clientID != -1) {
         cout << "Servidor conectado!" << std::endl;
-        
-        vdc.setClientID(clientID);
 
-        /* inicialização dos motores traseiros  
-                      NOME DO JOIN MOTOR\/    AONDE ELE VAI GUARDAR \/                               */
-        vdc.conectJoints("Motor_esquerdo_Tras", joint[0], clientID);
-        vdc.conectJoints("Motor_direito_Tras", joint[1], clientID);
-
-        // inicialização dos motores da frente        
-        vdc.conectJoints("Motor_esquerdo_frente", joint[2], clientID);
-        vdc.conectJoints("Motor_direito_frente", joint[3], clientID);
-
-        //  juntas da GARRA
-        for (int i = 4; i < 9; i++) {
-
-            Joint = "Joint#" + to_string(i - 3);
-
-        vdc.conectJoints(Joint, joint[i], clientID);
+        skills.connectToRobot(clientID);
 
 
-        }
-       
-        
-          
-        
-
-
-        // inicialização dos sensores de proximidade  (remoteApi)
-        for (int i = 0; i < 8; i++) {
-            
-            
-               sensorNome = "Proximity_sensor_" + to_string(i + 1);
-
-               vdc.conectProximitySensors(sensorNome, proximity_Sensor[i], clientID);  
-               
-            
-        }
-        
-        for(int i=0;i<9;i++){
-            vdc.setJoints(joint[i]);
-            if(i<8){
-                vdc.setSensors(proximity_Sensor[i]);
-            }
-            
-        }
-        
-        
-        
-        
 
         while (simxGetConnectionId(clientID) != -1) // enquanto a simulação estiver ativa
-        {
-
+        {   
             
-            extApi_sleepMs(50);
+            if(!skills.seguidorDeParede(clientID))
+
+
+            extApi_sleepMs(150);
         }
 
         simxFinish(clientID); // fechando conexao com o servidor

@@ -167,6 +167,33 @@ cppremoteapi/fast:
 	$(MAKE) -f CMakeFiles/cppremoteapi.dir/build.make CMakeFiles/cppremoteapi.dir/build
 .PHONY : cppremoteapi/fast
 
+VDC/Skills.o: VDC/Skills.cpp.o
+
+.PHONY : VDC/Skills.o
+
+# target to build an object file
+VDC/Skills.cpp.o:
+	$(MAKE) -f CMakeFiles/cppremoteapi.dir/build.make CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.o
+.PHONY : VDC/Skills.cpp.o
+
+VDC/Skills.i: VDC/Skills.cpp.i
+
+.PHONY : VDC/Skills.i
+
+# target to preprocess a source file
+VDC/Skills.cpp.i:
+	$(MAKE) -f CMakeFiles/cppremoteapi.dir/build.make CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.i
+.PHONY : VDC/Skills.cpp.i
+
+VDC/Skills.s: VDC/Skills.cpp.s
+
+.PHONY : VDC/Skills.s
+
+# target to generate assembly for a file
+VDC/Skills.cpp.s:
+	$(MAKE) -f CMakeFiles/cppremoteapi.dir/build.make CMakeFiles/cppremoteapi.dir/VDC/Skills.cpp.s
+.PHONY : VDC/Skills.cpp.s
+
 VDC/VDC.o: VDC/VDC.cpp.o
 
 .PHONY : VDC/VDC.o
@@ -288,6 +315,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... VDC/Skills.o"
+	@echo "... VDC/Skills.i"
+	@echo "... VDC/Skills.s"
 	@echo "... VDC/VDC.o"
 	@echo "... VDC/VDC.i"
 	@echo "... VDC/VDC.s"

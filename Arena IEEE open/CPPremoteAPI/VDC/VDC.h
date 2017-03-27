@@ -18,18 +18,19 @@
 #include <iostream>
 
 class VDC {
+    friend class SKILLS;
 public:
     
     VDC();
     virtual ~VDC();
     VDC(const VDC& orig);
-    
-    void conectJoints(std::string nameInVrep, int &nameInRemoteAPI, int clientID);
-    void conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI, int clientID);
-    void seguidorDeParede();
+    void setJointPosition(int joint, double angle);
+    void conectJoints(std::string nameInVrep, int &nameInRemoteAPI);
+    void conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI);
     void setClientID(int clientID);
-    void setJoints(int setJoint);
-    void setSensors(int setSensor);
+    void setJointVelocity(int joint,float velocity);
+    double getDistance(int sensor);
+    
     
     
     
@@ -41,18 +42,10 @@ private:
     // clientID
     int clientID;
     
-    // MOTORES e juntas
-    int numbJoints =0;
-    int * joint  = new int [numbJoints];
+   
+ 
     
-    //GARRA e sensores
-    int numbSensors=0;
-    int* sensors = new int[numbSensors]; 
-    
-    
-    //Sensor vision
-    int Webcam;
-    // Sensores de 
+ 
 
 };
 
