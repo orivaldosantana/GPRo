@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApi.c" "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
-  "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApiPlatform.c" "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+  "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.c" "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
+  "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.c" "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -22,7 +22,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../remoteApi"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/main.cpp" "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
+  "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/main.cpp" "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

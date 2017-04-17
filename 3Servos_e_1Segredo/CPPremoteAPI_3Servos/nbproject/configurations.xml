@@ -82,6 +82,19 @@
         <ccTool flags="1">
         </ccTool>
       </item>
+      <folder path="0/remoteApi">
+        <cTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
@@ -96,9 +109,9 @@
           </preprocessorList>
         </ccTool>
       </item>
-      <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="2">
+      <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="remoteApi/extApiPlatform.c" ex="false" tool="0" flavor2="2">
+      <item path="remoteApi/extApiPlatform.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

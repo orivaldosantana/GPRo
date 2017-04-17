@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/v_repConst.h
+
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/main.cpp
+remoteApi/extApi.h
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.h
+iostream
+-
+string
+-
+fstream
+-
+
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.h
+extApiPlatform.h
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.h
+v_repConst.h
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/v_repConst.h
+
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.h
+stdint.h
+-
+

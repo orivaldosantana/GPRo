@@ -1,7 +1,0 @@
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/install/strip.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/install/local.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/cppremoteapi.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/edit_cache.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/rebuild_cache.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/install.dir
-/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/list_install_components.dir

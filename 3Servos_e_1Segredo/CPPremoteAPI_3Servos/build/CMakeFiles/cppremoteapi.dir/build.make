@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos
+CMAKE_SOURCE_DIR = /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build
+CMAKE_BINARY_DIR = /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cppremoteapi.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/cppremoteapi.dir/flags.make
 
 CMakeFiles/cppremoteapi.dir/main.cpp.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppremoteapi.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppremoteapi.dir/main.cpp.o -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppremoteapi.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppremoteapi.dir/main.cpp.o -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/main.cpp
 
 CMakeFiles/cppremoteapi.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppremoteapi.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/main.cpp > CMakeFiles/cppremoteapi.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/main.cpp > CMakeFiles/cppremoteapi.dir/main.cpp.i
 
 CMakeFiles/cppremoteapi.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppremoteapi.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/main.cpp -o CMakeFiles/cppremoteapi.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/main.cpp -o CMakeFiles/cppremoteapi.dir/main.cpp.s
 
 CMakeFiles/cppremoteapi.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/cppremoteapi.dir/main.cpp.o.provides.build: CMakeFiles/cppremoteapi.d
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o: ../remoteApi/extApi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.c
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApi.c > CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.c > CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.i
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApi.c -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApi.c -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.s
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o.provides.build: CMakeFiles/cppr
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: CMakeFiles/cppremoteapi.dir/flags.make
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o: ../remoteApi/extApiPlatform.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApiPlatform.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.c
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApiPlatform.c > CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.c > CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.i
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/remoteApi/extApiPlatform.c -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/remoteApi/extApiPlatform.c -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.s
 
 CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o.requires:
 
@@ -143,7 +143,7 @@ cppremoteapi: CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o
 cppremoteapi: CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o
 cppremoteapi: CMakeFiles/cppremoteapi.dir/build.make
 cppremoteapi: CMakeFiles/cppremoteapi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable cppremoteapi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable cppremoteapi"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cppremoteapi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,6 +162,6 @@ CMakeFiles/cppremoteapi.dir/clean:
 .PHONY : CMakeFiles/cppremoteapi.dir/clean
 
 CMakeFiles/cppremoteapi.dir/depend:
-	cd /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/cppremoteapi.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/cppremoteapi.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cppremoteapi.dir/depend
 

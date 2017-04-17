@@ -1,4 +1,4 @@
-# Install script for directory: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos
+# Install script for directory: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMP
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cppremoteapi"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/cppremoteapi")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/cppremoteapi")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cppremoteapi" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cppremoteapi")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

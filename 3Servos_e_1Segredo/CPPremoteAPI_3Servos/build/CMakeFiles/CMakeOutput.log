@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/3.7.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/3.7.2/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/3.7.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/3.7.2/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_096cd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_096cd.dir/build.make CMakeFiles/cmTC_096cd.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_096cd.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_096cd.dir/testCCompiler.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_096cd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_096cd.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_096cd.dir/testCCompiler.c.o  -o cmTC_096cd -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5869b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5869b.dir/build.make CMakeFiles/cmTC_5869b.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5869b.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_5869b.dir/testCCompiler.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_5869b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5869b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5869b.dir/testCCompiler.c.o  -o cmTC_5869b -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_09e8f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_09e8f.dir/build.make CMakeFiles/cmTC_09e8f.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_09e8f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09e8f.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o  -o cmTC_09e8f -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_9dbbe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9dbbe.dir/build.make CMakeFiles/cmTC_9dbbe.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_9dbbe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9dbbe.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o  -o cmTC_9dbbe -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper
@@ -59,24 +59,24 @@ Thread model: posix
 gcc version 6.3.1 20170306 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_09e8f' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc2iCV4T.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_09e8f /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_09e8f' '-rdynamic' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9dbbe' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmbKOV7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_9dbbe /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9dbbe' '-rdynamic' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_09e8f/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_09e8f.dir/build.make CMakeFiles/cmTC_09e8f.dir/build]
-  ignore line: [make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_09e8f]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09e8f.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o  -o cmTC_09e8f -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9dbbe/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9dbbe.dir/build.make CMakeFiles/cmTC_9dbbe.dir/build]
+  ignore line: [make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_9dbbe]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9dbbe.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o  -o cmTC_9dbbe -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 6.3.1 20170306 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_09e8f' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc2iCV4T.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_09e8f /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9dbbe' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmbKOV7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_9dbbe /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o]
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc2iCV4T.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccmbKOV7.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -107,7 +107,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_09e8f] ==> ignore
+    arg [cmTC_9dbbe] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib] ==> dir [/lib/../lib]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_09e8f.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_9dbbe.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -145,17 +145,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_092de/fast"
-/usr/bin/make -f CMakeFiles/cmTC_092de.dir/build.make CMakeFiles/cmTC_092de.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_092de.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_092de.dir/feature_tests.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_092de
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_092de.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_092de.dir/feature_tests.c.o  -o cmTC_092de -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5cab2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5cab2.dir/build.make CMakeFiles/cmTC_5cab2.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5cab2.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_5cab2.dir/feature_tests.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_5cab2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5cab2.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5cab2.dir/feature_tests.c.o  -o cmTC_5cab2 -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -165,17 +165,17 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_96f69/fast"
-/usr/bin/make -f CMakeFiles/cmTC_96f69.dir/build.make CMakeFiles/cmTC_96f69.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_96f69.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_96f69.dir/feature_tests.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_96f69
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96f69.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_96f69.dir/feature_tests.c.o  -o cmTC_96f69 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_17612/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17612.dir/build.make CMakeFiles/cmTC_17612.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17612.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_17612.dir/feature_tests.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_17612
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17612.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_17612.dir/feature_tests.c.o  -o cmTC_17612 -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -185,17 +185,17 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_80964/fast"
-/usr/bin/make -f CMakeFiles/cmTC_80964.dir/build.make CMakeFiles/cmTC_80964.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_80964.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_80964.dir/feature_tests.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_80964
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80964.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_80964.dir/feature_tests.c.o  -o cmTC_80964 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_6bd3c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6bd3c.dir/build.make CMakeFiles/cmTC_6bd3c.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bd3c.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_6bd3c.dir/feature_tests.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_6bd3c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6bd3c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_6bd3c.dir/feature_tests.c.o  -o cmTC_6bd3c -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -203,30 +203,30 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1fad4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1fad4.dir/build.make CMakeFiles/cmTC_1fad4.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1fad4.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_1fad4.dir/testCXXCompiler.cxx.o -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_1fad4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1fad4.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_1fad4.dir/testCXXCompiler.cxx.o  -o cmTC_1fad4 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_bdf5a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bdf5a.dir/build.make CMakeFiles/cmTC_bdf5a.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bdf5a.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_bdf5a.dir/testCXXCompiler.cxx.o -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_bdf5a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdf5a.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_bdf5a.dir/testCXXCompiler.cxx.o  -o cmTC_bdf5a -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ad4b1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ad4b1.dir/build.make CMakeFiles/cmTC_ad4b1.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_ad4b1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad4b1.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ad4b1 -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_02dfa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_02dfa.dir/build.make CMakeFiles/cmTC_02dfa.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_02dfa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02dfa.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_02dfa -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper
@@ -236,24 +236,24 @@ Thread model: posix
 gcc version 6.3.1 20170306 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ad4b1' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSu9BAH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad4b1 /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ad4b1' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02dfa' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccS5rM3z.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_02dfa /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02dfa' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_ad4b1/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ad4b1.dir/build.make CMakeFiles/cmTC_ad4b1.dir/build]
-  ignore line: [make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_ad4b1]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad4b1.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ad4b1 -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_02dfa/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_02dfa.dir/build.make CMakeFiles/cmTC_02dfa.dir/build]
+  ignore line: [make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_02dfa]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02dfa.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_02dfa -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper]
@@ -263,13 +263,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 6.3.1 20170306 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ad4b1' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSu9BAH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad4b1 /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_02dfa' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccS5rM3z.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_02dfa /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../.. CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtend.o /usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crtn.o]
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccSu9BAH.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccS5rM3z.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -284,7 +284,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ad4b1] ==> ignore
+    arg [cmTC_02dfa] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../lib/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/crtbegin.o] ==> ignore
@@ -293,7 +293,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib] ==> dir [/lib/../lib]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_ad4b1.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_02dfa.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -320,17 +320,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e09f0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e09f0.dir/build.make CMakeFiles/cmTC_e09f0.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e09f0.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_e09f0.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e09f0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e09f0.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_e09f0.dir/feature_tests.cxx.o  -o cmTC_e09f0 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fabc0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fabc0.dir/build.make CMakeFiles/cmTC_fabc0.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fabc0.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_fabc0.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fabc0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fabc0.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_fabc0.dir/feature_tests.cxx.o  -o cmTC_fabc0 -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -393,17 +393,17 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1d9d2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1d9d2.dir/build.make CMakeFiles/cmTC_1d9d2.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1d9d2.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_1d9d2.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1d9d2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d9d2.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_1d9d2.dir/feature_tests.cxx.o  -o cmTC_1d9d2 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_de58a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_de58a.dir/build.make CMakeFiles/cmTC_de58a.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_de58a.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_de58a.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_de58a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de58a.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_de58a.dir/feature_tests.cxx.o  -o cmTC_de58a -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -466,17 +466,17 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f4b1e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f4b1e.dir/build.make CMakeFiles/cmTC_f4b1e.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_f4b1e.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_f4b1e.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f4b1e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4b1e.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_f4b1e.dir/feature_tests.cxx.o  -o cmTC_f4b1e -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_612c6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_612c6.dir/build.make CMakeFiles/cmTC_612c6.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_612c6.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_612c6.dir/feature_tests.cxx.o -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_612c6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_612c6.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_612c6.dir/feature_tests.cxx.o  -o cmTC_612c6 -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -537,30 +537,30 @@ make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAP
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
 Determining if the include file pthread.h exists passed with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_26044/fast"
-/usr/bin/make -f CMakeFiles/cmTC_26044.dir/build.make CMakeFiles/cmTC_26044.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_26044.dir/CheckIncludeFile.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_26044.dir/CheckIncludeFile.c.o   -c /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_26044
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26044.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_26044.dir/CheckIncludeFile.c.o  -o cmTC_26044 -rdynamic 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_3ae80/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3ae80.dir/build.make CMakeFiles/cmTC_3ae80.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ae80.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_3ae80.dir/CheckIncludeFile.c.o   -c /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3ae80
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ae80.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3ae80.dir/CheckIncludeFile.c.o  -o cmTC_3ae80 -rdynamic 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
-Change Dir: /home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp
+Change Dir: /home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e978e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e978e.dir/build.make CMakeFiles/cmTC_e978e.dir/build
-make[1]: Entering directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e978e.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_e978e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
-Linking C executable cmTC_e978e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e978e.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_e978e.dir/CheckFunctionExists.c.o  -o cmTC_e978e -rdynamic -lpthread 
-make[1]: Leaving directory '/home/samuel/Documentos/Simulador/Marcus/CPPremoteAPI_Marcos/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_97990/fast"
+/usr/bin/make -f CMakeFiles/cmTC_97990.dir/build.make CMakeFiles/cmTC_97990.dir/build
+make[1]: Entering directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_97990.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_97990.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_97990
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97990.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_97990.dir/CheckFunctionExists.c.o  -o cmTC_97990 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/CMakeTmp'
 
 

@@ -1,0 +1,7 @@
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/install/strip.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/install/local.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/cppremoteapi.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/edit_cache.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/rebuild_cache.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/install.dir
+/home/samuel/Documentos/Repositories/GPRo/3Servos_e_1Segredo/CPPremoteAPI_3Servos/build/CMakeFiles/list_install_components.dir
