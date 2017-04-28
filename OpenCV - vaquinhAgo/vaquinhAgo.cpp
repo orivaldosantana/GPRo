@@ -114,7 +114,7 @@ void select_paralelas (vector<Vec4i> &lines) {
   // E ADICIONA NO VETOR lParalelas para uso posterior
   if (find_angles){
   	for (int i = 0; i < angles.size()-1; i++) {
-  		if (angles[i] == angles[i+1] && !mesmo_angulo) {
+  		if ((angles[i] - angles[i+1] < 20 || angles[i] - angles[i+1] > -20) && !mesmo_angulo) {
         lParalelas.push_back(lines[i]);
         lParalelas.push_back(lines[i+1]);
   			line( mitLines, Point(lines[i][0], lines[i][1]),
@@ -122,7 +122,7 @@ void select_paralelas (vector<Vec4i> &lines) {
   			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
   					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
   			mesmo_angulo = true;
-  		} else if (angles[i] == angles[i+1]) {
+  		} else if (angles[i] - angles[i+1] < 20 || angles[i] - angles[i+1] > -20) {
         lParalelas.push_back(lines[i+1]);
   			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
   					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
@@ -158,8 +158,7 @@ void all_lines() {
 				line( grey, pt1, pt2, Scalar(0,0,255), 3, 8 );
 		}
 	#else
-		HoughLinesP( canny, lines, 1, CV_PI/180, 100, 30, 10 );
-
+		HoughLinesP( canny, lines, 1, CV_PI/180, 10, 10, 10);
     select_paralelas(lines);
 
 		/*for( size_t i = 0; i < lines.size(); i++ ){
@@ -180,10 +179,11 @@ void morphOps(Mat &thresh){
 	Mat dilateElement = getStructuringElement( MORPH_RECT,Size(8,8));
 
 	erode(thresh,thresh,erodeElement);
-	erode(thresh,thresh,erodeElement);
+  erode(thresh,thresh,erodeElement);
 
 	dilate(thresh,thresh,dilateElement);
-	dilate(thresh,thresh,dilateElement);
+  dilate(thresh,thresh,dilateElement);
+
 }
 
 void find_corners(){
@@ -194,12 +194,12 @@ void find_corners(){
   pontoLinha = src_grey.clone();
 
   corners.clear();
-  double qualityLevel = 0.005;
-  double minDistance = 20;
-  int blockSize = 20;
+  double qualityLevel = 0.05;
+  double minDistance = 100;
+  int blockSize = 3;
   bool useHarrisDetector = false;
   double k = 0.04;
-  int MAX_QUINAS = 12;
+  int MAX_QUINAS = 40;
 
   /// Apply corner detection
   goodFeaturesToTrack(mitPunkte, corners, MAX_QUINAS,
@@ -218,7 +218,7 @@ void find_corners(){
   int main(){
 //int main( int argc, char** argv ){
 
-  VideoCapture capture("vaquinha.mp4");
+  VideoCapture capture("vaquinha_melhor.mp4");
   if ( !capture.isOpened() ){
   	cout << "Cannot open the video file. \n";
   	return -1;

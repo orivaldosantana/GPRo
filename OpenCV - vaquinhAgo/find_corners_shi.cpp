@@ -151,9 +151,9 @@ void find_corners(){
   mitPunkte = src_grey.clone();
 
   vector<Point2f> corners;
-  double qualityLevel = 0.005;
-  double minDistance = 20;
-  int blockSize = 20;
+  double qualityLevel = 0.1;
+  double minDistance = 30;
+  int blockSize = 4;
   bool useHarrisDetector = false;
   double k = 0.04;
   int MAX_QUINAS = 12;
