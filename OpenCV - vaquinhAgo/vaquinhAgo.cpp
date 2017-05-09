@@ -18,33 +18,40 @@ Mat frame, HSV, canny, mitPunkte, mitLines, src_grey, pontoLinha;
 
 vector<Vec4i> lParalelas;
 vector<Point2f> corners;
+vector<float> angles, anglesP;
 
 void istInDerLinie(){
   float null, eins, zwei, drei, x, y;
   float A, B;
 
-  for (size_t i = 0; i < corners.size(); i++) {
+  for (int i = 0; i < corners.size(); i++) {
     x = corners[i].x;
     y = corners[i].y;
 
-    for( size_t i = 0; i < lParalelas.size(); i++ ){
-        null = lParalelas[i][0];
-        eins = lParalelas[i][1];
-        zwei = lParalelas[i][2];
-        drei = lParalelas[i][3];
+    for(int j = 0; j < lParalelas.size(); j++ ){
+        null = lParalelas[j][0];
+        eins = lParalelas[j][1];
+        zwei = lParalelas[j][2];
+        drei = lParalelas[j][3];
 
         A = (drei-eins)/(zwei-null);
         B = eins - A*null;
 
-        if (A*x + B == y) {
+        if (A*x + B - y < 0.0005 || A*x + B - y > -0.0005) {
+          if (abs(anglesP[j]) > 80 && abs(anglesP[j]) < 100){
+
           line(pontoLinha, Point(null, eins),
     				  Point(zwei, drei), Scalar(0,0,255), 5, 8 );
+        } else {
+          /*line(pontoLinha, Point(null, eins),
+    				  Point(zwei, drei), Scalar(0,255,0), 5, 8 );*/
         }
+      }
     }
   }
 
   namedWindow("Detected Quinas nas Linhas", WINDOW_NORMAL);
-  resizeWindow("Detected Quinas nas Linhas", 640,480);
+  resizeWindow("DeteScted Quinas nas Linhas", 640, 480);
   imshow( "Detected Quinas nas Linhas", pontoLinha);
 
 }
@@ -61,8 +68,7 @@ void quickSort(vector<float> &arr, int left, int right){
     int j = right;
     float pivot = arr[min];
 
-    while(left<j || i<right)
-    {
+    while(left<j || i<right) {
         while(arr[i]<pivot)
         i++;
         while(arr[j]>pivot)
@@ -83,21 +89,60 @@ void quickSort(vector<float> &arr, int left, int right){
     }
 }
 
-void select_paralelas (vector<Vec4i> &lines) {
+//no momento, essa funcao n tá sendo chamada
+int distancia_retas_paralelas(Vec4i line1, Vec4i line2){
+  // extraindo pontos line1
+  // reta s
+  int x1 = line1[0];
+  int y1 = line1[1];
+  int x2 = line1[2];
+  int y2 = line1[3];
+
+  //extraindo pontos line2 - reta t
+  int x3 = line2[0];
+  int y3 = line2[1];
+  int x4 = line2[2];
+  int y4 = line2[3];
+
+  Vec2f r = (x3-x1,y3-y1); // reta q sai de s e vai a t
+  Vec2f s = (x2-x1,y2-y1);
+
+  cout << r[0] << endl << r[1] << endl << s[0] << endl << s[1] << endl;
+
+  if (r[0] == s[0]) {
+    return abs((int)(r[1]-s[1]));
+  } else if (r[1] == s[1]) {
+    return abs((int)(r[0]-s[0]));
+  }
+
+  return 50;
+
+
+  float theta = 0;
+  theta = acos(s[0]*r[0]+ s[1]*r[1])/(sqrt(s[0]*s[0]+s[1]*s[1])*sqrt(r[0]*r[0]+r[1]*r[1]));
+
+  float distancia = 0;
+  distancia = sqrt(r[0]*r[0]+r[1]*r[1]) * sin(theta);
+
+}
+
+void filtrar_linhas (vector<Vec4i> &lines) {
   // TANGENTE DAS LINHAS
-	vector<float> angles;
-  float tang = 0;
+  angles.clear();
+  anglesP.clear();
+  lParalelas.clear();
+  float theta = 0.0;
   float null, eins, zwei, drei;
 
   for( size_t i = 0; i < lines.size(); i++ ){
-      tang = 0;
-      null = lines[i][0];
-      eins = lines[i][1];
-      zwei = lines[i][2];
-      drei = lines[i][3];
+      theta = 0.0;
+      null = lines[i][0]; //y1
+      eins = lines[i][1]; //x1
+      zwei = lines[i][2]; //y2
+      drei = lines[i][3]; //x2
 
-      tang = (atan2(drei-eins, zwei-null)) * 180.0 / CV_PI;
-      angles.push_back(tang);
+      theta = (atan2(zwei-null, drei-eins)) * 180.0 / CV_PI; // invertido
+      angles.push_back(abs(theta));
       // TODAS OS VALORES DE TANGENTES SAO ADD NESSE VETOR
   }
 
@@ -114,22 +159,59 @@ void select_paralelas (vector<Vec4i> &lines) {
   // E ADICIONA NO VETOR lParalelas para uso posterior
   if (find_angles){
   	for (int i = 0; i < angles.size()-1; i++) {
-  		if ((angles[i] - angles[i+1] < 20 || angles[i] - angles[i+1] > -20) && !mesmo_angulo) {
-        lParalelas.push_back(lines[i]);
-        lParalelas.push_back(lines[i+1]);
-  			line( mitLines, Point(lines[i][0], lines[i][1]),
-  					Point(lines[i][2], lines[i][3]), Scalar(0,0,255), 3, 8 );
-  			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
-  					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
-  			mesmo_angulo = true;
-  		} else if (angles[i] - angles[i+1] < 20 || angles[i] - angles[i+1] > -20) {
-        lParalelas.push_back(lines[i+1]);
-  			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
-  					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
+  		if ((angles[i] - angles[i+1] < 1 && angles[i] - angles[i+1] > -1) && !mesmo_angulo
+                ) {
+          lParalelas.push_back(lines[i]);
+          lParalelas.push_back(lines[i+1]);
+
+          anglesP.push_back(angles[i]);
+          anglesP.push_back(angles[i+1]);
+
+        // COMPARAR AQUI PRA ELIMINAR LINHAS MTO PROXIMAS
+
+        // Pensar nas seguintes situacoes ::: vaca mto perto
+                                          //  vaca mto longe
+
+        // fazer um degrade de cores pra conferir as linhas paralelas
+        // havendo padrao entre as que identificam a vaca
+                              // tentar identificar e tchau migs
+
+          if (angles[i] > 85 && angles[i] < 95){
+            line( mitLines, Point(lines[i][0], lines[i][1]),
+      					Point(lines[i][2], lines[i][3]), Scalar(0,0,255), 3, 8 );
+      			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
+      					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
+
+          } else {
+            line( mitLines, Point(lines[i][0], lines[i][1]),
+      					Point(lines[i][2], lines[i][3]), Scalar(0,255,0), 3, 8 );
+      			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
+      					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,255,0), 3, 8 );
+          }
+
+          mesmo_angulo = true;
+
+
+  		} else if (angles[i] - angles[i+1] < 1 && angles[i] - angles[i+1] > -1) {
+
+              anglesP.push_back(angles[i+1]);
+              lParalelas.push_back(lines[i+1]);
+        // comparacao válida aqui tbm
+          if (angles[i] > 85 && angles[i] < 95){
+      			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
+      					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
+          } else {
+
+      			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
+      					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,255,0), 3, 8 );
+          }
+
+
   		} else {
   			mesmo_angulo = false;
   		}
   	}
+
   }
 }
 
@@ -158,8 +240,9 @@ void all_lines() {
 				line( grey, pt1, pt2, Scalar(0,0,255), 3, 8 );
 		}
 	#else
-		HoughLinesP( canny, lines, 1, CV_PI/180, 10, 10, 10);
-    select_paralelas(lines);
+  // ultimos tres elementos                  (threshold, minLineLength, maxLineGap)
+		HoughLinesP( canny, lines, 1, CV_PI/180, 150, 30, 75);
+    filtrar_linhas(lines);
 
 		/*for( size_t i = 0; i < lines.size(); i++ ){
 				line( grey, Point(lines[i][0], lines[i][1]),
@@ -186,10 +269,7 @@ void morphOps(Mat &thresh){
 
 }
 
-void find_corners(){
-  //ACHA AS QUINAS E MARCA -> PRECISA MELHORAR E AJUSTAR
-  //MELHOR A FUNCAO
-
+void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
   mitPunkte = src_grey.clone();
   pontoLinha = src_grey.clone();
 
@@ -199,7 +279,7 @@ void find_corners(){
   int blockSize = 3;
   bool useHarrisDetector = false;
   double k = 0.04;
-  int MAX_QUINAS = 40;
+  int MAX_QUINAS = 50;
 
   /// Apply corner detection
   goodFeaturesToTrack(mitPunkte, corners, MAX_QUINAS,
@@ -215,16 +295,13 @@ void find_corners(){
   }
 }
 
-  int main(){
-//int main( int argc, char** argv ){
+int main(){
 
   VideoCapture capture("vaquinha_melhor.mp4");
   if ( !capture.isOpened() ){
   	cout << "Cannot open the video file. \n";
   	return -1;
   }
-
-  //frame = imread( argv[1], 1 );
 
   namedWindow("vaquinhAgo", WINDOW_NORMAL);
   resizeWindow("vaquinhAgo", 640,480);
@@ -242,9 +319,9 @@ void find_corners(){
     lParalelas.clear();
 
 // FUNCOES PRINCIPAIS
-		all_lines();
-    find_corners();
-    istInDerLinie();
+		all_lines(); // pega todas as linhas e coloca num vec4f e dps chama filtrar_linhas(lines) pra selecionar só as paralelas
+    find_corners(); // usa o algoritmo shi pra achar pontos de interesse (quinas)
+    istInDerLinie(); // mantém as linhas que cruzam os pontos achados na funcao anterior
 
 
     imshow("vaquinhAgo", frame);
@@ -257,8 +334,6 @@ void find_corners(){
 	  resizeWindow("Detected Quinas", 640,480);
     imshow( "Detected Quinas", mitPunkte);
 
-    //waitKey(0);
-
 		if(waitKey(30) == 27){
       break;
     }
@@ -266,3 +341,4 @@ void find_corners(){
 
   return 0;
 }
+// podia ter comentado em ingles, mas foda-se, só assim se acharem o código n entendem msm
