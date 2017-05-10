@@ -7,9 +7,11 @@
 #include <cv.h>
 #include <opencv2/opencv.hpp>
 #include <math.h>
+#include <opencv2/ml/ml.hpp>
 
 using namespace cv;
 using namespace std;
+using namespace cv::ml;
 
 const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
@@ -20,15 +22,54 @@ vector<Vec4i> lParalelas;
 vector<Point2f> corners;
 vector<float> angles, anglesP;
 
-void istInDerLinie(){
+void svm_training (vector <Point2f>& pontos) {
+  int size = pontos.size();
+  float trainingData[size][2];
+  for (int i = 0; i < size; i++) {
+    trainingData[i][0] = (pontos[i].x);
+    trainingData[i][1] = (pontos[i].y);
+  }
+
+  Mat mat_svm = Mat::zeros(FRAME_HEIGHT, FRAME_WIDTH, CV_8UC3);
+
+  // Set up training data
+    float labels[2] = {1.0, -1.0};
+    Mat trainingDataMat(size, 2, CV_32FC1, trainingData);
+    Mat labelsMat (2, 1, CV_32FC1, labels);
+
+    // Train the SVM
+    Ptr<SVM> svm = SVM::create();
+    svm->setType(SVM::C_SVC);
+    svm->setKernel(SVM::POLY);
+    svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, 100, 1e-6));
+    svm->train(trainingDataMat, ROW_SAMPLE, labelsMat);
+
+    Vec3b green(0,255,0), blue (255,0,0);
+    for (int i = 0; i < mat_svm.rows; ++i)
+        for (int j = 0; j < mat_svm.cols; ++j) {
+            Mat sampleMat = (Mat_<float>(1,2) << j,i);
+            float response = svm->predict(sampleMat);
+            if (response == 1)
+                mat_svm.at<Vec3b>(i,j)  = green;
+            else if (response == -1)
+                mat_svm.at<Vec3b>(i,j)  = blue;
+        }
+
+
+        imwrite("result.png", mat_svm);        // save the image
+        imshow("SVM Simple Example", mat_svm); // show it to the user
+}
+
+void istInDerLinie(vector <Point2f>& pontos){
+  pontos.clear();
   float y1, x1, y2, x2, x, y;
   float A, B;
 
-  for (int i = 0; i < corners.size(); i++) {
+  for (unsigned int i = 0; i < corners.size(); i++) {
     x = corners[i].x;
     y = corners[i].y;
 
-    for(int j = 0; j < lParalelas.size(); j++ ){
+    for(unsigned int j = 0; j < lParalelas.size(); j++ ){
         x1 = lParalelas[j][0];
         y1 = lParalelas[j][1];
         x2 = lParalelas[j][2];
@@ -39,9 +80,12 @@ void istInDerLinie(){
 
         if (A*x + B - y < 0.0005 || A*x + B - y > -0.0005) {
           if (anglesP[j] > 80 && anglesP[j] < 100){
-
           line(pontoLinha, Point(x1,y1),
     				  Point(x2, y2), Scalar(0,0,255), 5, 8 );
+
+          pontos.push_back(Point(x1,y1));
+          pontos.push_back(Point(x2,y2));
+
         } else {
           /*line(pontoLinha, Point(x1, y1),
     				  Point(x2, y2), Scalar(0,255,0), 5, 8 );*/
@@ -49,6 +93,13 @@ void istInDerLinie(){
       }
     }
   }
+
+  // CHAMAR ML
+
+  if (pontos.size() > 4) {
+    svm_training(pontos);
+  }
+
 
 }
 
@@ -60,24 +111,33 @@ void istInDerLinie(){
   int y1 = line1[1];
   int x2 = line1[2];
   int y2 = line1[3];
+
   //extraindo pontos line2 - reta t
   int x3 = line2[0];
   int y3 = line2[1];
   int x4 = line2[2];
   int y4 = line2[3];
+
   Vec2f r = (x3-x1,y3-y1); // reta q sai de s e vai a t
   Vec2f s = (x2-x1,y2-y1);
+
   cout << r[0] << endl << r[1] << endl << s[0] << endl << s[1] << endl;
+
   if (r[0] == s[0]) {
     return abs((int)(r[1]-s[1]));
   } else if (r[1] == s[1]) {
     return abs((int)(r[0]-s[0]));
   }
+
   return 50;
+
+
   float theta = 0;
   theta = acos(s[0]*r[0]+ s[1]*r[1])/(sqrt(s[0]*s[0]+s[1]*s[1])*sqrt(r[0]*r[0]+r[1]*r[1]));
+
   float distancia = 0;
   distancia = sqrt(r[0]*r[0]+r[1]*r[1]) * sin(theta);
+
 }*/
 
 void swap(int i,int j, vector<float> &a, vector<Vec4i> &lines){
@@ -208,6 +268,7 @@ void all_lines() {
 	//TRANSFORMADA DE HOUGH --- ACHAR LINHAS
 	#if 0
 		HoughLines(canny, lines0, 1, CV_PI/180, 100 );
+
 		for( size_t i = 0; i < lines0.size(); i++ )
 		{
 				float rho = lines0[i][0];
@@ -260,7 +321,7 @@ void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
   int blockSize = 3;
   bool useHarrisDetector = false;
   double k = 0.04;
-  int MAX_QUINAS = 20;
+  int MAX_QUINAS = 25;
 
   /// Apply corner detection
   goodFeaturesToTrack(mitPunkte, corners, MAX_QUINAS,
@@ -270,7 +331,7 @@ void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
     cvtColor(mitPunkte, mitPunkte, CV_GRAY2BGR);
     cvtColor(pontoLinha, pontoLinha, CV_GRAY2BGR);
 
-  for( int i = 0; i < corners.size(); i++ ){
+  for(unsigned int i = 0; i < corners.size(); i++ ){
     circle(mitPunkte, corners[i], 10, Scalar(173, 0, 0), -1, 8, 0 );
     circle(mitPunkte, corners[i], 12, Scalar(0, 0, 255), -1, 8, 0 );
   }
@@ -296,10 +357,12 @@ int main(){
 
     lParalelas.clear();
 
+    vector<Point2f> pontos;
+
 // FUNCOES PRINCIPAIS
 		all_lines(); // pega todas as linhas e coloca num vec4f e dps chama filtrar_linhas(lines) pra selecionar só as paralelas
     find_corners(); // usa o algoritmo shi pra achar pontos de interesse (quinas)
-    istInDerLinie(); // mantém as linhas que cruzam os pontos achados na funcao anterior
+    istInDerLinie(pontos); // mantém as linhas que cruzam os pontos achados na funcao anterior
 
     namedWindow("Detected Lines", WINDOW_NORMAL);
 	  resizeWindow("Detected Lines", 640,480);
@@ -320,3 +383,4 @@ int main(){
 
   return 0;
 }
+// podia ter comentado em ingles, mas foda-se, só assim se acharem o código n entendem msm
