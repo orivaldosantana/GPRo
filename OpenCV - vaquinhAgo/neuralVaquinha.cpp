@@ -7,14 +7,19 @@
 #include <cv.h>
 #include <opencv2/opencv.hpp>
 #include <math.h>
-#include <opencv2/ml/ml.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+//#include <opencv2/ml/ml.hpp>
 
 using namespace cv;
 using namespace std;
-using namespace cv::ml;
+//using namespace cv::ml;
 
 const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
+
+// LIMITES DOS HISTOGRAMAS
+const int LIMIT_MINOR = 40;
+const int LIMIT_MAJOR = 215;
 
 Mat frame, HSV, canny, mitPunkte, mitLines, src_grey, pontoLinha;
 
@@ -22,27 +27,164 @@ vector<Vec4i> lParalelas;
 vector<Point2f> corners;
 vector<float> angles, anglesP;
 
-void svm_training (vector <Point2f>& pontos) {
-  int size = pontos.size();
-  float trainingData[size][2];
-  for (int i = 0; i < size; i++) {
-    trainingData[i][0] = (pontos[i].x);
-    trainingData[i][1] = (pontos[i].y);
+
+// ---------  COISAS PARA K-MEANS  -----------
+// SET DE DADOS PARA IA
+int trainingData[1000][5];
+unsigned int clusters[1000];
+/*
+[0] -> x
+[1] -> y
+[2] -> intensidade branco
+[3] -> medio
+[4] -> intensidade preto
+*/
+
+const int K = 2; // NUMERO DE CLUSTERS
+const int nCICLOS = 300;
+
+/*void black_white(vector <Point2f>& pontos){
+  int width = pontoLinha.cols, height = pontoLinha.rows;
+  for (int i = 0; i < pontos.size(); i++) {
+    int greyscale = src_grey.at<uchar>(pontos[i].x,
+                              pontos[i].y);
+    if (!(greyscale < 30 || greyscale > 225)) {
+      pontos.erase(i);
+    }
+  }
+}*/
+
+void getHistograms(int x, int y, int i){
+  Mat img(21, 21, CV_8UC3);
+  img = Mat(src_grey, Rect(x-15,y-15,x+15,y+15));
+
+  trainingData[i][2] = 0;
+  trainingData[i][3] = 0;
+  trainingData[i][4] = 0;
+
+  MatIterator_<uchar> it, end;
+    for( it = img.begin<uchar>(), end = img.end<uchar>(); it != end; ++it)
+      if (*it <= LIMIT_MINOR) {
+        trainingData[i][2]++;
+      } else if (*it < LIMIT_MAJOR) {
+        trainingData[i][3]++;
+      } else {
+        trainingData[i][4]++;
+      }
+}
+
+
+void kmeans_training () {
+  tam = 231; // pegar tamanho de algum vetor
+
+  int c[K][5];
+
+  unsigned int clusters[1000];
+
+  // atribui aos primeiros centroides pontos na amostra
+  for (int i = 0; i < K; i++) {
+    for (int j = 0; j < 5; j++) {
+      c[i][j] = trainingData[i][j];
+    }
   }
 
-  Mat mat_svm = Mat::zeros(FRAME_HEIGHT, FRAME_WIDTH, CV_8UC3);
+  for (int n = 0; n < nCICLOS; n++) {
+
+    // DATA ASSIGMENT STEP - cada ponto é associado a um centroide
+    for (int i = 0; i < tam; i++) {
+      double distancia = sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
+                          (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
+                          (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
+                          (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
+                          (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4]));
+      clusters[i] = 0;
+      for (int j = 1; j < K; j++) {
+        if (sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
+                            (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
+                            (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
+                            (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
+                            (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4])) < distancia){
+
+                            clusters[i] = j;
+
+                  distancia = sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
+                                      (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
+                                      (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
+                                      (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
+                                      (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4]));
+
+
+      }
+    }
+  }
+
+  // CENTROID UPDATE STEP - os centroides sao recomputados
+
+  unsigned int cont = 0;
+  for (int i = 0; i < K; i++) {
+    c[i][0] = 0;
+    c[i][1] = 0;
+    c[i][2] = 0;
+    c[i][3] = 0;
+    c[i][4] = 0;
+    cont = 0;
+    for (int j = 0; j < tam; j++) {
+      if (clusters[j] == i){
+        c[i][0] =+ trainingData[j][0];
+        c[i][1] =+ trainingData[j][1];
+        c[i][2] =+ trainingData[j][2];
+        c[i][3] =+ trainingData[j][3];
+        c[i][4] =+ trainingData[j][4];
+        cont++;
+      }
+    }
+
+    c[i][0] = c[i][0]/cont;
+    c[i][1] = c[i][1]/cont;
+    c[i][2] = c[i][2]/cont;
+    c[i][3] = c[i][3]/cont;
+    c[i][4] = c[i][4]/cont;
+
+  }
+
+
+}
+}
+
+/*void svm_training (vector <Point2f>& pontos) {
+  int size = pontos.size();
+  int trainingData[size][2];
+  for (int i = 0; i < size; i++) {
+    trainingData[i][0] = pontos[i].x;
+    trainingData[i][1] = pontos[i].y;
+  }
+
+  int width = pontoLinha.cols, height = pontoLinha.rows;
+
+  Mat mat_svm = Mat::zeros(height, width, CV_8UC3);
 
   // Set up training data
-    float labels[2] = {1.0, -1.0};
+    int labels[2] = {1, -1};
     Mat trainingDataMat(size, 2, CV_32FC1, trainingData);
-    Mat labelsMat (2, 1, CV_32FC1, labels);
+    Mat labelsMat (size, 1, CV_32FC1, labels);
 
     // Train the SVM
     Ptr<SVM> svm = SVM::create();
     svm->setType(SVM::C_SVC);
     svm->setKernel(SVM::POLY);
     svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, 100, 1e-6));
-    svm->train(trainingDataMat, ROW_SAMPLE, labelsMat);
+
+    int kFold=10;
+
+    ParamGrid Cgrid = SVM::getDefaultGrid(SVM::C);
+    ParamGrid gammaGrid = SVM::getDefaultGrid(SVM::GAMMA);
+    ParamGrid pGrid = SVM::getDefaultGrid(SVM::P);
+    ParamGrid nuGrid = SVM::getDefaultGrid(SVM::NU);
+    ParamGrid coeffGrid = SVM::getDefaultGrid(SVM::COEF);
+    ParamGrid degreeGrid = SVM::getDefaultGrid(SVM::DEGREE);
+
+
+    if (svm->trainAuto(trainingDataMat, kFold, Cgrid, gammaGrid, pGrid, nuGrid, coeffGrid, degreeGrid, true)) {
 
     Vec3b green(0,255,0), blue (255,0,0);
     for (int i = 0; i < mat_svm.rows; ++i)
@@ -58,12 +200,16 @@ void svm_training (vector <Point2f>& pontos) {
 
         imwrite("result.png", mat_svm);        // save the image
         imshow("SVM Simple Example", mat_svm); // show it to the user
-}
+    }
+}*/
 
-void istInDerLinie(vector <Point2f>& pontos){
-  pontos.clear();
+void istInDerLinie(){
   float y1, x1, y2, x2, x, y;
   float A, B;
+
+  vector <Point2f>& pontos
+
+  int n = 0;
 
   for (unsigned int i = 0; i < corners.size(); i++) {
     x = corners[i].x;
@@ -78,13 +224,16 @@ void istInDerLinie(vector <Point2f>& pontos){
         A = (y2-y1)/(x2-x1);
         B = y1 - A*x1;
 
-        if (A*x + B - y < 0.0005 || A*x + B - y > -0.0005) {
-          if (anglesP[j] > 80 && anglesP[j] < 100){
-          line(pontoLinha, Point(x1,y1),
-    				  Point(x2, y2), Scalar(0,0,255), 5, 8 );
 
-          pontos.push_back(Point(x1,y1));
-          pontos.push_back(Point(x2,y2));
+        if (A*x + B - y < 5 || A*x + B - y > -5) {
+          if (anglesP[j] > 80 && anglesP[j] < 100){
+            line(pontoLinha, Point(x1,y1),
+      				  Point(x2, y2), Scalar(0,0,255), 5, 8 );
+            circle(pontoLinha, Point(x1,y1), 5, Scalar(0, 255, 0), -1, 8, 0 );
+
+            circle(pontoLinha, Point(x2,y2), 5, Scalar(0, 255, 0), -1, 8, 0 );
+
+              n=n+2;
 
         } else {
           /*line(pontoLinha, Point(x1, y1),
@@ -92,18 +241,16 @@ void istInDerLinie(vector <Point2f>& pontos){
         }
       }
     }
-  }
 
+    cout << n << endl;
+
+
+  }
   // CHAMAR ML
-
-  if (pontos.size() > 4) {
-    svm_training(pontos);
-  }
 
 
 }
 
-//no momento, essa funcao n tá sendo chamada
 /*int distancia_retas_paralelas(Vec4i line1, Vec4i line2){
   // extraindo pontos line1
   // reta s
@@ -357,12 +504,10 @@ int main(){
 
     lParalelas.clear();
 
-    vector<Point2f> pontos;
-
-// FUNCOES PRINCIPAIS
+    // FUNCOES PRINCIPAIS
 		all_lines(); // pega todas as linhas e coloca num vec4f e dps chama filtrar_linhas(lines) pra selecionar só as paralelas
     find_corners(); // usa o algoritmo shi pra achar pontos de interesse (quinas)
-    istInDerLinie(pontos); // mantém as linhas que cruzam os pontos achados na funcao anterior
+    istInDerLinie(); // mantém as linhas que cruzam os pontos achados na funcao anterior
 
     namedWindow("Detected Lines", WINDOW_NORMAL);
 	  resizeWindow("Detected Lines", 640,480);
@@ -383,4 +528,3 @@ int main(){
 
   return 0;
 }
-// podia ter comentado em ingles, mas foda-se, só assim se acharem o código n entendem msm

@@ -49,7 +49,6 @@ void istInDerLinie(){
       }
     }
   }
-
 }
 
 //no momento, essa funcao n tá sendo chamada
