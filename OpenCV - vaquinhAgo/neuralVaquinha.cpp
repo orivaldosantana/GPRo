@@ -21,7 +21,7 @@ const int FRAME_HEIGHT = 480;
 const int LIMIT_MINOR = 40;
 const int LIMIT_MAJOR = 215;
 
-Mat frame, HSV, canny, mitPunkte, mitLines, src_grey, pontoLinha;
+Mat frame, HSV, canny, mitPunkte, mitLines, src_grey, pontoLinha, mitNeural;
 
 vector<Vec4i> lParalelas;
 vector<Point2f> corners;
@@ -30,18 +30,9 @@ vector<float> angles, anglesP;
 
 // ---------  COISAS PARA K-MEANS  -----------
 // SET DE DADOS PARA IA
-int trainingData[1000][5];
-unsigned int clusters[1000];
-/*
-[0] -> x
-[1] -> y
-[2] -> intensidade branco
-[3] -> medio
-[4] -> intensidade preto
-*/
 
 const int K = 2; // NUMERO DE CLUSTERS
-const int nCICLOS = 300;
+const int nCICLOS = 5000;
 
 /*void black_white(vector <Point2f>& pontos){
   int width = pontoLinha.cols, height = pontoLinha.rows;
@@ -54,160 +45,164 @@ const int nCICLOS = 300;
   }
 }*/
 
-void getHistograms(int x, int y, int i){
-  Mat img(21, 21, CV_8UC3);
-  img = Mat(src_grey, Rect(x-15,y-15,x+15,y+15));
 
-  trainingData[i][2] = 0;
-  trainingData[i][3] = 0;
-  trainingData[i][4] = 0;
-
-  MatIterator_<uchar> it, end;
-    for( it = img.begin<uchar>(), end = img.end<uchar>(); it != end; ++it)
-      if (*it <= LIMIT_MINOR) {
-        trainingData[i][2]++;
-      } else if (*it < LIMIT_MAJOR) {
-        trainingData[i][3]++;
-      } else {
-        trainingData[i][4]++;
-      }
-}
-
-
-void kmeans_training () {
-  tam = 231; // pegar tamanho de algum vetor
-
+void kmeans_training (vector<Point2f> corners) {
+  unsigned int tam = corners.size(); // pegar tamanho de algum vetor
   int c[K][5];
 
-  unsigned int clusters[1000];
+  unsigned int clusters[tam];
+
+  int trainingData[tam][5];
+  /*
+  [0] -> x
+  [1] -> y
+  [2] -> intensidade branco
+  [3] -> medio
+  [4] -> intensidade preto
+  */
+
+  int rows = src_grey.rows;
+  int cols = src_grey.cols;
+
+  for (unsigned int i = 0; i < tam; i++) {
+    trainingData[i][0] = corners[i].x;
+    trainingData[i][1] = corners[i].y;
+
+    //GET HISTOGRAMAS
+
+
+
+    int x1 = trainingData[i][0]-15, x2= trainingData[i][0]+15, y1= trainingData[i][1]-15, y2= trainingData[i][1]+15;
+
+    if (x1<0) {
+      x1 = 0;
+    }
+
+    if (x2>cols) {
+      x2 = cols-1;
+    }
+
+    if (y1<0) {
+      y1 = 0;
+    }
+
+    if (y2>rows) {
+      y2 = rows-1;
+    }
+
+    //Mat img = Mat(src_grey, Rect(x1,y1,x2,y2));
+
+
+    trainingData[i][2] = 0;
+    trainingData[i][3] = 0;
+    trainingData[i][4] = 0;
+
+    MatIterator_<uchar> it, end;
+      for( it = src_grey.begin<uchar>(), end = src_grey.end<uchar>(); it != end; ++it){
+
+        if (*it <= LIMIT_MINOR) {
+          trainingData[i][2]++;
+        } else if (*it < LIMIT_MAJOR) {
+          trainingData[i][3]++;
+        } else {
+          trainingData[i][4]++;
+        }
+      }
+    }
 
   // atribui aos primeiros centroides pontos na amostra
-  for (int i = 0; i < K; i++) {
+
     for (int j = 0; j < 5; j++) {
-      c[i][j] = trainingData[i][j];
+      c[0][j] = trainingData[0][j];
+      c[1][j] = trainingData[tam-1][j];
     }
-  }
 
   for (int n = 0; n < nCICLOS; n++) {
 
     // DATA ASSIGMENT STEP - cada ponto é associado a um centroide
-    for (int i = 0; i < tam; i++) {
-      double distancia = sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
-                          (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
-                          (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
-                          (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
-                          (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4]));
+    for (unsigned int i = 0; i < tam; i++) {
+      double distancia = sqrt((trainingData[i][0]-c[0][0])*(trainingData[i][0]-c[0][0]) +
+                          (trainingData[i][1]-c[0][1])*(trainingData[i][1]-c[0][1]) +
+                          (trainingData[i][2]-c[0][2])*(trainingData[i][2]-c[0][2]) +
+                          (trainingData[i][3]-c[0][3])*(trainingData[i][3]-c[0][3]) +
+                          (trainingData[i][4]-c[0][4])*(trainingData[i][4]-c[0][4]));
       clusters[i] = 0;
       for (int j = 1; j < K; j++) {
-        if (sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
-                            (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
-                            (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
-                            (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
-                            (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4])) < distancia){
+        if (sqrt((trainingData[i][0]-c[j][0])*(trainingData[i][0]-c[j][0]) +
+                            (trainingData[i][1]-c[j][1])*(trainingData[i][1]-c[j][1]) +
+                            (trainingData[i][2]-c[j][2])*(trainingData[i][2]-c[j][2]) +
+                            (trainingData[i][3]-c[j][3])*(trainingData[i][3]-c[j][3]) +
+                            (trainingData[i][4]-c[j][4])*(trainingData[i][4]-c[j][4])) < distancia){
 
                             clusters[i] = j;
 
-                  distancia = sqrt((trainingData[i][0]-c[i][0])*(trainingData[i][0]-c[i][0]) +
-                                      (trainingData[i][1]-c[i][1])*(trainingData[i][1]-c[i][1]) +
-                                      (trainingData[i][2]-c[i][2])*(trainingData[i][2]-c[i][2]) +
-                                      (trainingData[i][3]-c[i][3])*(trainingData[i][3]-c[i][3]) +
-                                      (trainingData[i][4]-c[i][4])*(trainingData[i][4]-c[i][4]));
+                  distancia = sqrt((trainingData[i][0]-c[j][0])*(trainingData[i][0]-c[j][0]) +
+                                      (trainingData[i][1]-c[j][1])*(trainingData[i][1]-c[j][1]) +
+                                      (trainingData[i][2]-c[j][2])*(trainingData[i][2]-c[j][2]) +
+                                      (trainingData[i][3]-c[j][3])*(trainingData[i][3]-c[j][3]) +
+                                      (trainingData[i][4]-c[j][4])*(trainingData[i][4]-c[j][4]));
 
 
       }
     }
   }
 
+
   // CENTROID UPDATE STEP - os centroides sao recomputados
 
   unsigned int cont = 0;
-  for (int i = 0; i < K; i++) {
+  for (unsigned int i = 0; i < K; i++) {
     c[i][0] = 0;
     c[i][1] = 0;
     c[i][2] = 0;
     c[i][3] = 0;
     c[i][4] = 0;
     cont = 0;
-    for (int j = 0; j < tam; j++) {
+    for (unsigned int j = 0; j < tam; j++) {
       if (clusters[j] == i){
-        c[i][0] =+ trainingData[j][0];
-        c[i][1] =+ trainingData[j][1];
-        c[i][2] =+ trainingData[j][2];
-        c[i][3] =+ trainingData[j][3];
-        c[i][4] =+ trainingData[j][4];
+        c[i][0] = c[i][0]+ trainingData[j][0];
+        c[i][1] = c[i][1]+ trainingData[j][1];
+        c[i][2] = c[i][2]+ trainingData[j][2];
+        c[i][3] = c[i][3]+ trainingData[j][3];
+        c[i][4] = c[i][4]+ trainingData[j][4];
         cont++;
       }
     }
 
-    c[i][0] = c[i][0]/cont;
-    c[i][1] = c[i][1]/cont;
-    c[i][2] = c[i][2]/cont;
-    c[i][3] = c[i][3]/cont;
-    c[i][4] = c[i][4]/cont;
+    c[i][0] = int(c[i][0]/cont);
+    c[i][1] = int(c[i][1]/cont);
+    c[i][2] = int(c[i][2]/cont);
+    c[i][3] = int(c[i][3]/cont);
+    c[i][4] = int(c[i][4]/cont);
 
   }
-
-
-}
 }
 
-/*void svm_training (vector <Point2f>& pontos) {
-  int size = pontos.size();
-  int trainingData[size][2];
-  for (int i = 0; i < size; i++) {
-    trainingData[i][0] = pontos[i].x;
-    trainingData[i][1] = pontos[i].y;
-  }
 
-  int width = pontoLinha.cols, height = pontoLinha.rows;
-
-  Mat mat_svm = Mat::zeros(height, width, CV_8UC3);
-
-  // Set up training data
-    int labels[2] = {1, -1};
-    Mat trainingDataMat(size, 2, CV_32FC1, trainingData);
-    Mat labelsMat (size, 1, CV_32FC1, labels);
-
-    // Train the SVM
-    Ptr<SVM> svm = SVM::create();
-    svm->setType(SVM::C_SVC);
-    svm->setKernel(SVM::POLY);
-    svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, 100, 1e-6));
-
-    int kFold=10;
-
-    ParamGrid Cgrid = SVM::getDefaultGrid(SVM::C);
-    ParamGrid gammaGrid = SVM::getDefaultGrid(SVM::GAMMA);
-    ParamGrid pGrid = SVM::getDefaultGrid(SVM::P);
-    ParamGrid nuGrid = SVM::getDefaultGrid(SVM::NU);
-    ParamGrid coeffGrid = SVM::getDefaultGrid(SVM::COEF);
-    ParamGrid degreeGrid = SVM::getDefaultGrid(SVM::DEGREE);
+  // ajustar retorno
 
 
-    if (svm->trainAuto(trainingDataMat, kFold, Cgrid, gammaGrid, pGrid, nuGrid, coeffGrid, degreeGrid, true)) {
+  mitNeural = frame.clone();
+  circle(mitNeural, Point(c[0][0], c[0][1]), 10, Scalar(173, 0, 0), -1, 8, 0 );
+  circle(mitNeural, Point(c[0][0], c[0][1]), 12, Scalar(0, 0, 255), -1, 8, 0 );
 
-    Vec3b green(0,255,0), blue (255,0,0);
-    for (int i = 0; i < mat_svm.rows; ++i)
-        for (int j = 0; j < mat_svm.cols; ++j) {
-            Mat sampleMat = (Mat_<float>(1,2) << j,i);
-            float response = svm->predict(sampleMat);
-            if (response == 1)
-                mat_svm.at<Vec3b>(i,j)  = green;
-            else if (response == -1)
-                mat_svm.at<Vec3b>(i,j)  = blue;
-        }
+  circle(mitNeural, Point(c[1][0], c[1][1]), 10, Scalar(173, 0, 0), -1, 8, 0 );
+  circle(mitNeural, Point(c[1][0], c[1][1]), 12, Scalar(0, 0, 255), -1, 8, 0 );
 
+  line(mitNeural, Point(c[0][0], 0), Point(c[0][0], rows), Scalar(0,0,255), 5, 8 );
+  line(mitNeural, Point(c[1][0], 0), Point(c[1][0], rows), Scalar(0,0,255), 5, 8 );
 
-        imwrite("result.png", mat_svm);        // save the image
-        imshow("SVM Simple Example", mat_svm); // show it to the user
-    }
-}*/
+  int X = int((c[0][0]+c[1][0])/2.0);
+  int Y = int((c[0][1]+c[1][1])/2.0);
+
+  circle(mitNeural, Point(X,Y), 20, Scalar(255, 0, 0), -1, 8, 0 );
+  circle(mitNeural, Point(X,Y), 25, Scalar(255, 0, 0), -1, 8, 0 );
+
+}
 
 void istInDerLinie(){
   float y1, x1, y2, x2, x, y;
   float A, B;
-
-  vector <Point2f>& pontos
 
   int n = 0;
 
@@ -241,9 +236,6 @@ void istInDerLinie(){
         }
       }
     }
-
-    cout << n << endl;
-
 
   }
   // CHAMAR ML
@@ -468,7 +460,7 @@ void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
   int blockSize = 3;
   bool useHarrisDetector = false;
   double k = 0.04;
-  int MAX_QUINAS = 25;
+  int MAX_QUINAS = 40;
 
   /// Apply corner detection
   goodFeaturesToTrack(mitPunkte, corners, MAX_QUINAS,
@@ -481,12 +473,20 @@ void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
   for(unsigned int i = 0; i < corners.size(); i++ ){
     circle(mitPunkte, corners[i], 10, Scalar(173, 0, 0), -1, 8, 0 );
     circle(mitPunkte, corners[i], 12, Scalar(0, 0, 255), -1, 8, 0 );
+
+    circle(pontoLinha, corners[i], 10, Scalar(255, 0, 0), -1, 8, 0 );
+    circle(pontoLinha, corners[i], 12, Scalar(255, 0, 0), -1, 8, 0 );
+
+  }
+
+  if (corners.size() > 10) {
+      kmeans_training(corners);
   }
 }
 
 int main(){
 
-  VideoCapture capture("vaquinha_melhor.mp4");
+  VideoCapture capture("vaquinha.mp4");
   if ( !capture.isOpened() ){
   	cout << "Cannot open the video file. \n";
   	return -1;
@@ -520,6 +520,10 @@ int main(){
     namedWindow("Detected Quinas nas Linhas", WINDOW_NORMAL);
     resizeWindow("Detected Quinas nas Linhas", 640, 480);
     imshow( "Detected Quinas nas Linhas", pontoLinha);
+
+    namedWindow("Mit Neural", WINDOW_NORMAL);
+    resizeWindow("Mit Neural", 640, 480);
+    imshow( "Mit Neural", mitNeural);
 
 		if(waitKey(30) == 27){
       break;
