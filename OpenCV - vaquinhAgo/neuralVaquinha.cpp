@@ -206,6 +206,8 @@ void istInDerLinie(){
 
   int n = 0;
 
+  vector<Point2f>pontos;
+
   for (unsigned int i = 0; i < corners.size(); i++) {
     x = corners[i].x;
     y = corners[i].y;
@@ -228,6 +230,9 @@ void istInDerLinie(){
 
             circle(pontoLinha, Point(x2,y2), 5, Scalar(0, 255, 0), -1, 8, 0 );
 
+            pontos.push_back(Point(x1,y1));
+            pontos.push_back(Point(x2,y2));
+
               n=n+2;
 
         } else {
@@ -240,6 +245,9 @@ void istInDerLinie(){
   }
   // CHAMAR ML
 
+  if (pontos.size() > 10) {
+      kmeans_training(pontos);
+  }
 
 }
 
@@ -352,6 +360,8 @@ void filtrar_linhas (vector<Vec4i> &lines) {
 
   }
 
+  vector<Point2f>pontos;
+
   bool find_angles = false;
 
   if (tam > 2) { // ORDENA O VETOR P DEIXAR MAIS FÁCIL DE COMPARAR
@@ -384,6 +394,10 @@ void filtrar_linhas (vector<Vec4i> &lines) {
       			line( mitLines, Point(lines[i+1][0], lines[i+1][1]),
       					Point(lines[i+1][2], lines[i+1][3]), Scalar(0,0,255), 3, 8 );
 
+                pontos.push_back(Point(lines[i][0], lines[i][1]));
+                pontos.push_back(Point(lines[i+1][0], lines[i+1][1]));
+
+
           } else {
             /*line( mitLines, Point(lines[i][0], lines[i][1]),
       					Point(lines[i][2], lines[i][3]), Scalar(0,255,0), 3, 8 );
@@ -394,6 +408,13 @@ void filtrar_linhas (vector<Vec4i> &lines) {
   		}
   	}
   }
+
+
+
+  /*if (pontos.size() > 10) {
+      kmeans_training(pontos);
+  }*/
+
 }
 
 void all_lines() {
@@ -479,14 +500,14 @@ void find_corners(){ // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
 
   }
 
-  if (corners.size() > 10) {
+  /*if (corners.size() > 10) {
       kmeans_training(corners);
-  }
+  }*/
 }
 
 int main(){
 
-  VideoCapture capture("vaquinha.mp4");
+  VideoCapture capture("vaquinha_melhor.mp4");
   if ( !capture.isOpened() ){
   	cout << "Cannot open the video file. \n";
   	return -1;
