@@ -32,33 +32,31 @@ using namespace std;
 
 
 
-SKILLS skills;
+SKILLS vrep("127.0.0.1",19999);
+
+
 
 int main(int argc, char **argv) {
 
-    string serverIP = "127.0.0.1";
-    int serverPort = 19999;
-    int clientID = simxStart((simxChar*) serverIP.c_str(), serverPort, true, true, 2000, 5);
+
+    
+
+        if ( vrep.connection_is_OK()){
+            cout << "Servidor conectado!" << std::endl;
+            vrep.connectToRobot();
 
 
 
-    if (clientID != -1) {
-        cout << "Servidor conectado!" << std::endl;
-
-        skills.connectToRobot(clientID);
-
-
-
-        while (simxGetConnectionId(clientID) != -1) // enquanto a simulação estiver ativa
+        while ( vrep.simulationIsActive() )  // enquanto a simulação estiver ativa
         {   
             
-            if(!skills.seguidorDeParede(clientID))
+            vrep.testJunta();
+           // vrep.seguidorDeParede();
 
-
-            extApi_sleepMs(150);
+            vrep.delay(150);
         }
 
-        simxFinish(clientID); // fechando conexao com o servidor
+        vrep.finish(); // fechando conexao com o servidor
         cout << "Conexao fechada!" << std::endl;
     } else
         cout << "Problemas para conectar o servidor!" << std::endl;

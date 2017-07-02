@@ -14,6 +14,18 @@
               <in>CMakeCXXCompilerId.cpp</in>
             </df>
           </df>
+          <df name="3.8.2">
+            <df name="CompilerIdC">
+              <df name="tmp">
+              </df>
+              <in>CMakeCCompilerId.c</in>
+            </df>
+            <df name="CompilerIdCXX">
+              <df name="tmp">
+              </df>
+              <in>CMakeCXXCompilerId.cpp</in>
+            </df>
+          </df>
           <df name="CMakeTmp">
           </df>
           <df name="cppremoteapi.dir">

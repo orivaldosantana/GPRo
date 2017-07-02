@@ -2,6 +2,20 @@
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="build">
+        <df name="CMakeFiles">
+          <df name="3.8.2">
+            <df name="CompilerIdC">
+              <in>CMakeCCompilerId.c</in>
+            </df>
+            <df name="CompilerIdCXX">
+              <in>CMakeCXXCompilerId.cpp</in>
+            </df>
+          </df>
+          <in>feature_tests.c</in>
+          <in>feature_tests.cxx</in>
+        </df>
+      </df>
       <df name="remoteApi">
         <in>extApi.c</in>
         <in>extApiPlatform.c</in>
@@ -12,6 +26,14 @@
       </df>
       <in>main.cpp</in>
     </df>
+    <logicalFolder name="Modules"
+                   displayName="Modules"
+                   projectFiles="true"
+                   root="/usr/share/cmake-3.8/Modules">
+      <itemPath>/usr/share/cmake-3.8/Modules/CMakeCCompilerABI.c</itemPath>
+      <itemPath>/usr/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp</itemPath>
+      <itemPath>/usr/share/cmake-3.8/Modules/CMakeCompilerABI.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Arquivos Importantes"
                    projectFiles="false"
@@ -35,6 +57,8 @@
       </toolsSet>
       <flagsDictionary>
         <element flagsID="0" commonFlags="-std=c++0x"/>
+        <element flagsID="1" commonFlags="-std=c++1z"/>
+        <element flagsID="2" commonFlags="-std=c11"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -44,37 +68,22 @@
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
           <executablePath>build/cppremoteapi</executablePath>
-          <cTool>
-            <incDir>
-              <pElem>include</pElem>
-              <pElem>remoteApi</pElem>
-              <pElem>VDC</pElem>
-              <pElem>build</pElem>
-            </incDir>
-            <preprocessorList>
-              <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
-              <Elem>NON_MATLAB_PARSING</Elem>
-            </preprocessorList>
-          </cTool>
-          <ccTool>
-            <incDir>
-              <pElem>include</pElem>
-              <pElem>remoteApi</pElem>
-              <pElem>VDC</pElem>
-              <pElem>build</pElem>
-            </incDir>
-            <preprocessorList>
-              <Elem>BUILD_SHARED_LIBS=OFF</Elem>
-              <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
-              <Elem>NON_MATLAB_PARSING</Elem>
-            </preprocessorList>
-          </ccTool>
         </makeTool>
         <preBuild>
           <preBuildCommandWorkingDir>build</preBuildCommandWorkingDir>
           <preBuildCommand>${CMAKE} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=${IDE_CC} -DCMAKE_CXX_COMPILER=${IDE_CXX} -DCMAKE_C_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_CXX_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..</preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="/usr/share/cmake-3.8/Modules/CMakeCCompilerABI.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/usr/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="VDC/Skills.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -83,8 +92,87 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="build/CMakeFiles/3.8.2/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="build/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="build/CMakeFiles/feature_tests.c" ex="false" tool="0" flavor2="10">
+        <cTool flags="2">
+          <incDir>
+            <pElem>build/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="build/CMakeFiles/feature_tests.cxx"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>build/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <folder path="0/VDC">
+        <ccTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>VDC</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BUILD_SHARED_LIBS=OFF</Elem>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/remoteApi">
+        <cTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>VDC</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="Modules">
+        <cTool>
+          <incDir>
+            <pElem>build/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>build/CMakeFiles/CMakeTmp</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>VDC</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BUILD_SHARED_LIBS=OFF</Elem>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
         </ccTool>
       </item>
       <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="2">

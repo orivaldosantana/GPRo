@@ -30,9 +30,11 @@ public:
     void setClientID(int clientID);
     void setJointVelocity(int joint,float velocity);
     double getDistance(int sensor);
-    
-    
-    
+    void finish();
+    bool connection_is_OK ();
+    bool simulationIsActive ();
+    void delay(int time);
+  
     
     
     

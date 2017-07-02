@@ -1,6 +1,9 @@
 #include <VDC.h>
 #include <string>
 #include <iostream>
+extern "C" {
+#include "extApi.h"
+}
 
 
 #ifndef SKILLS_H
@@ -9,11 +12,15 @@
 class SKILLS: public VDC {
 public:
     
-    SKILLS();
+    SKILLS(std::string serverIP,int serverPort){
+        
+        this->clientID =simxStart((simxChar*)serverIP.c_str(),serverPort,true,true,2000,5);
+        angle[5] = { };
+    }
      
-    bool seguidorDeParede(int clientID);
-    void connectToRobot(int clientID);
-    void testJunta(int clientID);
+    void seguidorDeParede();
+    void connectToRobot();
+    void testJunta();
     
     /*
     void setNumbAngles();
@@ -48,6 +55,7 @@ private:
     
     //Sensor vision
     int Webcam;
+    
    
 
 
