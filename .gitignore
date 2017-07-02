@@ -3,55 +3,46 @@
 
 ### C++ ###
 # Prerequisites
-*.d
+Arena IEEE open/CPPremoteAPI/*.d
 
 # Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+Arena IEEE open/CPPremoteAPI/*.slo
+Arena IEEE open/CPPremoteAPI/*.lo
+Arena IEEE open/CPPremoteAPI/*.o
+Arena IEEE open/CPPremoteAPI/*.obj
 
 # Precompiled Headers
-*.gch
-*.pch
+Arena IEEE open/CPPremoteAPI/*.gch
+Arena IEEE open/CPPremoteAPI/*.pch
 
 # Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+Arena IEEE open/CPPremoteAPI/*.so
+Arena IEEE open/CPPremoteAPI/*.dylib
+Arena IEEE open/CPPremoteAPI/*.dll
 
 # Fortran module files
-*.mod
-*.smod
+Arena IEEE open/CPPremoteAPI/*.mod
+Arena IEEE open/CPPremoteAPI/*.smod
 
 # Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+Arena IEEE open/CPPremoteAPI/*.lai
+Arena IEEE open/CPPremoteAPI/*.la
+Arena IEEE open/CPPremoteAPI/*.a
+Arena IEEE open/CPPremoteAPI/*.lib
 
 # Executables
-*.exe
-*.out
-*.app
+Arena IEEE open/CPPremoteAPI/*.exe
+Arena IEEE open/CPPremoteAPI/*.out
+Arena IEEE open/CPPremoteAPI/*.app
 
-### CMake ###
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
+
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+Arena IEEE open/CPPremoteAPI/nbproject/private/
+Arena IEEE open/CPPremoteAPI/build/
+Arena IEEE open/CPPremoteAPI/nbbuild/
+Arena IEEE open/CPPremoteAPI/dist/
+Arena IEEE open/CPPremoteAPI/nbdist/
+Arena IEEE open/CPPremoteAPI/.nb-gradle/
 
 # End of https://www.gitignore.io/api/c++,cmake,netbeans
