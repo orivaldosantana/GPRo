@@ -34,6 +34,9 @@ public:
     bool connection_is_OK ();
     bool simulationIsActive ();
     void delay(int time);
+    void getImageVisionSensor(int Webcam);
+    void setImageVisionSensor(int Webcam);
+    int getClientID();
   
     
     

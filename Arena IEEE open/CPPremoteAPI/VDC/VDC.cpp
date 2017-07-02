@@ -109,6 +109,28 @@ void VDC::delay(int time){
 }
 
 
+int VDC::getClientID(){
+    return this->clientID;
+}
+
+void VDC::getImageVisionSensor(int Webcam){
+   // simxInt clientID;
+   
+    simxInt* resolution;
+    simxUChar** image;
+ 
+    simxGetVisionSensorImage(clientID,Webcam,resolution,image,NULL,simx_opmode_streaming );
+    simxGetVisionSensorImage(clientID,Webcam,resolution,image,NULL,simx_opmode_buffer );
+   
+}
+void VDC::setImageVisionSensor(int Webcam){
+    
+    simxUChar* image;
+    simxInt bufferSize;
+    simxUChar options;
+    simxInt operationMode;
+    simxSetVisionSensorImage(clientID,Webcam,image,bufferSize,NULL,simx_opmode_oneshot);
+}
 
 VDC::~VDC() {
 

@@ -39,6 +39,8 @@ void SKILLS::connectToRobot() {
     for (int i = 0; i < 8; i++) {
         vdc.conectProximitySensors("Proximity_sensor_" + std::to_string(i + 1), sensor[i]);
     }
+    
+    vdc.conectJoints("Webcam",Webcam);
 
 
 
@@ -140,7 +142,18 @@ void SKILLS::testJunta() {
 
 
 
-
-
     }
+    
+    
+    
+    
+}
+
+void SKILLS::testGetImage(){
+    vdc.getImageVisionSensor(Webcam);
+    
+}
+
+void SKILLS::testSetImage(){
+    vdc.setImageVisionSensor(Webcam);
 }

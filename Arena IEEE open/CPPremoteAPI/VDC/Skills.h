@@ -21,13 +21,8 @@ public:
     void seguidorDeParede();
     void connectToRobot();
     void testJunta();
-    
-    /*
-    void setNumbAngles();
-    void setJoints(int joint);
-    void setSensor(int sensor);
-     */   
-        
+    void testGetImage();
+    void testSetImage();
         
     
     
