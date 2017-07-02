@@ -38,7 +38,6 @@ SKILLS vrep("127.0.0.1",19999);
 
 int main(int argc, char **argv) {
 
-
     
 
         if ( vrep.connection_is_OK()){
@@ -52,7 +51,8 @@ int main(int argc, char **argv) {
             
             vrep.testJunta();
            // vrep.seguidorDeParede();
-
+            vrep.testGetImage();
+            vrep.testSetImage();
             vrep.delay(150);
         }
 

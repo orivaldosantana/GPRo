@@ -1,7 +1,0 @@
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/install/strip.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/edit_cache.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/rebuild_cache.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/list_install_components.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/install/local.dir
-/home/samuel/Documentos/Repositories/GPRo/Arena IEEE open/CPPremoteAPI/build/CMakeFiles/install.dir
