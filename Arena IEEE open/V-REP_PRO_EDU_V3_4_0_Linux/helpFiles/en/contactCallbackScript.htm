@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>The contact callback script</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../index.html" TARGET="_top"><img src="images/homeImg.png"></a></p>
+
+
+
+<h1>Contact callback script <img src="images/contactCallbackScriptIcon.jpg"></h1>
+
+<p>The contact callback script, which is a <a href="simulationScripts.htm">simulation script</a> and disabled by default, can be enabled via the <a href="environmentPropertiesDialog.htm">environment dialog</a>. When enabled, and the physics engine detected a collision between two <a href="designingDynamicSimulations.htm#staticAndRespondable">respondable</a> shapes, then the contact callback script will be called with appropriate arguments, allowing the user to customize the handling of contacts. The contact callback script might be called very often, sometimes more than several hundreds of times per simulation step (remember also that by default, the physics engine will be called 10 times for one simulation step). For that reason, keep things simple, in order to avoid slowing down the simulation.</p>
+
+<p>Remember that custom contact handling is linked to a given <a href="scenes.htm">scene</a>, and <a href="objects.htm">objects</a>/<a href="models.htm">models</a> will be behaving differently in a different scene. Contact callback scripts are only recomended for users that know exactly what they are doing. Following represents a default contact callback script:<br>
+</p>
+
+<pre class=lightRedBox>
+-- Following data is handed over from V-REP:
+objectHandle1,objectHandle2,engine=...
+
+if not retTable1 then
+    if engine==sim_physics_bullet then
+        -- refer to simRegisterContactCallback for parameter description:
+        retTable1={0,0,0}
+        retTable2={1,0,0,0,0,0,0,0,0,0,0,0,0,0}
+    end
+    if engine==sim_physics_ode then
+        -- refer to simRegisterContactCallback for parameter description:
+        retTable1={0,4,4+8+16+2048}
+        retTable2={0.25,0,0,0,0.25,0,0,0,0,0,0,0,0,0}
+    end
+    if engine==sim_physics_newton then
+        -- Only called when the Newton plugin is compiled with the 'USE_THREAD_EMULATION'
+        -- (or 'DG_USE_THREAD_EMULATION') define
+        -- refer to simRegisterContactCallback for parameter description:
+        retTable1={0,0,0}
+        retTable2={1,1,0,0,0,0,0,0,0,0,0,0,0,0}
+    end
+    if engine==sim_physics_vortex then
+        -- refer to simRegisterContactCallback for parameter description:
+        retTable1={0,0,0}
+        retTable2={0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+    end
+end
+
+-- Following data must be returned to V-REP:
+-- -1 if you don't want to handle that contact here (i.e. the default handling will be used,
+--    or the C/C++ callback will decide)
+--  0 if the 2 items should not react to collision (this overrides the default contact handling)
+--  1,tableValues1,tableValues2 if you handle this contact (this overrides the default contact handling)
+
+return 1,retTable1,retTable2</pre>
+
+<p>Refer also to the API function <a href="regularApi/simRegisterContactCallback.htm">simRegisterContactCallback</a>, that allows you to handle dynamic contacts via C/C++ from within a <a href="plugins.htm">plugin</a>, which is a faster alternative than the contact callback script.</p>
+
+
+<br>
+<h3 class=recommendedTopics>Recommended topics</h3>
+<li><a href="plugins.htm">Plugins</a></li>
+
+<br>
+<br>
+ </tr>
+</table> 
+</div>  
+  
+  
+</body>
+
+</html>

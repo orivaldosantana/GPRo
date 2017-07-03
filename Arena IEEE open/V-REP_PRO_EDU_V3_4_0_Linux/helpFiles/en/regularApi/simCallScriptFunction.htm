@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>simCallScriptFunction</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../../index.html" TARGET="_top"><img src="../images/homeImg.png"></a></p>
+
+<h1><a href="../apiOverview.htm">Regular API</a> function</h1>
+<h3 class=subsectionBar><a name="simCallScriptFunction" id="simCallScriptFunction"></a>simCallScriptFunction (DEPRECATED) (remote API equivalent: <a href="../remoteApiFunctions.htm#simxCallScriptFunction">simxCallScriptFunction</a>)</h3>
+<table class=apiTable>
+<tr class=apiTableTr> 
+<td class=apiTableLeftDescr>
+Description 
+</td> 
+<td class=apiTableRightDescr>This function is deprecated. Use instead <a href="simCallScriptFunctionEx.htm">simCallScriptFunctionEx</a>.<br><br>
+Calls a script function (from a <a href="../plugins.htm">plugin</a>, <a href="../mainClientApplication.htm">the main client application</a>, or from another script). This represents a callback inside of a script. Call this only:<br>
+a) from the main thread, or:<br>
+b) from a thread that originated from a threaded child script. In that case, you cannot call non-threaded child scripts.<br>
+When calling <a href="../simulationScripts.htm">simulation scripts</a>, then simulation must be running. See also <a href="simCallScriptFunctionEx.htm">simCallScriptFunctionEx</a> and <a href="simSetScriptVariable.htm">simSetScriptVariable</a>.</td>
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCSyn>
+C synopsis
+</td> 
+<td class=apiTableRightCSyn>simInt simCallScriptFunction(simInt scriptHandleOrType,const simChar* functionNameAtScriptName,SLuaCallBack* data,const simChar* reservedSetToNull)</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCParam>C parameters</td> 
+<td class=apiTableRightCParam>
+<div><strong>scriptHandleOrType</strong>: the handle of the script, otherwise the type of the script:</div>
+<div class=tab><em>sim_scripttype_mainscript</em> (0): the <a href="../mainScript.htm">main script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_childscript</em> (1): a <a href="../childScripts.htm">child script</a> will be called. In that case, <em>functionNameAtScriptName</em> should also contain the name of the object associated with the script.</div>
+<div class=tab><em>sim_scripttype_jointctrlcallback</em> (4): a <a href="../jointCtrlCallbackScripts.htm">joint control callback script</a> will be called. In that case, <em>functionNameAtScriptName</em> should also contain the name of the object associated with the script.</div>
+<div class=tab><em>sim_scripttype_contactcallback</em> (5): the <a href="../contactCallbackScript.htm">contact callback script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_customizationscript</em> (6): a <a href="../customizationScripts.htm">customization script</a> will be called. In that case, <em>functionNameAtScriptName</em> should also contain the name of the object associated with the script.</div>
+<div class=tab><em>sim_scripttype_generalcallback</em> (7): the <a href="../generalCallbackScript.htm">general callback script</a> will be called.</div>
+<div><strong>functionNameAtScriptName</strong>: the name of the Lua function to call in the specified script. If <em>scriptHandleOrType</em> is <em>sim_scripttype_childscript</em>, <em>sim_scripttype_jointctrlcallback</em> or <em>sim_scripttype_customizationscript</em>, then <em>functionNameAtScriptName</em> should also contain the name of the object associated with the script: &quot;functionName@objectName&quot;.</div>
+<div><strong>data</strong>: a pointer to a SLuaCallback structure. The structure needs to be properly initialized. See further down.</div>
+<div><strong>reservedSetToNull</strong>: reserved for future extensions. Set to NULL.</div>
+<br>
+<br>
+<div>SLuaCallBack structure (see further down for a helper call that makes reading/writing to that structure easier):</div>
+<div><strong>simChar* inputBool</strong>: pointer to all Boolean input arguments. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simInt* inputInt</strong>: pointer to all integer input arguments. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simFloat* inputFloat</strong>: pointer to all single precision floating point input arguments. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simDouble* inputDouble</strong>: pointer to all double precision floating point input arguments. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simChar* inputChar</strong>: pointer to all string input arguments. Strings are separated by the &quot;zero-char&quot;. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simChar* inputCharBuff</strong>: pointer to all char buffer input arguments. The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a> if he intends to use it.</div>
+<div><strong>simInt inputArgCount</strong>: number of input arguments.</div>
+<div><strong>simInt* inputArgTypeAndSize</strong>: pointer to input argument's type and size (e.g. with &quot;inputArgCount==2&quot; we could have &quot;inputArgTypeAndSize[0]==sim_lua_arg_int|sim_lua_arg_table&quot;, &quot;inputArgTypeAndSize[1]==3&quot;, &quot;inputArgTypeAndSize[2]==sim_lua_arg_char&quot;, &quot;inputArgTypeAndSize[3]==1&quot;. This would mean that we have two input arguments: (1) an integer table of size 3 and (2) a string). The user is in charge of allocating/releasing this buffer with <a href="simCreateBuffer.htm">simCreateBuffer</a>/<a href="simReleaseBuffer.htm">simReleaseBuffer</a>.
+</div>
+<div><strong>simChar* outputBool</strong>: similar to inputBool, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful.</div>
+<div><strong>simInt* outputInt</strong>: similar to inputInt, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful.</div>
+<div><strong>simFloat* outputFloat</strong>: similar to inputFloat, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful.</div>
+<div><strong>simFloat* outputDouble</strong>: similar to inputDouble, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful.</div>
+<div><strong>simChar* outputChar</strong>: similar to inputChar, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful. If two strings &quot;ab&quot; and &quot;cde&quot; are returned, the buffer will look like: &quot;ab@cde@&quot; (@ being the zero char).<br>
+</div>
+<div><strong>simChar* outputCharBuff</strong>: similar to inputCharBuff, but for output values. V-REP will allocate this buffer, and the user should always release it, even if the function call was not successful. If two char buffers are returned, they should lay appended to each other in this buffer.
+</div>
+<div><strong>simInt outputArgCount</strong>: similar to inputArgCount, but for output values. Indicates how many arguments are expected to be returned. This value will be overwritten with the effective number of return arguments.</div>
+<div><strong>simInt* outputArgTypeAndSize</strong>: similar to inputArgTypeAndSize, but for output values. This represents the return data the user expects. This buffer will be used to perform correct type conversions, but in the end, the buffer will be reallocated and overwritten with the effective return arguments' type and sizes. The user is in charge of allocating/releasing the buffer with <a href="simCreateBuffer.htm">simCreateBuffer/simReleaseBuffer</a>.</div>
+<br>
+<div>Values are stored in input or output arrays in the order they appear as arguments or return values e.g. with input arguments: number_int 1,table_2_float {2.0,3.0},string 'hello',number_int 4,string 'bye' we would have following input arrays:<br>
+</div>
+<br>
+<pre class=lightBlueBoxNoMarginAndSmall>
+inputInt=={1,4}
+inputFloat=={2.0,3.0}
+inputChar=="hello@bye@"
+inputArgCount==5
+inputArgTypeAndSize=={sim_lua_arg_int,1,sim_lua_arg_float|sim_lua_arg_table,
+            2,sim_lua_arg_string,1, sim_lua_arg_int,1, sim_lua_arg_string,1}</pre>
+<br>
+<div>Reading and writing arguments from/to the SLuaCallBack structure can be quite complicated and is error prone. Use instead the helper classes located in <em>programming/common/stack</em> and <em>programming/include/stack</em>: they will greatly simplify the task. Have a look at the example plugin <em>programming/v_repExtSkeletonPlugin</em>.</div>
+
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCRet>
+C return value
+</td> 
+<td class=apiTableRightCRet>
+<div>-1 in case of an error</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLSyn>
+Lua synopsis
+</td> 
+<td class=apiTableRightLSyn>...=simCallScriptFunction(string functionNameAtScriptName,number scriptHandleOrType,...)</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLParam>Lua parameters</td> 
+<td class=apiTableRightLParam>
+<div><strong>functionNameAtScriptName</strong>: a string representing the function name and script name, e.g. <em>myFunctionName@theScriptName</em>. When the script is not associated with an object, then just specify the function name.</div>
+<div><strong>scriptHandleOrType</strong>: the handle of the script, otherwise the type of the script:</div>
+<div class=tab><em>sim_scripttype_mainscript</em> (0): the <a href="../mainScript.htm">main script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_childscript</em> (1): a <a href="../childScripts.htm">child script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_jointctrlcallback</em> (4): a <a href="../jointCtrlCallbackScripts.htm">joint control callback script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_contactcallback</em> (5): the <a href="../contactCallbackScript.htm">contact callback script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_customizationscript</em> (6): a <a href="../customizationScripts.htm">customization script</a> will be called.</div>
+<div class=tab><em>sim_scripttype_generalcallback</em> (7): the <a href="../generalCallbackScript.htm">general callback script</a> will be called.</div>
+<div><strong>...</strong>: any number of arguments that will be handed over to the called function.</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLRet>
+Lua return values
+</td> 
+<td class=apiTableRightLRet>
+<div><strong>...</strong>: any number of return values from the called function.</div>
+</td> 
+</tr> 
+</table> 
+
+<br>
+<p><a href="../apiFunctions.htm">All regular API functions on one page</a></p>
+<br>
+<br>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

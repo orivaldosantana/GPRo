@@ -1,0 +1,2293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<title>API Functions</title>
+<link rel="stylesheet" type="text/css" href="../../helpFiles/style.css">
+</head>
+<body><div align="center"><table class="allEncompassingTable"><tr><td>
+<h1>CustomUI Plugin API reference</h1>
+<p class="infoBox">API functions for creating custom user interfaces.</p>
+<h3 class="subsectionBar">
+<a name="cmd:addCurve" id="cmd:addCurve"></a>simExtCustomUI_addCurve</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Adds a curve to a plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_addCurve(int handle, int id, int type, string name, table color, int style, curve_options options)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>type</strong> (int): type of the curve. see <a href="#enum:curve_type">curve_type</a>.</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+<div>
+<strong>color</strong> (table of int): color of the curve, as RGB values in the 0...255 range</div>
+<div>
+<strong>style</strong> (int): style of the curve. see <a href="#enum:curve_style">curve_style</a>.</div>
+<div>
+<strong>options</strong> (curve_options): data structure holding extra options. see <a href="#struct:curve_options">curve_options</a>.</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#enum:curve_type">curve_type</a> <a href="#enum:curve_style">curve_style</a> <a href="#struct:curve_options">curve_options</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:addCurveTimePoints" id="cmd:addCurveTimePoints"></a>simExtCustomUI_addCurveTimePoints</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Adds time points to the specified curve of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_addCurveTimePoints(int handle, int id, string name, table x, table y)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+<div>
+<strong>x</strong> (table of double): x values</div>
+<div>
+<strong>y</strong> (table of double): y values</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:addCurveXYPoints" id="cmd:addCurveXYPoints"></a>simExtCustomUI_addCurveXYPoints</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Adds points to the specified curve of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_addCurveXYPoints(int handle, int id, string name, table t, table x, table y)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+<div>
+<strong>t</strong> (table of double): t values (i.e. the curve parameter, used also to determine how points are connected, according to natural ordering of t)</div>
+<div>
+<strong>x</strong> (table of double): x values</div>
+<div>
+<strong>y</strong> (table of double): y values</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:clearCurve" id="cmd:clearCurve"></a>simExtCustomUI_clearCurve</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Clear points of the specified curve of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_clearCurve(int handle, int id, string name)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:create" id="cmd:create"></a>simExtCustomUI_create</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Create a window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int uiHandle=simExtCustomUI_create(string xml)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>xml</strong> (string): xml ui definition</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>uiHandle</strong> (int): a handle to the created UI</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:destroy" id="cmd:destroy"></a>simExtCustomUI_destroy</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Destroy a window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_destroy(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getCheckboxValue" id="cmd:getCheckboxValue"></a>simExtCustomUI_getCheckboxValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the value of a checkbox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int value=simExtCustomUI_getCheckboxValue(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>value</strong> (int): value</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setCheckboxValue">simExtCustomUI_setCheckboxValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getComboboxItemCount" id="cmd:getComboboxItemCount"></a>simExtCustomUI_getComboboxItemCount</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the number of items in the specified combobox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int count=simExtCustomUI_getComboboxItemCount(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>count</strong> (int): Item count.</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getComboboxItemText" id="cmd:getComboboxItemText"></a>simExtCustomUI_getComboboxItemText</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the text of an item in a combobox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">string text=simExtCustomUI_getComboboxItemText(int handle, int id, int index)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>index</strong> (int): Item index.</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>text</strong> (string): Item text.</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getComboboxItems" id="cmd:getComboboxItems"></a>simExtCustomUI_getComboboxItems</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the content of a combobox.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">table items=simExtCustomUI_getComboboxItems(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>items</strong> (table of string): Array of items (strings).</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getCurrentEditWidget" id="cmd:getCurrentEditWidget"></a>simExtCustomUI_getCurrentEditWidget</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the edit widget with focus and selected text.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int id=simExtCustomUI_getCurrentEditWidget(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>id</strong> (int): widget id of an edit widget, or -1 if no edit widget was focused and had selected text.</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getEditValue">simExtCustomUI_getEditValue</a> <a href="#cmd:setCurrentEditWidget">simExtCustomUI_setCurrentEditWidget</a> <a href="#cmd:setEditValue">simExtCustomUI_setEditValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getCurrentTab" id="cmd:getCurrentTab"></a>simExtCustomUI_getCurrentTab</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the current tab index of a tabs widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int index=simExtCustomUI_getCurrentTab(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>index</strong> (int): index of the tab (zero-based)</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setCurrentTab">simExtCustomUI_setCurrentTab</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getCurveData" id="cmd:getCurveData"></a>simExtCustomUI_getCurveData</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the data contained in the specified curve.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">table t, table x, table y=simExtCustomUI_getCurveData(int handle, int id, string name)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">
+<div>
+<strong>t</strong> (table of double): t values (if applicable)</div>
+<div>
+<strong>x</strong> (table of double): x values</div>
+<div>
+<strong>y</strong> (table of double): y values</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getEditValue" id="cmd:getEditValue"></a>simExtCustomUI_getEditValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the value of a edit widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">string value=simExtCustomUI_getEditValue(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>value</strong> (string): value</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getCurrentEditWidget">simExtCustomUI_getCurrentEditWidget</a> <a href="#cmd:setCurrentEditWidget">simExtCustomUI_setCurrentEditWidget</a> <a href="#cmd:setEditValue">simExtCustomUI_setEditValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getLabelText" id="cmd:getLabelText"></a>simExtCustomUI_getLabelText</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the text of a label widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">string text=simExtCustomUI_getLabelText(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>text</strong> (string): text</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setLabelText">simExtCustomUI_setLabelText</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getPosition" id="cmd:getPosition"></a>simExtCustomUI_getPosition</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the position of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int x, int y=simExtCustomUI_getPosition(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">
+<div>
+<strong>x</strong> (int): X position</div>
+<div>
+<strong>y</strong> (int): Y position</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getRadiobuttonValue" id="cmd:getRadiobuttonValue"></a>simExtCustomUI_getRadiobuttonValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the value of a radiobutton widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int value=simExtCustomUI_getRadiobuttonValue(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>value</strong> (int): value</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setRadiobuttonValue">simExtCustomUI_setRadiobuttonValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getSize" id="cmd:getSize"></a>simExtCustomUI_getSize</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the size of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int w, int h=simExtCustomUI_getSize(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">
+<div>
+<strong>w</strong> (int): width</div>
+<div>
+<strong>h</strong> (int): height</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getSliderValue" id="cmd:getSliderValue"></a>simExtCustomUI_getSliderValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the value of a slider widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">int value=simExtCustomUI_getSliderValue(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>value</strong> (int): value</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setSliderValue">simExtCustomUI_setSliderValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getSpinboxValue" id="cmd:getSpinboxValue"></a>simExtCustomUI_getSpinboxValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the value of a spinbox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">float value=simExtCustomUI_getSpinboxValue(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>value</strong> (float): value</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setSpinboxValue">simExtCustomUI_setSpinboxValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getTitle" id="cmd:getTitle"></a>simExtCustomUI_getTitle</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the title of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">string title=simExtCustomUI_getTitle(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>title</strong> (string): X position</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:getWidgetVisibility" id="cmd:getWidgetVisibility"></a>simExtCustomUI_getWidgetVisibility</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Get the visibility status of a widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">bool visibility=simExtCustomUI_getWidgetVisibility(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>visibility</strong> (bool): true if the window is visible, false otherwise</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:growPlotRanges" id="cmd:growPlotRanges"></a>simExtCustomUI_growPlotRanges</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Increase the ranges of the plot widget by a fixed amount.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_growPlotRanges(int handle, int id, double xmin, double xmax, double ymin, double ymax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>xmin</strong> (double): minimum x range</div>
+<div>
+<strong>xmax</strong> (double): maximum x range</div>
+<div>
+<strong>ymin</strong> (double): minimum y range</div>
+<div>
+<strong>ymax</strong> (double): maximum y range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:growPlotXRange" id="cmd:growPlotXRange"></a>simExtCustomUI_growPlotXRange</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Increase the X range of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_growPlotXRange(int handle, int id, double xmin, double xmax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>xmin</strong> (double): minimum x range</div>
+<div>
+<strong>xmax</strong> (double): maximum x range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:growPlotYRange" id="cmd:growPlotYRange"></a>simExtCustomUI_growPlotYRange</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Increase the Y range of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_growPlotYRange(int handle, int id, double ymin, double ymax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>ymin</strong> (double): minimum y range</div>
+<div>
+<strong>ymax</strong> (double): maximum y range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:hide" id="cmd:hide"></a>simExtCustomUI_hide</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Hide the UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_hide(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:insertComboboxItem" id="cmd:insertComboboxItem"></a>simExtCustomUI_insertComboboxItem</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Insert an item in a combobox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_insertComboboxItem(int handle, int id, int index, string text, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>index</strong> (int): If the index is equal to or higher than the total number of items, the new item is appended to the list of existing items. If the index is zero or negative, the new item is prepended to the list of existing items.</div>
+<div>
+<strong>text</strong> (string): Item text.</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:isVisible" id="cmd:isVisible"></a>simExtCustomUI_isVisible</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Check if the window is visible.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">bool visibility=simExtCustomUI_isVisible(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet"><div>
+<strong>visibility</strong> (bool): true if the window is visible, false otherwise</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:removeComboboxItem" id="cmd:removeComboboxItem"></a>simExtCustomUI_removeComboboxItem</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Remove an item from a combobox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_removeComboboxItem(int handle, int id, int index, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>index</strong> (int): Item index.</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:removeCurve" id="cmd:removeCurve"></a>simExtCustomUI_removeCurve</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Remove the specified curve from the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_removeCurve(int handle, int id, string name)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:replot" id="cmd:replot"></a>simExtCustomUI_replot</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Refresh all the plots of a plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_replot(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:rescaleAxes" id="cmd:rescaleAxes"></a>simExtCustomUI_rescaleAxes</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Rescales the axes such that the specified curve in the plot is fully visible.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_rescaleAxes(int handle, int id, string name, bool onlyEnlargeX=false, bool onlyEnlargeY=false)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>name</strong> (string): name of the curve</div>
+<div>
+<strong>onlyEnlargeX</strong> (bool, default: false): makes sure the x ranges are only expanded, never reduced</div>
+<div>
+<strong>onlyEnlargeY</strong> (bool, default: false): makes sure the x ranges are only expanded, never reduced</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:rescaleAxesAll" id="cmd:rescaleAxesAll"></a>simExtCustomUI_rescaleAxesAll</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Rescales the axes such that all curves in the plot are fully visible.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_rescaleAxesAll(int handle, int id, bool onlyEnlargeX=false, bool onlyEnlargeY=false)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>onlyEnlargeX</strong> (bool, default: false): makes sure the x ranges are only expanded, never reduced</div>
+<div>
+<strong>onlyEnlargeY</strong> (bool, default: false): makes sure the x ranges are only expanded, never reduced</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setCheckboxValue" id="cmd:setCheckboxValue"></a>simExtCustomUI_setCheckboxValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the value of a checkbox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setCheckboxValue(int handle, int id, int value, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>value</strong> (int): value</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getCheckboxValue">simExtCustomUI_getCheckboxValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setComboboxItems" id="cmd:setComboboxItems"></a>simExtCustomUI_setComboboxItems</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Populate a combobox widget with the specified items, and set the selected item to the specified index.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setComboboxItems(int handle, int id, table items, int index, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>items</strong> (table of string): Array of items (strings).</div>
+<div>
+<strong>index</strong> (int): Index of selected item after inserting all the items.</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxSelectedIndex">simExtCustomUI_setComboboxSelectedIndex</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setComboboxSelectedIndex" id="cmd:setComboboxSelectedIndex"></a>simExtCustomUI_setComboboxSelectedIndex</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Change the selected item index in a combobox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setComboboxSelectedIndex(int handle, int id, int index, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>index</strong> (int): Index of selected item after inserting all the items.</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getComboboxItemCount">simExtCustomUI_getComboboxItemCount</a> <a href="#cmd:getComboboxItemText">simExtCustomUI_getComboboxItemText</a> <a href="#cmd:getComboboxItems">simExtCustomUI_getComboboxItems</a> <a href="#cmd:insertComboboxItem">simExtCustomUI_insertComboboxItem</a> <a href="#cmd:removeComboboxItem">simExtCustomUI_removeComboboxItem</a> <a href="#cmd:setComboboxItems">simExtCustomUI_setComboboxItems</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setCurrentEditWidget" id="cmd:setCurrentEditWidget"></a>simExtCustomUI_setCurrentEditWidget</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the edit widget focus and selected text.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setCurrentEditWidget(int handle, int id)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id. this value can be -1, in which case the function will do nothing.</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getCurrentEditWidget">simExtCustomUI_getCurrentEditWidget</a> <a href="#cmd:getEditValue">simExtCustomUI_getEditValue</a> <a href="#cmd:setEditValue">simExtCustomUI_setEditValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setCurrentTab" id="cmd:setCurrentTab"></a>simExtCustomUI_setCurrentTab</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the current tab index in a tabs widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setCurrentTab(int handle, int id, int index, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>index</strong> (int): index of the tab (zero-based)</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getCurrentTab">simExtCustomUI_getCurrentTab</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setEditValue" id="cmd:setEditValue"></a>simExtCustomUI_setEditValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the value of a edit widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setEditValue(int handle, int id, string value, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>value</strong> (string): value</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getCurrentEditWidget">simExtCustomUI_getCurrentEditWidget</a> <a href="#cmd:getEditValue">simExtCustomUI_getEditValue</a> <a href="#cmd:setCurrentEditWidget">simExtCustomUI_setCurrentEditWidget</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setEnabled" id="cmd:setEnabled"></a>simExtCustomUI_setEnabled</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Enable or disable a widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setEnabled(int handle, int id, bool enabled, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>enabled</strong> (bool): enabled</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setImageData" id="cmd:setImageData"></a>simExtCustomUI_setImageData</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set image content using specified bitmap (RGB888) data.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setImageData(int handle, int id, string data, int width, int height)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): id of a image widget</div>
+<div>
+<strong>data</strong> (string): image byte data</div>
+<div>
+<strong>width</strong> (int): width of the image</div>
+<div>
+<strong>height</strong> (int): height of the image</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setLabelText" id="cmd:setLabelText"></a>simExtCustomUI_setLabelText</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the text of a label widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setLabelText(int handle, int id, string text, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>text</strong> (string): text</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getLabelText">simExtCustomUI_getLabelText</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setLegendVisibility" id="cmd:setLegendVisibility"></a>simExtCustomUI_setLegendVisibility</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set visibility of the plot legend (default is hidden).</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setLegendVisibility(int handle, int id, bool visible)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>visible</strong> (bool): if true, the plot legend will be visible</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setMouseOptions" id="cmd:setMouseOptions"></a>simExtCustomUI_setMouseOptions</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set plot widget options for interacting with mouse.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setMouseOptions(int handle, int id, bool panX, bool panY, bool zoomX, bool zoomY)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>panX</strong> (bool): if true, panning (by dragging with the mouse) the X axis is allowed</div>
+<div>
+<strong>panY</strong> (bool): if true, panning (by dragging with the mouse) the Y axis is allowed</div>
+<div>
+<strong>zoomX</strong> (bool): if true, zooming (by mouse wheel) the X axis is allowed</div>
+<div>
+<strong>zoomY</strong> (bool): if true, zooming (by mouse wheel) the Y axis is allowed</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotLabels" id="cmd:setPlotLabels"></a>simExtCustomUI_setPlotLabels</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the labels of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotLabels(int handle, int id, string x, string y)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>x</strong> (string): x label</div>
+<div>
+<strong>y</strong> (string): y label</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotRanges" id="cmd:setPlotRanges"></a>simExtCustomUI_setPlotRanges</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the ranges of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotRanges(int handle, int id, double xmin, double xmax, double ymin, double ymax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>xmin</strong> (double): minimum x range</div>
+<div>
+<strong>xmax</strong> (double): maximum x range</div>
+<div>
+<strong>ymin</strong> (double): minimum y range</div>
+<div>
+<strong>ymax</strong> (double): maximum y range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotXLabel" id="cmd:setPlotXLabel"></a>simExtCustomUI_setPlotXLabel</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the X label of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotXLabel(int handle, int id, string label)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>label</strong> (string): x label</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotXRange" id="cmd:setPlotXRange"></a>simExtCustomUI_setPlotXRange</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the X range of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotXRange(int handle, int id, double xmin, double xmax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>xmin</strong> (double): minimum x range</div>
+<div>
+<strong>xmax</strong> (double): maximum x range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotYLabel" id="cmd:setPlotYLabel"></a>simExtCustomUI_setPlotYLabel</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the Y label of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotYLabel(int handle, int id, string label)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>label</strong> (string): y label</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPlotYRange" id="cmd:setPlotYRange"></a>simExtCustomUI_setPlotYRange</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the Y range of the plot widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPlotYRange(int handle, int id, double ymin, double ymax)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>ymin</strong> (double): minimum y range</div>
+<div>
+<strong>ymax</strong> (double): maximum y range</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setPosition" id="cmd:setPosition"></a>simExtCustomUI_setPosition</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the position of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setPosition(int handle, int x, int y, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>x</strong> (int): X position</div>
+<div>
+<strong>y</strong> (int): Y position</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setRadiobuttonValue" id="cmd:setRadiobuttonValue"></a>simExtCustomUI_setRadiobuttonValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the value of a radiobutton widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setRadiobuttonValue(int handle, int id, int value, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>value</strong> (int): value</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getRadiobuttonValue">simExtCustomUI_getRadiobuttonValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setSize" id="cmd:setSize"></a>simExtCustomUI_setSize</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the size of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setSize(int handle, int w, int h, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>w</strong> (int): width</div>
+<div>
+<strong>h</strong> (int): height</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setSliderValue" id="cmd:setSliderValue"></a>simExtCustomUI_setSliderValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the value of a slider widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setSliderValue(int handle, int id, int value, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>value</strong> (int): value</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getSliderValue">simExtCustomUI_getSliderValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setSpinboxValue" id="cmd:setSpinboxValue"></a>simExtCustomUI_setSpinboxValue</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the value of a spinbox widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setSpinboxValue(int handle, int id, float value, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>value</strong> (float): value</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getSpinboxValue">simExtCustomUI_getSpinboxValue</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setTitle" id="cmd:setTitle"></a>simExtCustomUI_setTitle</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Set the title of a UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setTitle(int handle, string title, bool suppressEvents=true)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>title</strong> (string): X position</div>
+<div>
+<strong>suppressEvents</strong> (bool, default: true): if true, no event will be generated from this call</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:show">simExtCustomUI_show</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:setWidgetVisibility" id="cmd:setWidgetVisibility"></a>simExtCustomUI_setWidgetVisibility</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Hide or show a widget.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_setWidgetVisibility(int handle, int id, bool visibility)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>handle</strong> (int): ui handle</div>
+<div>
+<strong>id</strong> (int): widget id</div>
+<div>
+<strong>visibility</strong> (bool): true if the window is visible, false otherwise</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a>
+</td>
+</tr>
+</table>
+<br><h3 class="subsectionBar">
+<a name="cmd:show" id="cmd:show"></a>simExtCustomUI_show</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    Description
+                                                </td>
+<td class="apiTableRightDescr">Show the UI window.</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLSyn">Lua synopsis</td>
+<td class="apiTableRightLSyn">simExtCustomUI_show(int handle)<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Lua parameters</td>
+<td class="apiTableRightLParam"><div>
+<strong>handle</strong> (int): ui handle</div></td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLRet">Lua return values</td>
+<td class="apiTableRightLRet">-</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                    See also
+                                                </td>
+<td class="apiTableRightDescr"> <a href="#cmd:create">simExtCustomUI_create</a> <a href="#cmd:destroy">simExtCustomUI_destroy</a> <a href="#cmd:getPosition">simExtCustomUI_getPosition</a> <a href="#cmd:getSize">simExtCustomUI_getSize</a> <a href="#cmd:getTitle">simExtCustomUI_getTitle</a> <a href="#cmd:hide">simExtCustomUI_hide</a> <a href="#cmd:isVisible">simExtCustomUI_isVisible</a> <a href="#cmd:setPosition">simExtCustomUI_setPosition</a> <a href="#cmd:setSize">simExtCustomUI_setSize</a> <a href="#cmd:setTitle">simExtCustomUI_setTitle</a>
+</td>
+</tr>
+</table>
+<br><br><br><h1>Constants</h1>
+<h3 class="subsectionBar">
+<a name="enum:curve_type" id="enum:curve_type"></a>curve_type</h3>
+<table class="apiConstantsTable"><tbody><tr><td>
+<div>
+<strong>sim_customui_curve_type_time</strong>: a curve with an X-simple domain, i.e. <em>y = f(x)</em>
+</div>
+<div>
+<strong>sim_customui_curve_type_xy</strong>: a parametric curve, i.e. <em>x = f<sub>x</sub>(t), y = f<sub>y</sub>(t)</em>
+</div>
+</td></tr></tbody></table>
+<h3 class="subsectionBar">
+<a name="enum:curve_style" id="enum:curve_style"></a>curve_style</h3>
+<table class="apiConstantsTable"><tbody><tr><td>
+<div><strong>sim_customui_curve_style_scatter</strong></div>
+<div><strong>sim_customui_curve_style_line</strong></div>
+<div><strong>sim_customui_curve_style_line_and_scatter</strong></div>
+<div>
+<strong>sim_customui_curve_style_step_left</strong>: only available for 'time' curves</div>
+<div>
+<strong>sim_customui_curve_style_step_center</strong>: only available for 'time' curves</div>
+<div>
+<strong>sim_customui_curve_style_step_right</strong>: only available for 'time' curves</div>
+<div>
+<strong>sim_customui_curve_style_impulse</strong>: only available for 'time' curves</div>
+</td></tr></tbody></table>
+<h3 class="subsectionBar">
+<a name="enum:curve_scatter_shape" id="enum:curve_scatter_shape"></a>curve_scatter_shape</h3>
+<table class="apiConstantsTable"><tbody><tr><td>
+<div><strong>sim_customui_curve_scatter_shape_none</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_dot</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_cross</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_plus</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_circle</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_disc</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_square</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_diamond</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_star</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_triangle</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_triangle_inverted</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_cross_square</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_plus_square</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_cross_circle</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_plus_circle</strong></div>
+<div><strong>sim_customui_curve_scatter_shape_peace</strong></div>
+</td></tr></tbody></table>
+<h3 class="subsectionBar">
+<a name="enum:line_style" id="enum:line_style"></a>line_style</h3>
+<table class="apiConstantsTable"><tbody><tr><td>
+<div><strong>sim_customui_line_style_solid</strong></div>
+<div><strong>sim_customui_line_style_dotted</strong></div>
+<div><strong>sim_customui_line_style_dashed</strong></div>
+</td></tr></tbody></table>
+<br><br><h1>Data structures</h1>
+<h3 class="subsectionBar">
+<a name="struct:curve_options" id="struct:curve_options"></a>curve_options</h3>
+<table class="apiTable">
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                Description
+                                            </td>
+<td class="apiTableRightDescr">Extra options for the curve creation function <a href="#cmd:addCurve">simExtCustomUI_addCurve</a>. Create this data structure in the form of a hash table, e.g.: <pre>{line_size=3, add_to_legend=false, selectable=true}</pre>
+<br>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftLParam">Fields</td>
+<td class="apiTableRightLParam">
+<div>
+<strong>scatter_shape</strong> (int, default: sim_customui_curve_scatter_shape_disc): scatter shape. see <a href="#enum:curve_scatter_shape">curve_scatter_shape</a>.</div>
+<div>
+<strong>scatter_size</strong> (int, default: 10): size of the scatter shape</div>
+<div>
+<strong>line_size</strong> (int, default: 2): size of the line</div>
+<div>
+<strong>line_style</strong> (int, default: sim_customui_line_style_solid): style of the pen used to draw the line. see <a href="#enum:line_style">line_style</a>.</div>
+<div>
+<strong>add_to_legend</strong> (bool, default: true): if false, the curve will not be added to the legend</div>
+<div>
+<strong>selectable</strong> (bool, default: true): if false, the curve points cannot be selected and will not react to click events</div>
+<div>
+<strong>track</strong> (bool, default: false): if true, enable the mouse tracker</div>
+</td>
+</tr>
+<tr class="apiTableTr">
+<td class="apiTableLeftDescr">
+                                                See also
+                                            </td>
+<td class="apiTableRightDescr"> <a href="#enum:curve_scatter_shape">curve_scatter_shape</a> <a href="#cmd:addCurve">simExtCustomUI_addCurve</a> <a href="#cmd:addCurveTimePoints">simExtCustomUI_addCurveTimePoints</a> <a href="#cmd:addCurveXYPoints">simExtCustomUI_addCurveXYPoints</a> <a href="#cmd:clearCurve">simExtCustomUI_clearCurve</a> <a href="#cmd:getCurveData">simExtCustomUI_getCurveData</a> <a href="#cmd:growPlotRanges">simExtCustomUI_growPlotRanges</a> <a href="#cmd:growPlotXRange">simExtCustomUI_growPlotXRange</a> <a href="#cmd:growPlotYRange">simExtCustomUI_growPlotYRange</a> <a href="#cmd:removeCurve">simExtCustomUI_removeCurve</a> <a href="#cmd:replot">simExtCustomUI_replot</a> <a href="#cmd:rescaleAxes">simExtCustomUI_rescaleAxes</a> <a href="#cmd:rescaleAxesAll">simExtCustomUI_rescaleAxesAll</a> <a href="#cmd:setLegendVisibility">simExtCustomUI_setLegendVisibility</a> <a href="#cmd:setMouseOptions">simExtCustomUI_setMouseOptions</a> <a href="#cmd:setPlotLabels">simExtCustomUI_setPlotLabels</a> <a href="#cmd:setPlotRanges">simExtCustomUI_setPlotRanges</a> <a href="#cmd:setPlotXLabel">simExtCustomUI_setPlotXLabel</a> <a href="#cmd:setPlotXRange">simExtCustomUI_setPlotXRange</a> <a href="#cmd:setPlotYLabel">simExtCustomUI_setPlotYLabel</a> <a href="#cmd:setPlotYRange">simExtCustomUI_setPlotYRange</a> <a href="#cmd:getWidgetVisibility">simExtCustomUI_getWidgetVisibility</a> <a href="#cmd:setEnabled">simExtCustomUI_setEnabled</a> <a href="#cmd:setWidgetVisibility">simExtCustomUI_setWidgetVisibility</a>
+</td>
+</tr>
+</table>
+<br>
+</td></tr></table></div></body>
+</html>

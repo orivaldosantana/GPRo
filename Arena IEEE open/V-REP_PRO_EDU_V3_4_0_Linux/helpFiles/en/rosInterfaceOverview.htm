@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>RosPlugin</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../index.html" TARGET="_top"><img src="images/homeImg.png"></a></p>
+
+
+
+<h1>RosPlugin</h1>
+
+<p>The RosPlugin is part of the <a href="apisOverview.htm">V-REP API framework</a>. Make sure not to mix up the RosPlugin with the <a href="rosInterf.htm">RosInterface</a>, which are two different ROS interfaces in V-REP. Unlike the <a href="rosInterf.htm">RosInterface</a>, the RosPlugin does not duplicate the C/C++ ROS API. Instead it represents a higher-level abstraction, and applies subscribed messages and emits topics automatically on/from scene objects. This can appear a little bit confusing, but allows in several cases to simplify the interaction with ROS. On the other hand, the RosPlugin is not very flexible, and does not directly support many standard ROS messages. For that reason, it often makes more sense to use the <a href="rosInterf.htm">RosInterface</a> instead of the RosPlugin. You can recognize RosPlugin API functions from the <em>simExtROS_</em> prefix.</p>
+
+<p>ROS is a distributed pseudo operating system allowing for easy management and communication between multiple computers connected in a network. Please refer to the <a href="http://www.ros.org">official ROS documentation</a> for details about ROS.</p>
+
+<p>V-REP can act as a ROS node that other nodes can communicate with in following 3 ways:</p>
+
+<li><strong>The V-REP RosPlugin node offers ROS services</strong>. <a href="rosFunctionListAlphabetical.htm">V-REP RosPlugin services</a> are available as soon as V-REP is launched (given that roscore is running and the Rosplugin to V-REP was correctly loaded).</li>
+<li><strong>The V-REP RosPlugin can be enabled to advertise topics, and publish data to them</strong>. <a href="rosPublishers.htm">V-REP RosPlugin publishers</a> can only be enabled and are only operational while a simulation is running. One exception to this is the <a href="rosPublisherTypes.htm#simros_strmcmd_get_info"><em>info</em> topic</a>: data to that topic will be streamed as long as V-REP is running.</li>
+<li><strong>The V-REP RosPlugin can be enabled to subscribe to topics, read  data from them, and apply the data to specific objects/items inside V-REP</strong>. <a href="rosSubscribers.htm">V-REP RosPlugin subscribers</a> can only be enabled and are only operational while a simulation is running.</li>
+
+<p>The RosPlugin functionality in V-REP is enabled via a plugin: <em>libv_repExtROS.so</em> or <em>libv_repExtROS.dylib</em>. The code to the plugin is open source and is located in the <em>programming/ros_packages</em> folder. The plugin can easily be adapted to your own needs. The plugin is loaded when V-REP is launched, but the load operation will only be successful if roscore was running at that time. Make sure to inspect V-REP's console window or terminal for details on plugin load operations.</p>
+
+<p><a name="serverSideCommandHandling" id="serverSideCommandHandling"></a>Following diagram illustrates how ROS messages are handled on the server side (i.e. on the V-REP RosPlugin side):</p>
+
+<p align=center><img src="images/rosIntegration.jpg"></p>
+<p class=imageLabel>[ROS message handling, server side]</p>
+<br>
+
+
+<p>Have a look at following simulation scenes for a quick start with the RosPlugin:</p>
+
+<li><em>rosPluginTopicPublisherAndSubscriber1.ttt</em></li>
+<li><em>rosPluginTopicPublisherAndSubscriber2.ttt</em></li>
+<li><em>controlTypeExamples.ttt</em> (focus on the dark red robot)</li>
+
+<p>Also have a look at the <a href="rosTutorial.htm">ROS tutorial</a> and the <a href="externalControllerTutorial.htm">external controller tutorial</a>.</p>
+
+
+
+<br>
+<br>
+<h3 class=recommendedTopics>Recommended topics</h3>
+<li><a href="rosFunctionListAlphabetical.htm">RosPlugin API list</a></li>
+<li><a href="rosServices.htm">RosPlugin services</a></li>
+<li><a href="rosPublishers.htm">RosPlugin publishers</a></li>
+<li><a href="rosSubscribers.htm">RosPlugin subscribers</a></li>
+<li><a href="rosTutorial.htm">ROS tutorial</a></li>
+<br>
+<br>
+ </tr>
+</table> 
+</div>  
+  
+  
+</body>
+
+</html>

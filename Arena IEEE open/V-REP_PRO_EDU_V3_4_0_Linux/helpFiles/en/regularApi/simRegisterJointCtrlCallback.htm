@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>simRegisterJointCtrlCallback</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../../index.html" TARGET="_top"><img src="../images/homeImg.png"></a></p>
+
+<h1><a href="../apiOverview.htm">Regular API</a> function</h1>
+<h3 class=subsectionBar><a name="simRegisterJointCtrlCallback" id="simRegisterJointCtrlCallback"></a>simRegisterJointCtrlCallback</h3>
+<table class=apiTable>
+<tr class=apiTableTr> 
+<td class=apiTableLeftDescr>
+Description 
+</td> 
+<td class=apiTableRightDescr>Registers or unregisters a joint control callback function for customized joint control handling. Several plugins can register a callback, and the callbacks will be cascaded if not interrupted.</td>
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCSyn>
+C synopsis
+</td> 
+<td class=apiTableRightCSyn>simInt simRegisterJointCtrlCallback(simInt(*callBack)(simInt,simInt,simInt,const simInt*,const simFloat*,simFloat*))</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCParam>C parameters</td> 
+<td class=apiTableRightCParam>
+<div>callback address. Specify the function you wish to register/unregister as callback. When the function is already registered, it will be unregistered. Following describes the callback's arguments:<br>
+</div>
+<br>
+<div><strong>first argument (int)</strong>: handle of the joint
+</div>
+<div><strong>second argument (int)</strong>: the selected <a href="../apiConstants.htm#physicsEngineTypes">physics engine</a>
+</div>
+<div><strong>third argument (int)</strong>: a version indicator. Zero for now.
+</div>
+<br>
+<div>The forth, fifth and sixth arguments are allocated by V-REP. Arguments 4 and 5 describe the joint state, argument 6 are the callback return values:
+</div>
+<br>
+<div><strong>forth argument (const int*)</strong></div>
+<div class=tab>[0] bit-coded:</div>
+<div class=tabTab>1=this callback is called for the first time (if the joint is dynamically reset during the simulation, this might be true more often)</div>
+<div class=tabTab>2=the joint is revolute</div>
+<div class=tabTab>4=the joint is cyclic (has no limits)</div>
+<div class=tab>[1] the current dynamics calculation pass. 0-9 by default. See next item for details</div>
+<div class=tab>[2] the number of dynamics calculation passes for each "regular" simulation pass. 10 by default (i.e. 10*5ms=50ms which is the default simulation time step)</div>
+
+<div><strong>Fifth argument (const float*)</strong></div>
+<div class=tab>[0] the current position of the joint</div>
+<div class=tab>[1] the desired position of the joint</div>
+<div class=tab>[2] error: targetPos-currentPos (with revolute cyclic joints we take the shortest cyclic distance)</div>
+<div class=tab>[3] the last force or torque that acted on this joint along/around its axis. With Bullet, torques from joint limits are not taken into account</div>
+<div class=tab>[4] the step size used for the dynamics calculations (by default 5ms)</div>
+<div class=tab>[5] the joint lower limit</div>
+<div class=tab>[6] the joint upper limit</div>
+<div class=tab>[7] the joint target velocity (as set in the user interface)</div>
+<div class=tab>[8] the joint maximum force/torque (as set in the user interface)</div>
+<div class=tab>[9] the joint velocity upper limit (as set in the user interface)</div>
+
+<div><strong>Sixth argument (float*)</strong>. If you want to control the joint from your callback, you need to set those values.</div>
+<div class=tab>[0] the maximum force/torque that the joint will be able to exert</div>
+<div class=tab>[1] the velocity to apply to the joint</div>
+
+
+<br>
+<div>The callback return value can be:</div>
+<div class=tab><strong>-1</strong>: the callback doesn't handle the joint and hands it to the next callback. If no callback handles it, the default joint controller handling routine is used (or the joint control callback script is called, if enabled)
+</div>
+<div class=tab><strong>0</strong>: the joint is free (no force/torque is applied)</div>
+<div class=tab><strong>&gt;0</strong>: the values of above's 6th argument will be applied to the joint (the default values (or the joint control callback script) are overridden)</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCRet>
+C return value
+</td> 
+<td class=apiTableRightCRet>
+<div>-1 if operation was not successful. 0 if the callback was unregistered, 1 if the callback was registered<br>
+</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLSyn>
+Lua synopsis
+</td> 
+<td class=apiTableRightLSyn>-</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLParam>Lua parameters</td> 
+<td class=apiTableRightLParam>
+<div>-</div>
+<div></div></td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLRet>
+Lua return values
+</td> 
+<td class=apiTableRightLRet>
+<div>-</div>
+<div></div></td> 
+</tr> 
+</table> 
+
+<br>
+<p><a href="../apiFunctions.htm">All regular API functions on one page</a></p>
+<br>
+<br>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

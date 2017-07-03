@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>simRegisterCustomLuaFunction</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../../index.html" TARGET="_top"><img src="../images/homeImg.png"></a></p>
+
+<h1><a href="../apiOverview.htm">Regular API</a> function</h1>
+<h3 class=subsectionBar><a name="simRegisterCustomLuaFunction" id="simRegisterCustomLuaFunction"></a>simRegisterCustomLuaFunction (DEPRECATED)</h3>
+<table class=apiTable>
+<tr class=apiTableTr> 
+<td class=apiTableLeftDescr>
+Description 
+</td> 
+<td class=apiTableRightDescr>This function is deprecated. Use <a href="simRegisterScriptCallbackFunction.htm">simRegisterScriptCallbackFunction</a> instead.<br><br>Registers a customized lua function. This function is useful for plugins (or the main client application) that wish to provide their own or customized Lua functions. See also <a href="simRegisterScriptVariable.htm">simRegisterScriptVariable</a>.</td>
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCSyn>
+C synopsis
+</td> 
+<td class=apiTableRightCSyn>simInt simRegisterCustomLuaFunction(const simChar* funcName,const simChar* callTips,const simInt* inputArgumentTypes,simVoid(*callBack)(struct SLuaCallBack* p))<br></td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCParam>C parameters</td> 
+<td class=apiTableRightCParam>
+<div><strong>functName</strong>: name of the function, combined with the plugin name: functionName@pluginName. Avoid using too simple function names, otherwise they might clash with other plugins. Also, always use the <em>simExt</em> prefix (e.g. <em>simExtMyCustomFunction</em>) for the function name. The plugin name should be the exact same name used while loading the plugin via <a href="simLoadModule.htm">simLoadModule</a> (if the plugin name is <em>v_repExtMyPlugin.dll</em>, this should be <em>MyPlugin</em>). If the <em>@pluginName</em> is omitted, unloading the plugin dynamically might lead to a crash.<br>
+</div>
+<div><strong>callTips</strong>: call tips: string (or several strings separated by '@') that indicates the input/output argument type/size. Call tips appear in the script editor when the function was typed followed by &quot;(&quot;. callTips Can be NULL<br>
+</div>
+<div><strong>inputArgumentTypes</strong>: array indicating the desired <a href="../apiConstants.htm#customLuaCommandArgumentTypes">input arguments</a>. This is important so that the simulator knows how to convert between Lua types (e.g. Lua value&quot;4.2&quot; can be converted to int 4, to float 4.2, to string &quot;4.2&quot; or to Boolean 1). Can be NULL, in that case no input argument is forwarded to the callback address. inputArgumentTypes[0] represents the number of input arguments we wish to be forwarded, inputArgumentTypes[1] is the type of the first argument, inputArgumentTypes[2] is the type of the second argument, etc. An input argument type can be sim_lua_arg_bool, sim_lua_arg_int, sim_lua_arg_float,  sim_lua_arg_string or sim_lua_arg_charbuff, that can be combined (|) with sim_lua_arg_table if table values are desired. And exception to this is sim_lua_arg_charbuff, which cannot be combined with sim_lua_arg_table.<br>
+</div>
+<div><strong>callback</strong>: callback address that is called when the &quot;functName&quot; function is called from Lua with the right arguments. See further down for a simple way to call above function, using a helper class. The callback's first argument is a SLuaCallBack structure that holds:<br>
+</div>
+<br>
+<div><strong>simInt objectID</strong>: handle of the object that the calling script is attached to, or -1 if the calling script is not a child script<br>
+</div>
+<div><strong>simChar* inputBool</strong>: pointer to all Boolean input arguments</div>
+<div><strong>simInt* inputInt</strong>: pointer to all integer input arguments</div>
+<div><strong>simFloat* inputFloat</strong>: pointer to all single precision floating point input arguments</div>
+<div><strong>simDouble* inputDouble</strong>: pointer to all double precision floating point input arguments</div>
+<div><strong>simChar* inputChar</strong>: pointer to all string input arguments. Strings are separated by the &quot;zero-char&quot;</div>
+<div><strong>simChar* inputCharBuff</strong>: pointer to all char buffer input arguments.</div>
+<div><strong>simInt inputArgCount</strong>: number of input arguments.</div>
+<div><strong>simInt* inputArgTypeAndSize</strong>: pointer to input argument's type and size (e.g. with &quot;inputArgCount==2&quot; we could have &quot;inputArgTypeAndSize[0]==sim_lua_arg_int|sim_lua_arg_table&quot;, &quot;inputArgTypeAndSize[1]==3&quot;, &quot;inputArgTypeAndSize[2]==sim_lua_arg_char&quot;, &quot;inputArgTypeAndSize[3]==1&quot;. This would mean that we have two input arguments: (1) an integer table of size 3 and (2) a string)<br>
+</div>
+<div><strong>simChar* outputBool</strong>: similar to inputBool, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputBool=new char[n] will not work!!). The simulator will automatically release the buffer when the callback returns.<br>
+</div>
+<div><strong>simInt* outputInt</strong>: similar to inputInt, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputInt=new int[n] will not work!!). The simulator will automatically release the buffer when the callback returns.<br>
+</div>
+<div><strong>simFloat* outputFloat</strong>: similar to inputFloat, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputFloat=new float[n] will not work!!). The simulator will automatically release the buffer when the callback returns.<br>
+</div>
+<div><strong>simFloat* outputDouble</strong>: similar to inputDouble, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputDouble=new double[n] will not work!!). The simulator will automatically release the buffer when the callback returns.<br>
+</div>
+<div><strong>simChar* outputChar</strong>: similar to inputChar, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputChar=new char[n] will not work!!). The simulator will automatically release the buffer when the callback returns. If you return 2 strings &quot;ab&quot; and &quot;cde&quot;, the buffer should look like: &quot;ab@cde@&quot; (@ being the zero char).<br>
+</div>
+<div><strong>simChar* outputCharBuff</strong>: similar to inputCharBuff, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputCharBuff=new char[n] will not work!!). The simulator will automatically release the buffer when the callback returns. If you return 2 char buffers, they should lay appended to each other in this buffer.
+</div>
+<div><strong>simInt outputArgCount</strong>: similar to inputArgCount, but for output values</div>
+<div><strong>simInt* outputArgTypeAndSize</strong>: similar to inputArgTypeAndSize, but for output values. The user is in charge of allocating the buffer with correct size with <a href="simCreateBuffer.htm">simCreateBuffer</a> (outputArgTypeAndSize=new int[n] will not work!!). The simulator will automatically release the buffer when the callback returns.<br>
+</div>
+<br>
+<div>Values are stored in input or output arrays in the order they appear as arguments or return values e.g. with input arguments: number_int 1,table_2_float {2.0,3.0},string 'hello',number_int 4,string 'bye' we would have following input arrays:<br>
+</div>
+<br>
+<pre class=lightBlueBoxNoMarginAndSmall>
+inputBool==NULL
+inputInt=={1,4}
+inputFloat=={2.0,3.0}
+inputChar=="hello@bye@"
+inputArgCount==5
+inputArgTypeAndSize=={sim_lua_arg_int,1,sim_lua_arg_float|sim_lua_arg_table,
+            2,sim_lua_arg_string,1, sim_lua_arg_int,1, sim_lua_arg_string,1}</pre>
+
+<div><strong>simChar waitUntilZero</strong>: this value can be used when threaded scripts call a custom Lua function in a plugin that shouldn't return until a condition is met (e.g. until the robot movement finished). For that purpose, the plugin should write a value different from zero to indicate a &quot;wait&quot; state. When the callback returns, the control is not given back to the script until some other thread calling the plugin writes zero to that location. Once zero was written, the memory location should not be used anymore (because it might be released anytime by the simulator). Also, when the user stops a simulation before zero was written to that location, the wait state is aborted. In that case however the memory location stays valid (i.e. writing zero will not result in a crash) until the simulation ended.<br>
+</div>
+<br>
+<div>Reading and writing arguments from/to the SLuaCallBack structure can be quite complicated and is error prone. Use instead the helper classes <em>CLuaFunctionData</em> and <em>CLuaFunctionDataItem</em> located in <em>programming/common</em> and <em>programming/include</em>: they will greatly simplify the task. Make sure to also have a look at the various plugin projects (in the <em>programming</em> folder) and the <a href="../pluginTutorial.htm">plugin tutorial</a> to get an idea how to register custom Lua commands.</div>
+<br>
+<div>Use following 4 functions in the helper class: readDataFromLua, getInDataPtr, pushOutData and writeDataToLua.</div>
+
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCRet>
+C return value
+</td> 
+<td class=apiTableRightCRet>
+<div>1 if function was registered, 0 if function was replaced (when that function name already existed), -1 in case of an error<br>
+</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLSyn>
+Lua synopsis
+</td> 
+<td class=apiTableRightLSyn>-</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLParam>Lua parameters</td> 
+<td class=apiTableRightLParam>
+<div>-</div>
+<div></div></td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLRet>
+Lua return values
+</td> 
+<td class=apiTableRightLRet>
+<div>-</div>
+<div></div></td> 
+</tr> 
+</table> 
+
+<br>
+<p><a href="../apiFunctions.htm">All regular API functions on one page</a></p>
+<br>
+<br>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

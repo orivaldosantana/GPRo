@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AA18FC35-1BA7-4F7A-AE8B-7F0E18A81E63}</ProjectGuid>
+    <RootNamespace>v_repExtReflexxesTypeII</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25431.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\local\boost_1_62_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;reflexxesTypeII;ReflexxesTypeII\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;V_REPEXTREFLEXXESTYPEII_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\v_repLib.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\ReflexxesAPI.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLCalculatePositionalExtrems.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLDecisions.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLDecisionTree1A.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLDecisionTree1B.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLDecisionTree1C.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLDecisionTree2.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLFallBackStrategy.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLIsPhaseSynchronizationPossible.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLPolynomial.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLPosition.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLQuicksort.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLSetupModifiedSelectionVector.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep1.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep1IntermediateProfiles.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep1Profiles.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep2.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep2IntermediateProfiles.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep2PhaseSynchronization.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep2Profiles.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep2WithoutSynchronization.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLStep3.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocity.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocityCalculatePositionalExtrems.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocityFallBackStrategy.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocityIsPhaseSynchronizationPossible.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocityMethods.cpp" />
+    <ClCompile Include="ReflexxesTypeII\src\TypeIIRML\TypeIIRMLVelocitySetupPhaseSyncSelectionVector.cpp" />
+    <ClCompile Include="v_repExtReflexxesTypeII\v_repExtReflexxesTypeII.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\v_repLib.h" />
+    <ClInclude Include="ReflexxesTypeII\include\ReflexxesAPI.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLFlags.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLInputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLOutputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLPositionFlags.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLPositionInputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLPositionOutputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLVector.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLVelocityFlags.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLVelocityInputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\RMLVelocityOutputParameters.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLDecisions.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLDecisionTree1A.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLDecisionTree1B.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLDecisionTree1C.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLDecisionTree2.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLMath.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLPolynomial.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLPosition.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLQuicksort.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLStep1IntermediateProfiles.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLStep1Profiles.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLStep2IntermediateProfiles.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLStep2Profiles.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLStep2WithoutSynchronization.h" />
+    <ClInclude Include="ReflexxesTypeII\include\TypeIIRMLVelocity.h" />
+    <ClInclude Include="v_repExtReflexxesTypeII\v_repExtReflexxesTypeII.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

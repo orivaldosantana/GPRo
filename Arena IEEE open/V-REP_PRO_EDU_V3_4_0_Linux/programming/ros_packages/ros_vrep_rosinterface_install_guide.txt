@@ -1,0 +1,43 @@
+1) install Ubuntu 16 x86_64
+2) install ros kinetic (see http://wiki.ros.org/kinetic/Installation/Ubuntu)
+	# make sure you have the "desktop-full" ROS package:
+	sudo apt install ros-kinetic-desktop-full
+3) install V-REP Linux 64-bit
+	cd ~/Downloads
+	wget http://coppeliarobotics.com/V-REP_PRO_EDU_V3_3_2_64_Linux.tar.gz
+	cd ~
+	tar zvxf ~/Downloads/V-REP_PRO_EDU_V3_3_2_64_Linux.tar.gz
+	# set the VREP_ROOT variable in ~/.bashrc:
+	echo 'export VREP_ROOT="$HOME/V-REP_PRO_EDU_V3_3_2_64_Linux"' >> ~/.bashrc
+	source ~/.bashrc
+4) install some required Ubuntu packages:
+	sudo apt install git cmake python-tempita python-catkin-tools python-lxml default-jre
+5) install saxon:
+	cd ~/Downloads
+	wget http://downloads.sourceforge.net/project/saxon/Saxon-HE/9.7/SaxonHE9-7-0-8J.zip
+	cd ~
+	mkdir -p saxon/bin
+	cd saxon
+	unzip ~/Downloads/SaxonHE9-7-0-8J.zip
+	echo -e '#!/bin/sh\njava -jar "`dirname "$0"`/../saxon9he.jar" "$@"' > bin/saxon
+	chmod a+x bin/saxon
+	# update PATH env var with the location of saxon executable:
+	echo 'export PATH="$PATH:$HOME/saxon/bin"' >> ~/.bashrc
+	source ~/.bashrc
+5) install v_repStubsGen (https://github.com/fferri/v_repStubsGen.git)
+	mkdir ~/python-packages
+	cd ~/python-packages
+	git clone https://github.com/fferri/v_repStubsGen.git
+	echo 'export PYTHONPATH="$PYTHONPATH:$HOME/python-packages"' >> ~/.bashrc
+	source ~/.bashrc
+6) setup catkin workspace:
+	rm -rf ~/catkin_ws
+	mkdir -p ~/catkin_ws/src
+	cd ~/catkin_ws/src
+	catkin_init_workspace
+	cd ..
+	catkin build
+	source devel/setup.bash
+	git clone https://github.com/fferri/v_repExtRosInterface.git vrep_ros_interface
+	catkin build
+

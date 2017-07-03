@@ -1,0 +1,68 @@
+-- This is the main script. The main script is not supposed to be modified,
+-- unless there is a very good reason to do it.
+-- The main script is called at each simulation pass. Without main script,
+-- there is no real simulation (child scripts are not called either in that case).
+-- A main script marked as "default" (this is the default case) will use the
+-- content of following file: system/dltmscpt.txt. This allows your old simulation
+-- scenes to be automatically also using newer features, without explicitely coding
+-- them. If you modify the main script, it will be marked as "customized", and you
+-- won't benefit of that automatic forward compatibility mechanism. 
+
+-- DO NOT WRITE CODE OUTSIDE OF THE if-then-end SECTIONS BELOW!! (unless the code is a function definition)
+
+-- Initialization part (executed just once, at simulation start) ---------
+if (sim_call_type==sim_mainscriptcall_initialization) then
+    simHandleSimulationStart()
+    simOpenModule(sim_handle_all)
+    simHandleGraph(sim_handle_all_except_explicit,0)
+end
+--------------------------------------------------------------------------
+
+-- Regular part (executed at each simulation step) -----------------------
+if (sim_call_type==sim_mainscriptcall_regular) then
+    -- "Actuation"-part --
+    simResumeThreads(sim_scriptthreadresume_default)
+    simResumeThreads(sim_scriptthreadresume_actuation_first)
+    simLaunchThreadedChildScripts()
+    simHandleChildScripts(sim_childscriptcall_actuation)
+    simResumeThreads(sim_scriptthreadresume_actuation_last)
+    simHandleCustomizationScripts(sim_customizationscriptcall_simulationactuation)
+    simHandleModule(sim_handle_all,false)
+    simHandleJoint(sim_handle_all_except_explicit,simGetSimulationTimeStep()) -- DEPRECATED
+    simHandlePath(sim_handle_all_except_explicit,simGetSimulationTimeStep()) -- DEPRECATED
+    simHandleMechanism(sim_handle_all_except_explicit)
+    simHandleIkGroup(sim_handle_all_except_explicit)
+    simHandleDynamics(simGetSimulationTimeStep())
+    simHandleMill(sim_handle_all_except_explicit)
+
+    -- "Sensing"-part --
+    simHandleSensingStart()
+    simHandleCollision(sim_handle_all_except_explicit)
+    simHandleDistance(sim_handle_all_except_explicit)
+    simHandleProximitySensor(sim_handle_all_except_explicit)
+    simHandleVisionSensor(sim_handle_all_except_explicit)
+    simResumeThreads(sim_scriptthreadresume_sensing_first)
+    simHandleChildScripts(sim_childscriptcall_sensing)
+    simResumeThreads(sim_scriptthreadresume_sensing_last)
+    simHandleCustomizationScripts(sim_customizationscriptcall_simulationsensing)
+    simHandleModule(sim_handle_all,true)
+    simResumeThreads(sim_scriptthreadresume_allnotyetresumed)
+    simHandleGraph(sim_handle_all_except_explicit,simGetSimulationTime()+simGetSimulationTimeStep())
+end
+--------------------------------------------------------------------------
+
+-- Clean-up part (executed just once, before simulation ends) ------------
+if (sim_call_type==sim_mainscriptcall_cleanup) then
+    simResetMilling(sim_handle_all)
+    simResetMill(sim_handle_all_except_explicit)
+    simResetCollision(sim_handle_all_except_explicit)
+    simResetDistance(sim_handle_all_except_explicit)
+    simResetProximitySensor(sim_handle_all_except_explicit)
+    simResetVisionSensor(sim_handle_all_except_explicit)
+    simCloseModule(sim_handle_all)
+end
+--------------------------------------------------------------------------
+
+-- By default threaded child scripts switch back to the main thread after 2 ms. The main
+-- thread switches back to a threaded child script at one of above's "simResumeThreads"
+-- location

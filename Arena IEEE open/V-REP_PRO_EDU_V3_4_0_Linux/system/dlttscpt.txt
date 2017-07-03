@@ -1,0 +1,33 @@
+-- Put some initialization code here
+
+
+-- Put your main loop here, e.g.:
+--
+-- while simGetSimulationState()~=sim_simulation_advancing_abouttostop do
+--     local p=simGetObjectPosition(objHandle,-1)
+--     p[1]=p[1]+0.001
+--     simSetObjectPosition(objHandle,-1,p)
+--     simSwitchThread() -- resume in next simulation step
+-- end
+
+
+-- Put some clean-up code here
+
+
+
+-- ADDITIONAL DETAILS:
+-- -------------------------------------------------------------------------
+-- If you wish to synchronize a threaded loop with each simulation pass,
+-- enable the explicit thread switching with 
+--
+-- simSetThreadAutomaticSwitch(false)
+--
+-- then use
+--
+-- simSwitchThread()
+--
+-- When you want to resume execution in next simulation step (i.e. at t=t+dt)
+--
+-- simSwitchThread() can also be used normally, in order to not waste too much
+-- computation time in a given simulation step
+-- -------------------------------------------------------------------------

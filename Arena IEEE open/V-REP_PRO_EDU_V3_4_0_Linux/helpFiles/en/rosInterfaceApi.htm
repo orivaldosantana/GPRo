@@ -1,0 +1,1198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"><html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta http-equiv="Content-Language" content="en-us">
+      <title>RosInterface</title>
+      <link rel="stylesheet" type="text/css" href="../../helpFiles/style.css">
+   </head>
+   <body>
+      <div align="center">
+         <table class="allEncompassingTable">
+            <tr>
+               <td>
+                  <h1><a href="rosInterf.htm">RosInterface</a> API reference</h1>
+                  <p class="infoBox">The list of API functions below provides an interface to ROS. Those functions are part of the RosInterface. This interface naturally duplicates the  C/C++ ROS API.</p>
+                  <h3 class="subsectionBar"><a name="advertise" id="advertise"></a>simExtRosInterface_advertise
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Advertise a topic and create a topic publisher.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int publisherHandle=simExtRosInterface_advertise(string topicName, string topicType, int queueSize = 1, bool latch = false)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>topicName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>topicType</strong>: 
+                              
+                              <description>topic type, e.g.: 'geometry_msgs::Twist'</description>
+                              
+                           </div>
+                           <div><strong>queueSize</strong>: 
+                              
+                              <description>(optional) queue size</description>
+                              
+                           </div>
+                           <div><strong>latch</strong>: 
+                              
+                              <description>(optional) latch topic</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>a handle to the ROS publisher</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="advertiseService" id="advertiseService"></a>simExtRosInterface_advertiseService
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Advertise a service and create a service server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int serviceServerHandle=simExtRosInterface_advertiseService(string serviceName, string serviceType, string serviceCallback)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>serviceType</strong>: 
+                              
+                              <description>topic type, e.g.: 'geometry_msgs::Twist'</description>
+                              
+                           </div>
+                           <div><strong>serviceCallback</strong>: 
+                              
+                              <description>name of the callback function, which will be called with a single argument of type
+                                 table containing the service request payload; it must return another table containing
+                                 the response
+                              </description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>serviceServerHandle</strong>: 
+                              
+                              <description>a handle to the ROS service server</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="call" id="call"></a>simExtRosInterface_call
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Call the service associated with this service client.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">table result=simExtRosInterface_call(int serviceClientHandle, table request)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceClientHandle</strong>: 
+                              
+                              <description>the service client handle</description>
+                              
+                           </div>
+                           <div><strong>request</strong>: 
+                              
+                              <description>the message to publish</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>result</strong>: 
+                              
+                          <description>the response message, if the call succeeded</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="deleteParam" id="deleteParam"></a>simExtRosInterface_deleteParam
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Delete a parameter in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_deleteParam(string name)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="getParamBool" id="getParamBool"></a>simExtRosInterface_getParamBool
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Retrieve a boolean parameter from the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool exists, bool value=simExtRosInterface_getParamBool(string name, bool defaultValue = false)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>defaultValue</strong>: 
+                              
+                              <description>default value returned when parameter does not exist</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>exists</strong>: 
+                              
+                              <description>true if the param exists otherwise false</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>the value of the requested parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="getParamDouble" id="getParamDouble"></a>simExtRosInterface_getParamDouble
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Retrieve a double parameter from the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool exists, double value=simExtRosInterface_getParamDouble(string name, double defaultValue = 0.0)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>defaultValue</strong>: 
+                              
+                              <description>default value returned when parameter does not exist</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>exists</strong>: 
+                              
+                              <description>true if the param exists otherwise false</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>the value of the requested parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="getParamInt" id="getParamInt"></a>simExtRosInterface_getParamInt
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Retrieve an integer parameter from the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool exists, int value=simExtRosInterface_getParamInt(string name, int defaultValue = 0)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>defaultValue</strong>: 
+                              
+                              <description>default value returned when parameter does not exist</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>exists</strong>: 
+                              
+                              <description>true if the param exists otherwise false</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>the value of the requested parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="getParamString" id="getParamString"></a>simExtRosInterface_getParamString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Retrieve a string parameter from the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool exists, string value=simExtRosInterface_getParamString(string name, string defaultValue = )<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>defaultValue</strong>: 
+                              
+                              <description>default value returned when parameter does not exist</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>exists</strong>: 
+                              
+                              <description>true if the param exists otherwise false</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>the value of the requested parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="getTime" id="getTime"></a>simExtRosInterface_getTime
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Return the current ROS time (i.e. the time returned by ros::Time::now()).<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">double time=simExtRosInterface_getTime(int flag = 0)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>flag</strong>: 
+                              
+                              <description>unused: set to zero</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>time</strong>: 
+                              
+                              <description>ROS time expressed in seconds</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="hasParam" id="hasParam"></a>simExtRosInterface_hasParam
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Check wether a parameter exists in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool exists=simExtRosInterface_hasParam(string name)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>exists</strong>: 
+                              
+                              <description>true if the parameter exists, false otherwise</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="imageTransportAdvertise" id="imageTransportAdvertise"></a>simExtRosInterface_imageTransportAdvertise
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Advertise a topic and create a topic publisher using ImageTransport.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int publisherHandle=simExtRosInterface_imageTransportAdvertise(string topicName, int queueSize = 1)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>topicName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>queueSize</strong>: 
+                              
+                              <description>(optional) queue size</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>a handle to the ROS publisher</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="imageTransportPublish" id="imageTransportPublish"></a>simExtRosInterface_imageTransportPublish
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Publish a message on the topic associated with this publisher using ImageTransport.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_imageTransportPublish(int publisherHandle, string data, int width, int height, string frame_id)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>the publisher handle</description>
+                              
+                           </div>
+                           <div><strong>data</strong>: 
+                              
+                              <description>the image data</description>
+                              
+                           </div>
+                           <div><strong>width</strong>: 
+                              
+                              <description>image width</description>
+                              
+                           </div>
+                           <div><strong>height</strong>: 
+                              
+                              <description>image height</description>
+                              
+                           </div>
+                           <div><strong>frame_id</strong>: 
+                              
+                              <description>frame id</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="imageTransportShutdownPublisher" id="imageTransportShutdownPublisher"></a>simExtRosInterface_imageTransportShutdownPublisher
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Shutdown the advertisement associated with this publisher using ImageTransport.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_imageTransportShutdownPublisher(int publisherHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>the publisher handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="imageTransportShutdownSubscriber" id="imageTransportShutdownSubscriber"></a>simExtRosInterface_imageTransportShutdownSubscriber
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Unsubscribe the callback associated with this subscriber using ImageTransport.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_imageTransportShutdownSubscriber(int subscriberHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>subscriberHandle</strong>: 
+                              
+                              <description>the subscriber handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="imageTransportSubscribe" id="imageTransportSubscribe"></a>simExtRosInterface_imageTransportSubscribe
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Subscribe to a topic using ImageTransport.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int subscriberHandle=simExtRosInterface_imageTransportSubscribe(string topicName, string topicCallback, int queueSize = 1)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>topicName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>topicCallback</strong>: 
+                              
+                              <description>name of the callback function, which will be called as: topicCallback(string data,
+                                 number width, number height)
+                              </description>
+                              
+                           </div>
+                           <div><strong>queueSize</strong>: 
+                              
+                              <description>(optional) queue size</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>subscriberHandle</strong>: 
+                              
+                              <description>a handle to the ROS subscriber</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="publish" id="publish"></a>simExtRosInterface_publish
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Publish a message on the topic associated with this publisher.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_publish(int publisherHandle, table message)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>the publisher handle</description>
+                              
+                           </div>
+                           <div><strong>message</strong>: 
+                              
+                              <description>the message to publish</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="publisherTreatUInt8ArrayAsString" id="publisherTreatUInt8ArrayAsString"></a>simExtRosInterface_publisherTreatUInt8ArrayAsString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">After calling this function, this publisher will treat uint8 arrays as string. Using
+                           strings should be in general much faster that using int arrays in Lua.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_publisherTreatUInt8ArrayAsString(int publisherHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>the publisher handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="searchParam" id="searchParam"></a>simExtRosInterface_searchParam
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Search a parameter in the ROS Parameter Server, looking in the closest namespace.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">bool found, string name=simExtRosInterface_searchParam(string name)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>found</strong>: 
+                              
+                              <description>true if the parameter has been found</description>
+                              
+                           </div>
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter which has been found</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="sendTransform" id="sendTransform"></a>simExtRosInterface_sendTransform
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Publish a TF transformation between frames.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_sendTransform(table transform)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>transform</strong>: 
+                              
+                              <description>the transformation expressed as a geometry_msgs/TransformStamped message, i.e. {header={stamp=timeStamp,
+                                 frame_id='...'}, child_frame_id='...', transform={translation={x=..., y=..., z=...},
+                                 rotation={x=..., y=..., z=..., w=...}}}
+                              </description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="sendTransforms" id="sendTransforms"></a>simExtRosInterface_sendTransforms
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Publish several TF transformations between frames.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_sendTransforms(table transforms)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>transforms</strong>: 
+                              
+                              <description>an array of geometry_msgs/TransformStamped messages</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="serviceClient" id="serviceClient"></a>simExtRosInterface_serviceClient
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Create a service client.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int serviceClientHandle=simExtRosInterface_serviceClient(string serviceName, string serviceType)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>serviceType</strong>: 
+                              
+                              <description>topic type, e.g.: 'geometry_msgs::Twist'</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>serviceClientHandle</strong>: 
+                              
+                              <description>a handle to the ROS service client</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="serviceClientTreatUInt8ArrayAsString" id="serviceClientTreatUInt8ArrayAsString"></a>simExtRosInterface_serviceClientTreatUInt8ArrayAsString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">After calling this function, this service client will treat uint8 arrays as string.
+                           Using strings should be in general much faster that using int arrays in Lua.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_serviceClientTreatUInt8ArrayAsString(int serviceClientHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceClientHandle</strong>: 
+                              
+                              <description>the service client handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="serviceServerTreatUInt8ArrayAsString" id="serviceServerTreatUInt8ArrayAsString"></a>simExtRosInterface_serviceServerTreatUInt8ArrayAsString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">After calling this function, this service server will treat uint8 arrays as string.
+                           Using strings should be in general much faster that using int arrays in Lua.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_serviceServerTreatUInt8ArrayAsString(int serviceServerHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceServerHandle</strong>: 
+                              
+                              <description>the service server handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="setParamBool" id="setParamBool"></a>simExtRosInterface_setParamBool
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Set a boolean parameter in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_setParamBool(string name, bool value)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>value of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="setParamDouble" id="setParamDouble"></a>simExtRosInterface_setParamDouble
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Set a double parameter in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_setParamDouble(string name, double value)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>value of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="setParamInt" id="setParamInt"></a>simExtRosInterface_setParamInt
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Set a integer parameter in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_setParamInt(string name, int value)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>value of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="setParamString" id="setParamString"></a>simExtRosInterface_setParamString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Set a string parameter in the ROS Parameter Server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_setParamString(string name, string value)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>name</strong>: 
+                              
+                              <description>name of the parameter</description>
+                              
+                           </div>
+                           <div><strong>value</strong>: 
+                              
+                              <description>value of the parameter</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="shutdownPublisher" id="shutdownPublisher"></a>simExtRosInterface_shutdownPublisher
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Shutdown the advertisement associated with this publisher.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_shutdownPublisher(int publisherHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>publisherHandle</strong>: 
+                              
+                              <description>the publisher handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="shutdownServiceClient" id="shutdownServiceClient"></a>simExtRosInterface_shutdownServiceClient
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Shutdown the service client.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_shutdownServiceClient(int serviceClientHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceClientHandle</strong>: 
+                              
+                              <description>the service client handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="shutdownServiceServer" id="shutdownServiceServer"></a>simExtRosInterface_shutdownServiceServer
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Shutdown the service server.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_shutdownServiceServer(int serviceServerHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>serviceServerHandle</strong>: 
+                              
+                              <description>the service server handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="shutdownSubscriber" id="shutdownSubscriber"></a>simExtRosInterface_shutdownSubscriber
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Unsubscribe the callback associated with this subscriber.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_shutdownSubscriber(int subscriberHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>subscriberHandle</strong>: 
+                              
+                              <description>the subscriber handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="subscribe" id="subscribe"></a>simExtRosInterface_subscribe
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">Subscribe to a topic.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">int subscriberHandle=simExtRosInterface_subscribe(string topicName, string topicType, string topicCallback, int queueSize = 1)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>topicName</strong>: 
+                              
+                              <description>topic name, e.g.: '/cmd_vel'</description>
+                              
+                           </div>
+                           <div><strong>topicType</strong>: 
+                              
+                              <description>topic type, e.g.: 'geometry_msgs::Twist'</description>
+                              
+                           </div>
+                           <div><strong>topicCallback</strong>: 
+                              
+                              <description>name of the callback function, which will be called with a single argument of type
+                                 table containing the message payload, e.g.: {linear={x=1.5, y=0.0, z=0.0}, angular={x=0.0,
+                                 y=0.0, z=-2.3}}
+                              </description>
+                              
+                           </div>
+                           <div><strong>queueSize</strong>: 
+                              
+                              <description>(optional) queue size</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">
+                           <div><strong>subscriberHandle</strong>: 
+                              
+                              <description>a handle to the ROS subscriber</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                  </table><br><h3 class="subsectionBar"><a name="subscriberTreatUInt8ArrayAsString" id="subscriberTreatUInt8ArrayAsString"></a>simExtRosInterface_subscriberTreatUInt8ArrayAsString
+                  </h3>
+                  <table class="apiTable">
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftDescr">
+                           Description
+                           
+                        </td>
+                        <td class="apiTableRightDescr">After calling this function, this subscriber will treat uint8 arrays as string. Using
+                           strings should be in general much faster that using int arrays in Lua.<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLSyn">Lua synopsis</td>
+                        <td class="apiTableRightLSyn">simExtRosInterface_subscriberTreatUInt8ArrayAsString(int subscriberHandle)<br></td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLParam">Lua parameters</td>
+                        <td class="apiTableRightLParam">
+                           <div><strong>subscriberHandle</strong>: 
+                              
+                              <description>the subscriber handle</description>
+                              
+                           </div>
+                        </td>
+                     </tr>
+                     <tr class="apiTableTr">
+                        <td class="apiTableLeftLRet">Lua return values</td>
+                        <td class="apiTableRightLRet">-</td>
+                     </tr>
+                  </table><br></td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

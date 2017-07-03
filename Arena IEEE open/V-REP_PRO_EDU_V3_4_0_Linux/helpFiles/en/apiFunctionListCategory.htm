@@ -1,0 +1,1393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>API function list (by category)</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../index.html" TARGET="_top"><img src="images/homeImg.png"></a></p>
+
+
+
+<h1><a href="apiOverview.htm">Regular API</a> function list (by category)</h1>
+
+
+<p class=infoBox>The list of API functions below allows you to access many V-REP parameters<a href="settings.htm"></a>. There are however too many parameters in V-REP to have a specific API function for each one of them. <em>Auxiliary</em> parameters can be accessed via a set of given functions that use <a href="objectParameterIDs.htm">object parameter IDs</a>. Refer also to  the <a href="apiConstants.htm#booleanParameters">global parameter IDs</a>.<br>
+</p>
+
+
+
+<h3 class=subsectionBar><a name="fileOperations"></a>File operations</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simCloseScene.htm">simCloseScene</a>
+<a href="regularApi/simSaveScene.htm">simSaveScene</a>
+<a href="regularApi/simLoadScene.htm">simLoadScene</a>
+<a href="regularApi/simSaveModel.htm">simSaveModel</a>
+<a href="regularApi/simLoadModel.htm">simLoadModel</a>
+<a href="regularApi/simDoesFileExist.htm">simDoesFileExist</a>
+<a href="regularApi/simImportShape.htm">simImportShape</a>
+<a href="regularApi/simImportMesh.htm">simImportMesh</a>
+<a href="regularApi/simExportMesh.htm">simExportMesh</a>
+<a href="regularApi/simExportIk.htm">simExportIk</a>
+<a href="regularApi/simLaunchExecutable.htm">simLaunchExecutable</a>
+<a href="regularApi/simFileDialog.htm">simFileDialog</a>
+<a href="regularApi/simCreateTexture.htm">simCreateTexture</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="HandleRetrieval"></a>General object handle retrieval</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simGetCollectionHandle.htm">simGetCollectionHandle</a>
+<a href="regularApi/simGetCollisionHandle.htm">simGetCollisionHandle</a>
+<a href="regularApi/simGetDistanceHandle.htm">simGetDistanceHandle</a>
+<a href="regularApi/simGetMechanismHandle.htm">simGetMechanismHandle</a>
+<a href="regularApi/simGetIkGroupHandle.htm">simGetIkGroupHandle</a>
+<a href="regularApi/simGetScriptHandle.htm">simGetScriptHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simGetObjectAssociatedWithScript.htm">simGetObjectAssociatedWithScript</a>
+<a href="regularApi/simGetObjects.htm">simGetObjects</a>
+<a href="regularApi/simGetObjectsInTree.htm">simGetObjectsInTree</a>
+<a href="regularApi/simGetCollectionObjects.htm">simGetCollectionObjects</a>
+<a href="regularApi/simGetNameSuffix.htm">simGetNameSuffix</a>
+<a href="regularApi/simSetNameSuffix.htm">simSetNameSuffix</a>
+<a href="regularApi/simSetReferencedHandles.htm">simSetReferencedHandles</a>
+<a href="regularApi/simGetReferencedHandles.htm">simGetReferencedHandles</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="mainFunctionalityHandling"></a>General functionality handling</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simHandleMainScript.htm">simHandleMainScript</a>
+<a href="regularApi/simHandleChildScripts.htm">simHandleChildScripts</a>
+<a href="regularApi/simHandleGeneralCallbackScript.htm">simHandleGeneralCallbackScript</a>
+<a href="regularApi/simLaunchThreadedChildScripts.htm">simLaunchThreadedChildScripts</a>
+<a href="regularApi/simResetScript.htm">simResetScript</a>
+<a href="regularApi/simHandleCollision.htm">simHandleCollision</a>
+<a href="regularApi/simResetCollision.htm">simResetCollision</a>
+<a href="regularApi/simHandleDistance.htm">simHandleDistance</a>
+<a href="regularApi/simResetDistance.htm">simResetDistance</a>
+<a href="regularApi/simHandleMechanism.htm">simHandleMechanism</a>
+<a href="regularApi/simHandleGraph.htm">simHandleGraph</a>
+<a href="regularApi/simResetGraph.htm">simResetGraph</a>
+<a href="regularApi/simHandleIkGroup.htm">simHandleIkGroup</a>
+<a href="regularApi/simHandleModule.htm">simHandleModule</a>
+<a href="regularApi/simHandleProximitySensor.htm">simHandleProximitySensor</a>
+<a href="regularApi/simResetProximitySensor.htm">simResetProximitySensor</a>
+<a href="regularApi/simHandleVisionSensor.htm">simHandleVisionSensor</a>
+<a href="regularApi/simResetVisionSensor.htm">simResetVisionSensor</a>
+<a href="regularApi/simHandleMill.htm">simHandleMill</a>
+<a href="regularApi/simResetMill.htm">simResetMill</a>
+<a href="regularApi/simApplyMilling.htm">simApplyMilling</a>
+<a href="regularApi/simResetMilling.htm">simResetMilling</a>
+<a href="regularApi/simHandleSensingStart.htm">simHandleSensingStart</a>
+<a href="regularApi/simHandleSimulationStart.htm">simHandleSimulationStart</a>
+<a href="regularApi/simGetExplicitHandling.htm">simGetExplicitHandling</a>
+<a href="regularApi/simSetExplicitHandling.htm">simSetExplicitHandling</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="collisionObject"></a>Collision detection functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetCollisionHandle.htm">simGetCollisionHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleCollision.htm">simHandleCollision</a>
+<a href="regularApi/simReadCollision.htm">simReadCollision</a>
+<a href="regularApi/simResetCollision.htm">simResetCollision</a>
+<a href="regularApi/simCheckCollision.htm">simCheckCollision</a>
+<a href="regularApi/simCheckCollisionEx.htm">simCheckCollisionEx</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#collisionObjects">collision object related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="distanceObject"></a>Minimum distance calculation functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetDistanceHandle.htm">simGetDistanceHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleDistance.htm">simHandleDistance</a>
+<a href="regularApi/simReadDistance.htm">simReadDistance</a>
+<a href="regularApi/simResetDistance.htm">simResetDistance</a>
+<a href="regularApi/simCheckDistance.htm">simCheckDistance</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#distanceObjects">distance object related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="generalIkFunctionality"></a>IK and geometric constraint solver functionalities</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetIkGroupHandle.htm">simGetIkGroupHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleIkGroup.htm">simHandleIkGroup</a>
+<a href="regularApi/simCheckIkGroup.htm">simCheckIkGroup</a>
+<a href="regularApi/simComputeJacobian.htm">simComputeJacobian</a>
+<a href="regularApi/simSetIkElementProperties.htm">simSetIkElementProperties</a>
+<a href="regularApi/simSetIkGroupProperties.htm">simSetIkGroupProperties</a>
+<a href="regularApi/simGetIkGroupMatrix.htm">simGetIkGroupMatrix</a>
+<a href="regularApi/simGetMechanismHandle.htm">simGetMechanismHandle</a>
+<a href="regularApi/simHandleMechanism.htm">simHandleMechanism</a>
+<a href="regularApi/simGetLinkDummy.htm">simGetLinkDummy</a>
+<a href="regularApi/simSetLinkDummy.htm">simSetLinkDummy</a>
+<a href="regularApi/simGenerateIkPath.htm">simGenerateIkPath</a>
+<a href="regularApi/simCreateIkGroup.htm">simCreateIkGroup</a>
+<a href="regularApi/simRemoveIkGroup.htm">simRemoveIkGroup</a>
+<a href="regularApi/simCreateIkElement.htm">simCreateIkElement</a>
+<a href="regularApi/simExportIk.htm">simExportIk</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#ikGroups">IK group</a> and <a href="objectParameterIDs.htm#gcsObjects">geometric constraint solver object</a> related parameters.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="motionPlanning" id="motionPlanning"></a><a name="pathPlanningObject"></a><a name="pathMotionPlanning" id="pathMotionPlanning"></a>Path/Motion planning functionality</h3>
+<pre class=lightGreyBox>
+<a href="omplApi.htm">OMPL plugin API functions</a> with some explanation <a href="pathAndMotionPlanningModules.htm">here</a>
+<a href="regularApi/simGetConfigForTipPose.htm">simGetConfigForTipPose</a>
+<a href="regularApi/simGenerateIkPath.htm">simGenerateIkPath</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="dynamicsFunctionality"></a>Dynamics functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simHandleDynamics.htm">simHandleDynamics</a>
+<a href="regularApi/simSetJointTargetPosition.htm">simSetJointTargetPosition</a>
+<a href="regularApi/simSetJointTargetVelocity.htm">simSetJointTargetVelocity</a>
+<a href="regularApi/simSetJointForce.htm">simSetJointForce</a>
+<a href="regularApi/simReadForceSensor.htm">simReadForceSensor</a>
+<a href="regularApi/simBreakForceSensor.htm">simBreakForceSensor</a>
+<a href="regularApi/simGetJointForce.htm">simGetJointForce</a>
+<a href="regularApi/simAddForce.htm">simAddForce</a>
+<a href="regularApi/simAddForceAndTorque.htm">simAddForceAndTorque</a>
+<a href="regularApi/simGetVelocity.htm">simGetVelocity</a>
+<a href="regularApi/simGetLinkDummy.htm">simGetLinkDummy</a>
+<a href="regularApi/simSetLinkDummy.htm">simSetLinkDummy</a>
+<a href="regularApi/simResetDynamicObject.htm">simResetDynamicObject</a>
+<a href="regularApi/simAddParticleObject.htm">simAddParticleObject</a>
+<a href="regularApi/simAddParticleObjectItem.htm">simAddParticleObjectItem</a>
+<a href="regularApi/simRemoveParticleObject.htm">simRemoveParticleObject</a>
+<a href="regularApi/simGetContactInfo.htm">simGetContactInfo</a>
+<a href="regularApi/simRegisterContactCallback.htm">simRegisterContactCallback</a>
+<a href="regularApi/simGetShapeMassAndInertia.htm">simGetShapeMassAndInertia</a>
+<a href="regularApi/simSetShapeMassAndInertia.htm">simSetShapeMassAndInertia</a>
+<a href="regularApi/simComputeMassAndInertia.htm">simComputeMassAndInertia</a>
+<a href="regularApi/simCreateForceSensor.htm">simCreateForceSensor</a>
+<a href="regularApi/simConvexDecompose.htm">simConvexDecompose</a>
+<a href="regularApi/simGetQHull.htm">simGetQHull</a>
+<a href="regularApi/simGetDecimatedMesh.htm">simGetDecimatedMesh</a>
+<a href="regularApi/simRegisterJointCtrlCallback.htm">simRegisterJointCtrlCallback</a>
+<a href="regularApi/simSetShapeMaterial.htm">simSetShapeMaterial</a>
+<a href="regularApi/simGetEngineFloatParameter.htm">simGetEngineFloatParameter</a>
+<a href="regularApi/simGetEngineInt32Parameter.htm">simGetEngineInt32Parameter</a>
+<a href="regularApi/simGetEngineBoolParameter.htm">simGetEngineBoolParameter</a>
+<a href="regularApi/simSetEngineFloatParameter.htm">simSetEngineFloatParameter</a>
+<a href="regularApi/simSetEngineInt32Parameter.htm">simSetEngineInt32Parameter</a>
+<a href="regularApi/simSetEngineBoolParameter.htm">simSetEngineBoolParameter</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="proximitySensor"></a>Proximity sensor functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleProximitySensor.htm">simHandleProximitySensor</a>
+<a href="regularApi/simReadProximitySensor.htm">simReadProximitySensor</a>
+<a href="regularApi/simResetProximitySensor.htm">simResetProximitySensor</a>
+<a href="regularApi/simCheckProximitySensor.htm">simCheckProximitySensor</a>
+<a href="regularApi/simCheckProximitySensorEx.htm">simCheckProximitySensorEx</a>
+<a href="regularApi/simCheckProximitySensorEx2.htm">simCheckProximitySensorEx2</a>
+<a href="regularApi/simCreateProximitySensor.htm">simCreateProximitySensor</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#proximitySensors">proximity sensor related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="visionSensor"></a>Vision sensor functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleVisionSensor.htm">simHandleVisionSensor</a>
+<a href="regularApi/simReadVisionSensor.htm">simReadVisionSensor</a>
+<a href="regularApi/simResetVisionSensor.htm">simResetVisionSensor</a>
+<a href="regularApi/simCheckVisionSensor.htm">simCheckVisionSensor</a>
+<a href="regularApi/simCheckVisionSensorEx.htm">simCheckVisionSensorEx</a>
+<a href="regularApi/simGetVisionSensorDepthBuffer.htm">simGetVisionSensorDepthBuffer</a>
+<a href="regularApi/simGetVisionSensorCharImage.htm">simGetVisionSensorCharImage</a>
+<a href="regularApi/simSetVisionSensorCharImage.htm">simSetVisionSensorCharImage</a>
+<a href="regularApi/simGetVisionSensorImage.htm">simGetVisionSensorImage</a>
+<a href="regularApi/simSetVisionSensorImage.htm">simSetVisionSensorImage</a>
+<a href="regularApi/simGetVisionSensorResolution.htm">simGetVisionSensorResolution</a>
+<a href="regularApi/simGetVisionSensorFilter.htm">simGetVisionSensorFilter</a>
+<a href="regularApi/simSetVisionSensorFilter.htm">simSetVisionSensorFilter</a>
+<a href="regularApi/simAdjustView.htm">simAdjustView</a>
+<a href="regularApi/simCreateVisionSensor.htm">simCreateVisionSensor</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#visionSensors">vision sensor related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="forceSensor"></a>Force sensor functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simReadForceSensor.htm">simReadForceSensor</a>
+<a href="regularApi/simBreakForceSensor.htm">simBreakForceSensor</a>
+<a href="regularApi/simCreateForceSensor.htm">simCreateForceSensor</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#forceSensors">force sensor related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="millingFunctionality"></a>Milling functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleMill.htm">simHandleMill</a>
+<a href="regularApi/simResetMill.htm">simResetMill</a>
+<a href="regularApi/simApplyMilling.htm">simApplyMilling</a>
+<a href="regularApi/simResetMilling.htm">simResetMilling</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#mills">mill related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="jointObject"></a>Joint object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simSetJointPosition.htm">simSetJointPosition</a>
+<a href="regularApi/simGetJointPosition.htm">simGetJointPosition</a>
+<a href="regularApi/simSetJointTargetPosition.htm">simSetJointTargetPosition</a>
+<a href="regularApi/simGetJointTargetPosition.htm">simGetJointTargetPosition</a>
+<a href="regularApi/simSetJointTargetVelocity.htm">simSetJointTargetVelocity</a>
+<a href="regularApi/simGetJointTargetVelocity.htm">simGetJointTargetVelocity</a>
+<a href="regularApi/simSetJointForce.htm">simSetJointForce</a>
+<a href="regularApi/simSetSphericalJointMatrix.htm">simSetSphericalJointMatrix</a>
+<a href="regularApi/simGetJointMatrix.htm">simGetJointMatrix</a>
+<a href="regularApi/simSetJointInterval.htm">simSetJointInterval</a>
+<a href="regularApi/simGetJointInterval.htm">simGetJointInterval</a>
+<a href="regularApi/simGetJointType.htm">simGetJointType</a>
+<a href="regularApi/simCreateJoint.htm">simCreateJoint</a>
+<a href="regularApi/simSetJointMode.htm">simSetJointMode</a>
+<a href="regularApi/simGetJointMode.htm">simGetJointMode</a>
+<a href="regularApi/simGetJointForce.htm">simGetJointForce</a>
+<a href="regularApi/simRegisterJointCtrlCallback.htm">simRegisterJointCtrlCallback</a>
+<a href="regularApi/simRMLPos.htm">simRMLPos</a>
+<a href="regularApi/simRMLVel.htm">simRMLVel</a>
+<a href="regularApi/simRMLMoveToJointPositions.htm">simRMLMoveToJointPositions</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+<a href="regularApi/simGetEngineFloatParameter.htm">simGetEngineFloatParameter</a>
+<a href="regularApi/simGetEngineInt32Parameter.htm">simGetEngineInt32Parameter</a>
+<a href="regularApi/simGetEngineBoolParameter.htm">simGetEngineBoolParameter</a>
+<a href="regularApi/simSetEngineFloatParameter.htm">simSetEngineFloatParameter</a>
+<a href="regularApi/simSetEngineInt32Parameter.htm">simSetEngineInt32Parameter</a>
+<a href="regularApi/simSetEngineBoolParameter.htm">simSetEngineBoolParameter</a>
+
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#joints">joint related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="PathObject"></a>Path object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simSetPathPosition.htm">simSetPathPosition</a>
+<a href="regularApi/simGetPathPosition.htm">simGetPathPosition</a>
+<a href="regularApi/simGetPathLength.htm">simGetPathLength</a>
+<a href="regularApi/simGetOrientationOnPath.htm">simGetOrientationOnPath</a>
+<a href="regularApi/simGetPositionOnPath.htm">simGetPositionOnPath</a>
+<a href="regularApi/simGetDataOnPath.htm">simGetDataOnPath</a>
+<a href="regularApi/simGetClosestPositionOnPath.htm">simGetClosestPositionOnPath</a>
+<a href="regularApi/simFollowPath.htm">simFollowPath</a>
+<a href="regularApi/simMoveToObject.htm">simMoveToObject</a>
+<a href="regularApi/simCreatePath.htm">simCreatePath</a>
+<a href="regularApi/simInsertPathCtrlPoints.htm">simInsertPathCtrlPoints</a>
+<a href="regularApi/simCutPathCtrlPoints.htm">simCutPathCtrlPoints</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#paths">path related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="shapeObject"></a>Shape object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simAddForce.htm">simAddForce</a>
+<a href="regularApi/simAddForceAndTorque.htm">simAddForceAndTorque</a>
+<a href="regularApi/simGetVelocity.htm">simGetVelocity</a>
+<a href="regularApi/simGetShapeColor.htm">simGetShapeColor</a>
+<a href="regularApi/simSetShapeColor.htm">simSetShapeColor</a>
+<a href="regularApi/simGetShapeTextureId.htm">simGetShapeTextureId</a>
+<a href="regularApi/simSetShapeTexture.htm">simSetShapeTexture</a>
+<a href="regularApi/simCreateMeshShape.htm">simCreateMeshShape</a>
+<a href="regularApi/simCreatePureShape.htm">simCreatePureShape</a>
+<a href="regularApi/simCreateHeightfieldShape.htm">simCreateHeightfieldShape</a>
+<a href="regularApi/simGetShapeMesh.htm">simGetShapeMesh</a>
+<a href="regularApi/simGetShapeGeomInfo.htm">simGetShapeGeomInfo</a>
+<a href="regularApi/simGetShapeMassAndInertia.htm">simGetShapeMassAndInertia</a>
+<a href="regularApi/simSetShapeMassAndInertia.htm">simSetShapeMassAndInertia</a>
+<a href="regularApi/simComputeMassAndInertia.htm">simComputeMassAndInertia</a>
+<a href="regularApi/simGroupShapes.htm">simGroupShapes</a>
+<a href="regularApi/simUngroupShape.htm">simUngroupShape</a>
+<a href="regularApi/simImportShape.htm">simImportShape</a>
+<a href="regularApi/simConvexDecompose.htm">simConvexDecompose</a>
+<a href="regularApi/simGetQHull.htm">simGetQHull</a>
+<a href="regularApi/simGetDecimatedMesh.htm">simGetDecimatedMesh</a>
+<a href="regularApi/simReorientShapeBoundingBox.htm">simReorientShapeBoundingBox</a>
+<a href="regularApi/simSetShapeMaterial.htm">simSetShapeMaterial</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+<a href="regularApi/simGetEngineFloatParameter.htm">simGetEngineFloatParameter</a>
+<a href="regularApi/simGetEngineInt32Parameter.htm">simGetEngineInt32Parameter</a>
+<a href="regularApi/simGetEngineBoolParameter.htm">simGetEngineBoolParameter</a>
+<a href="regularApi/simSetEngineFloatParameter.htm">simSetEngineFloatParameter</a>
+<a href="regularApi/simSetEngineInt32Parameter.htm">simSetEngineInt32Parameter</a>
+<a href="regularApi/simSetEngineBoolParameter.htm">simSetEngineBoolParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#shapes">shape related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="GraphObject"></a>Graph object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simHandleGraph.htm">simHandleGraph</a>
+<a href="regularApi/simResetGraph.htm">simResetGraph</a>
+<a href="regularApi/simSetGraphUserData.htm">simSetGraphUserData</a>
+<a href="regularApi/simAdjustView.htm">simAdjustView</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#graphs">graph related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="lightObject"></a>Light object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simGetLightParameters.htm">simGetLightParameters</a>
+<a href="regularApi/simSetLightParameters.htm">simSetLightParameters</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#lights">light related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="cameraObject"></a>Camera object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simCameraFitToView.htm">simCameraFitToView</a>
+<a href="regularApi/simAdjustView.htm">simAdjustView</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#cameras">camera related parameters</a>.</pre>
+<br>
+
+<h3 class=subsectionBar><a name="dummyObject"></a>Dummy object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simCreateDummy.htm">simCreateDummy</a>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simGetLinkDummy.htm">simGetLinkDummy</a>
+<a href="regularApi/simSetLinkDummy.htm">simSetLinkDummy</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#dummies">dummy related parameters</a>.</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="mirrorObject"></a>Mirror object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#mirrors">mirror related parameters</a>.</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="octree"></a>Octree functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simCreateOctree.htm">simCreateOctree</a>
+<a href="regularApi/simInsertVoxelsIntoOctree.htm">simInsertVoxelsIntoOctree</a>
+<a href="regularApi/simRemoveVoxelsFromOctree.htm">simRemoveVoxelsFromOctree</a>
+<a href="regularApi/simInsertObjectIntoOctree.htm">simInsertObjectIntoOctree</a>
+<a href="regularApi/simSubtractObjectFromOctree.htm">simSubtractObjectFromOctree</a>
+<a href="regularApi/simGetOctreeVoxels.htm">simGetOctreeVoxels</a>
+<a href="regularApi/simCheckOctreePointOccupancy.htm">simCheckOctreePointOccupancy</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#octrees">octree related parameters</a>.</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="pointCloud"></a>Point cloud functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simCreatePointCloud.htm">simCreatePointCloud</a>
+<a href="regularApi/simGetPointCloudOptions.htm">simGetPointCloudOptions</a>
+<a href="regularApi/simSetPointCloudOptions.htm">simSetPointCloudOptions</a>
+<a href="regularApi/simInsertPointsIntoPointCloud.htm">simInsertPointsIntoPointCloud</a>
+<a href="regularApi/simRemovePointsFromPointCloud.htm">simRemovePointsFromPointCloud</a>
+<a href="regularApi/simSubtractObjectFromPointCloud.htm">simSubtractObjectFromPointCloud</a>
+<a href="regularApi/simIntersectPointsWithPointCloud.htm">simIntersectPointsWithPointCloud</a>
+<a href="regularApi/simInsertObjectIntoPointCloud.htm">simInsertObjectIntoPointCloud</a>
+<a href="regularApi/simGetPointCloudPoints.htm">simGetPointCloudPoints</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#pointClouds">point cloud related parameters</a>.</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="sceneObjectFunctionality"></a>Scene object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectHandle.htm">simGetObjectHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simRemoveObject.htm">simRemoveObject</a>
+<a href="regularApi/simRemoveModel.htm">simRemoveModel</a>
+<a href="regularApi/simGetObjectName.htm">simGetObjectName</a>
+<a href="regularApi/simSetObjectName.htm">simSetObjectName</a>
+<a href="regularApi/simGetObjects.htm">simGetObjects</a>
+<a href="regularApi/simGetObjectsInTree.htm">simGetObjectsInTree</a>
+<a href="regularApi/simGetObjectParent.htm">simGetObjectParent</a>
+<a href="regularApi/simSetObjectParent.htm">simSetObjectParent</a>
+<a href="regularApi/simGetObjectChild.htm">simGetObjectChild</a>
+<a href="regularApi/simGetObjectMatrix.htm">simGetObjectMatrix</a>
+<a href="regularApi/simSetObjectMatrix.htm">simSetObjectMatrix</a>
+<a href="regularApi/simGetObjectPosition.htm">simGetObjectPosition</a>
+<a href="regularApi/simSetObjectPosition.htm">simSetObjectPosition</a>
+<a href="regularApi/simGetObjectOrientation.htm">simGetObjectOrientation</a>
+<a href="regularApi/simSetObjectOrientation.htm">simSetObjectOrientation</a>
+<a href="regularApi/simGetObjectQuaternion.htm">simGetObjectQuaternion</a>
+<a href="regularApi/simSetObjectQuaternion.htm">simSetObjectQuaternion</a>
+<a href="regularApi/simGetObjectType.htm">simGetObjectType</a>
+<a href="regularApi/simGetObjectUniqueIdentifier.htm">simGetObjectUniqueIdentifier</a>
+<a href="regularApi/simGetObjectConfiguration.htm">simGetObjectConfiguration</a>
+<a href="regularApi/simSetObjectConfiguration.htm">simSetObjectConfiguration</a>
+<a href="regularApi/simGetObjectSelection.htm">simGetObjectSelection</a>
+<a href="regularApi/simGetObjectSelectionSize.htm">simGetObjectSelectionSize</a>
+<a href="regularApi/simGetObjectSizeFactor.htm">simGetObjectSizeFactor</a>
+<a href="regularApi/simGetObjectSizeValues.htm">simGetObjectSizeValues</a>
+<a href="regularApi/simSetObjectSizeValues.htm">simSetObjectSizeValues</a>
+<a href="regularApi/simGetObjectLastSelection.htm">simGetObjectLastSelection</a>
+<a href="regularApi/simIsObjectInSelection.htm">simIsObjectInSelection</a>
+<a href="regularApi/simAddObjectToSelection.htm">simAddObjectToSelection</a>
+<a href="regularApi/simCopyPasteObjects.htm">simCopyPasteObjects</a>
+<a href="regularApi/simScaleObject.htm">simScaleObject</a>
+<a href="regularApi/simScaleObjects.htm">simScaleObjects</a>
+<a href="regularApi/simGetConfigurationTree.htm">simGetConfigurationTree</a>
+<a href="regularApi/simSetConfigurationTree.htm">simSetConfigurationTree</a>
+<a href="regularApi/simGetObjectProperty.htm">simGetObjectProperty</a>
+<a href="regularApi/simSetObjectProperty.htm">simSetObjectProperty</a>
+<a href="regularApi/simGetObjectSpecialProperty.htm">simGetObjectSpecialProperty</a>
+<a href="regularApi/simSetObjectSpecialProperty.htm">simSetObjectSpecialProperty</a>
+<a href="regularApi/simMoveToObject.htm">simMoveToObject</a>
+<a href="regularApi/simRMLMoveToPosition.htm">simRMLMoveToPosition</a>
+<a href="regularApi/simFollowPath.htm">simFollowPath</a>
+<a href="regularApi/simRMLPos.htm">simRMLPos</a>
+<a href="regularApi/simRMLVel.htm">simRMLVel</a>
+<a href="regularApi/simGetObjectVelocity.htm">simGetObjectVelocity</a>
+<a href="regularApi/simReadCustomDataBlock.htm">simReadCustomDataBlock</a>
+<a href="regularApi/simReadCustomDataBlockTags.htm">simReadCustomDataBlockTags</a>
+<a href="regularApi/simWriteCustomDataBlock.htm">simWriteCustomDataBlock</a>
+<a href="regularApi/simSetReferencedHandles.htm">simSetReferencedHandles</a>
+<a href="regularApi/simGetReferencedHandles.htm">simGetReferencedHandles</a>
+<a href="regularApi/simGetObjectInt32Parameter.htm">simGetObjectInt32Parameter</a>
+<a href="regularApi/simSetObjectInt32Parameter.htm">simSetObjectInt32Parameter</a>
+<a href="regularApi/simGetObjectFloatParameter.htm">simGetObjectFloatParameter</a>
+<a href="regularApi/simSetObjectFloatParameter.htm">simSetObjectFloatParameter</a>
+<a href="regularApi/simGetObjectStringParameter.htm">simGetObjectStringParameter</a>
+<a href="regularApi/simSetObjectStringParameter.htm">simSetObjectStringParameter</a>
+
+See also the simSetObjectXXXParameter and simGetObjectXXXParameter functions
+and their <a href="objectParameterIDs.htm#sceneObjects">scene object related parameters</a>.</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="collections"></a>Collections</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetCollectionHandle.htm">simGetCollectionHandle</a>
+<a href="regularApi/simGetCollectionName.htm">simGetCollectionName</a>
+<a href="regularApi/simSetCollectionName.htm">simSetCollectionName</a>
+<a href="regularApi/simGetCollectionObjects.htm">simGetCollectionObjects</a>
+<a href="regularApi/simCreateCollection.htm">simCreateCollection</a>
+<a href="regularApi/simAddObjectToCollection.htm">simAddObjectToCollection</a>
+<a href="regularApi/simEmptyCollection.htm">simEmptyCollection</a>
+<a href="regularApi/simRemoveCollection.htm">simRemoveCollection</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="wirelessFunctionality"></a>Wireless communication functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSendData.htm">simSendData</a>
+<a href="regularApi/simReceiveData.htm">simReceiveData</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="serialCommunicationFunctionality"></a>Serial communication functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSerialCheck.htm">simSerialCheck</a>
+<a href="regularApi/simSerialClose.htm">simSerialClose</a>
+<a href="regularApi/simSerialOpen.htm">simSerialOpen</a>
+<a href="regularApi/simSerialRead.htm">simSerialRead</a>
+<a href="regularApi/simSerialSend.htm">simSerialSend</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="TubeCommunicationFunctionality"></a>Tube communication functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simTubeClose.htm">simTubeClose</a>
+<a href="regularApi/simTubeOpen.htm">simTubeOpen</a>
+<a href="regularApi/simTubeRead.htm">simTubeRead</a>
+<a href="regularApi/simTubeStatus.htm">simTubeStatus</a>
+<a href="regularApi/simTubeWrite.htm">simTubeWrite</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="drawingObject"></a>Drawing object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAddDrawingObject.htm">simAddDrawingObject</a>
+<a href="regularApi/simAddDrawingObjectItem.htm">simAddDrawingObjectItem</a>
+<a href="regularApi/simRemoveDrawingObject.htm">simRemoveDrawingObject</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="bannerFunctions"></a>Banner functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAddBanner.htm">simAddBanner</a>
+<a href="regularApi/simRemoveBanner.htm">simRemoveBanner</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="particleObject"></a>Particle object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAddParticleObject.htm">simAddParticleObject</a>
+<a href="regularApi/simAddParticleObjectItem.htm">simAddParticleObjectItem</a>
+<a href="regularApi/simRemoveParticleObject.htm">simRemoveParticleObject</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="genericDialogs"></a>Generic dialog functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simDisplayDialog.htm">simDisplayDialog</a>
+<a href="regularApi/simGetDialogInput.htm">simGetDialogInput</a>
+<a href="regularApi/simGetDialogResult.htm">simGetDialogResult</a>
+<a href="regularApi/simEndDialog.htm">simEndDialog</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="modelFunctionality"></a>Model functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetModelProperty.htm">simGetModelProperty</a>
+<a href="regularApi/simSetModelProperty.htm">simSetModelProperty</a>
+<a href="regularApi/simSaveModel.htm">simSaveModel</a>
+<a href="regularApi/simLoadModel.htm">simLoadModel</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="sceneObjectSelectionFunctionality"></a>Object selection functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetObjectSelection.htm">simGetObjectSelection</a>
+<a href="regularApi/simGetObjectSelectionSize.htm">simGetObjectSelectionSize</a>
+<a href="regularApi/simGetObjectLastSelection.htm">simGetObjectLastSelection</a>
+<a href="regularApi/simIsObjectInSelection.htm">simIsObjectInSelection</a>
+<a href="regularApi/simRemoveObjectFromSelection.htm">simRemoveObjectFromSelection</a>
+<a href="regularApi/simAddObjectToSelection.htm">simAddObjectToSelection</a></pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="sceneObjectCreationFunctionality"></a>Object creation functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simCreateDummy.htm">simCreateDummy</a>
+<a href="regularApi/simCreateForceSensor.htm">simCreateForceSensor</a>
+<a href="regularApi/simCreateHeightfieldShape.htm">simCreateHeightfieldShape</a>
+<a href="regularApi/simCreateJoint.htm">simCreateJoint</a>
+<a href="regularApi/simCreateMeshShape.htm">simCreateMeshShape</a>
+<a href="regularApi/simCreateProximitySensor.htm">simCreateProximitySensor</a>
+<a href="regularApi/simCreatePureShape.htm">simCreatePureShape</a>
+<a href="regularApi/simCreateVisionSensor.htm">simCreateVisionSensor</a>
+<a href="regularApi/simCreatePath.htm">simCreatePath</a>
+<a href="regularApi/simCreateOctree.htm">simCreateOctree</a>
+<a href="regularApi/simCreatePointCloud.htm">simCreatePointCloud</a>
+<a href="regularApi/simCreateTexture.htm">simCreateTexture</a>
+<a href="regularApi/simCreateIkGroup.htm">simCreateIkGroup</a>
+<a href="regularApi/simCreateIkElement.htm">simCreateIkElement</a></pre>
+<br>
+
+
+
+
+<h3 class=subsectionBar>Script object functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetScriptHandle.htm">simGetScriptHandle</a>
+<a href="regularApi/simIsHandleValid.htm">simIsHandleValid</a>
+<a href="regularApi/simAddScript.htm">simAddScript</a>
+<a href="regularApi/simRemoveScript.htm">simRemoveScript</a>
+<a href="regularApi/simGetScript.htm">simGetScript</a>
+<a href="regularApi/simGetScriptAssociatedWithObject.htm">simGetScriptAssociatedWithObject</a>
+<a href="regularApi/simGetCustomizationScriptAssociatedWithObject.htm">simGetCustomizationScriptAssociatedWithObject</a>
+<a href="regularApi/simGetObjectAssociatedWithScript.htm">simGetObjectAssociatedWithScript</a>
+<a href="regularApi/simGetScriptAttribute.htm">simGetScriptAttribute</a>
+<a href="regularApi/simSetScriptAttribute.htm">simSetScriptAttribute</a>
+<a href="regularApi/simCallScriptFunction.htm">simCallScriptFunction</a>
+<a href="regularApi/simCallScriptFunctionEx.htm">simCallScriptFunctionEx</a>
+<a href="regularApi/simHandleMainScript.htm">simHandleMainScript</a>
+<a href="regularApi/simHandleChildScripts.htm">simHandleChildScripts</a>
+<a href="regularApi/simHandleGeneralCallbackScript.htm">simHandleGeneralCallbackScript</a>
+<a href="regularApi/simLaunchThreadedChildScripts.htm">simLaunchThreadedChildScripts</a>
+<a href="regularApi/simResetScript.htm">simResetScript</a>
+<a href="regularApi/simGetScriptName.htm">simGetScriptName</a>
+<a href="regularApi/simGetScriptProperty.htm">simGetScriptProperty</a>
+<a href="regularApi/simGetScriptText.htm">simGetScriptText</a>
+<a href="regularApi/simSetScriptText.htm">simSetScriptText</a>
+<a href="regularApi/simGetScriptExecutionCount.htm">simGetScriptExecutionCount</a>
+<a href="regularApi/simIsScriptExecutionThreaded.htm">simIsScriptExecutionThreaded</a>
+<a href="regularApi/simSetScriptRawBuffer.htm">simSetScriptRawBuffer</a>
+<a href="regularApi/simGetScriptRawBuffer.htm">simGetScriptRawBuffer</a>
+<a href="regularApi/simReleaseScriptRawBuffer.htm">simReleaseScriptRawBuffer</a>
+<a href="regularApi/simSetScriptSimulationParameter.htm">simSetScriptSimulationParameter</a>
+<a href="regularApi/simGetScriptSimulationParameter.htm">simGetScriptSimulationParameter</a>
+<a href="regularApi/simReadCustomDataBlock.htm">simReadCustomDataBlock</a>
+<a href="regularApi/simReadCustomDataBlockTags.htm">simReadCustomDataBlockTags</a>
+<a href="regularApi/simWriteCustomDataBlock.htm">simWriteCustomDataBlock</a>
+<a href="regularApi/simRegisterScriptCallbackFunction.htm">simRegisterScriptCallbackFunction</a>
+<a href="regularApi/simRegisterScriptVariable.htm">simRegisterScriptVariable</a>
+<a href="regularApi/simSetScriptVariable.htm">simSetScriptVariable</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="SimulationFunctionality"></a>Simulation functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simStartSimulation.htm">simStartSimulation</a>
+<a href="regularApi/simPauseSimulation.htm">simPauseSimulation</a>
+<a href="regularApi/simStopSimulation.htm">simStopSimulation</a>
+<a href="regularApi/simAdvanceSimulationByOneStep.htm">simAdvanceSimulationByOneStep</a>
+<a href="regularApi/simGetSimulationState.htm">simGetSimulationState</a>
+<a href="regularApi/simGetSimulationTime.htm">simGetSimulationTime</a>
+<a href="regularApi/simGetSimulationTimeStep.htm">simGetSimulationTimeStep</a>
+<a href="regularApi/simGetSimulationPassesPerRenderingPass.htm">simGetSimulationPassesPerRenderingPass</a>
+<a href="regularApi/simSetSimulationPassesPerRenderingPass.htm">simSetSimulationPassesPerRenderingPass</a>
+<a href="regularApi/simGetRealTimeSimulation.htm">simGetRealTimeSimulation</a>
+<a href="regularApi/simAdjustRealTimeTimer.htm">simAdjustRealTimeTimer</a>
+<a href="regularApi/simIsRealTimeSimulationStepNeeded.htm">simIsRealTimeSimulationStepNeeded</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="threadRelatedFunctionality"></a>Thread related functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSetThreadSwitchTiming.htm">simSetThreadSwitchTiming</a>
+<a href="regularApi/simGetThreadAutomaticSwitch.htm">simGetThreadAutomaticSwitch</a>
+<a href="regularApi/simSetThreadAutomaticSwitch.htm">simSetThreadAutomaticSwitch</a>
+<a href="regularApi/simSwitchThread.htm">simSwitchThread</a>
+<a href="regularApi/simSetThreadResumeLocation.htm">simSetThreadResumeLocation</a>
+<a href="regularApi/simResumeThreads.htm">simResumeThreads</a>
+<a href="regularApi/simIsScriptExecutionThreaded.htm">simIsScriptExecutionThreaded</a>
+<a href="regularApi/simSetThreadIsFree.htm">simSetThreadIsFree</a>
+<a href="regularApi/simLaunchExecutable.htm">simLaunchExecutable</a>
+<a href="regularApi/simGetThreadId.htm">simGetThreadId</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar>Customization functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simLoadModule.htm">simLoadModule</a>
+<a href="regularApi/simSendModuleMessage.htm">simSendModuleMessage</a>
+<a href="regularApi/simUnloadModule.htm">simUnloadModule</a>
+<a href="regularApi/simBroadcastMessage.htm">simBroadcastMessage</a>
+<a href="regularApi/simAddModuleMenuEntry.htm">simAddModuleMenuEntry</a>
+<a href="regularApi/simSetModuleMenuItemState.htm">simSetModuleMenuItemState</a>
+<a href="regularApi/simGetSimulatorMessage.htm">simGetSimulatorMessage</a>
+<a href="regularApi/simRegisterContactCallback.htm">simRegisterContactCallback</a>
+<a href="regularApi/simRegisterJointCtrlCallback.htm">simRegisterJointCtrlCallback</a>
+<a href="regularApi/simFileDialog.htm">simFileDialog</a>
+<a href="regularApi/simMsgBox.htm">simMsgBox</a>
+<a href="regularApi/simQuitSimulator.htm">simQuitSimulator</a>
+<a href="regularApi/simGetThreadId.htm">simGetThreadId</a>
+<a href="regularApi/simEnableEventCallback.htm">simEnableEventCallback</a>
+<a href="regularApi/simReadCustomDataBlock.htm">simReadCustomDataBlock</a>
+<a href="regularApi/simReadCustomDataBlockTags.htm">simReadCustomDataBlockTags</a>
+<a href="regularApi/simWriteCustomDataBlock.htm">simWriteCustomDataBlock</a>
+<a href="regularApi/simHandleGeneralCallbackScript.htm">simHandleGeneralCallbackScript</a>
+<a href="regularApi/simSetScriptVariable.htm">simSetScriptVariable</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simOpenTextEditor.htm">simOpenTextEditor</a>
+<a href="regularApi/simSetReferencedHandles.htm">simSetReferencedHandles</a>
+<a href="regularApi/simGetReferencedHandles.htm">simGetReferencedHandles</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="customizingLuaFunctions"></a>Customizing Lua function</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simRegisterScriptCallbackFunction.htm">simRegisterScriptCallbackFunction</a>
+<a href="regularApi/simRegisterScriptVariable.htm">simRegisterScriptVariable</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="luaBool"></a>Lua boolean functions</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simBoolAnd32.htm">simBoolAnd32</a>
+<a href="regularApi/simBoolOr32.htm">simBoolOr32</a>
+<a href="regularApi/simBoolXor32.htm">simBoolXor32</a>
+</pre>
+<br>
+
+
+
+
+<h3 class=subsectionBar>C-API only functions (not available in Lua)</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSendModuleMessage.htm">simSendModuleMessage</a>
+<a href="regularApi/simBroadcastMessage.htm">simBroadcastMessage</a>
+<a href="regularApi/simAddModuleMenuEntry.htm">simAddModuleMenuEntry</a>
+<a href="regularApi/simSetModuleMenuItemState.htm">simSetModuleMenuItemState</a>
+<a href="regularApi/simGetMainWindow.htm">simGetMainWindow</a>
+<a href="regularApi/simRunSimulator.htm">simRunSimulator</a>
+<a href="regularApi/simCreateBuffer.htm">simCreateBuffer</a>
+<a href="regularApi/simReleaseBuffer.htm">simReleaseBuffer</a>
+<a href="regularApi/simAddScript.htm">simAddScript</a>
+<a href="regularApi/simGetScript.htm">simGetScript</a>
+<a href="regularApi/simHandleMainScript.htm">simHandleMainScript</a>
+<a href="regularApi/simHandleGeneralCallbackScript.htm">simHandleGeneralCallbackScript</a>
+<a href="regularApi/simResetScript.htm">simResetScript</a>
+<a href="regularApi/simGetScriptProperty.htm">simGetScriptProperty</a>
+<a href="regularApi/simAssociateScriptWithObject.htm">simAssociateScriptWithObject</a>
+<a href="regularApi/simSetScriptText.htm">simSetScriptText</a>
+<a href="regularApi/simSetScriptRawBuffer.htm">simSetScriptRawBuffer</a>
+<a href="regularApi/simGetScriptRawBuffer.htm">simGetScriptRawBuffer</a>
+<a href="regularApi/simRegisterScriptCallbackFunction.htm">simRegisterScriptCallbackFunction</a>
+<a href="regularApi/simRegisterScriptVariable.htm">simRegisterScriptVariable</a>
+<a href="regularApi/simCloseScene.htm">simCloseScene</a>
+<a href="regularApi/simDoesFileExist.htm">simDoesFileExist</a>
+<a href="regularApi/simAdvanceSimulationByOneStep.htm">simAdvanceSimulationByOneStep</a>
+<a href="regularApi/simGetSimulationPassesPerRenderingPass.htm">simGetSimulationPassesPerRenderingPass</a>
+<a href="regularApi/simAdjustRealTimeTimer.htm">simAdjustRealTimeTimer</a>
+<a href="regularApi/simIsRealTimeSimulationStepNeeded.htm">simIsRealTimeSimulationStepNeeded</a>
+<a href="regularApi/simTransformVector.htm">simTransformVector</a>
+<a href="regularApi/simRegisterContactCallback.htm">simRegisterContactCallback</a>
+<a href="regularApi/simRegisterJointCtrlCallback.htm">simRegisterJointCtrlCallback</a>
+<a href="regularApi/simEnableEventCallback.htm">simEnableEventCallback</a>
+<a href="regularApi/simLockResources.htm">simLockResources</a>
+<a href="regularApi/simUnlockResources.htm">simUnlockResources</a>
+<a href="regularApi/simSetScriptVariable.htm">simSetScriptVariable</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar>Lua-API only functions (not available in C/C++)</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simOpenModule.htm">simOpenModule</a>
+<a href="regularApi/simHandleModule.htm">simHandleModule</a>
+<a href="regularApi/simCloseModule.htm">simCloseModule</a>
+<a href="regularApi/simBoolAnd32.htm">simBoolAnd32</a>
+<a href="regularApi/simBoolOr32.htm">simBoolOr32</a>
+<a href="regularApi/simBoolXor32.htm">simBoolXor32</a>
+<a href="regularApi/simGetScriptExecutionCount.htm">simGetScriptExecutionCount</a>
+<a href="regularApi/simIsScriptExecutionThreaded.htm">simIsScriptExecutionThreaded</a>
+<a href="regularApi/simHandleChildScripts.htm">simHandleChildScripts</a>
+<a href="regularApi/simLaunchThreadedChildScripts.htm">simLaunchThreadedChildScripts</a>
+<a href="regularApi/simMultiplyVector.htm">simMultiplyVector</a>
+<a href="regularApi/simSetThreadSwitchTiming.htm">simSetThreadSwitchTiming</a>
+<a href="regularApi/simWaitForSignal.htm">simWaitForSignal</a>
+<a href="regularApi/simMoveToObject.htm">simMoveToObject</a>
+<a href="regularApi/simFollowPath.htm">simFollowPath</a>
+<a href="regularApi/simPackUInt8Table.htm">simPackUInt8Table</a>
+<a href="regularApi/simPackDoubleTable.htm">simPackDoubleTable</a>
+<a href="regularApi/simPackFloatTable.htm">simPackFloatTable</a>
+<a href="regularApi/simPackInt32Table.htm">simPackInt32Table</a>
+<a href="regularApi/simPackUInt32Table.htm">simPackUInt32Table</a>
+<a href="regularApi/simPackUInt16Table.htm">simPackUInt16Table</a>
+<a href="regularApi/simUnpackUInt8Table.htm">simUnpackUInt8Table</a>
+<a href="regularApi/simUnpackDoubleTable.htm">simUnpackDoubleTable</a>
+<a href="regularApi/simUnpackFloatTable.htm">simUnpackFloatTable</a>
+<a href="regularApi/simUnpackInt32Table.htm">simUnpackInt32Table</a>
+<a href="regularApi/simUnpackUInt32Table.htm">simUnpackUInt32Table</a>
+<a href="regularApi/simUnpackUInt16Table.htm">simUnpackUInt16Table</a>
+<a href="regularApi/simTransformBuffer.htm">simTransformBuffer</a>
+<a href="regularApi/simWait.htm">simWait</a>
+<a href="regularApi/simLaunchExecutable.htm">simLaunchExecutable</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="coordinatesAndTransformations"></a>Matrix operations &amp; transformations</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simBuildIdentityMatrix.htm">simBuildIdentityMatrix</a>
+<a href="regularApi/simBuildMatrix.htm">simBuildMatrix</a>
+<a href="regularApi/simBuildMatrixQ.htm">simBuildMatrixQ</a>
+<a href="regularApi/simCopyMatrix.htm">simCopyMatrix</a>
+<a href="regularApi/simGetEulerAnglesFromMatrix.htm">simGetEulerAnglesFromMatrix</a>
+<a href="regularApi/simGetQuaternionFromMatrix.htm">simGetQuaternionFromMatrix</a>
+<a href="regularApi/simMultiplyMatrices.htm">simMultiplyMatrices</a>
+<a href="regularApi/simInterpolateMatrices.htm">simInterpolateMatrices</a>
+<a href="regularApi/simInvertMatrix.htm">simInvertMatrix</a>
+<a href="regularApi/simGetObjectMatrix.htm">simGetObjectMatrix</a>
+<a href="regularApi/simSetObjectMatrix.htm">simSetObjectMatrix</a>
+<a href="regularApi/simGetObjectPosition.htm">simGetObjectPosition</a>
+<a href="regularApi/simSetObjectPosition.htm">simSetObjectPosition</a>
+<a href="regularApi/simGetObjectOrientation.htm">simGetObjectOrientation</a>
+<a href="regularApi/simSetObjectOrientation.htm">simSetObjectOrientation</a>
+<a href="regularApi/simGetObjectQuaternion.htm">simGetObjectQuaternion</a>
+<a href="regularApi/simSetObjectQuaternion.htm">simSetObjectQuaternion</a>
+<a href="regularApi/simSetSphericalJointMatrix.htm">simSetSphericalJointMatrix</a>
+<a href="regularApi/simGetJointMatrix.htm">simGetJointMatrix</a>
+<a href="regularApi/simMultiplyVector.htm">simMultiplyVector</a>
+<a href="regularApi/simTransformVector.htm">simTransformVector</a>
+<a href="regularApi/simGetRotationAxis.htm">simGetRotationAxis</a>
+<a href="regularApi/simRotateAroundAxis.htm">simRotateAroundAxis</a>
+<a href="regularApi/simGetObjectVelocity.htm">simGetObjectVelocity</a>
+<a href="regularApi/simReorientShapeBoundingBox.htm">simReorientShapeBoundingBox</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar>Messaging commands</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simDisplayDialog.htm">simDisplayDialog</a>
+<a href="regularApi/simGetDialogInput.htm">simGetDialogInput</a>
+<a href="regularApi/simGetDialogResult.htm">simGetDialogResult</a>
+<a href="regularApi/simEndDialog.htm">simEndDialog</a>
+<a href="regularApi/simSetLastError.htm">simSetLastError</a>
+<a href="regularApi/simAddStatusbarMessage.htm">simAddStatusbarMessage</a>
+<a href="regularApi/simLoadModule.htm">simLoadModule</a>
+<a href="regularApi/simSendModuleMessage.htm">simSendModuleMessage</a>
+<a href="regularApi/simUnloadModule.htm">simUnloadModule</a>
+<a href="regularApi/simBroadcastMessage.htm">simBroadcastMessage</a>
+<a href="regularApi/simGetSimulatorMessage.htm">simGetSimulatorMessage</a>
+<a href="regularApi/simSetScriptRawBuffer.htm">simSetScriptRawBuffer</a>
+<a href="regularApi/simGetScriptRawBuffer.htm">simGetScriptRawBuffer</a>
+<a href="regularApi/simReleaseScriptRawBuffer.htm">simReleaseScriptRawBuffer</a>
+<a href="regularApi/simSetScriptSimulationParameter.htm">simSetScriptSimulationParameter</a>
+<a href="regularApi/simGetScriptSimulationParameter.htm">simGetScriptSimulationParameter</a>
+<a href="regularApi/simRegisterScriptCallbackFunction.htm">simRegisterScriptCallbackFunction</a>
+<a href="regularApi/simRegisterScriptVariable.htm">simRegisterScriptVariable</a>
+<a href="regularApi/simRegisterJointCtrlCallback.htm">simRegisterJointCtrlCallback</a>
+<a href="regularApi/simSendData.htm">simSendData</a>
+<a href="regularApi/simReceiveData.htm">simReceiveData</a>
+<a href="regularApi/simSerialCheck.htm">simSerialCheck</a>
+<a href="regularApi/simSerialClose.htm">simSerialClose</a>
+<a href="regularApi/simSerialOpen.htm">simSerialOpen</a>
+<a href="regularApi/simSerialRead.htm">simSerialRead</a>
+<a href="regularApi/simSerialSend.htm">simSerialSend</a>
+<a href="regularApi/simTubeClose.htm">simTubeClose</a>
+<a href="regularApi/simTubeOpen.htm">simTubeOpen</a>
+<a href="regularApi/simTubeRead.htm">simTubeRead</a>
+<a href="regularApi/simTubeStatus.htm">simTubeStatus</a>
+<a href="regularApi/simTubeWrite.htm">simTubeWrite</a>
+<a href="regularApi/simSetIntegerSignal.htm">simSetIntegerSignal</a>
+<a href="regularApi/simGetIntegerSignal.htm">simGetIntegerSignal</a>
+<a href="regularApi/simClearIntegerSignal.htm">simClearIntegerSignal</a>
+<a href="regularApi/simSetFloatSignal.htm">simSetFloatSignal</a>
+<a href="regularApi/simGetFloatSignal.htm">simGetFloatSignal</a>
+<a href="regularApi/simClearFloatSignal.htm">simClearFloatSignal</a>
+<a href="regularApi/simSetStringSignal.htm">simSetStringSignal</a>
+<a href="regularApi/simGetStringSignal.htm">simGetStringSignal</a>
+<a href="regularApi/simClearStringSignal.htm">simClearStringSignal</a>
+<a href="regularApi/simGetSignalName.htm">simGetSignalName</a>
+<a href="regularApi/simWaitForSignal.htm">simWaitForSignal</a>
+<a href="regularApi/simAuxiliaryConsoleClose.htm">simAuxiliaryConsoleClose</a>
+<a href="regularApi/simAuxiliaryConsoleOpen.htm">simAuxiliaryConsoleOpen</a>
+<a href="regularApi/simAuxiliaryConsolePrint.htm">simAuxiliaryConsolePrint</a>
+<a href="regularApi/simRegisterContactCallback.htm">simRegisterContactCallback</a>
+<a href="regularApi/simPersistentDataRead.htm">simPersistentDataRead</a>
+<a href="regularApi/simPersistentDataWrite.htm">simPersistentDataWrite</a>
+<a href="regularApi/simEnableEventCallback.htm">simEnableEventCallback</a>
+<a href="regularApi/simHandleGeneralCallbackScript.htm">simHandleGeneralCallbackScript</a>
+<a href="regularApi/simCallScriptFunction.htm">simCallScriptFunction</a>
+<a href="regularApi/simCallScriptFunctionEx.htm">simCallScriptFunctionEx</a>
+<a href="regularApi/simSetScriptVariable.htm">simSetScriptVariable</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="scriptSimulationParameters"></a>Script simulation parameter commands</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSetScriptSimulationParameter.htm">simSetScriptSimulationParameter</a>
+<a href="regularApi/simGetScriptSimulationParameter.htm">simGetScriptSimulationParameter</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="signals"></a>Signals</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simSetIntegerSignal.htm">simSetIntegerSignal</a>
+<a href="regularApi/simGetIntegerSignal.htm">simGetIntegerSignal</a>
+<a href="regularApi/simClearIntegerSignal.htm">simClearIntegerSignal</a>
+<a href="regularApi/simSetFloatSignal.htm">simSetFloatSignal</a>
+<a href="regularApi/simGetFloatSignal.htm">simGetFloatSignal</a>
+<a href="regularApi/simClearFloatSignal.htm">simClearFloatSignal</a>
+<a href="regularApi/simSetStringSignal.htm">simSetStringSignal</a>
+<a href="regularApi/simGetStringSignal.htm">simGetStringSignal</a>
+<a href="regularApi/simClearStringSignal.htm">simClearStringSignal</a>
+<a href="regularApi/simGetSignalName.htm">simGetSignalName</a>
+<a href="regularApi/simWaitForSignal.htm">simWaitForSignal</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="persistentData"></a>Persistent Data</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simPersistentDataRead.htm">simPersistentDataRead</a>
+<a href="regularApi/simPersistentDataWrite.htm">simPersistentDataWrite</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="customDataBlocks"></a>Custom data blocks</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simReadCustomDataBlock.htm">simReadCustomDataBlock</a>
+<a href="regularApi/simReadCustomDataBlockTags.htm">simReadCustomDataBlockTags</a>
+<a href="regularApi/simWriteCustomDataBlock.htm">simWriteCustomDataBlock</a>
+<a href="regularApi/simPackUInt8Table.htm">simPackUInt8Table</a>
+<a href="regularApi/simPackDoubleTable.htm">simPackDoubleTable</a>
+<a href="regularApi/simPackFloatTable.htm">simPackFloatTable</a>
+<a href="regularApi/simPackInt32Table.htm">simPackInt32Table</a>
+<a href="regularApi/simPackUInt32Table.htm">simPackUInt32Table</a>
+<a href="regularApi/simPackUInt16Table.htm">simPackUInt16Table</a>
+<a href="regularApi/simPackTable.htm">simPackTable</a>
+<a href="regularApi/simUnpackUInt8Table.htm">simUnpackUInt8Table</a>
+<a href="regularApi/simUnpackDoubleTable.htm">simUnpackDoubleTable</a>
+<a href="regularApi/simUnpackFloatTable.htm">simUnpackFloatTable</a>
+<a href="regularApi/simUnpackInt32Table.htm">simUnpackInt32Table</a>
+<a href="regularApi/simUnpackUInt32Table.htm">simUnpackUInt32Table</a>
+<a href="regularApi/simUnpackUInt16Table.htm">simUnpackUInt16Table</a>
+<a href="regularApi/simUnpackTable.htm">simUnpackTable</a>
+<a href="regularApi/simTransformBuffer.htm">simTransformBuffer</a>
+<a href="regularApi/simSetReferencedHandles.htm">simSetReferencedHandles</a>
+<a href="regularApi/simGetReferencedHandles.htm">simGetReferencedHandles</a>
+</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="textures"></a>Textures</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetTextureId.htm">simGetTextureId</a>
+<a href="regularApi/simGetShapeTextureId.htm">simGetShapeTextureId</a>
+<a href="regularApi/simReadTexture.htm">simReadTexture</a>
+<a href="regularApi/simSaveImage.htm">simSaveImage</a>
+<a href="regularApi/simLoadImage.htm">simLoadImage</a>
+<a href="regularApi/simGetScaledImage.htm">simGetScaledImage</a>
+<a href="regularApi/simTransformImage.htm">simTransformImage</a>
+<a href="regularApi/simWriteTexture.htm">simWriteTexture</a>
+<a href="regularApi/simCreateTexture.htm">simCreateTexture</a>
+<a href="regularApi/simSetShapeTexture.htm">simSetShapeTexture</a>
+</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="blockingFunctions"></a>Blocking functions (only available from threaded child scripts)</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simWait.htm">simWait</a>
+<a href="regularApi/simWaitForSignal.htm">simWaitForSignal</a>
+<a href="regularApi/simRMLMoveToJointPositions.htm">simRMLMoveToJointPositions</a>
+<a href="regularApi/simRMLMoveToPosition.htm">simRMLMoveToPosition</a>
+<a href="regularApi/simMoveToObject.htm">simMoveToObject</a>
+<a href="regularApi/simFollowPath.htm">simFollowPath</a>
+<a href="regularApi/simDisplayDialog.htm">simDisplayDialog</a> (when used in modal mode)
+<a href="regularApi/simSerialRead.htm">simSerialRead</a> (when used in blocking operation)
+<a href="regularApi/simTubeRead.htm">simTubeRead</a> (when used in blocking operation)</pre>
+<br>
+
+<h3 class=subsectionBar><a name="auxiliaryConsoleFunctions"></a>Auxiliary console functions</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAuxiliaryConsoleClose.htm">simAuxiliaryConsoleClose</a>
+<a href="regularApi/simAuxiliaryConsoleOpen.htm">simAuxiliaryConsoleOpen</a>
+<a href="regularApi/simAuxiliaryConsolePrint.htm">simAuxiliaryConsolePrint</a>
+<a href="regularApi/simAuxiliaryConsoleShow.htm">simAuxiliaryConsoleShow</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="importExportFunctions"></a>Import / Export functions</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simImportShape.htm">simImportShape</a>
+<a href="regularApi/simImportMesh.htm">simImportMesh</a>
+<a href="regularApi/simExportMesh.htm">simExportMesh</a>
+<a href="regularApi/simExportIk.htm">simExportIk</a>
+<a href="regularApi/simCreateTexture.htm">simCreateTexture</a>
+<a href="regularApi/simSaveImage.htm">simSaveImage</a></pre>
+<br>
+
+<h3 class=subsectionBar><a name="PagesAndViewsFunctions"></a>Pages and views</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simFloatingViewAdd.htm">simFloatingViewAdd</a>
+<a href="regularApi/simFloatingViewRemove.htm">simFloatingViewRemove</a>
+<a href="regularApi/simAdjustView.htm">simAdjustView</a>
+<a href="regularApi/simCameraFitToView.htm">simCameraFitToView</a></pre>
+<br>
+
+<h3 class=subsectionBar>Simulator parameter retrieval</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetArrayParameter.htm">simGetArrayParameter</a>
+<a href="regularApi/simSetArrayParameter.htm">simSetArrayParameter</a>
+<a href="regularApi/simGetBoolParameter.htm">simGetBoolParameter</a>
+<a href="regularApi/simSetBoolParameter.htm">simSetBoolParameter</a>
+<a href="regularApi/simGetInt32Parameter.htm">simGetInt32Parameter</a>
+<a href="regularApi/simSetInt32Parameter.htm">simSetInt32Parameter</a>
+<a href="regularApi/simGetFloatParameter.htm">simGetFloatParameter</a>
+<a href="regularApi/simSetFloatParameter.htm">simSetFloatParameter</a>
+<a href="regularApi/simGetStringParameter.htm">simGetStringParameter</a>
+<a href="regularApi/simSetStringParameter.htm">simSetStringParameter</a>
+<a href="regularApi/simGetUInt64Parameter.htm">simGetUInt64Parameter</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar>Reflexxes Motion Library type II or IV</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simRMLMoveToJointPositions.htm">simRMLMoveToJointPositions</a>
+<a href="regularApi/simRMLMoveToPosition.htm">simRMLMoveToPosition</a>
+<a href="regularApi/simRMLPos.htm">simRMLPos</a>
+<a href="regularApi/simRMLVel.htm">simRMLVel</a>
+<a href="regularApi/simRMLStep.htm">simRMLStep</a>
+<a href="regularApi/simRMLRemove.htm">simRMLRemove</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="ghosts"></a>Ghost objects</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAddGhost.htm">simAddGhost</a>
+<a href="regularApi/simModifyGhost.htm">simModifyGhost</a>
+</pre>
+<br>
+
+
+
+<h3 class=subsectionBar><a name="packing"></a>Packing / unpacking</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simPackUInt8Table.htm">simPackUInt8Table</a>
+<a href="regularApi/simPackDoubleTable.htm">simPackDoubleTable</a>
+<a href="regularApi/simPackFloatTable.htm">simPackFloatTable</a>
+<a href="regularApi/simPackInt32Table.htm">simPackInt32Table</a>
+<a href="regularApi/simPackUInt32Table.htm">simPackUInt32Table</a>
+<a href="regularApi/simPackUInt16Table.htm">simPackUInt16Table</a>
+<a href="regularApi/simPackTable.htm">simPackTable</a>
+<a href="regularApi/simUnpackUInt8Table.htm">simUnpackUInt8Table</a>
+<a href="regularApi/simUnpackDoubleTable.htm">simUnpackDoubleTable</a>
+<a href="regularApi/simUnpackFloatTable.htm">simUnpackFloatTable</a>
+<a href="regularApi/simUnpackInt32Table.htm">simUnpackInt32Table</a>
+<a href="regularApi/simUnpackUInt32Table.htm">simUnpackUInt32Table</a>
+<a href="regularApi/simUnpackUInt16Table.htm">simUnpackUInt16Table</a>
+<a href="regularApi/simUnpackTable.htm">simUnpackTable</a>
+<a href="regularApi/simTransformBuffer.htm">simTransformBuffer</a>
+</pre>
+<br>
+
+
+<h3 class=subsectionBar><a name="stacks"></a>Stack functionality</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simCreateStack.htm">simCreateStack</a>
+<a href="regularApi/simReleaseStack.htm">simReleaseStack</a>
+<a href="regularApi/simCopyStack.htm">simCopyStack</a>
+<a href="regularApi/simPushNullOntoStack.htm">simPushNullOntoStack</a>
+<a href="regularApi/simPushBoolOntoStack.htm">simPushBoolOntoStack</a>
+<a href="regularApi/simPushInt32OntoStack.htm">simPushInt32OntoStack</a>
+<a href="regularApi/simPushFloatOntoStack.htm">simPushFloatOntoStack</a>
+<a href="regularApi/simPushDoubleOntoStack.htm">simPushDoubleOntoStack</a>
+<a href="regularApi/simPushStringOntoStack.htm">simPushStringOntoStack</a>
+<a href="regularApi/simPushUInt8TableOntoStack.htm">simPushUInt8TableOntoStack</a>
+<a href="regularApi/simPushInt32TableOntoStack.htm">simPushInt32TableOntoStack</a>
+<a href="regularApi/simPushFloatTableOntoStack.htm">simPushFloatTableOntoStack</a>
+<a href="regularApi/simPushDoubleTableOntoStack.htm">simPushDoubleTableOntoStack</a>
+<a href="regularApi/simPushTableOntoStack.htm">simPushTableOntoStack</a>
+<a href="regularApi/simInsertDataIntoStackTable.htm">simInsertDataIntoStackTable</a>
+<a href="regularApi/simGetStackSize.htm">simGetStackSize</a>
+<a href="regularApi/simPopStackItem.htm">simPopStackItem</a>
+<a href="regularApi/simMoveStackItemToTop.htm">simMoveStackItemToTop</a>
+<a href="regularApi/simIsStackValueNull.htm">simIsStackValueNull</a>
+<a href="regularApi/simGetStackBoolValue.htm">simGetStackBoolValue</a>
+<a href="regularApi/simGetStackInt32Value.htm">simGetStackInt32Value</a>
+<a href="regularApi/simGetStackFloatValue.htm">simGetStackFloatValue</a>
+<a href="regularApi/simGetStackDoubleValue.htm">simGetStackDoubleValue</a>
+<a href="regularApi/simGetStackStringValue.htm">simGetStackStringValue</a>
+<a href="regularApi/simGetStackTableInfo.htm">simGetStackTableInfo</a>
+<a href="regularApi/simGetStackUInt8Table.htm">simGetStackUInt8Table</a>
+<a href="regularApi/simGetStackInt32Table.htm">simGetStackInt32Table</a>
+<a href="regularApi/simGetStackFloatTable.htm">simGetStackFloatTable</a>
+<a href="regularApi/simGetStackDoubleTable.htm">simGetStackDoubleTable</a>
+<a href="regularApi/simUnfoldStackTable.htm">simUnfoldStackTable</a>
+<a href="regularApi/simDebugStack.htm">simDebugStack</a>
+<a href="regularApi/simPackTable.htm">simPackTable</a>
+<a href="regularApi/simUnpackTable.htm">simUnpackTable</a>
+</pre>
+<br>
+
+<h3 class=subsectionBar><a name="engineParameters"></a>Physics engine properties</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simGetEngineFloatParameter.htm">simGetEngineFloatParameter</a>
+<a href="regularApi/simGetEngineInt32Parameter.htm">simGetEngineInt32Parameter</a>
+<a href="regularApi/simGetEngineBoolParameter.htm">simGetEngineBoolParameter</a>
+<a href="regularApi/simSetEngineFloatParameter.htm">simSetEngineFloatParameter</a>
+<a href="regularApi/simSetEngineInt32Parameter.htm">simSetEngineInt32Parameter</a>
+<a href="regularApi/simSetEngineBoolParameter.htm">simSetEngineBoolParameter</a>
+</pre>
+<br>
+
+
+
+
+
+<h3 class=subsectionBar>Other commands</h3>
+<pre class=lightGreyBox>
+<a href="regularApi/simAnnounceSceneContentChange.htm">simAnnounceSceneContentChange</a>
+<a href="regularApi/simGetNavigationMode.htm">simGetNavigationMode</a>
+<a href="regularApi/simSetNavigationMode.htm">simSetNavigationMode</a>
+<a href="regularApi/simGetPage.htm">simGetPage</a>
+<a href="regularApi/simSetPage.htm">simSetPage</a>
+<a href="regularApi/simDisplayDialog.htm">simDisplayDialog</a>
+<a href="regularApi/simGetDialogInput.htm">simGetDialogInput</a>
+<a href="regularApi/simGetDialogResult.htm">simGetDialogResult</a>
+<a href="regularApi/simEndDialog.htm">simEndDialog</a>
+<a href="regularApi/simGetArrayParameter.htm">simGetArrayParameter</a>
+<a href="regularApi/simSetArrayParameter.htm">simSetArrayParameter</a>
+<a href="regularApi/simGetBoolParameter.htm">simGetBoolParameter</a>
+<a href="regularApi/simSetBoolParameter.htm">simSetBoolParameter</a>
+<a href="regularApi/simGetInt32Parameter.htm">simGetInt32Parameter</a>
+<a href="regularApi/simSetInt32Parameter.htm">simSetInt32Parameter</a>
+<a href="regularApi/simGetUInt64Parameter.htm">simGetUInt64Parameter</a>
+<a href="regularApi/simGetFloatParameter.htm">simGetFloatParameter</a>
+<a href="regularApi/simSetFloatParameter.htm">simSetFloatParameter</a>
+<a href="regularApi/simGetStringParameter.htm">simGetStringParameter</a>
+<a href="regularApi/simSetStringParameter.htm">simSetStringParameter</a>
+<a href="regularApi/simGetLastError.htm">simGetLastError</a>
+<a href="regularApi/simSetLastError.htm">simSetLastError</a>
+<a href="regularApi/simGetCollectionName.htm">simGetCollectionName</a>
+<a href="regularApi/simSetCollectionName.htm">simSetCollectionName</a>
+<a href="regularApi/simRemoveCollection.htm">simRemoveCollection</a>
+<a href="regularApi/simGetModuleName.htm">simGetModuleName</a>
+<a href="regularApi/simGetNameSuffix.htm">simGetNameSuffix</a>
+<a href="regularApi/simSetNameSuffix.htm">simSetNameSuffix</a>
+<a href="regularApi/simGetNavigationMode.htm">simGetNavigationMode</a>
+<a href="regularApi/simGetSystemTime.htm">simGetSystemTime</a>
+<a href="regularApi/simGetSystemTimeInMs.htm">simGetSystemTimeInMs</a>
+<a href="regularApi/simAddStatusbarMessage.htm">simAddStatusbarMessage</a>
+<a href="regularApi/simRefreshDialogs.htm">simRefreshDialogs</a>
+<a href="regularApi/simSetThreadSwitchTiming.htm">simSetThreadSwitchTiming</a>
+<a href="regularApi/simSwitchThread.htm">simSwitchThread</a>
+<a href="regularApi/simSetThreadIsFree.htm">simSetThreadIsFree</a>
+<a href="regularApi/simSetThreadResumeLocation.htm">simSetThreadResumeLocation</a>
+<a href="regularApi/simGetExplicitHandling.htm">simGetExplicitHandling</a>
+<a href="regularApi/simSetExplicitHandling.htm">simSetExplicitHandling</a>
+<a href="regularApi/simLaunchExecutable.htm">simLaunchExecutable</a>
+<a href="regularApi/simFileDialog.htm">simFileDialog</a>
+<a href="regularApi/simMsgBox.htm">simMsgBox</a>
+<a href="regularApi/simQuitSimulator.htm">simQuitSimulator</a>
+<a href="regularApi/simGetThreadId.htm">simGetThreadId</a>
+<a href="regularApi/simEnableEventCallback.htm">simEnableEventCallback</a>
+<a href="regularApi/simLockResources.htm">simLockResources</a>
+<a href="regularApi/simUnlockResources.htm">simUnlockResources</a>
+<a href="regularApi/simGetExtensionString.htm">simGetExtensionString</a>
+<a href="regularApi/simOpenTextEditor.htm">simOpenTextEditor</a>
+</pre>
+
+<br>
+<br>
+<p class=greyBox><a name="additionalFunctions"></a>Following are additional API functions, only available from the C/C++ interface, that extend functionality and allow faster data access. They however do not perform input data checking, so use them wisely. Refer to the source code for details.<br>
+</p>
+
+
+<pre class=lightGreyBox>
+_simAddForceSensorCumulativeForcesAndTorques
+_simAddJointCumulativeForcesOrTorques
+_simClearAdditionalForceAndTorque
+_simDisableDynamicTreeForManipulation
+_simDoEntitiesCollide
+_simGetAdditionalForceAndTorque
+_simGetAllGeometrics
+_simGetBulletCollisionMargin
+_simGetBulletRestitution
+_simGetBulletStickyContact
+_simGetContactCallback
+_simGetContactCallbackCount
+_simGetCumulativeMeshes
+_simGetDamping
+_simGetDistanceBetweenEntitiesIfSmaller
+_simGetDummyLinkType
+_simGetDynamicCollisionMask
+_simGetDynamicForceSensorLocalTransformationPart2
+_simGetDynamicMotorMaxForce
+_simGetDynamicMotorTargetPosition
+_simGetDynamicMotorTargetVelocity
+_simGetDynamicMotorUpperLimitVelocity
+_simGetDynamicsFullRefreshFlag
+_simGetFriction
+_simGetGeometricCount
+_simGetGeomProxyDynamicsFullRefreshFlag
+_simGetGeomProxyFromShape
+_simGetGeomWrapFromGeomProxy
+_simGetGravity
+_simGetHeightfieldData
+_simGetInitialDynamicAngVelocity
+_simGetInitialDynamicVelocity
+_simGetJointBulletParameters
+_simGetJointMode
+_simGetJointOdeParameters
+_simGetJointPosition
+_simGetJointPositionInterval
+_simGetJointType
+_simGetLastParentForLocalGlobalCollidable
+_simGetLocalInertiaFrame
+_simGetMass
+_simGetMotorPid
+_simGetObject
+_simGetObjectChildren
+_simGetObjectCumulativeTransformation
+_simGetObjectFromIndex
+_simGetObjectID
+_simGetObjectListSize
+_simGetObjectLocalTransformation
+_simGetObjectType
+_simGetOdeHeightfieldHeight
+_simGetOdeMaxContactFrictionCFMandERP
+_simGetParentFollowsDynamic
+_simGetParentObject
+_simGetPrincipalMomentOfInertia
+_simGetPurePrimitiveSizes
+_simGetPurePrimitiveType
+_simGetShapeIsStaticAndNotRespondableButDynamicTag
+_simGetStartSleeping
+_simGetTimeDiffInMs
+_simGetTreeDynamicProperty
+_simGetVerticesLocalFrame
+_simGetWasPutToSleepOnce
+_simIsDynamicMotorEnabled
+_simIsDynamicMotorPositionCtrlEnabled
+_simIsDynamicMotorTorqueModulationEnabled
+_simIsForceSensorBroken
+_simIsGeomWrapGeometric
+_simIsJointInHybridOperation
+_simIsShapeDynamicallyRespondable
+_simIsShapeDynamicallyStatic
+_simMakeDynamicAnnouncement
+_simSetDynamicForceSensorLocalTransformationPart2
+_simSetDynamicForceSensorLocalTransformationPart2IsValid
+_simSetDynamicJointLocalTransformationPart2
+_simSetDynamicJointLocalTransformationPart2IsValid
+_simSetDynamicMotorPositionControlTargetPosition
+_simSetDynamicMotorReflectedPositionFromDynamicEngine
+_simSetDynamicObjectFlagForVisualization
+_simSetDynamicsFullRefreshFlag
+_simSetDynamicSimulationIconCode
+_simSetGeomProxyDynamicsFullRefreshFlag
+_simSetInitialDynamicAngVelocity
+_simSetInitialDynamicVelocity
+_simSetJointPosition
+_simSetJointSphericalTransformation
+_simSetObjectCumulativeTransformation
+_simSetObjectLocalTransformation
+_simSetOdeHeightfieldAuxData
+_simSetShapeDynamicVelocity
+_simSetShapeIsStaticAndNotRespondableButDynamicTag
+_simGetIkGroupObject
+_simMpHandleIkGroupObject
+_simGetPureHollowScaling
+_simGetVortexParameters
+_simGetJointCallbackCallOrder
+_simGetNewtonParameters</pre>
+
+
+
+
+<br>
+<h3 class=recommendedTopics>Recommended topics</h3>
+<li><a href="apiFunctionListAlphabetical.htm">Regular API function list (alphabetical order)</a></li>
+<li><a href="apiConstants.htm">API constants</a></li>
+<li><a href="objectParameterIDs.htm">Object parameter IDs</a></li>
+<br>
+<br>
+ </tr>
+</table> 
+</div>  
+  
+  
+</body>
+
+</html>

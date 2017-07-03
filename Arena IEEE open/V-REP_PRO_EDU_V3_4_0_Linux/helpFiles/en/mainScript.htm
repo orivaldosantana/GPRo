@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>The main script</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../index.html" TARGET="_top"><img src="images/homeImg.png"></a></p>
+
+
+
+<h1>The main script <img src="images/mainScript1.jpg"></h1>
+
+<p>A main script is a <a href="simulationScripts.htm">simulation script</a>. By default, each <a href="scenes.htm">scene</a> in V-REP will have one main script. It contains the basic code that allows a <a href="simulation.htm">simulation</a> to run. Without main script, a running simulation won't do anything.</p>
+
+<p>The main script is called at each simulation step exactly one time. In addition to that, it is called once during initialization (at the start of a simulation), and once during restoration (at the end of a simulation). Thus, the default main script is segmented in 3 parts:
+</p>
+
+
+<li><strong>the initialization part</strong>: this part will be executed one time just at the beginning of a simulation. The code is in charge of preparing a simulation, etc.<br>
+</li>
+
+<li><strong>the regular part</strong>: this part will be executed at each simulation pass. The code is in charge of handling all the functionality of the simulator <a href="inverseKinematicsModule.htm">(inverse kinematics</a>, <a href="proximitySensors.htm">proximity sensors</a>, <a href="collisionDetection.htm">collision detection</a>, <a href="dynamicsModule.htm">dynamics</a>, etc.) in a generic way. Two commands are of particular interest: <a href="regularApi/simLaunchThreadedChildScripts.htm">simLaunchThreadedChildScripts</a> and <a href="regularApi/simHandleChildScripts.htm">simHandleChildScripts</a>. simLaunchThreadedChildScripts launches <a href="childScripts.htm#threaded">threaded child scripts</a>, while simHandleChildScripts runs <a href="childScripts.htm#nonThreaded">non-threaded child scripts</a>. Without those commands, <a href="childScripts.htm">child scripts</a> won't be executed, and specific <a href="models.htm">model</a> functionality or behavior won't operate.  The regular part is divided into an actuation (or action/reaction) section and a sensing (or probing) section.<br>
+</li>
+
+<li><strong>the restoration part</strong>: this part will be executed one time just before a simulation ends. The code is in charge of restoring <a href="objects.htm">object's</a> initial configuration, clearing sensor states, collision states, etc.<br>
+</li>
+
+<p>
+Following is the typical main script, slightly simplified:
+</p>
+
+<pre class=lightRedBox>
+if (sim_call_type==sim_mainscriptcall_initialization) then
+    -- Initialization part:
+    simHandleSimulationStart()
+    simOpenModule(sim_handle_all)
+    simHandleGraph(sim_handle_all_except_explicit,0)
+end
+
+if (sim_call_type==sim_mainscriptcall_regular) then
+    -- Actuation part:
+    simResumeThreads(sim_scriptthreadresume_default)
+    simResumeThreads(sim_scriptthreadresume_actuation_first)
+    simLaunchThreadedChildScripts()
+    simHandleChildScripts(sim_childscriptcall_actuation)
+    simResumeThreads(sim_scriptthreadresume_actuation_last)
+    simHandleCustomizationScripts(sim_customizationscriptcall_simulationactuation)
+    simHandleModule(sim_handle_all,false)
+    simResumeThreads(2)
+    simHandleJoint(sim_handle_all_except_explicit,simGetSimulationTimeStep()) -- DEPRECATED
+    simHandlePath(sim_handle_all_except_explicit,simGetSimulationTimeStep()) -- DEPRECATED
+    simHandleMechanism(sim_handle_all_except_explicit)
+    simHandleIkGroup(sim_handle_all_except_explicit)
+    simHandleDynamics(simGetSimulationTimeStep())
+    simHandleMill(sim_handle_all_except_explicit)
+
+    -- Sensing part:
+    simHandleSensingStart()
+    simHandleCollision(sim_handle_all_except_explicit)
+    simHandleDistance(sim_handle_all_except_explicit)
+    simHandleProximitySensor(sim_handle_all_except_explicit)
+    simHandleVisionSensor(sim_handle_all_except_explicit)
+    simResumeThreads(sim_scriptthreadresume_sensing_first)
+    simHandleChildScripts(sim_childscriptcall_sensing)
+    simResumeThreads(sim_scriptthreadresume_sensing_last)
+    simHandleCustomizationScripts(sim_customizationscriptcall_simulationsensing)
+    simHandleModule(sim_handle_all,true)
+    simResumeThreads(sim_scriptthreadresume_allnotyetresumed)
+    simHandleGraph(sim_handle_all_except_explicit,simGetSimulationTime()+simGetSimulationTimeStep())
+end
+
+if (sim_call_type==sim_mainscriptcall_cleanup) then
+    -- Clean-up part:
+    simResetMilling(sim_handle_all)
+    simResetMill(sim_handle_all_except_explicit)
+    simResetCollision(sim_handle_all_except_explicit)
+    simResetDistance(sim_handle_all_except_explicit)
+    simResetProximitySensor(sim_handle_all_except_explicit)
+    simResetVisionSensor(sim_handle_all_except_explicit)
+    simCloseModule(sim_handle_all)
+end</pre>
+
+<p>The main script is not supposed to be modified. The reason for this is following: one of V-REP's strength is that any <a href="models.htm">model</a> (robot, actuator, sensor, etc) can be copied into a <a href="scenes.htm">scene</a> and is immediately operational. When modifying the main script, you run the risk that models won't perform as expected anymore (e.g. if your main script lacks the command simHandleChildScripts then all models copied into the scene won't operate at all). Another reason is that keeping a default main script allows old scenes to easily adjust for new functionality (e.g. if a new V-REP version introduces a neat command simDoMagic(), then old scenes will automatically be updated to have that command also automatically called in their main script).<br>
+</p>
+
+<p>If however, for a reason or another you really need to modify the main script of a scene, you can do this by double-clicking the light-red script icon next to the world icon at the top of the <a href="userInterface.htm#SceneHierarchy">scene hierarchy</a>:<br>
+</p>
+
+
+
+
+<p align=center><img src="images/mainScript1.jpg"></p>
+<p class=imageLabel>[Main script icon]</p>
+<br>
+
+<p>From the moment when you opened the main script, it will be marked as customized and won't be automatically updated anymore.</p>
+
+
+<p>Most commands in the main script behave or operate in a similar way. If we take for example the <a href="distanceCalculation.htm">distance calculation functionality</a>, we have in the regular part:
+</p>
+
+<li><strong><a href="regularApi/simHandleDistance.htm">simHandleDistance</a>(sim_handle_all_except_explicit)</strong>: the effect of this command is to calculate minimum distances for all distance objects that have been registered and that are listed in the <a href="distanceCalculation.htm">distance calculation dialog</a> (handling distance calculation for a distance object will compute its minimum distance, set the distance variable and the minimum distance segment will be displayed in the scene). All distance objects are handled (i.e. calculated) with that command, except those that have been marked as <strong><a href="explicitHandling.htm">explicit handling</a></strong>. <br>
+</li>
+
+<p>Any new distance object will automatically be handled with above  command (as long as it is not marked as explicit handling). The exact same mechanism is applied to <a href="collisionDetection.htm">collision detection</a>, <a href="proximitySensors.htm">proximity sensor</a> and <a href="visionSensors.htm">vision sensor</a> simulations, <a href="inverseKinematicsModule.htm">inverse kinematics</a>, etc. This is a powerful mechanism that allows running simple simulations without writing a single line of code.<br>
+</p>
+
+<p>The most important command in the main script is <a href="regularApi/simHandleChildScripts.htm">simHandleChildScripts</a>, which is called at two distinct locations, inside of the actuation section, and inside of the sensing section. Without this command, <a href="childScripts.htm#nonThreaded">non-threaded child scripts</a> will not be executed. If you look at the default main script and focus at the regular part, you can notice that the first section (the actuation section) allows actuating or modifying the scene content (e.g. simHandleIkGroup, simHandleDynamics, etc.), while the second section (the sensing or probing section) allows sensing and probing the scene content (e.g. simHandleCollision, simHandleDistance, simHandleProximitySensor, etc.). Following illustrates what happens in the default main script when a mobile robot equipped with a <a href="proximitySensors.htm">proximity sensor</a> is simulated:<br>
+</p>
+
+
+<p align=center><img src="images/mainScript3.jpg"></p>
+<p class=imageLabel>[Default actuation - sensing - display sequence]</p>
+<br>
+
+
+<p>With above's sequence in mind, <a href="childScripts.htm">child scripts</a> will always read (with <a href="regularApi/simReadProximitySensor.htm">simReadProximitySensor</a>) the proximity sensor's state from previous sensing (which happened at the end of previous simulation pass, inside of the main script, with <a href="regularApi/simHandleProximitySensor.htm">simHandleProximitySensor</a>), then react to obstacles.</p>
+<p>If you need to explicitely handle a sensor, then make sure to always do it while in the sensing section, otherwise you might end-up with situations where the display appears wrong as illustrated in following figure:<br>
+</p>
+<p align=center><img src="images/mainScript4.jpg"></p>
+<p class=imageLabel>[Sensing - actuation - display sequence]</p>
+<br>
+
+<p>As does the main script have an actuation and sensing section, so do <a href="childScripts.htm#nonThreaded">non-threaded child scripts</a>. <a href="childScripts.htm#threaded">Threaded child scripts</a> on the other hand can be squeduled to run while the main script is in the actuation or sensing phase, refer to the API function <a href="regularApi/simSetThreadResumeLocation.htm">simSetThreadResumeLocation</a>.<br>
+</p>
+
+
+<p>The main script code is of type <em>pass through</em>, this means that at each simulation step, the main script is executed, then control is returned to the simulator, without spending too much time in complicated loops.</p>
+
+
+<br>
+<h3 class=recommendedTopics>Recommended topics</h3>
+<li><a href="childScripts.htm">Child scripts</a></li>
+<br>
+<br>
+ </tr>
+</table> 
+</div>  
+  
+  
+</body>
+
+</html>

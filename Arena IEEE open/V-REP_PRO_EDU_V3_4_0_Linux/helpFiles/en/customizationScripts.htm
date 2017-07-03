@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>Customization scripts</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../index.html" TARGET="_top"><img src="images/homeImg.png"></a></p>
+
+
+
+<h1>Customization scripts <img src="images/customizationScriptIcon.jpg"></h1>
+
+<p>Customization scripts are <a href="scripts.htm">embedded scripts</a> that can be used to customize a simulation scene to a great extent. They are attached to (or <em>associated with</em>) <a href="objects.htm">scene objects</a>, and they can be easily recognized from their dark script icon in the <a href="userInterface.htm#SceneHierarchy">scene hierarchy</a>:</p>
+
+<p align=center><img src="images/customizationScripts0.jpg"></p>
+<p class=imageLabel>[A customization script associated with object <em>ResizableFloor_5_25</em>]</p>
+
+<p>Double-clicking the script icon allows opening the <a href="scriptEditor.htm">script editor</a>. You can change properties of a given script, or associate it with another object via the <a href="scriptProperties.htm">script dialog</a>. You can attach a new customization script to an object by selecting the object, then navigating to [menu bar --&gt; Add --&gt; Associated customization script]. </p>
+
+
+
+<p>Following are customization script's main properties:</p>
+
+<li>they run non-threaded.</li>
+<li>they are executed all the time: when simulation is running, as well as when simulation is not running.</li>
+<li>they are attached to (or associated with) scene objects (i.e. they are <em>associated</em> scripts). Associated scripts form the basis of V-REP's distributed control architecture, and share the convenient property to be automatically duplicated if their associated object is duplicated. </li>
+
+
+<p>Above properties allow customization scripts to share some of the best features of <a href="addOns.htm">add-ons</a> and <a href="childScripts.htm">child scripts</a>. Customization scripts allow the creation of customizable models for instance: imagine a <a href="models.htm">model</a> that was dropped into a scene, and that is able to configure or adapt itself, even when simulation is not running. This could be a robot where the user can adjust the various link lengths with a single slider repositioning.</p>
+
+
+
+
+<p>Customization scripts are <em>pass-through scripts</em>. This means that every time they are called, they should perform some task and then return control. If control is not returned, then the whole simulator will hang. Customization scripts operate as functions, and  are called by the simulator very often, so as to be able to react to various simulator state changes.</p>
+<p>A customization script should be segmented in several parts, as following skeleton script illustrates: </p>
+
+
+<pre class=lightRedBox>
+if (sim_call_type==sim_customizationscriptcall_initialization) then
+	-- this is called just after this script was created (or reinitialized)
+	-- Do some initialization here
+	
+	-- By default we disable customization script execution during simulation, in order
+	-- to run simulations faster:
+	simSetScriptAttribute(sim_handle_self,
+        sim_customizationscriptattribute_activeduringsimulation,false)
+end
+
+if (sim_call_type==sim_customizationscriptcall_nonsimulation) then
+	-- This is called on a regular basis when simulation is not running.
+	-- This is where you would typically write the main code of
+	-- a customization script
+end
+
+if (sim_call_type==sim_customizationscriptcall_lastbeforesimulation) then
+	-- This is called just before a simulation starts
+end
+
+if (sim_call_type==sim_customizationscriptcall_simulationactuation) then
+	-- This is called by default from the main script, in the "actuation" phase.
+	-- but only if you have previously not disabled this script to be active during
+	-- simulation (see the script's initialization code above)
+end
+
+if (sim_call_type==sim_customizationscriptcall_simulationsensing) then
+	-- This is called by default from the main script, in the "sensing" phase,
+	-- but only if you have previously not disabled this script to be active during
+	-- simulation (see the script's initialization code above)
+end
+
+if (sim_call_type==sim_customizationscriptcall_simulationpausefirst) then
+	-- This is called just after entering simulation pause
+end
+
+if (sim_call_type==sim_customizationscriptcall_simulationpause) then
+	-- This is called on a regular basis when simulation is paused
+end
+
+if (sim_call_type==sim_customizationscriptcall_simulationpauselast) then
+	-- This is called just before leaving simulation pause
+end
+
+if (sim_call_type==sim_customizationscriptcall_firstaftersimulation) then
+	-- This is called just after a simulation ended
+end
+
+if (sim_call_type==sim_customizationscriptcall_lastbeforeinstanceswitch) then
+    -- This is called just before an instance switch (switch to another scene)
+end
+
+if (sim_call_type==sim_customizationscriptcall_firstafterinstanceswitch) then
+    -- This is called just after an instance switch (switch to another scene)
+end
+
+if (sim_call_type==sim_customizationscriptcall_cleanup) then
+	-- this is called just before this script gets destroyed (or reinitialized) 
+	-- Do some clean-up here
+end</pre>
+
+<p>If possible, do not use customization scripts to run simulation code, which is anyway best handled via <a href="childScripts.htm">child scripts</a>. If possible, deactivate customization scripts during simulation (refer to the script attribute <a href="apiConstants.htm#scriptAttributes">sim_customizationscriptattribute_activeduringsimulation</a> for that, as shown in above example), in order not to slow down simulations uneccessarily.</p>
+
+
+<br>
+<br>
+<h3 class=recommendedTopics>Recommended topics</h3>
+<li><a href="childScripts.htm">Child scripts</a></li>
+<li><a href="addOns.htm">Add-ons</a></li>
+<br>
+<br>
+ </tr>
+</table> 
+</div>  
+  
+  
+</body>
+
+</html>

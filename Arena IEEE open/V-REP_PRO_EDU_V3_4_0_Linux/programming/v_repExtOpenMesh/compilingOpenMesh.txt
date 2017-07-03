@@ -1,0 +1,33 @@
+See this page: http://www.openmesh.org/media/Documentations/OpenMesh-Doc-Latest/a00030.html
+
+then:
+
+On Linux:
+---------
+You might have to use following instead (inside "<OpenMeshRoot>/build"):
+
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ..
+
+then
+
+make
+
+Then place the generated "libOpenMeshCore.a" and "libOpenMeshTools.a" into this folder, then inside this folder type "make" to build the plugin.
+
+
+On MacOSX:
+---------
+You might have to use following instead (inside "<OpenMeshRoot>/build"):
+
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC ..
+
+then
+
+make
+
+Then place the generated "libOpenMeshCore.a" and "libOpenMeshTools.a" into this folder, then inside this folder type "make" to build the plugin.
+
+
+On Windows:
+-----------
+Place the generated "OpenMeshCore.lib" and "OpenMeshTools.lib" into this folder, then compile the plugin with the VC project file.

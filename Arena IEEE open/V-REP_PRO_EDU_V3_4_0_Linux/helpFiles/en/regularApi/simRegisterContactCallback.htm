@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>simRegisterContactCallback</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+
+<div align="center">
+<table class=allEncompassingTable >
+ <tr>
+  <td >
+<p><a href="../../index.html" TARGET="_top"><img src="../images/homeImg.png"></a></p>
+
+<h1><a href="../apiOverview.htm">Regular API</a> function</h1>
+<h3 class=subsectionBar><a name="simRegisterContactCallback" id="simRegisterContactCallback"></a>simRegisterContactCallback</h3>
+<table class=apiTable>
+<tr class=apiTableTr> 
+<td class=apiTableLeftDescr>
+Description 
+</td> 
+<td class=apiTableRightDescr>Registers or unregisters a contact callback function for customized contact handling. Several plugins can register a callback, and the callbacks will be cascaded if not interrupted.</td>
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCSyn>
+C synopsis
+</td> 
+<td class=apiTableRightCSyn>simInt simRegisterContactCallback(simInt(*callBack)(simInt,simInt,simInt,simInt*,simFloat*))<br></td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCParam>C parameters</td> 
+<td class=apiTableRightCParam>
+<div>callback address. Specify the function you wish to register/unregister as callback. When the function is already registered, it will be unregistered. Following describes the callback's arguments:<br>
+</div>
+<br>
+<div><strong>first argument (int)</strong>: handle of the first object that is involved in the contact. Could also be the handle of a dynamic particle<br>
+</div>
+<div><strong>second argument (int)</strong>: handle of the second object that is involved in the contact. Could also be the handle of a dynamic particle<br>
+</div>
+<div><strong>third argument (int)</strong>: the selected <a href="../apiConstants.htm#physicsEngineTypes">physics engine</a><br>
+</div>
+<br>
+<div>The forth and fifth argument (allocated by V-REP) allow you to specify how the contact should behave (see also the respective Bullet, ODE, Newton and Vortex reference manuals):<br>
+</div>
+<br>
+<div><strong>forth argument (int*)</strong></div>
+<div class=tab>[0] should be set to zero (indicates the function version, for future extensions)</div>
+<div class=tab>[1] Bullet, Newton and Vortex: not used (keep 0). ODE: contactCount (max. number of contact points to generate).</div>
+<div class=tab>[2] Bullet, Newton and Vortex: not used (keep 0). ODE: contactMode (can be bit-wise combined):</div>
+<div class=tabTab>1=dContactMu2</div>
+<div class=tabTab>2=dContactFDir1</div>
+<div class=tabTab>4=dContactBounce</div>
+<div class=tabTab>8=dContactSoftERP</div>
+<div class=tabTab>16=dContactSoftCFM</div>
+<div class=tabTab>32=dContactMotion1</div>
+<div class=tabTab>64=dContactMotion2</div>
+<div class=tabTab>128=dContactSlip1</div>
+<div class=tabTab>256=dContactSlip2</div>
+<div class=tabTab>512=dContactApprox1_1</div>
+<div class=tabTab>1024=dContactApprox1_2</div>
+<div class=tabTab>2048=dContactApprox1</div>
+
+
+
+
+<div><strong>Fifth argument (float*)</strong></div>
+<div class=tab>[0] Bullet: combined friction. ODE: mu. Newton: combined static friction. Vortex: not used (keep0).</div>
+<div class=tab>[1] Bullet: combined restitution. ODE: mu2. Newton: combined kinetic friction. Vortex: not used (keep0).</div>
+<div class=tab>[2] Bullet: not used (keep 0.0). ODE: bounce. Newton: combined restitution. Vortex: not used (keep0).</div>
+<div class=tab>[3] Bullet, Newton and Vortex: not used (keep 0.0). ODE: bounce_vel.</div>
+<div class=tab>[4] Bullet, Newton and Vortex: not used (keep 0.0). ODE: soft_erp.</div>
+<div class=tab>[5] Bullet, Newton and Vortex: not used (keep 0.0). ODE: soft_cfm.</div>
+<div class=tab>[6] Bullet, Newton and Vortex: not used (keep 0.0). ODE: motion1.</div>
+<div class=tab>[7] Bullet, Newton and Vortex: not used (keep 0.0). ODE: motion2.</div>
+<div class=tab>[8] Bullet, Newton and Vortex: not used (keep 0.0). ODE: motionN.</div>
+<div class=tab>[9] Bullet, Newton and Vortex: not used (keep 0.0). ODE: slip1.</div>
+<div class=tab>[10] Bullet, Newton and Vortex: not used (keep 0.0). ODE: slip2.</div>
+<div class=tab>[11] Bullet, Newton and Vortex: not used (keep 0.0). ODE: fdir1[0].</div>
+<div class=tab>[12] Bullet, Newton and Vortex: not used (keep 0.0). ODE: fdir1[1].</div>
+<div class=tab>[13] Bullet, Newton and Vortex: not used (keep 0.0). ODE: fdir1[2].</div>
+<br>
+<div>The callback return value can be:</div>
+<div class=tab><strong>-1</strong>: the callback doesn't process the contact and hands the contact to the next callback. If no callback processes it, the default contact handling is used<br>
+</div>
+<div class=tab><strong>0</strong>: the contact is ignored and the two objects won't have a collision response</div>
+<div class=tab><strong>&gt;0</strong>: the contact will be handled with above's values (the default values are overridden)</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftCRet>
+C return value
+</td> 
+<td class=apiTableRightCRet>
+<div>-1 if operation was not successful. 0 if the callback was unregistered, 1 if the callback was registered<br>
+</div>
+</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLSyn>
+Lua synopsis
+</td> 
+<td class=apiTableRightLSyn>-</td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLParam>Lua parameters</td> 
+<td class=apiTableRightLParam>
+<div>-</div>
+<div></div></td> 
+</tr> 
+<tr class=apiTableTr> 
+<td class=apiTableLeftLRet>
+Lua return values
+</td> 
+<td class=apiTableRightLRet>
+<div>-</div>
+<div></div></td> 
+</tr> 
+</table> 
+
+<br>
+<p><a href="../apiFunctions.htm">All regular API functions on one page</a></p>
+<br>
+<br>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
