@@ -49,10 +49,11 @@ int main(int argc, char **argv) {
         while ( vrep.simulationIsActive() )  // enquanto a simulação estiver ativa
         {   
             
-            vrep.testJunta();
+            //vrep.testJunta();
            // vrep.seguidorDeParede();
             vrep.testGetImage();
-            vrep.testSetImage();
+           // vrep.testSetImage();
+           // vrep.testReadCam();
             vrep.delay(150);
         }
 

@@ -157,3 +157,6 @@ void SKILLS::testGetImage(){
 void SKILLS::testSetImage(){
     vdc.setImageVisionSensor(Webcam);
 }
+void SKILLS::testReadCam(){
+    vdc.readVisionSensor(Webcam);
+}

@@ -36,6 +36,8 @@ public:
     void delay(int time);
     void getImageVisionSensor(int Webcam);
     void setImageVisionSensor(int Webcam);
+    void readVisionSensor(int cam);
+    void opencvVisionInfo(int cam);
     int getClientID();
   
     

@@ -30,19 +30,24 @@ set(HEADERS
     VDC/VDC.h
     VDC/Skills.h
     VDC/Utilities.h
+    VDC/OpenCV/OCVbridgeType.h
     
 )
 include_directories("include/")
 include_directories("remoteApi/")
 include_directories("VDC/")
 
+
 find_package (Threads)
+find_package( OpenCV REQUIRED ) 
 
 add_executable(cppremoteapi
                main.cpp
                ${SOURCES}
 	       ${HEADERS})
 
+target_link_libraries( cppremoteapi ${OpenCV_LIBS} )
 target_link_libraries (cppremoteapi ${CMAKE_THREAD_LIBS_INIT})
+
 
 install(TARGETS cppremoteapi RUNTIME DESTINATION bin)

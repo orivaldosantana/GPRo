@@ -23,7 +23,9 @@ public:
     void testJunta();
     void testGetImage();
     void testSetImage();
-        
+    void testReadCam ();
+
+    
     
     
     
