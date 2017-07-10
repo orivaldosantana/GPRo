@@ -13,9 +13,14 @@
 
 #ifndef VDC_H
 #define VDC_H
+extern "C" {
+  #include "extApi.h"
+}
 
 #include <string>
 #include <iostream>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
 class VDC {
     friend class SKILLS;
@@ -34,7 +39,9 @@ public:
     bool connection_is_OK ();
     bool simulationIsActive ();
     void delay(int time);
+    void CamilaCode(int Webcam);
     void getImageVisionSensor(int Webcam);
+    void getOpencvImageVisionSensor(int Webcam);
     void setImageVisionSensor(int Webcam);
     void readVisionSensor(int cam);
     void opencvVisionInfo(int cam);
@@ -45,6 +52,7 @@ public:
     
     
 private:
+    cv::Mat convertVrepToOpenCV(simxUChar image[], simxInt resX, simxInt resY);
     
     // clientID
     int clientID;

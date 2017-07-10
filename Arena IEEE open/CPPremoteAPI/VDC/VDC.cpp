@@ -630,14 +630,11 @@ void find_corners() { // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
     }
 }
 
-void VDC::getImageVisionSensor(int Webcam) {
+void VDC::CamilaCode(int Webcam) {
     // simxInt clientID;
 
     simxInt res[2]; // vai entender esse vrep  ?                                                                                                                                                                                                                                                                    não.
     simxUChar* image;
-    simxInt bufferSize;
-    simxUChar options;
-    options = '0';
 
 
 
@@ -645,25 +642,25 @@ void VDC::getImageVisionSensor(int Webcam) {
     simxGetVisionSensorImage(clientID, Webcam, (&res[0], &res[1]), &image, 0, simx_opmode_streaming);
     int retVal = simxGetVisionSensorImage(clientID, Webcam, &res[0], &image, 0, simx_opmode_buffer);
     if (retVal == simx_return_ok) { // vefica se pegou uma imagem 
-        std::cout << res[0] << " " << res[1] << std::endl; 
+        std::cout << res[0] << " " << res[1] << std::endl;
         //   cout << "image: " << (uchar)image[res[1] *res[0]] <<endl;
 
 
 
 
 
-        frame = cvCreateImage(cvSize(res[0], res[1]), 8, 3); 
+        frame = cvCreateImage(cvSize(res[0], res[1]), 8, 3);
 
         //from v-rep to OpenCV...
         //remeber that colors in opencv Mat are ordered as BGR
         for (unsigned int i = 0; i < res[1]; i++) {
             for (unsigned int j = 0; j < res[0]; j++) {
                 int r, g, b;
-                r = cvRound(255 * image[3 * ((res[1] - i) * res[0] + j) + 0]);
+                r = cvRound(1 * image[3 * ((res[1] - i) * res[0] + j) + 0]);
                 //                cout <<"r: " << r << endl;
-                g = cvRound(255 * image[3 * ((res[1] - i) * res[0] + j) + 1]);
+                g = cvRound(1 * image[3 * ((res[1] - i) * res[0] + j) + 1]);
                 //                cout <<"g: " << g << endl;
-                b = cvRound(255 * image[3 * ((res[1] - i) * res[0] + j) + 2]);
+                b = cvRound(1 * image[3 * ((res[1] - i) * res[0] + j) + 2]);
                 //                cout <<"b: " << b << endl;
 
                 frame.at<Vec3b>(i, j)[0] = (uchar) b;
@@ -672,8 +669,17 @@ void VDC::getImageVisionSensor(int Webcam) {
 
             }
         }
-
         
+        /*
+        namedWindow("Vrep", CV_WINDOW_AUTOSIZE);
+
+       // resizeWindow("Mit Neural", 640, 480);
+        if (frame.data)
+            imshow("Vrep", frame);
+
+
+        waitKey(0);
+*/
 
 
         cvtColor(frame, src_grey, CV_BGR2GRAY);
@@ -689,54 +695,106 @@ void VDC::getImageVisionSensor(int Webcam) {
 
 
 
-        namedWindow("Gray image", CV_WINDOW_AUTOSIZE);
+        namedWindow("Mit Neural", CV_WINDOW_AUTOSIZE);
 
-        resizeWindow("Mit Neural", 640, 480);
-        imshow("Gray image", mitNeural);
+       
+        if (mitNeural.data)
+            imshow("Mit Neural", mitNeural);
 
-        
+
         waitKey(0);
-/*
-        //... and back from OpenCV to v-rep
-        for (unsigned int i = 0; i < res[1]; i++) {
-            for (unsigned int j = 0; j < res[0]; j++) {
-                float r, g, b;
-                b = (float) mitNeural.at<Vec3b>(i, j)[0];
-                g = (float) mitNeural.at<Vec3b>(i, j)[1];
-                r = (float) mitNeural.at<Vec3b>(i, j)[2];
+        /*
+                //... and back from OpenCV to v-rep
+                for (unsigned int i = 0; i < res[1]; i++) {
+                    for (unsigned int j = 0; j < res[0]; j++) {
+                        float r, g, b;
+                        b = (float) mitNeural.at<Vec3b>(i, j)[0];
+                        g = (float) mitNeural.at<Vec3b>(i, j)[1];
+                        r = (float) mitNeural.at<Vec3b>(i, j)[2];
 
-                image[3 * ((res[1] - i - 1) * res[0] + j) + 0] = r / 255;
-                image[3 * ((res[1] - i - 1) * res[0] + j) + 1] = g / 255;
-                image[3 * ((res[1] - i - 1) * res[0] + j) + 2] = b / 255;
+                        image[3 * ((res[1] - i - 1) * res[0] + j) + 0] = r / 255;
+                        image[3 * ((res[1] - i - 1) * res[0] + j) + 1] = g / 255;
+                        image[3 * ((res[1] - i - 1) * res[0] + j) + 2] = b / 255;
 
-            }
-        }
+                    }
+                }
 
-        bufferSize = res[0] * res[1] * 3;
-        cout << "buffer: " << bufferSize << endl;
-
-
-
-        simxSetVisionSensorImage(clientID, Webcam, image, bufferSize, 0, simx_opmode_oneshot);
-        // simxSetVisionSensorImage(clientID,Webcam,image,bufferSize,0,simx_opmode_oneshot);
+                bufferSize = res[0] * res[1] * 3;
+                cout << "buffer: " << bufferSize << endl;
 
 
-*/
+
+                simxSetVisionSensorImage(clientID, Webcam, image, bufferSize, 0, simx_opmode_oneshot);
+                // simxSetVisionSensorImage(clientID,Webcam,image,bufferSize,0,simx_opmode_oneshot);
+
+
+         */
     }
 
 }
 
 void VDC::setImageVisionSensor(int Webcam) {
 
-    // simxUChar* image;
-    // simxInt bufferSize;
+    simxUChar* image;
+    simxInt bufferSize;
 
-    // simxSetVisionSensorImage(clientID,Webcam,image,bufferSize,NULL,simx_opmode_oneshot);
+    simxSetVisionSensorImage(clientID, Webcam, image, bufferSize, NULL, simx_opmode_oneshot);
 }
 
 void VDC::readVisionSensor(int cam) {
 
 
+}
+
+Mat VDC::convertVrepToOpenCV(simxUChar image[], simxInt resX, simxInt resY) {
+
+    Mat vrep = cvCreateImage(cvSize(resX, resY), 8, 3);
+
+    //from v-rep to OpenCV...
+    //remeber that colors in opencv Mat are ordered as BGR
+    for (unsigned int i = 0; i < resY; i++) {
+        for (unsigned int j = 0; j < resX; j++) {
+            int r, g, b;
+            r = cvRound( image[3 * ((resY - i) * resX + j) + 0]);
+            //                cout <<"r: " << r << endl;
+            g = cvRound( image[3 * ((resY - i) * resX + j) + 1]);
+            //                cout <<"g: " << g << endl;
+            b = cvRound( image[3 * ((resY - i) * resX + j) + 2]);
+            //                cout <<"b: " << b << endl;
+
+            vrep.at<Vec3b>(i, j)[0] = (uchar) b;
+            vrep.at<Vec3b>(i, j)[1] = (uchar) g;
+            vrep.at<Vec3b>(i, j)[2] = (uchar) r;
+
+        }
+    }
+
+    return vrep;
+}
+
+void VDC::getOpencvImageVisionSensor(int cam) {
+    simxInt res[2]; // vai entender esse vrep  ?                                                                                                                                                                                                                                                                    não.
+    simxUChar* image;
+    Mat vrep;
+
+
+
+
+
+    // pega  imagem do V-rep
+    simxGetVisionSensorImage(clientID, cam, (&res[0], &res[1]), &image, 0, simx_opmode_streaming); // a primeira chamda prepara o vision Sensor
+    int retVal = simxGetVisionSensorImage(clientID, cam, &res[0], &image, 0, simx_opmode_streaming);
+    if (retVal == simx_return_ok) { // vefica se pegou uma imagem 
+        std::cout << res[0] << " " << res[1] << std::endl;
+        vrep = VDC::convertVrepToOpenCV(image, res[0], res[1]);
+
+
+        namedWindow("Vrep", CV_WINDOW_AUTOSIZE);
+        imshow("Vrep", vrep);
+        waitKey(0);
+
+
+    }
 }
 
 VDC::~VDC() {

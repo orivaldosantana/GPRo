@@ -150,7 +150,7 @@ void SKILLS::testJunta() {
 }
 
 void SKILLS::testGetImage(){
-    vdc.getImageVisionSensor(Webcam);
+    vdc.CamilaCode(Webcam);
     
 }
 
