@@ -30,12 +30,13 @@ set(HEADERS
     VDC/VDC.h
     VDC/Skills.h
     VDC/Utilities.h
-    VDC/OpenCV/OCVbridgeType.h
+    VDC/OpenCV/functionsOpenCV.h
     
 )
 include_directories("include/")
 include_directories("remoteApi/")
 include_directories("VDC/")
+include_directories("VDC/OpenCV/")
 
 
 find_package (Threads)

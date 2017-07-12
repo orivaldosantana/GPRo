@@ -57,8 +57,9 @@
       </toolsSet>
       <flagsDictionary>
         <element flagsID="0" commonFlags="-std=c++0x"/>
-        <element flagsID="1" commonFlags="-std=c++1z"/>
-        <element flagsID="2" commonFlags="-std=c11"/>
+        <element flagsID="1" commonFlags="-std=c++14"/>
+        <element flagsID="2" commonFlags="-std=c++1z"/>
+        <element flagsID="3" commonFlags="-std=c11"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -77,12 +78,14 @@
       <item path="/usr/share/cmake-3.8/Modules/CMakeCCompilerABI.c"
             ex="false"
             tool="0"
-            flavor2="0">
+            flavor2="2">
       </item>
       <item path="/usr/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <item path="VDC/Skills.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -95,15 +98,17 @@
       <item path="build/CMakeFiles/3.8.2/CompilerIdC/CMakeCCompilerId.c"
             ex="false"
             tool="0"
-            flavor2="0">
+            flavor2="2">
       </item>
       <item path="build/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <item path="build/CMakeFiles/feature_tests.c" ex="false" tool="0" flavor2="10">
-        <cTool flags="2">
+        <cTool flags="3">
           <incDir>
             <pElem>build/CMakeFiles/CMakeTmp</pElem>
           </incDir>
@@ -113,7 +118,7 @@
             ex="false"
             tool="1"
             flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
           <incDir>
             <pElem>build/CMakeFiles/CMakeTmp</pElem>
           </incDir>
@@ -125,6 +130,8 @@
             <pElem>include</pElem>
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
+            <pElem>VDC/OpenCV</pElem>
+            <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
           <preprocessorList>
@@ -140,6 +147,8 @@
             <pElem>include</pElem>
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
+            <pElem>VDC/OpenCV</pElem>
+            <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
           <preprocessorList>
@@ -166,6 +175,8 @@
             <pElem>include</pElem>
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
+            <pElem>VDC/OpenCV</pElem>
+            <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
           <preprocessorList>

@@ -16,6 +16,7 @@ public:
         
         this->clientID =simxStart((simxChar*)serverIP.c_str(),serverPort,true,true,2000,5);
         angle[5] = { };
+        
     }
      
     void seguidorDeParede();
@@ -24,6 +25,8 @@ public:
     void testGetImage();
     void testSetImage();
     void testReadCam ();
+    bool searchTank(int &rx , int &ry);
+    void WhereIsTheCow();
 
     
     

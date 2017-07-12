@@ -39,13 +39,13 @@ public:
     bool connection_is_OK ();
     bool simulationIsActive ();
     void delay(int time);
-    void CamilaCode(int Webcam);
+   
     void getImageVisionSensor(int Webcam);
-    void getOpencvImageVisionSensor(int Webcam);
     void setImageVisionSensor(int Webcam);
     void readVisionSensor(int cam);
-    void opencvVisionInfo(int cam);
+    bool imageVrepToOpencv(int cam,cv::Mat &ImageVrep);
     int getClientID();
+    void setDebug (bool debug);
   
     
     
@@ -56,6 +56,7 @@ private:
     
     // clientID
     int clientID;
+    bool debug = false; //deputar tudo !!!
     
    
  

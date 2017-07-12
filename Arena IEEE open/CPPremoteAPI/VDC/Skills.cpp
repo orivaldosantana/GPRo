@@ -1,5 +1,16 @@
 #include <Skills.h>
 #include <Utilities.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv.h>
+#include <opencv2/opencv.hpp>
+#include <math.h>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <functionsOpenCV.h>
+
+using namespace cv;
+using namespace std;
+
 
 VDC vdc;
 
@@ -39,8 +50,8 @@ void SKILLS::connectToRobot() {
     for (int i = 0; i < 8; i++) {
         vdc.conectProximitySensors("Proximity_sensor_" + std::to_string(i + 1), sensor[i]);
     }
-    
-    vdc.conectJoints("Webcam",Webcam);
+
+    vdc.conectJoints("Webcam", Webcam);
 
 
 
@@ -63,7 +74,7 @@ void SKILLS::seguidorDeParede() {
     }
 
     if (dist[2] < 0.2) {
-        
+
         velocityLeft = 2.0 * degree(15);
         velocityRight = 1.75;
 
@@ -72,8 +83,7 @@ void SKILLS::seguidorDeParede() {
         velocityLeft = 1.75;
         velocityRight = 2.0 * degree(15);
 
-    }
-    else if (dist[2] > 100) {
+    } else if (dist[2] > 100) {
 
     }
 
@@ -143,20 +153,78 @@ void SKILLS::testJunta() {
 
 
     }
-    
-    
-    
-    
+
+
+
+
 }
 
-void SKILLS::testGetImage(){
-    vdc.CamilaCode(Webcam);
-    
+void SKILLS::testGetImage() {
+    Mat image;
+    vdc.debug = true;
+    if (vdc.imageVrepToOpencv(Webcam, image)) {
+
+    }
+
+
+
 }
 
-void SKILLS::testSetImage(){
+void SKILLS::testSetImage() {
     vdc.setImageVisionSensor(Webcam);
 }
-void SKILLS::testReadCam(){
+
+void SKILLS::testReadCam() {
     vdc.readVisionSensor(Webcam);
 }
+
+
+
+bool SKILLS::searchTank(int &rx, int &ry) {
+    Mat imageVrep;
+   
+    if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
+        if (imageVrep.data && debug) {
+
+            namedWindow("vrep2", CV_WINDOW_AUTOSIZE);
+            imshow("vrep2", imageVrep);
+            waitKey(0);
+
+        }
+     findRedColorMass(imageVrep, rx, ry);
+        
+        if(debug){
+            cout<< "posição x do tank: " << rx  << " y: " << ry <<endl;
+        }
+        
+  
+      
+
+
+
+
+
+
+
+    }
+
+
+
+}
+
+void SKILLS::WhereIsTheCow() {
+    Mat image;
+    if (vdc.imageVrepToOpencv(Webcam, image)) {
+        findYourMother(image);
+    }
+
+
+    if (image.data) {
+        namedWindow("CamilaCode", CV_WINDOW_AUTOSIZE);
+        imshow("CamilaCode", image);
+        waitKey(0);
+    }
+
+
+}
+

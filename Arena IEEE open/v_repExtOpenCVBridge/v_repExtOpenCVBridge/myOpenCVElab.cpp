@@ -545,8 +545,8 @@ OCVBridge openCVElab(Mat ocvimage){
 
 
     //code example
-    int width = 1280;
-    int height = 720;
+    //int width = 1280;
+    //int height = 720;
 
     cvtColor(frame, src_grey, CV_BGR2GRAY );
 		cvtColor(frame,HSV,COLOR_BGR2HSV);
@@ -566,7 +566,8 @@ OCVBridge openCVElab(Mat ocvimage){
     OCVBridge retStruct;
 
     //insert the resulting image in the bridge return struct
-    retStruct.img=mitNeural;
+    retStruct.img=ocvimage;
+    retStruct.returnValues.push_back(123456789);
 
 
     /*-----------------------------------------*/

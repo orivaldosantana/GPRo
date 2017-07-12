@@ -37,8 +37,9 @@ SKILLS vrep("127.0.0.1",19999);
 
 
 int main(int argc, char **argv) {
+    int rx,ry;
 
-    
+  
 
         if ( vrep.connection_is_OK()){
             cout << "Servidor conectado!" << std::endl;
@@ -51,9 +52,10 @@ int main(int argc, char **argv) {
             
             //vrep.testJunta();
            // vrep.seguidorDeParede();
-            vrep.testGetImage();
+            vrep.searchTank(rx,ry);
            // vrep.testSetImage();
            // vrep.testReadCam();
+           // vrep.testGetImage();
             vrep.delay(150);
         }
 
