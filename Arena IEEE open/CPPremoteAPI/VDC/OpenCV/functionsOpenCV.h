@@ -524,7 +524,7 @@ void find_corners() { // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
     }
 }
 
-Mat findYourMother(Mat image) {
+Mat findCow(Mat image) {
 
     frame = image;
 
@@ -661,10 +661,19 @@ void findRedColorMass (Mat Vrep , int &rx, int &ry){
         drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, Point());
         circle(drawing, mc[i], 4, color, -1, 8, 0);
     }
+     Mat soMassa = Mat::zeros(Vrep.size(), CV_8UC3);
+    for (int i = 0; i < contours.size(); i++) {
+        Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+      //  drawContours(soMassa, contours, i, color, 2, 8, hierarchy, 0, Point());
+        circle(soMassa, mc[i], 4, color, -1, 8, 0);
+    }
+    
 if (drawing.data) {
         /// Show in a window
         namedWindow("Contours", CV_WINDOW_AUTOSIZE);
         imshow("Contours", drawing);
+         namedWindow("Centro De Massa", CV_WINDOW_AUTOSIZE);
+        imshow("Centro De Massa", soMassa);
     }
     
    if ( waitKey(25) >= 0){ // 25 frames por segundo

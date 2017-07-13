@@ -106,17 +106,10 @@ void SKILLS::seguidorDeParede() {
 
     std::cout << "dist[0]: " << dist[0] << " dist[2]: " << dist[2] << " dist[7]: " << dist[7] << std::endl;
 
-    // atualiza velocidades dos motores
-    vdc.setJointVelocity(joint[0], velocityRight);
-    vdc.setJointVelocity(joint[2], velocityRight);
-
-    vdc.setJointVelocity(joint[1], velocityLeft);
-    vdc.setJointVelocity(joint[3], velocityLeft);
-    //*/
+  
 
 
-
-
+   SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
 
 
 }
@@ -180,8 +173,13 @@ void SKILLS::testReadCam() {
 
 
 
-bool SKILLS::searchTank(int &rx, int &ry) {
+void SKILLS::goToTank() {
     Mat imageVrep;
+    int rx,ry;
+    int q3 = 240 ; // dividi o eixo x da imagem em 7 quartis  
+    int q5 = 400 ;
+    float velocityRight = 1;
+    float velocityLeft = 1;
    
     if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
         if (imageVrep.data && debug) {
@@ -190,22 +188,26 @@ bool SKILLS::searchTank(int &rx, int &ry) {
             imshow("vrep2", imageVrep);
             waitKey(0);
 
-        }
-     findRedColorMass(imageVrep, rx, ry);
+        }  
+        findRedColorMass(imageVrep, rx, ry);
         
         if(debug){
             cout<< "posição x do tank: " << rx  << " y: " << ry <<endl;
         }
         
-  
-      
-
-
-
-
-
-
-
+        
+        if(rx <q3)
+            velocityLeft =0;
+        else if( rx > q5)
+            velocityRight =0;
+        
+            
+            
+            
+            
+         SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
+        
+        
     }
 
 
@@ -215,16 +217,29 @@ bool SKILLS::searchTank(int &rx, int &ry) {
 void SKILLS::WhereIsTheCow() {
     Mat image;
     if (vdc.imageVrepToOpencv(Webcam, image)) {
-        findYourMother(image);
+        image = findCow(image);
     }
 
 
     if (image.data) {
         namedWindow("CamilaCode", CV_WINDOW_AUTOSIZE);
         imshow("CamilaCode", image);
-        waitKey(0);
+        if( waitKey(25) >= 0){}
+            
     }
 
 
+}
+void SKILLS::setVelocityInRobot(float velocityRight, float velocityLeft){
+    
+      // atualiza velocidades dos motores
+    vdc.setJointVelocity(joint[0], velocityRight);
+    vdc.setJointVelocity(joint[2], velocityRight);
+
+    vdc.setJointVelocity(joint[1], velocityLeft);
+    vdc.setJointVelocity(joint[3], velocityLeft);
+    //*/
+
+    
 }
 

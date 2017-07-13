@@ -25,20 +25,14 @@ public:
     void testGetImage();
     void testSetImage();
     void testReadCam ();
-    bool searchTank(int &rx , int &ry);
+    void goToTank();
     void WhereIsTheCow();
 
     
     
-    
-    
-
-    
-    
-    
-    
-    
 private:
+    
+    void setVelocityInRobot(float velocityRight, float velocityLeft);
     
      // MOTORES e juntas
    // int numbJoints;

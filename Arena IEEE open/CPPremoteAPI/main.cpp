@@ -52,7 +52,8 @@ int main(int argc, char **argv) {
             
             //vrep.testJunta();
            // vrep.seguidorDeParede();
-            vrep.searchTank(rx,ry);
+           // vrep.goToTank();
+            vrep.WhereIsTheCow();
            // vrep.testSetImage();
            // vrep.testReadCam();
            // vrep.testGetImage();
