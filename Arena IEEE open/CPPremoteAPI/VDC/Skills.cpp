@@ -216,17 +216,16 @@ void SKILLS::goToTank() {
 
 void SKILLS::WhereIsTheCow() {
     Mat image;
+    float rx =123;
+    float velocityLeft;
+    float velocityRight;
+    
     if (vdc.imageVrepToOpencv(Webcam, image)) {
-        image = findCow(image);
+        rx = findCow(image);
+        cout << rx <<endl;
     }
+    
 
-
-    if (image.data) {
-        namedWindow("CamilaCode", CV_WINDOW_AUTOSIZE);
-        imshow("CamilaCode", image);
-        if( waitKey(25) >= 0){}
-            
-    }
 
 
 }

@@ -30,14 +30,41 @@ vector<Vec4i> lParalelas;
 vector<Point2f> corners;
 vector<float> angles, anglesP;
 
-
+int width = 640;
+int height = 480;
+float RX;
 // ---------  COISAS PARA K-MEANS  -----------
 // SET DE DADOS PARA IA
 
 const int K = 2; // NUMERO DE CLUSTERS
 const int nCICLOS = 250;
 
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////7
+
+void PDControl(int x, int y) {
+   float erro = x - (width / 2);
+    erro = erro / (width / 2);
+    RX = erro;
+     cout << "error: " << erro << endl;
+    int to_show;
+    if (erro < 0.01) { // go left
+        to_show = (int) (-100 * erro);
+        line(frame, Point((width / 2), y), Point(x, y), Scalar(0, 255, 0), to_show);
+        line(frame, Point((width / 2), y), Point(x, y), Scalar(0, 255, 0), to_show);
+    } else if (erro > 0.01) { // go right
+        to_show = (int) (100 * erro);
+        line(frame, Point((width / 2), y), Point(x, y), Scalar(0, 0, 255), to_show);
+        line(frame, Point((width / 2), y), Point(x, y), Scalar(0, 0, 255), to_show);
+    }
+
+    // QUANTO MENOR O NÚMERO, MAIOR O ALINHAMENTO DO ROBO
+    // QUANTO MAIOR O NÚMERO, MAIOR A DIFERENCA ENTRE AS VELOCIDADES DOS MOTORES
+    // QUANTO MENOR O NÚMERO, MAIS PRÓXIMAS SAO AS VELOCIDADES DOS MOTORES
+    // TO FALANDO DA VARIÁVEL 	erro
+
+}
 
 void kmeans_training(vector<Point2f> corners) {
     unsigned int tam = corners.size(); // pegar tamanho de algum vetor
@@ -212,6 +239,9 @@ void kmeans_training(vector<Point2f> corners) {
 
     int X = int((c[0][0] + c[1][0]) / 2.0);
     int Y = int((c[0][1] + c[1][1]) / 2.0);
+
+    PDControl(X, Y);
+
 
     circle(mitNeural, Point(X, Y), 20, Scalar(255, 0, 0), -1, 8, 0);
     circle(mitNeural, Point(X, Y), 25, Scalar(255, 0, 0), -1, 8, 0);
@@ -524,7 +554,7 @@ void find_corners() { // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
     }
 }
 
-Mat findCow(Mat image) {
+float findCow(Mat image) {
 
     frame = image;
 
@@ -539,7 +569,19 @@ Mat findCow(Mat image) {
     find_corners(); // usa o algoritmo shi pra achar pontos de interesse (quinas)
     istInDerLinie(); // mantém as linhas que cruzam os pontos achados na funcao anterior
 
-    return mitNeural;
+    namedWindow("Original", CV_WINDOW_AUTOSIZE);
+    namedWindow("Mit Neural", CV_WINDOW_AUTOSIZE);
+
+    if (frame.data && mitNeural.data) {
+        imshow("Mit Neural", mitNeural);
+        imshow("Original", frame);
+
+        waitKey(30);
+
+
+    }
+    return RX;
+
 
 
 
@@ -608,31 +650,31 @@ void massCenter(int, void*, Mat image) {
 
 }
 
-void findRedColorMass (Mat Vrep , int &rx, int &ry){
-    
+void findRedColorMass(Mat Vrep, int &rx, int &ry) {
+
     rx = -1;
     ry = -1;
-    
-            
+
+
     Mat canny_output;
     vector<vector<Point> > contours;
     vector<Vec4i> hierarchy;
-     RNG rng(12345);
- 
+    RNG rng(12345);
 
-    
+
+
     namedWindow("Object Detection", WINDOW_NORMAL);
-    inRange(Vrep,Scalar(0,0,0), Scalar(21,255,255),Vrep);
-    imshow("Object Detection",Vrep);
-    
-   
-    
-     /// Find contours
+    inRange(Vrep, Scalar(0, 0, 0), Scalar(21, 255, 255), Vrep);
+    imshow("Object Detection", Vrep);
+
+
+
+    /// Find contours
     findContours(Vrep, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
     if (!contours.size())
         return;
 
-    
+
     /// Get the moments
     vector<Moments> mu(contours.size());
     for (int i = 0; i < contours.size(); i++) {
@@ -643,17 +685,17 @@ void findRedColorMass (Mat Vrep , int &rx, int &ry){
     vector<Point2f> mc(contours.size());
     for (int i = 0; i < contours.size(); i++) {
         mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00);
-        if(mc[i].x > rx && mc[i].y > ry){
+        if (mc[i].x > rx && mc[i].y > ry) {
             rx = mc[i].x;
             ry = mc[i].y;
         }
     }
-    
-  
-    
-   
-     
-     cout << rx  << " " << ry <<endl;
+
+
+
+
+
+    cout << rx << " " << ry << endl;
     /// Draw contours
     Mat drawing = Mat::zeros(Vrep.size(), CV_8UC3);
     for (int i = 0; i < contours.size(); i++) {
@@ -661,23 +703,23 @@ void findRedColorMass (Mat Vrep , int &rx, int &ry){
         drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, Point());
         circle(drawing, mc[i], 4, color, -1, 8, 0);
     }
-     Mat soMassa = Mat::zeros(Vrep.size(), CV_8UC3);
+    Mat soMassa = Mat::zeros(Vrep.size(), CV_8UC3);
     for (int i = 0; i < contours.size(); i++) {
         Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-      //  drawContours(soMassa, contours, i, color, 2, 8, hierarchy, 0, Point());
+        //  drawContours(soMassa, contours, i, color, 2, 8, hierarchy, 0, Point());
         circle(soMassa, mc[i], 4, color, -1, 8, 0);
     }
-    
-if (drawing.data) {
+
+    if (drawing.data) {
         /// Show in a window
         namedWindow("Contours", CV_WINDOW_AUTOSIZE);
         imshow("Contours", drawing);
-         namedWindow("Centro De Massa", CV_WINDOW_AUTOSIZE);
+        namedWindow("Centro De Massa", CV_WINDOW_AUTOSIZE);
         imshow("Centro De Massa", soMassa);
     }
-    
-   if ( waitKey(25) >= 0){ // 25 frames por segundo
-       
-   }
-       
+
+    if (waitKey(25) >= 0) { // 25 frames por segundo
+
+    }
+
 }
