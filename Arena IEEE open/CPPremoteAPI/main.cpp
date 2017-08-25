@@ -50,13 +50,13 @@ int main(int argc, char **argv) {
         while ( vrep.simulationIsActive() )  // enquanto a simulação estiver ativa
         {   
             
-            //vrep.testJunta();
-           // vrep.seguidorDeParede();
-           // vrep.goToTank();
-            vrep.WhereIsTheCow();
+               //vrep.testJunta();
+               vrep.seguidorDeParede();
+             // vrep.goToTank();
+            // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-           // vrep.testReadCam();
-           // vrep.testGetImage();
+          // vrep.testReadCam();
+         // vrep.testGetImage();
             vrep.delay(150);
         }
 

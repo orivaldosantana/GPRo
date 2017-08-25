@@ -186,7 +186,7 @@ void SKILLS::goToTank() {
 
             namedWindow("vrep2", CV_WINDOW_AUTOSIZE);
             imshow("vrep2", imageVrep);
-            waitKey(0);
+            waitKey(30);
 
         }  
         findRedColorMass(imageVrep, rx, ry);
@@ -217,12 +217,21 @@ void SKILLS::goToTank() {
 void SKILLS::WhereIsTheCow() {
     Mat image;
     float rx =123;
-    float velocityLeft;
-    float velocityRight;
+    float velocityLeft  =1 ;
+    float velocityRight =1 ;
     
     if (vdc.imageVrepToOpencv(Webcam, image)) {
         rx = findCow(image);
         cout << rx <<endl;
+        
+        
+        if ( rx < 0.01 )
+            velocityLeft =0;
+        else if ( rx > 0.01 )
+            velocityRight = 0;
+        
+        SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
+        
     }
     
 

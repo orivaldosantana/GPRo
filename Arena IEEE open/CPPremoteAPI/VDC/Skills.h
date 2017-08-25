@@ -1,3 +1,8 @@
+
+
+#ifndef SKILLS_H
+#define SKILLS_H
+
 #include <VDC.h>
 #include <string>
 #include <iostream>
@@ -5,9 +10,6 @@ extern "C" {
 #include "extApi.h"
 }
 
-
-#ifndef SKILLS_H
-#define SKILLS_H
 
 class SKILLS: public VDC {
 public:
@@ -27,6 +29,7 @@ public:
     void testReadCam ();
     void goToTank();
     void WhereIsTheCow();
+    void obr();
 
     
     
