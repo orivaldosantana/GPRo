@@ -30,6 +30,7 @@ public:
     void goToTank();
     void WhereIsTheCow();
     void obr();
+    void seguirParedeMLP();
 
     
     

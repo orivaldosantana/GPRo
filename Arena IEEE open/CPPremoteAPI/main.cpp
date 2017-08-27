@@ -53,8 +53,9 @@ int main(int argc, char **argv) {
                //vrep.testJunta();
               // vrep.seguidorDeParede();
              // vrep.goToTank();
-             vrep.WhereIsTheCow();
+            // vrep.WhereIsTheCow();
            // vrep.testSetImage();
+            vrep.seguirParedeMLP();
           // vrep.testReadCam();
          // vrep.testGetImage();
             vrep.delay(150);

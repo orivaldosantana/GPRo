@@ -7,6 +7,7 @@
 #include <math.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <functionsOpenCV.h>
+#include <neuron.h>
 
 using namespace cv;
 using namespace std;
@@ -106,10 +107,10 @@ void SKILLS::seguidorDeParede() {
 
     std::cout << "dist[0]: " << dist[0] << " dist[2]: " << dist[2] << " dist[7]: " << dist[7] << std::endl;
 
-  
 
 
-   SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
+
+    SKILLS::setVelocityInRobot(velocityRight, velocityLeft);
 
 
 }
@@ -171,16 +172,14 @@ void SKILLS::testReadCam() {
     vdc.readVisionSensor(Webcam);
 }
 
-
-
 void SKILLS::goToTank() {
     Mat imageVrep;
-    int rx,ry;
-    int q3 = 240 ; // dividi o eixo x da imagem em 7 quartis  
-    int q5 = 400 ;
+    int rx, ry;
+    int q3 = 240; // dividi o eixo x da imagem em 7 quartis  
+    int q5 = 400;
     float velocityRight = 1;
     float velocityLeft = 1;
-   
+
     if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
         if (imageVrep.data && debug) {
 
@@ -188,26 +187,26 @@ void SKILLS::goToTank() {
             imshow("vrep2", imageVrep);
             waitKey(30);
 
-        }  
-        findRedColorMass(imageVrep, rx, ry);
-        
-        if(debug){
-            cout<< "posição x do tank: " << rx  << " y: " << ry <<endl;
         }
-        
-        
-        if(rx <q3)
-            velocityLeft =0;
-        else if( rx > q5)
-            velocityRight =0;
-        
-            
-            
-            
-            
-         SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
-        
-        
+        findRedColorMass(imageVrep, rx, ry);
+
+        if (debug) {
+            cout << "posição x do tank: " << rx << " y: " << ry << endl;
+        }
+
+
+        if (rx < q3)
+            velocityLeft = 0;
+        else if (rx > q5)
+            velocityRight = 0;
+
+
+
+
+
+        SKILLS::setVelocityInRobot(velocityRight, velocityLeft);
+
+
     }
 
 
@@ -216,31 +215,32 @@ void SKILLS::goToTank() {
 
 void SKILLS::WhereIsTheCow() {
     Mat image;
-    float rx =123;
-    float velocityLeft  =1 ;
-    float velocityRight =1 ;
-    
+    float rx = 123;
+    float velocityLeft = 1;
+    float velocityRight = 1;
+
     if (vdc.imageVrepToOpencv(Webcam, image)) {
         rx = findCow(image);
-        cout << rx <<endl;
-        
-        
-        if ( rx < 0.01 )
-            velocityLeft =0;
-        else if ( rx > 0.01 )
+        cout << rx << endl;
+
+
+        if (rx < 0.01)
+            velocityLeft = 0;
+        else if (rx > 0.01)
             velocityRight = 0;
-        
-        SKILLS::setVelocityInRobot(velocityRight,velocityLeft);
-        
+
+        SKILLS::setVelocityInRobot(velocityRight, velocityLeft);
+
     }
-    
+
 
 
 
 }
-void SKILLS::setVelocityInRobot(float velocityRight, float velocityLeft){
-    
-      // atualiza velocidades dos motores
+
+void SKILLS::setVelocityInRobot(float velocityRight, float velocityLeft) {
+
+    // atualiza velocidades dos motores
     vdc.setJointVelocity(joint[0], velocityRight);
     vdc.setJointVelocity(joint[2], velocityRight);
 
@@ -248,6 +248,96 @@ void SKILLS::setVelocityInRobot(float velocityRight, float velocityLeft){
     vdc.setJointVelocity(joint[3], velocityLeft);
     //*/
 
-    
+
 }
 
+void SKILLS::seguirParedeMLP() {
+
+    vector < double > inputs(4);
+    vector < double > vel_motores(2);
+    vector< int > capas = {4, 15, 15, 15, 2};
+    double distance[4];
+
+    //Vectores de entrenamiento: input (entrenador1) y output deseado (entrenador2)
+    //Orden de los sensores: {0,1,2,3,4,5} 
+    vector< vector< double > > entrenador1 = {
+        {0.0442136, 0.0442136, 0.0442136, 0.0442136}, //1
+        {0.0442136, 0.0442136, 0.0442136, 0.247024}, //2
+        {0.0442136, 0.0442136, 0.247024, 0.0442136}, //3
+        {0.0442136, 0.0442136, 0.247024, 0.247024}, //4
+        {0.0442136, 0.247024, 0.0442136, 0.0442136}, //5
+        {0.0442136, 0.247024, 0.0442136, 0.247024}, //6
+        {0.0442136, 0.247024, 0.247024, 0.0442136}, //7
+        {0.0442136, 0.247024, 0.247024, 0.247024}, //8
+        {0.247024, 0.0442136, 0.0442136, 0.0442136}, //9
+        {0.247024, 0.0442136, 0.0442136, 0.247024}, //10
+        {0.247024, 0.0442136, 0.247024, 0.0442136}, //11
+        {0.247024, 0.0442136, 0.247024, 0.247024}, //12
+        {0.247024, 0.247024, 0.0442136, 0.0442136}, //13
+        {0.247024, 0.247024, 0.0442136, 0.247024}, //14
+        {0.247024, 0.247024, 0.247024, 0.0442136}, //15
+        {0.247024, 0.0442136, 0.247024, 0.247024}, //16
+    };
+    //Orden de los motores: {a,b}, a-> motor derecho, b->motor izquierdo
+    vector< vector< double > > entrenador2 = {
+        {0, 0}, //1
+        {0.5, -0.5}, //2
+        {-0.5, 0.5}, //3
+        {0.75, 0}, //4
+        {-0.5, 0.5}, //5
+        {-0.5, 0.5}, //6 */
+        {1, 1}, //7
+        {1, 0.5}, //8
+        {0.5, -0.5}, //9
+        {-1, -1}, //10/
+        {0.75, -0.25}, //11
+        {0.5, -0.5}, //12
+        {-0.25, 0.75}, //13
+        {-0.25, 0.75}, //14
+        {-0.25, 0.75}, //15*/
+        {-0.25, 0.75}//16
+    };
+
+
+
+    //Creamos la red
+    cout << "Creando red..." << endl;
+    Network red(capas);
+    cout << "Red creada" << endl;
+
+    //Entrenamos la red con los ejemplos
+    cout << "Entrenando red..." << endl;
+    red.Aprendizaje_Prop_Atras(entrenador1, entrenador2);
+    cout << "Red entrenada" << endl;
+
+    //red.Mostrar_Pesos(); //Mostramos los pesos definitivos
+
+    //Mostrar los outputs:
+    for (int i = 0; i < entrenador1.size(); i++) {
+        red.Calcular_Output(entrenador1[i]);
+        red.Mostrar_Output();
+    }
+
+    for (int i = 0; i < 4; i++) {
+
+        distance[i] = VDC::getDistance(sensor[i]);
+
+
+    }
+
+    for (int i = 0; i < 4; i++) {
+        inputs[i] = distance[i];
+    }
+
+    vel_motores = red.Calcular_Output(inputs);
+
+    //El output de las redes neuronales es un valor entre 0 y 1. Queremos mapearlo para que vaya de
+    // -2 (motores giran hacia atras) a 2 (motores giran hacia delante).
+    vel_motores[0] -= 0.5;
+    vel_motores[1] -= 0.5;
+    vel_motores[0] *= 4;
+    vel_motores[1] *= 4;
+
+    
+    setVelocityInRobot(-vel_motores[0],-vel_motores[1]);
+}

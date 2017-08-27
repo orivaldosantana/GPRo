@@ -18,6 +18,7 @@ set(SOURCES
     remoteApi/extApiPlatform.c
     VDC/VDC.cpp
     VDC/Skills.cpp
+    VDC/Neuron/neuron.cpp
 )
 
 set(HEADERS
@@ -31,12 +32,14 @@ set(HEADERS
     VDC/Skills.h
     VDC/Utilities.h
     VDC/OpenCV/functionsOpenCV.h
+    VDC/Neuron/neuron.h
     
 )
 include_directories("include/")
 include_directories("remoteApi/")
 include_directories("VDC/")
 include_directories("VDC/OpenCV/")
+include_directories("VDC/Neuron/")
 
 
 find_package (Threads)

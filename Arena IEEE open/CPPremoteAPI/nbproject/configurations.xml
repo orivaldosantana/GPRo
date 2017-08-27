@@ -21,6 +21,9 @@
         <in>extApiPlatform.c</in>
       </df>
       <df name="VDC">
+        <df name="Neuron">
+          <in>neuron.cpp</in>
+        </df>
         <in>Skills.cpp</in>
         <in>VDC.cpp</in>
       </df>
@@ -87,6 +90,10 @@
         <ccTool flags="1">
         </ccTool>
       </item>
+      <item path="VDC/Neuron/neuron.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="VDC/Skills.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -131,6 +138,7 @@
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
+            <pElem>VDC/Neuron</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
@@ -148,6 +156,7 @@
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
+            <pElem>VDC/Neuron</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
@@ -176,6 +185,7 @@
             <pElem>remoteApi</pElem>
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
+            <pElem>VDC/Neuron</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>

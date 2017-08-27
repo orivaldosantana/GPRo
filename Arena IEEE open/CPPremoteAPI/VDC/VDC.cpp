@@ -62,15 +62,12 @@ double VDC::getDistance(int sensor) {
 
     if (simxReadProximitySensor(clientID, sensor, &state, coord, NULL, NULL, simx_opmode_buffer) == simx_return_ok) {
         if (state > 0) {
-            if (coord[2] > 0)
-                return coord[2];
-
-
-        } else if (state == 0)
-            return 500;
+            
+            return(double)coord[2];    
+        } 
 
     }
-    return -1;
+    return 1;
 
 
 
