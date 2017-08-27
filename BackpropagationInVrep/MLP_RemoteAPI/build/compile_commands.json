@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build",
+  "command": "/usr/bin/g++  -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/include -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron   -Wall -std=c++0x -DBUILD_SHARED_LIBS=OFF -g3 -gdwarf-2   -o CMakeFiles/cppremoteapi.dir/main.cpp.o -c /home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp",
+  "file": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp"
+},
+{
+  "directory": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build",
+  "command": "/usr/bin/gcc -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/include -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron  -g3 -gdwarf-2   -o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o   -c /home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi/extApi.c",
+  "file": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi/extApi.c"
+},
+{
+  "directory": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build",
+  "command": "/usr/bin/gcc -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/include -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron  -g3 -gdwarf-2   -o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o   -c /home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi/extApiPlatform.c",
+  "file": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi/extApiPlatform.c"
+},
+{
+  "directory": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build",
+  "command": "/usr/bin/g++  -DMAX_EXT_API_CONNECTIONS=255 -DNON_MATLAB_PARSING -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/include -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/remoteApi -I/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron   -Wall -std=c++0x -DBUILD_SHARED_LIBS=OFF -g3 -gdwarf-2   -o CMakeFiles/cppremoteapi.dir/neuron/neuron.cpp.o -c /home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp",
+  "file": "/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp"
+}
+]

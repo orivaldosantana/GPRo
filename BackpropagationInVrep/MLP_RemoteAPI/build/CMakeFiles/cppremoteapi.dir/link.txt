@@ -1,0 +1,1 @@
+/usr/bin/g++   -Wall -std=c++0x -DBUILD_SHARED_LIBS=OFF -g3 -gdwarf-2  -rdynamic CMakeFiles/cppremoteapi.dir/main.cpp.o CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o CMakeFiles/cppremoteapi.dir/neuron/neuron.cpp.o  -o cppremoteapi -lpthread 

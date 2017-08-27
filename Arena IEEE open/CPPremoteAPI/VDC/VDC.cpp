@@ -159,8 +159,8 @@ void VDC::readVisionSensor(int cam) {
 
 Mat VDC::convertVrepToOpenCV(simxUChar image[], simxInt resX, simxInt resY) {
 
-    Mat vrep = cvCreateImage(cvSize(resX, resY), 8, 3);
-
+    //Mat vrep = cvCreateImage(cvSize(resX, resY), 8, 3);
+    Mat vrep = Mat::zeros(resY, resX, CV_8UC3);
     //from v-rep to OpenCV...
     //remeber that colors in opencv Mat are ordered as BGR
     for (int i = 0; i < resY; i++) {
@@ -205,7 +205,7 @@ bool VDC::imageVrepToOpencv(int cam,Mat &imageVrep) {
             if (imageVrep.data) {
                 namedWindow("Vrep", CV_WINDOW_AUTOSIZE);
                 imshow("Vrep", imageVrep);
-                waitKey(0);
+                waitKey(25);
             }
         }
 

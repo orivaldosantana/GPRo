@@ -1,0 +1,102 @@
+Scanning dependencies of target cppremoteapi
+[ 20%] Building CXX object CMakeFiles/cppremoteapi.dir/main.cpp.o
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp: In function ‘int main()’:
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:89:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i = 0; i < entrenador1.size(); i++)
+                 ~~^~~~~~~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:12: warning: unused variable ‘obstaculo0’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+            ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:24: warning: unused variable ‘obstaculo1’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+                        ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:36: warning: unused variable ‘obstaculo2’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+                                    ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:48: warning: unused variable ‘obstaculo3’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+                                                ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:60: warning: unused variable ‘obstaculo4’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+                                                            ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:28:72: warning: unused variable ‘obstaculo5’ [-Wunused-variable]
+  simxUChar obstaculo0, obstaculo1, obstaculo2, obstaculo3, obstaculo4, obstaculo5;
+                                                                        ^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:6: warning: unused variable ‘sensor0’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+      ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:15: warning: unused variable ‘sensor1’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+               ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:24: warning: unused variable ‘sensor2’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+                        ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:33: warning: unused variable ‘sensor3’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+                                 ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:42: warning: unused variable ‘sensor4’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+                                          ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:32:51: warning: unused variable ‘sensor5’ [-Wunused-variable]
+  int sensor0, sensor1, sensor2, sensor3, sensor4, sensor5;
+                                                   ^~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:106:6: warning: unused variable ‘valido’ [-Wunused-variable]
+  int valido = simxGetObjectHandle(clientID, "motor_derecho", &motor_derecho, simx_opmode_oneshot_wait);
+      ^~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/main.cpp:107:6: warning: unused variable ‘valido2’ [-Wunused-variable]
+  int valido2 = simxGetObjectHandle(clientID, "motor_izquierdo", &motor_izquierdo, simx_opmode_oneshot_wait);
+      ^~~~~~~
+[ 40%] Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o
+[ 60%] Building C object CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o
+[ 80%] Building CXX object CMakeFiles/cppremoteapi.dir/neuron/neuron.cpp.o
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp: In member function ‘void Network::Mostrar_Pesos()’:
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:67:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int k = 0; k < Weight.size(); k++)
+                 ~~^~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:70:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j = 0; j < Weight[k].size(); j++)
+                  ~~^~~~~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:73:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(int i = 0; i < Weight[k][j].size()-1; i++)
+                   ~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp: In member function ‘void Network::Mostrar_Output()’:
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:88:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int k = 0; k < a.size(); k++)
+                 ~~^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:91:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j = 0; j < a[k].size(); j++)
+                  ~~^~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:93:9: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(k != a.size()-1)
+       ~~^~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp: In member function ‘std::vector<double> Network::Calcular_Output(std::vector<double>&)’:
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:128:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int j = 0; j < a[0].size(); j++)
+                 ~~^~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:134:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int l = 1; l < a.size(); l++)
+                 ~~^~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:136:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i = 0; i < a[l].size(); i++)
+                  ~~^~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:139:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(int j = 0; j < a[l-1].size(); j++)
+                   ~~^~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp: In member function ‘void Network::Aprendizaje_Prop_Atras(std::vector<std::vector<double> >&, std::vector<std::vector<double> >&)’:
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:166:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int e = 0; e < inputs.size(); e++)
+                  ~~^~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:171:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for(int i = 0; i < a[n_capas-1].size(); i++)
+                   ~~^~~~~~~~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:181:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int j = 0; j < a[l].size(); j++)
+                    ~~^~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:184:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i = 0; i < Weight[l][j].size(); i++)
+                     ~~^~~~~~~~~~~~~~~~~~~~~
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/neuron/neuron.cpp:189:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int i = 0; i < a[l+1].size(); i++)
+                     ~~^~~~~~~~~~~~~~~
+[100%] Linking CXX executable cppremoteapi
+[100%] Built target cppremoteapi

@@ -1,0 +1,7 @@
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/install/strip.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/edit_cache.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/cppremoteapi.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/rebuild_cache.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/list_install_components.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/install/local.dir
+/home/samuel/Documentos/RedesNeurais/BackpropagationInVrep/MLP_RemoteAPI/build/CMakeFiles/install.dir
