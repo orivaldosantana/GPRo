@@ -905,20 +905,20 @@ void SKILLS::seguirParedeMLP() {
         }
 
         direction = red.Calcular_Output(inputs);
-        
-        
-        
-       
-        for(int i=0; i<4;i++){
-            if(direction[i])
-                cout<<"1";
+
+
+
+
+        for (int i = 0; i < 4; i++) {
+            if (direction[i])
+                cout << "1";
             else
-                cout<<"0";
+                cout << "0";
         }
-        cout<< endl;
-        
-         // frente 0,1,0,0
-         // ré 0,0,0,1
+        cout << endl;
+
+        // frente 0,1,0,0
+        // ré 0,0,0,1
         // direita 0,0,1,0
         // esquerda 1,0,0,0
         if (!direction[0] && direction[1] && !direction[2] && !direction[3])
@@ -943,7 +943,7 @@ void SKILLS::verDistancia(int i) {
 
 }
 
-bool SKILLS::controlTheRobot() {
+bool SKILLS::controlerRobot() {
 
 
     //cout << "\n\n  os controles são: w ,s,a,d \n  e a letra:e para sair\n";
@@ -972,10 +972,19 @@ bool SKILLS::controlTheRobot() {
             SKILLS::setVelocityInRobot(0.5, -0.5);
             controlData = ",1,0,0,0"; // esquerda 1,0,0,0
             return true;
+
+        case 'q':
+            SKILLS::takePhotos();
+            countImage++;
+            return true;
+
+
         case 'e':
             system("stty cooked");
             VDC::finish();
             return true;
+
+
 
     }
 
@@ -994,7 +1003,7 @@ void SKILLS::collectDataforMLP() {
         for (int i = 0; i < 6; i++) {
             distance[i] = VDC::getDistance(sensor[i]);
         }
-        if (SKILLS::controlTheRobot()) {
+        if (SKILLS::controlerRobot()) {
             data = to_string(distance[0]);
             data += "," + to_string(distance[1]);
             data += "," + to_string(distance[2]);
@@ -1002,7 +1011,7 @@ void SKILLS::collectDataforMLP() {
             data += "," + to_string(distance[4]);
             data += "," + to_string(distance[5]);
             data += controlData;
-            
+
             extras.logCsv(data.c_str(), fileName.c_str(), header.c_str());
         }
 
@@ -1010,4 +1019,22 @@ void SKILLS::collectDataforMLP() {
 
 
 
+}
+
+void SKILLS::takePhotos() {
+    Mat vrep;
+    string nameImage = "ImageFromVrep" + to_string(countImage) + ".jpg";
+
+    if (VDC::imageVrepToOpencv(Webcam, vrep))
+        imwrite(nameImage.c_str(), vrep);
+}
+
+void SKILLS::controlTheRobot(){
+    
+    while (VDC::simulationIsActive()){
+        
+        SKILLS::controlerRobot();
+        
+    }
+    
 }

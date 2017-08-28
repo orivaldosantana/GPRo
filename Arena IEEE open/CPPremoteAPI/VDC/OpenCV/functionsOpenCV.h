@@ -718,8 +718,8 @@ void findRedColorMass(Mat Vrep, int &rx, int &ry) {
         imshow("Centro De Massa", soMassa);
     }
 
-    if (waitKey(25) >= 0) { // 25 frames por segundo
+    waitKey(25); // 25 frames por segundo
 
-    }
+    
 
 }

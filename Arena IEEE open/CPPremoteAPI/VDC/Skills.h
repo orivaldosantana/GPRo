@@ -32,17 +32,19 @@ public:
     void obr();
     void seguirParedeMLP();
     void verDistancia(int i);
-    bool controlTheRobot();
     void collectDataforMLP();
+    void controlTheRobot();
 
     
     
 private:
-    
+    bool controlerRobot();
     void setVelocityInRobot(float velocityRight, float velocityLeft);
+    void takePhotos();
     double degree(double Degree);
     bool trained = false;
     std::string controlData;
+    int countImage =0;
     
      // MOTORES e juntas
    // int numbJoints;
