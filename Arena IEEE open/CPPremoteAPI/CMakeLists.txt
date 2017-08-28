@@ -19,6 +19,7 @@ set(SOURCES
     VDC/VDC.cpp
     VDC/Skills.cpp
     VDC/Neuron/neuron.cpp
+    VDC/extras.cpp
 )
 
 set(HEADERS
@@ -30,9 +31,9 @@ set(HEADERS
     include/v_repLib.h
     VDC/VDC.h
     VDC/Skills.h
-    VDC/Utilities.h
     VDC/OpenCV/functionsOpenCV.h
     VDC/Neuron/neuron.h
+    VDC/extras.h
     
 )
 include_directories("include/")

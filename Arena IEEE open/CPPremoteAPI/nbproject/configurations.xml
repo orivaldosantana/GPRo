@@ -26,6 +26,7 @@
         </df>
         <in>Skills.cpp</in>
         <in>VDC.cpp</in>
+        <in>extras.cpp</in>
       </df>
       <in>main.cpp</in>
     </df>
@@ -76,6 +77,7 @@
         <preBuild>
           <preBuildCommandWorkingDir>build</preBuildCommandWorkingDir>
           <preBuildCommand>${CMAKE} -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=${IDE_CC} -DCMAKE_CXX_COMPILER=${IDE_CXX} -DCMAKE_C_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_CXX_FLAGS_DEBUG="-g3 -gdwarf-2" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..</preBuildCommand>
+          <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
       <item path="/usr/share/cmake-3.8/Modules/CMakeCCompilerABI.c"
@@ -99,6 +101,10 @@
         </ccTool>
       </item>
       <item path="VDC/VDC.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/extras.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>

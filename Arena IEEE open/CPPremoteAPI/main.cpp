@@ -55,9 +55,10 @@ int main(int argc, char **argv) {
              // vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-           // vrep.seguirParedeMLP();
+            vrep.seguirParedeMLP();
            // vrep.verDistancia(0);
-            vrep.controlTheRobot();
+           // vrep.collectDataforMLP();
+           // vrep.verDistancia(0);
           // vrep.testReadCam();
          // vrep.testGetImage();
             vrep.delay(150);
