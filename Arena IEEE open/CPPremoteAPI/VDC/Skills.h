@@ -31,6 +31,8 @@ public:
     void WhereIsTheCow();
     void obr();
     void seguirParedeMLP();
+    void verDistancia(int i);
+    void controlTheRobot();
 
     
     

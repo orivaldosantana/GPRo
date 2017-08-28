@@ -55,11 +55,14 @@ int main(int argc, char **argv) {
              // vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-            vrep.seguirParedeMLP();
+           // vrep.seguirParedeMLP();
+           // vrep.verDistancia(0);
+            vrep.controlTheRobot();
           // vrep.testReadCam();
          // vrep.testGetImage();
             vrep.delay(150);
         }
+            
 
         vrep.finish(); // fechando conexao com o servidor
         cout << "Conexao fechada!" << std::endl;

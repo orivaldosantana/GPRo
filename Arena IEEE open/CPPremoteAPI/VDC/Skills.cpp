@@ -255,13 +255,13 @@ void SKILLS::seguirParedeMLP() {
 
     vector < double > inputs(4);
     vector < double > vel_motores(2);
-    vector< int > capas = {4, 15, 15, 15, 2};
+    vector< int > capas = {4,15,2};
     double distance[4];
 
     //Vectores de entrenamiento: input (entrenador1) y output deseado (entrenador2)
     //Orden de los sensores: {0,1,2,3,4,5} 
     vector< vector< double > > entrenador1 = {
-        {0.0442136, 0.0442136, 0.0442136, 0.0442136}, //1
+        {0.09, 0.09, 1, 1}, //1
         {0.0442136, 0.0442136, 0.0442136, 0.247024}, //2
         {0.0442136, 0.0442136, 0.247024, 0.0442136}, //3
         {0.0442136, 0.0442136, 0.247024, 0.247024}, //4
@@ -340,4 +340,54 @@ void SKILLS::seguirParedeMLP() {
 
     
     setVelocityInRobot(-vel_motores[0],-vel_motores[1]);
+}
+
+void SKILLS::verDistancia(int i){
+   double teste = VDC::getDistance(sensor[i]);
+   cout << "distancia entre 0 e 1:  " << teste <<endl; 
+    
+}
+
+void SKILLS::controlTheRobot(){
+    
+    //cout << "\n\n  os controles são: w ,s,a,d \n  e a letra:e para sair\n";
+        
+    
+    system("stty raw");
+    
+      char input = getchar();
+      
+      switch (input) {
+          case 'w':
+              SKILLS::setVelocityInRobot(0.5,0.5);
+              break;
+          case 's':
+              SKILLS::setVelocityInRobot(-0.5,-0.5);
+              break;
+              
+          case 'd' :
+              SKILLS::setVelocityInRobot(-0.5,0.5);
+              break;
+              
+          case 'a': 
+              SKILLS::setVelocityInRobot(0.5,-0.5);
+              break;
+          case 'e':
+             system("stty cooked");
+             VDC::finish();
+             return;
+            
+      }
+      
+      
+
+        
+
+  
+    
+    
+    
+    
+    
+    
 }
