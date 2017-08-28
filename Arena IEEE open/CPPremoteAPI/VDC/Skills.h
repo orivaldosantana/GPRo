@@ -41,7 +41,7 @@ private:
     
     void setVelocityInRobot(float velocityRight, float velocityLeft);
     double degree(double Degree);
-
+    bool trained = false;
     std::string controlData;
     
      // MOTORES e juntas

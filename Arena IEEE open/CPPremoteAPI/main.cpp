@@ -32,24 +32,21 @@ using namespace std;
 
 
 
-SKILLS vrep("127.0.0.1",19999);
+
 
 
 
 int main(int argc, char **argv) {
-    int rx,ry;
-
-  
-
+    
+    SKILLS vrep("127.0.0.1",19999);
+    
+    
         if ( vrep.connection_is_OK()){
             cout << "Servidor conectado!" << std::endl;
             vrep.connectToRobot();
-
-
-
-        while ( vrep.simulationIsActive() )  // enquanto a simulação estiver ativa
-        {   
-            
+        }
+    
+   
                //vrep.testJunta();
               // vrep.seguidorDeParede();
              // vrep.goToTank();
@@ -62,12 +59,9 @@ int main(int argc, char **argv) {
           // vrep.testReadCam();
          // vrep.testGetImage();
             vrep.delay(150);
-        }
+        
             
 
-        vrep.finish(); // fechando conexao com o servidor
-        cout << "Conexao fechada!" << std::endl;
-    } else
-        cout << "Problemas para conectar o servidor!" << std::endl;
+     
     return 0;
 }

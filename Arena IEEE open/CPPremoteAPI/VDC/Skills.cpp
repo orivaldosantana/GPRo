@@ -262,6 +262,7 @@ void SKILLS::seguirParedeMLP() {
     vector< int > capas = {6, 12, 4};
     double distance[4];
 
+
     //Vectores de entrenamiento: input (entrenador1) y output deseado (entrenador2)
     //Orden de los sensores: {0,1,2,3,4,5} 
     vector< vector< double > > entrenador1 = {
@@ -888,33 +889,52 @@ void SKILLS::seguirParedeMLP() {
         red.Mostrar_Output();
     }
 
-    for (int i = 0; i < 6; i++) {
 
-        distance[i] = VDC::getDistance(sensor[i]);
+    while (VDC::simulationIsActive()) {
+
+
+        for (int i = 0; i < 6; i++) {
+
+            distance[i] = VDC::getDistance(sensor[i]);
+
+
+        }
+
+        for (int i = 0; i < 6; i++) {
+            inputs[i] = distance[i];
+        }
+
+        direction = red.Calcular_Output(inputs);
+        
+        
+        
+       
+        for(int i=0; i<4;i++){
+            if(direction[i])
+                cout<<"1";
+            else
+                cout<<"0";
+        }
+        cout<< endl;
+        
+         // frente 0,1,0,0
+         // ré 0,0,0,1
+        // direita 0,0,1,0
+        // esquerda 1,0,0,0
+        if (!direction[0] && direction[1] && !direction[2] && !direction[3])
+            SKILLS::setVelocityInRobot(0.5, 0.5);
+
+        if (!direction[0] && !direction[1] && !direction[2] && direction[3])
+            SKILLS::setVelocityInRobot(-0.5, -0.5);
+
+        if (!direction[0] && !direction[1] && direction[2] && !direction[3])
+            SKILLS::setVelocityInRobot(-0.5, 0.5);
+
+        if (direction[0] && !direction[1] && !direction[2] && !direction[3])
+            SKILLS::setVelocityInRobot(0.5, -0.5);
 
 
     }
-
-    for (int i = 0; i < 6; i++) {
-        inputs[i] = distance[i];
-    }
-
-    direction = red.Calcular_Output(inputs);
-
-    if (!direction[0] && direction[1] && !direction[2] && !direction[3])
-        SKILLS::setVelocityInRobot(0.5, 0.5);
-
-    if (!direction[0] && !direction[1] && !direction[2] && direction[3])
-        SKILLS::setVelocityInRobot(-0.5, -0.5);
-
-    if (!direction[0] && !direction[1] && direction[2] && !direction[3])
-        SKILLS::setVelocityInRobot(-0.5, 0.5);
-
-    if (direction[0] && !direction[1] && !direction[2] && !direction[3])
-        SKILLS::setVelocityInRobot(0.5, -0.5);
-
-
-
 }
 
 void SKILLS::verDistancia(int i) {
@@ -936,21 +956,21 @@ bool SKILLS::controlTheRobot() {
     switch (input) {
         case 'w':
             SKILLS::setVelocityInRobot(0.5, 0.5);
-            controlData = ",0,1,0,0"; // frente
+            controlData = ",0,1,0,0"; // frente 0,1,0,0
             return true;
         case 's':
             SKILLS::setVelocityInRobot(-0.5, -0.5);
-            controlData = ",0,0,0,1"; // ré
+            controlData = ",0,0,0,1"; // ré 0,0,0,1
             return true;
 
         case 'd':
             SKILLS::setVelocityInRobot(-0.5, 0.5);
-            controlData = ",0,0,1,0"; // direita
+            controlData = ",0,0,1,0"; // direita 0,0,1,0
             return true;
 
         case 'a':
             SKILLS::setVelocityInRobot(0.5, -0.5);
-            controlData = ",1,0,0,0"; // esquerda
+            controlData = ",1,0,0,0"; // esquerda 1,0,0,0
             return true;
         case 'e':
             system("stty cooked");
@@ -969,25 +989,24 @@ void SKILLS::collectDataforMLP() {
     string fileName = "inputMlP.csv";
     double distance[6];
 
-    for (int i = 0; i < 6; i++) {
-        distance[i] = VDC::getDistance(sensor[i]);
+    while (VDC::simulationIsActive()) {
+
+        for (int i = 0; i < 6; i++) {
+            distance[i] = VDC::getDistance(sensor[i]);
+        }
+        if (SKILLS::controlTheRobot()) {
+            data = to_string(distance[0]);
+            data += "," + to_string(distance[1]);
+            data += "," + to_string(distance[2]);
+            data += "," + to_string(distance[3]);
+            data += "," + to_string(distance[4]);
+            data += "," + to_string(distance[5]);
+            data += controlData;
+            
+            extras.logCsv(data.c_str(), fileName.c_str(), header.c_str());
+        }
+
     }
-
-    if (SKILLS::controlTheRobot()) {
-        data = to_string(distance[0]);
-        data += "," + to_string(distance[1]);
-        data += "," + to_string(distance[2]);
-        data += "," + to_string(distance[3]);
-        data += "," + to_string(distance[4]);
-        data += "," + to_string(distance[5]);
-        data += controlData;
-
-        extras.logCsv(data.c_str(), fileName.c_str(), header.c_str());
-    }
-
-
-
-
 
 
 
