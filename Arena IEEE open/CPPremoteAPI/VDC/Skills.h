@@ -40,6 +40,7 @@ public:
 private:
     bool controlerRobot();
     void setVelocityInRobot(float velocityRight, float velocityLeft);
+    void setVelocityForControler(float velocityRight, float velocityLeft);
     void takePhotos();
     double degree(double Degree);
     bool trained = false;
