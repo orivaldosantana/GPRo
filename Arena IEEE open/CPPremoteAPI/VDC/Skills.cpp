@@ -259,7 +259,7 @@ void SKILLS::seguirParedeMLP() {
 
     vector < double > inputs(6);
     vector < double > direction(4);
-    vector< int > capas = {6, 100, 4};
+    vector< int > capas = {6, 200, 4};
     double distance[4];
 
     int rows = 0;
@@ -365,18 +365,19 @@ void SKILLS::seguirParedeMLP() {
 
         cout << direction[0] << endl;
         float l = 0.5;
+        float vel = 1.0;
         
         if (direction[0] < l && direction[1] > l && direction[2] < l && direction[3] < l) //frente
-            SKILLS::setVelocityInRobot(direction[1], direction[1]);
+            SKILLS::setVelocityInRobot(vel, vel);
 
         if (direction[0] < l && direction[1] < l && direction[2] < l && direction[3] > l) // tras
-            SKILLS::setVelocityInRobot(-direction[3], -direction[3]);
+            SKILLS::setVelocityInRobot(-vel, -vel);
 
         if (direction[0] < l && direction[1] < l && direction[2] > l && direction[3] < l) // direta
-            SKILLS::setVelocityInRobot(-direction[2], direction[2]);
+            SKILLS::setVelocityInRobot(-vel, vel);
 
         if (direction[0] > l && direction[1] < l && direction[2] < l && direction[3] < l) // esquerda
-            SKILLS::setVelocityInRobot(direction[0], -direction[0]);
+            SKILLS::setVelocityInRobot(vel, -vel);
 
 
     }
