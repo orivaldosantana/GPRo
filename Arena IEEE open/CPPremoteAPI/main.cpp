@@ -38,6 +38,10 @@ using namespace std;
 
 int main(int argc, char **argv) {
     
+    
+
+        
+    
     SKILLS vrep("127.0.0.1",19999);
     
     
@@ -52,10 +56,11 @@ int main(int argc, char **argv) {
              // vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-            vrep.seguirParedeMLP();
-          //  vrep.controlTheRobot();
+            vrep.controlTheRobot();
            // vrep.verDistancia(0);
-           // vrep.collectDataforMLP();
+          // vrep.seguirParedeMLP();
+       //  vrep.seguirParedeSOM();
+         // vrep.collectDataforNetWork();
            // vrep.verDistancia(0);
           // vrep.testReadCam();
          // vrep.testGetImage();

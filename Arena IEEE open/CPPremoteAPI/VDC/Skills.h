@@ -32,12 +32,14 @@ public:
     void obr();
     void seguirParedeMLP();
     void verDistancia(int i);
-    void collectDataforMLP();
+    void collectDataforNetWork();
     void controlTheRobot();
+    void seguirParedeSOM();
 
     
     
 private:
+    void trainingSOM(int size,std::string input);
     bool controlerRobot();
     void setVelocityInRobot(float velocityRight, float velocityLeft);
     void setVelocityForControler(float velocityRight, float velocityLeft);

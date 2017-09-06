@@ -160,8 +160,7 @@ void Network::Aprendizaje_Prop_Atras(vector< vector < double > >& inputs, vector
 	double error;
 	
 	//La red debe dejar de aprender cuando el error sea menor de 0.0001 o se sobrepase el maximo de iteraciones
-	while(ERROR > 0.001 and contador < 1000)
-	{
+	while(ERROR > 0.001 and contador < 10000){
 		ERROR = 0;
 		for(int e = 0; e < inputs.size(); e++)
 		{
@@ -195,11 +194,12 @@ void Network::Aprendizaje_Prop_Atras(vector< vector < double > >& inputs, vector
 		}
 		
 		ERROR *= 0.5*(1.0/inputs.size()); //Calculamos el error cuadratico
-		cout << "ERROR = " << ERROR << endl; //Mostramos el error para poder observar la convergencia
+		//cout << "ERROR = " << ERROR << endl; //Mostramos el error para poder observar la convergencia
 		contador ++; //Aumentamos el contador de iteraciones
 	}
+        cout << "ERROR = " << ERROR << endl;
 
-
+        
 }
 
 

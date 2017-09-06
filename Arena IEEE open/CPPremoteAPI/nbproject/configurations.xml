@@ -24,6 +24,13 @@
         <df name="Neuron">
           <in>neuron.cpp</in>
         </df>
+        <df name="SOM">
+          <in>DataSet.cpp</in>
+          <in>Node.cpp</in>
+          <in>SOM.cpp</in>
+          <in>Sample.cpp</in>
+          <in>Test.cpp</in>
+        </df>
         <in>Skills.cpp</in>
         <in>VDC.cpp</in>
         <in>extras.cpp</in>
@@ -96,6 +103,26 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="VDC/SOM/DataSet.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/SOM/Node.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/SOM/SOM.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/SOM/Sample.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/SOM/Test.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="VDC/Skills.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -145,6 +172,7 @@
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
             <pElem>VDC/Neuron</pElem>
+            <pElem>VDC/SOM</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
@@ -163,6 +191,7 @@
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
             <pElem>VDC/Neuron</pElem>
+            <pElem>VDC/SOM</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>
@@ -192,6 +221,7 @@
             <pElem>VDC</pElem>
             <pElem>VDC/OpenCV</pElem>
             <pElem>VDC/Neuron</pElem>
+            <pElem>VDC/SOM</pElem>
             <pElem>/usr/include/opencv</pElem>
             <pElem>build</pElem>
           </incDir>

@@ -20,6 +20,11 @@ set(SOURCES
     VDC/Skills.cpp
     VDC/Neuron/neuron.cpp
     VDC/extras.cpp
+    VDC/SOM/DataSet.cpp
+    VDC/SOM/SOM.cpp
+    VDC/SOM/Node.cpp
+    VDC/SOM/Sample.cpp
+   
 )
 
 set(HEADERS
@@ -34,6 +39,11 @@ set(HEADERS
     VDC/OpenCV/functionsOpenCV.h
     VDC/Neuron/neuron.h
     VDC/extras.h
+    VDC/SOM/SOM.h
+    VDC/SOM/DataSet.h
+    VDC/SOM/Node.h
+    VDC/SOM/Sample.h
+    VDC/SOM/Utils.h
     
 )
 include_directories("include/")
@@ -41,7 +51,7 @@ include_directories("remoteApi/")
 include_directories("VDC/")
 include_directories("VDC/OpenCV/")
 include_directories("VDC/Neuron/")
-
+include_directories("VDC/SOM/")
 
 find_package (Threads)
 find_package( OpenCV REQUIRED ) 

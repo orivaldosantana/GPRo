@@ -8,6 +8,8 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <functionsOpenCV.h>
 #include <neuron.h>
+#include <SOM.h>
+#include <sys/stat.h>
 
 using namespace cv;
 using namespace std;
@@ -184,36 +186,40 @@ void SKILLS::goToTank() {
     float velocityRight = 1;
     float velocityLeft = 1;
 
-    if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
-        if (imageVrep.data && debug) {
+    while (vdc.simulationIsActive()) {
+        velocityRight = 1;
+        velocityLeft = 1;
 
-            namedWindow("vrep2", CV_WINDOW_AUTOSIZE);
-            imshow("vrep2", imageVrep);
-            waitKey(30);
+        if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
+            if (imageVrep.data && debug) {
+
+                namedWindow("vrep2", CV_WINDOW_AUTOSIZE);
+                imshow("vrep2", imageVrep);
+                waitKey(30);
+
+            }
+            findRedColorMass(imageVrep, rx, ry);
+
+            if (debug) {
+                cout << "posição x do tank: " << rx << " y: " << ry << endl;
+            }
+
+
+            if (rx < q3)
+                velocityLeft = 0;
+            else if (rx > q5)
+                velocityRight = 0;
+
+
+
+
+
+            SKILLS::setVelocityInRobot(velocityRight, velocityLeft);
+
 
         }
-        findRedColorMass(imageVrep, rx, ry);
-
-        if (debug) {
-            cout << "posição x do tank: " << rx << " y: " << ry << endl;
-        }
-
-
-        if (rx < q3)
-            velocityLeft = 0;
-        else if (rx > q5)
-            velocityRight = 0;
-
-
-
-
-
-        SKILLS::setVelocityInRobot(velocityRight, velocityLeft);
-
 
     }
-
-
 
 }
 
@@ -260,7 +266,7 @@ void SKILLS::seguirParedeMLP() {
     vector < double > inputs(6);
     vector < double > direction(4);
     vector< int > capas = {6, 200, 4};
-    double distance[4];
+ 
 
     int rows = 0;
     int columns = 0;
@@ -268,7 +274,7 @@ void SKILLS::seguirParedeMLP() {
     std::string aux;
 
 
-    data.open("inputMlP.csv");
+    data.open("Coleta/inputMlP1.csv");
 
     if (data.is_open() && data.good()) {
 
@@ -288,76 +294,63 @@ void SKILLS::seguirParedeMLP() {
         data.close();
     } else
         cout << "file not found" << endl;
-    
-    
+
+
     std::vector < std::vector < double > > entrenador1(rows, std::vector< double >(6, 0));
-    std::vector < std::vector < double > > entrenador2(rows , std::vector< double >(4, 0));
-    
-    
-    
-    data.open("inputMlP.csv");
-    
-    std::getline(data,aux); // pula primeira linha
-    
-    for(int i=0; i <rows; i++){
+    std::vector < std::vector < double > > entrenador2(rows, std::vector< double >(4, 0));
+
+
+
+    data.open("Coleta/inputMlP1.csv");
+
+    std::getline(data, aux); // pula primeira linha
+
+    for (int i = 0; i < rows; i++) {
         std::getline(data, aux);
         std::stringstream lineStream(aux);
         std::string cell;
-        
-        for(int j =0; j <columns;j++){
+
+        for (int j = 0; j < columns; j++) {
             std::getline(lineStream, cell, ',');
-            if(j<6)
+            if (j < 6)
                 entrenador1[i][j] = std::stod(cell);
             else
-                entrenador2[i][j-6] = std::stod(cell);
-            
-            
+                entrenador2[i][j - 6] = std::stod(cell);
+
+
         }
     }
-    
- 
+
+
     //Creamos la red
-    cout << "Creando red..." << endl;
+    cout << "criando rede..." << endl;
     Network red(capas);
-    cout << "Red creada" << endl;
+    cout << "Rede criada" << endl;
 
     //Entrenamos la red con los ejemplos
-    cout << "Entrenando red..." << endl;
+    cout << "Treinando rede ..." << endl;
     red.Aprendizaje_Prop_Atras(entrenador1, entrenador2);
-    cout << "Red entrenada" << endl;
+    cout << "Rede treinada" << endl;
 
     //red.Mostrar_Pesos(); //Mostramos los pesos definitivos
 
     //Mostrar los outputs:
-    for (int i = 0; i < entrenador1.size(); i++) {
+    for (int i = 0; i < entrenador1.size(); i++) 
         red.Calcular_Output(entrenador1[i]);
-        red.Mostrar_Output();
-    }
+        //red.Mostrar_Output();
+    
 
 
     while (VDC::simulationIsActive()) {
 
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) 
+           inputs[i] = VDC::getDistance(sensor[i]);
 
-            distance[i] = VDC::getDistance(sensor[i]);
 
-
-        }
-
-        for (int i = 0; i < 6; i++) {
-            inputs[i] = distance[i];
-        }
-
+        
         direction = red.Calcular_Output(inputs);
-
-
-
-
-
-        for (int i = 0; i < 4; i++)
-            cout << i << " " << direction[i] << endl;
-
+        
         // frente 0,1,0,0
         // ré 0,0,0,1
         // direita 0,0,1,0
@@ -366,18 +359,18 @@ void SKILLS::seguirParedeMLP() {
         cout << direction[0] << endl;
         float l = 0.5;
         float vel = 1.0;
-        
+
         if (direction[0] < l && direction[1] > l && direction[2] < l && direction[3] < l) //frente
-            SKILLS::setVelocityInRobot(vel, vel);
+            SKILLS::setVelocityForControler(vel, vel);
 
         if (direction[0] < l && direction[1] < l && direction[2] < l && direction[3] > l) // tras
-            SKILLS::setVelocityInRobot(-vel, -vel);
+            SKILLS::setVelocityForControler(-vel, -vel);
 
         if (direction[0] < l && direction[1] < l && direction[2] > l && direction[3] < l) // direta
-            SKILLS::setVelocityInRobot(-vel, vel);
+            SKILLS::setVelocityForControler(-vel, vel);
 
         if (direction[0] > l && direction[1] < l && direction[2] < l && direction[3] < l) // esquerda
-            SKILLS::setVelocityInRobot(vel, -vel);
+            SKILLS::setVelocityForControler(vel, -vel);
 
 
     }
@@ -404,21 +397,21 @@ bool SKILLS::controlerRobot() {
     switch (input) {
         case 'w':
             SKILLS::setVelocityForControler(vel, vel);
-            controlData = ",0,1,0,0"; // frente 0,1,0,0
+            controlData = "," + std::to_string(vel) + "," + std::to_string(vel);   //",0,1,0,0"; // frente 0,1,0,0
             return true;
         case 's':
             SKILLS::setVelocityForControler(-vel, -vel);
-            controlData = ",0,0,0,1"; // ré 0,0,0,1
+            controlData = "," + std::to_string(-vel) + "," + std::to_string(-vel); //",0,0,0,1"; // ré 0,0,0,1
             return true;
 
         case 'd':
             SKILLS::setVelocityForControler(-vel, vel);
-            controlData = ",0,0,1,0"; // direita 0,0,1,0
+            controlData = "," + std::to_string(-vel) + "," + std::to_string(vel); //",0,0,1,0"; // direita 0,0,1,0
             return true;
 
         case 'a':
             SKILLS::setVelocityForControler(vel, -vel);
-            controlData = ",1,0,0,0"; // esquerda 1,0,0,0
+            controlData = "," + std::to_string(vel) + "," + std::to_string(-vel); //",1,0,0,0"; // esquerda 1,0,0,0
             return true;
 
         case 'q':
@@ -431,7 +424,7 @@ bool SKILLS::controlerRobot() {
         case 'e':
             system("stty cooked");
             VDC::finish();
-            return true;
+            return false;
 
 
 
@@ -440,11 +433,11 @@ bool SKILLS::controlerRobot() {
     return false;
 }
 
-void SKILLS::collectDataforMLP() {
+void SKILLS::collectDataforNetWork() {
     Extras extras;
     string data;
-    string header = "sensor1,sensor2,sensor3,sensor4,sensor5,sensor6,a,w,d,s";
-    string fileName = "inputMlP.csv";
+    string header = "sensor1,sensor2,sensor3,sensor4,sensor5,sensor6,motorRight,motorLeft";
+    string fileName = "inputSOM.csv";
     double distance[6];
 
     while (VDC::simulationIsActive()) {
@@ -500,4 +493,82 @@ void SKILLS::setVelocityForControler(float velocityRight, float velocityLeft) {
     SKILLS::setVelocityInRobot(0.0, 0.0);
 
 
+}
+
+void SKILLS::trainingSOM(int size, std::string filename){
+    
+     //setando posiçoes de leitura e escrita
+    std::string subOutput = "output/" + filename + "Size:"+std::to_string(size); 
+    std::string dataFile = "Coleta/" + filename + ".csv";
+    std::string csvHeader;
+
+    // criando diretório
+    mkdir("output", 0777);
+    mkdir(subOutput.c_str(), 0777);
+   
+    SOM som(size);
+
+    DataSet *data = new DataSet(dataFile);
+    data->show();
+    std::string outputFile = subOutput + "/output";
+    som.setDataSet(data);
+    // std::cout <<  outputFile << std::endl;
+
+
+
+    float maxFeatureInitialValue = 0.01;
+    // std::cout<< "data:: " << data->getSampleSize() << std::endl;
+    som.initializeNodes(data->getSampleSize(), true, maxFeatureInitialValue);
+
+    int iterations = 20000;
+
+
+    // Execute many iterations 
+    int i = 0;
+
+    csvHeader = "x,y," + data->features;
+
+    som.saveNodes(outputFile, csvHeader.c_str(), false);
+    while (i < iterations) {
+        som.executeOneIt();
+        i++;
+        if (i % 1000 == 0)
+            som.saveNodes(outputFile, csvHeader.c_str(), false);
+    }
+    std::cout << "Iteractions executed: " << iterations << std::endl;
+
+    delete data;
+
+
+
+    
+}
+
+
+void SKILLS::seguirParedeSOM(){
+    SOM som(30);
+    
+
+  // SKILLS::trainingSOM(30,"inputSOM2");
+   
+    
+    som.loadNodes("output/inputSOM2Size:30/output20000.csv");
+    
+    std::vector<double> input {0,0,0,0,0,0,0,0};
+    
+    while(VDC::simulationIsActive()){
+        
+        for(int i =0; i<6;i++){
+            input[i] = VDC::getDistance(sensor[i]);
+        }
+        
+        som.findBest(input,0,5);
+        
+        
+        SKILLS::setVelocityForControler(input[6],input[7]);
+        
+        
+    }
+    
+    
 }
