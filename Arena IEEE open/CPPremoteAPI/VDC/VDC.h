@@ -42,6 +42,7 @@ public:
    
     void getImageVisionSensor(int Webcam);
     void setImageVisionSensor(int Webcam);
+    float getJointPosition(int joint);
     void readVisionSensor(int cam);
     bool imageVrepToOpencv(int cam,cv::Mat &ImageVrep);
     int getClientID();

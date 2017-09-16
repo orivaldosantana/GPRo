@@ -51,20 +51,21 @@ int main(int argc, char **argv) {
         }
     
    
-               //vrep.testJunta();
+             // vrep.testJunta();
               // vrep.seguidorDeParede();
-             // vrep.goToTank();
+            //  vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
             vrep.controlTheRobot();
+   /// vrep.OpenTheClawCloseTheClaw(false);
            // vrep.verDistancia(0);
           // vrep.seguirParedeMLP();
        //  vrep.seguirParedeSOM();
          // vrep.collectDataforNetWork();
            // vrep.verDistancia(0);
           // vrep.testReadCam();
-         // vrep.testGetImage();
-            vrep.delay(150);
+          //vrep.testGetImage();
+           
         
             
 

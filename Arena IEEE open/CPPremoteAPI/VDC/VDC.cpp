@@ -17,6 +17,7 @@ using namespace cv;
 using namespace std;
 
 VDC::VDC() {
+  //  cout << "hellow world 1" << endl;
 
 
 }
@@ -82,6 +83,30 @@ void VDC::setJointVelocity(int joint, float velocity) {
     simxSetJointTargetVelocity(clientID, joint, (simxFloat) velocity, simx_opmode_streaming);
 
 
+}
+
+float VDC::getJointPosition(int joint){
+    float position =-1;
+    int ok ;
+    int i;
+    simxGetJointPosition(clientID, joint, &position ,simx_opmode_streaming);
+
+    
+  //simxGetJointPosition(clientID, joint, &position ,simx_opmode_streaming);
+  
+    for(i = 0; ok != simx_return_ok and i < 100000000 ; i++){
+        ok = simxGetJointPosition(clientID, joint, &position ,simx_opmode_buffer); 
+    }
+    
+    if(i>= 100000000)
+        std::cout << "erro and positon = " <<  position<<std::endl;
+    
+    if(debug)
+     std::cout << position << " i: "<< i << std::endl;
+
+ 
+  return position;
+    
 }
 
 void VDC::finish() {
@@ -156,8 +181,8 @@ void VDC::readVisionSensor(int cam) {
 
 Mat VDC::convertVrepToOpenCV(simxUChar image[], simxInt resX, simxInt resY) {
 
-    //Mat vrep = cvCreateImage(cvSize(resX, resY), 8, 3);
-    Mat vrep = Mat::zeros(resY, resX, CV_8UC3);
+    Mat vrep = cvCreateImage(cvSize(resX, resY), 8, 3);
+ //   Mat vrep = Mat::zeros(resY, resX, CV_8UC3);
     //from v-rep to OpenCV...
     //remeber that colors in opencv Mat are ordered as BGR
     for (int i = 0; i < resY; i++) {

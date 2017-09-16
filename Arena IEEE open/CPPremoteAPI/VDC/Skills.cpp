@@ -57,6 +57,13 @@ void SKILLS::connectToRobot() {
     vdc.conectJoints("Webcam", Webcam);
 
 
+    for (int i = 4; i < 8; i++) {
+        angle[i - 4] = vdc.getJointPosition(joint[i]);
+        if (debug)
+            std::cout << "i: "<< i << " angle[" << i - 4 << "] = " << angle[i - 4] << std::endl;
+    }
+
+
 
 
 
@@ -123,39 +130,40 @@ void SKILLS::seguidorDeParede() {
 
 void SKILLS::testJunta() {
 
+    while (vdc.simulationIsActive()) {
+
+        for (int i = 4; i < 9; i++) {
+            if (i == 5 && angle[1] < 0.09) //Joint#2 movimento linear
+            {
+                angle[1] += 0.0005;
+                vdc.setJointPosition(joint[i], angle[1]);
+
+            } else if (i == 6 && angle[2] < degree(180) && angle[1] >= 0.030) // Joint#3
+            {
+                angle[2] += 0.01;
+                vdc.setJointPosition(joint[i], angle[2]);
+            } else if (i == 4 && angle[0] < degree(40) && angle[4] >= 0.030 && angle[2] >= degree(90)) //joint#1
+            {
+                angle[0] += 0.003;
+                vdc.setJointPosition(joint[i], angle[0]);
+
+            }
+            //
+            //joint#4
+
+            if (i == 8 && angle[4] < degree(41.83)) {
+                angle[4] += 0.01;
+                vdc.setJointPosition(joint[7], angle[4]);
+
+            }
 
 
-    for (int i = 4; i < 9; i++) {
-        if (i == 5 && angle[1] < 0.09) //Joint#2 movimento linear
-        {
-            angle[1] += 0.0005;
-            vdc.setJointPosition(joint[i], angle[1]);
-
-        } else if (i == 6 && angle[2] < degree(180) && angle[1] >= 0.030) // Joint#3
-        {
-            angle[2] += 0.01;
-            vdc.setJointPosition(joint[i], angle[2]);
-        } else if (i == 4 && angle[0] < degree(40) && angle[4] >= 0.030 && angle[2] >= degree(90)) //joint#1
-        {
-            angle[0] += 0.003;
-            vdc.setJointPosition(joint[i], angle[0]);
 
         }
-        //
-        //joint#5
 
-        if (i == 8 && angle[4] < degree(60)) {
-            angle[4] += 0.01;
-            vdc.setJointPosition(joint[7], angle[4]);
-
-        }
-
-
+        vdc.delay(100);
 
     }
-
-
-
 
 }
 
@@ -266,7 +274,7 @@ void SKILLS::seguirParedeMLP() {
     vector < double > inputs(6);
     vector < double > direction(4);
     vector< int > capas = {6, 200, 4};
- 
+
 
     int rows = 0;
     int columns = 0;
@@ -335,22 +343,22 @@ void SKILLS::seguirParedeMLP() {
     //red.Mostrar_Pesos(); //Mostramos los pesos definitivos
 
     //Mostrar los outputs:
-    for (int i = 0; i < entrenador1.size(); i++) 
+    for (int i = 0; i < entrenador1.size(); i++)
         red.Calcular_Output(entrenador1[i]);
-        //red.Mostrar_Output();
-    
+    //red.Mostrar_Output();
+
 
 
     while (VDC::simulationIsActive()) {
 
 
-        for (int i = 0; i < 6; i++) 
-           inputs[i] = VDC::getDistance(sensor[i]);
+        for (int i = 0; i < 6; i++)
+            inputs[i] = VDC::getDistance(sensor[i]);
 
 
-        
+
         direction = red.Calcular_Output(inputs);
-        
+
         // frente 0,1,0,0
         // ré 0,0,0,1
         // direita 0,0,1,0
@@ -394,10 +402,10 @@ bool SKILLS::controlerRobot() {
 
     char input = getchar();
 
-    switch (input) {
+    switch (input) { // esse controle não se aplica ao teclado de Camila, 
         case 'w':
             SKILLS::setVelocityForControler(vel, vel);
-            controlData = "," + std::to_string(vel) + "," + std::to_string(vel);   //",0,1,0,0"; // frente 0,1,0,0
+            controlData = "," + std::to_string(vel) + "," + std::to_string(vel); //",0,1,0,0"; // frente 0,1,0,0
             return true;
         case 's':
             SKILLS::setVelocityForControler(-vel, -vel);
@@ -418,6 +426,53 @@ bool SKILLS::controlerRobot() {
             SKILLS::takePhotos();
             countImage++;
             return true;
+
+            /* A ideia do controle da garra é o seguinte:
+             * as letras: y , u, i, o, representam os movimentos que setam valores positivos 
+             * das seguintes juntas: Joint#1, Joint#2 , Joint#3 , Joint#4
+             * e os movimentos negativos ou decrescentes, são as letras de baixo:
+             * h, j, k, l, OBS: isso não se aplica a teclados bugados como o das de camila 
+             */
+
+        case 'y': // Joint#1 += 0.003 radianos
+            SKILLS::setPositionForControler(1, true);
+            return true;
+
+        case 'h': // Joint#1 -=0.003 radianos
+            SKILLS::setPositionForControler(1, false);
+            return true;
+
+        case 'u': // Joint#2 += 0.0005 movimento linar
+            SKILLS::setPositionForControler(2, true);
+            return true;
+
+        case 'j': // Joint#2 -= 0.0005 radianos
+            SKILLS::setPositionForControler(2, false);
+            return true;
+
+        case 'i': // Joint#3 += 0.01 radianos
+            SKILLS::setPositionForControler(3, true);
+            return true;
+
+        case 'k': // Joint#3 -= 0.01 radianos
+            SKILLS::setPositionForControler(3, false);
+            return true;
+
+        case 'o': //Joint#4  += 0.01 radianos
+            SKILLS::setPositionForControler(4, true);
+            return true;
+
+        case 'l': //Joint#4  -= 0.01 radianos
+            SKILLS::setPositionForControler(4, false);
+            return true;
+
+
+
+
+
+
+
+
 
 
 
@@ -495,17 +550,85 @@ void SKILLS::setVelocityForControler(float velocityRight, float velocityLeft) {
 
 }
 
-void SKILLS::trainingSOM(int size, std::string filename){
-    
-     //setando posiçoes de leitura e escrita
-    std::string subOutput = "output/" + filename + "Size:"+std::to_string(size); 
+void SKILLS::setPositionForControler(int _joint, bool positive) {
+
+    switch (_joint) {
+        case 1: // joint#1
+            if (positive)
+                angle[0] += 0.003;
+            else
+                angle[0] -= 0.003;
+            
+             if (angle[0] < 0)
+                angle[0] = 0;
+             else if(angle[0] > 0.698131701)
+                 angle[0] = 0.698131701;
+
+            vdc.setJointPosition(joint[4], angle[0]);
+            controlData = "," + std::to_string(angle[0]);
+            return;
+        case 2: //joint#2
+            if (positive)
+                angle[1] += 0.0005;
+            else
+                angle[1] -= 0.0005;
+            
+             if (angle[1] < 0)
+                angle[1] = 0;
+             else if(angle[1] > 0.09)
+                 angle[1] = 0.09;
+
+            vdc.setJointPosition(joint[5], angle[1]);
+            controlData = "," + std::to_string(angle[1]);
+            return;
+
+        case 3: // joint#3
+            if (positive)
+                angle[2] += 0.01;
+            else
+                angle[2] -= 0.01;
+            if (angle[2] < 0)
+                angle[2] = 0;
+             else if(angle[2] > 6.28318531)
+                 angle[2] = 6.28318531;
+            
+            vdc.setJointPosition(joint[6], angle[2]);
+            controlData = "," + std::to_string(angle[2]);
+            return;
+
+        case 4: // joint#4
+            if (positive)
+                angle[3] += 0.01;
+            else
+                angle[3] -= 0.01;
+            
+             if (angle[3] < 0)
+                angle[3] = 0;
+             else if(angle[3] > 1.09955743)
+                 angle[3] = 1.09955743;
+
+            vdc.setJointPosition(joint[7], angle[3]);
+            controlData = "," + std::to_string(angle[3]);
+
+
+    }
+
+
+
+
+}
+
+void SKILLS::trainingSOM(int size, std::string filename) {
+
+    //setando posiçoes de leitura e escrita
+    std::string subOutput = "output/" + filename + "Size:" + std::to_string(size);
     std::string dataFile = "Coleta/" + filename + ".csv";
     std::string csvHeader;
 
     // criando diretório
     mkdir("output", 0777);
     mkdir(subOutput.c_str(), 0777);
-   
+
     SOM som(size);
 
     DataSet *data = new DataSet(dataFile);
@@ -541,34 +664,71 @@ void SKILLS::trainingSOM(int size, std::string filename){
 
 
 
-    
+
 }
 
-
-void SKILLS::seguirParedeSOM(){
+void SKILLS::seguirParedeSOM() {
     SOM som(30);
-    
 
-  // SKILLS::trainingSOM(30,"inputSOM2");
-   
-    
+
+    // SKILLS::trainingSOM(30,"inputSOM2");
+
+
     som.loadNodes("output/inputSOM2Size:30/output20000.csv");
-    
-    std::vector<double> input {0,0,0,0,0,0,0,0};
-    
-    while(VDC::simulationIsActive()){
-        
-        for(int i =0; i<6;i++){
+
+    std::vector<double> input{0, 0, 0, 0, 0, 0, 0, 0};
+
+    while (VDC::simulationIsActive()) {
+
+        for (int i = 0; i < 6; i++) {
             input[i] = VDC::getDistance(sensor[i]);
         }
-        
-        som.findBest(input,0,5);
-        
-        
-        SKILLS::setVelocityForControler(input[6],input[7]);
-        
-        
+
+        som.findBest(input, 0, 5);
+
+
+        SKILLS::setVelocityForControler(input[6], input[7]);
+
+
     }
+
+
+}
+
+void SKILLS::OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw) {
+
     
-    
+
+
+    if (OpenTheClawCloseTheClaw) {
+        while (vdc.simulationIsActive()) {
+
+
+            if (angle[3] < degree(41.83)) {
+
+                angle[3] += 0.01;
+                vdc.setJointPosition(joint[7], angle[3]);
+
+            } else
+                return;
+
+            vdc.delay(100);
+
+        }
+
+
+    } else {
+        while (vdc.simulationIsActive()) {
+
+            if (angle[3] > 0) {
+                angle[3] -= 0.01;
+                vdc.setJointPosition(joint[7], angle[3]);
+            } else
+                return;
+
+            vdc.delay(100);
+        }
+
+    }
+
 }
