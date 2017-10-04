@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/cppremoteapi.dir/main.cpp.o"
   "CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
   "CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+  "CMakeFiles/cppremoteapi.dir/Vdc/Vdc.cpp.o"
+  "CMakeFiles/cppremoteapi.dir/Toninho/ToninhoVrep.cpp.o"
   "cppremoteapi.pdb"
   "cppremoteapi"
 )

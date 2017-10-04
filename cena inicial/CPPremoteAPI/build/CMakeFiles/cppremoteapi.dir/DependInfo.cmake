@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApi.c" "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
-  "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApiPlatform.c" "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
+  "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/remoteApi/extApi.c" "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApi.c.o"
+  "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/remoteApi/extApiPlatform.c" "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/remoteApi/extApiPlatform.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -20,9 +20,13 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "../remoteApi"
+  "../Vdc"
+  "../Toninho"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/main.cpp" "/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
+  "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Toninho/ToninhoVrep.cpp" "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/Toninho/ToninhoVrep.cpp.o"
+  "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Vdc/Vdc.cpp" "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/Vdc/Vdc.cpp.o"
+  "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/main.cpp" "/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/build/CMakeFiles/cppremoteapi.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -36,6 +40,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../remoteApi"
+  "../Vdc"
+  "../Toninho"
   )
 
 # Targets to which this target links.

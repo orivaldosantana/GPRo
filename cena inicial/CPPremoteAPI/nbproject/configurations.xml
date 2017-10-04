@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="build">
+        <df name="CMakeFiles">
+          <df name="3.7.2">
+            <df name="CompilerIdC">
+              <in>CMakeCCompilerId.c</in>
+            </df>
+            <df name="CompilerIdCXX">
+              <in>CMakeCXXCompilerId.cpp</in>
+            </df>
+          </df>
+          <in>feature_tests.c</in>
+          <in>feature_tests.cxx</in>
+        </df>
+      </df>
+      <df name="CMakeFiles">
+        <df name="3.9.3">
+          <df name="CompilerIdC">
+            <in>CMakeCCompilerId.c</in>
+          </df>
+          <df name="CompilerIdCXX">
+            <in>CMakeCXXCompilerId.cpp</in>
+          </df>
+        </df>
+        <in>feature_tests.c</in>
+        <in>feature_tests.cxx</in>
+      </df>
+      <df name="remoteApi">
+        <in>extApi.c</in>
+        <in>extApiPlatform.c</in>
+      </df>
+      <df name="Toninho">
+        <in>ToninhoVrep.cpp</in>
+      </df>
+      <df name="Vdc">
+        <in>Vdc.cpp</in>
+      </df>
+      <in>main.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Arquivos Importantes"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>CMakeLists.txt</itemPath>
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-std=c++0x"/>
+        <element flagsID="1" commonFlags="-std=c++14"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>build</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>build/cppremoteapi</executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>build</preBuildCommandWorkingDir>
+          <preBuildCommand>cmake ..</preBuildCommand>
+          <preBuildFirst>true</preBuildFirst>
+        </preBuild>
+      </makefileType>
+      <item path="CMakeFiles/3.9.3/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="CMakeFiles/3.9.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="CMakeFiles/feature_tests.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="CMakeFiles/feature_tests.cxx" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="Toninho/ToninhoVrep.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="Vdc/Vdc.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="build/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="build/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="build/CMakeFiles/feature_tests.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="build/CMakeFiles/feature_tests.cxx"
+            ex="false"
+            tool="1"
+            flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <folder path="0/Toninho">
+        <ccTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>Vdc</pElem>
+            <pElem>Toninho</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BUILD_SHARED_LIBS=OFF</Elem>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/Vdc">
+        <ccTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>Vdc</pElem>
+            <pElem>Toninho</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BUILD_SHARED_LIBS=OFF</Elem>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/remoteApi">
+        <cTool>
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>Vdc</pElem>
+            <pElem>Toninho</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <item path="main.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>remoteApi</pElem>
+            <pElem>Vdc</pElem>
+            <pElem>Toninho</pElem>
+            <pElem>build</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>BUILD_SHARED_LIBS=OFF</Elem>
+            <Elem>MAX_EXT_API_CONNECTIONS=255</Elem>
+            <Elem>NON_MATLAB_PARSING</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="remoteApi/extApi.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="remoteApi/extApiPlatform.c" ex="false" tool="0" flavor2="2">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

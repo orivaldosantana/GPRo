@@ -16,6 +16,8 @@ set(SOURCES
     remoteApi/extApi.c
     #remoteApi/extApiCustom.c
     remoteApi/extApiPlatform.c
+    Vdc/Vdc.cpp
+    Toninho/ToninhoVrep.cpp
 )
  
 set(HEADERS
@@ -25,9 +27,15 @@ set(HEADERS
     remoteApi/extApiPlatform.h
     include/v_repConst.h
     include/v_repLib.h
-)
+    Vdc/Vdc.h
+    Toninho/Toninho.h
+    Toninho/ToninhoVrep.h
+)   
 include_directories("include/")
 include_directories("remoteApi/")
+include_directories("Vdc/")
+include_directories("Toninho/")
+
 
 find_package (Threads)
 

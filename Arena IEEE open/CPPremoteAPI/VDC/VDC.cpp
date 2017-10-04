@@ -25,19 +25,6 @@ VDC::VDC() {
 VDC::VDC(const VDC& orig) {
 }
 
-void VDC::conectJoints(std::string nameInVrep, int &nameInRemoteAPI) {
-
-    if (simxGetObjectHandle(clientID, (const simxChar*) nameInVrep.c_str(), (simxInt *) & nameInRemoteAPI, (simxInt) simx_opmode_oneshot_wait) != simx_return_ok)
-        std::cout << nameInVrep << " nao encontrado!" << std::endl;
-    else
-        std::cout << "Conectado ao " << nameInVrep << std::endl;
-
-
-
-
-
-
-}
 
 void VDC::conectProximitySensors(std::string nameInVrep, int &nameInRemoteAPI) {
 
@@ -68,7 +55,7 @@ double VDC::getDistance(int sensor) {
         } 
 
     }
-    return 1;
+    return -1;
 
 
 
@@ -76,12 +63,10 @@ double VDC::getDistance(int sensor) {
 
 void VDC::setJointPosition(int joint, double angle) {
     simxSetJointPosition(clientID, joint, angle, simx_opmode_oneshot);
-
 }
 
 void VDC::setJointVelocity(int joint, float velocity) {
     simxSetJointTargetVelocity(clientID, joint, (simxFloat) velocity, simx_opmode_streaming);
-
 
 }
 
@@ -132,7 +117,6 @@ bool VDC::simulationIsActive() {
 }
 
 void VDC::delay(int time) {
-
     extApi_sleepMs(time);
 }
 
@@ -208,6 +192,7 @@ Mat VDC::convertVrepToOpenCV(simxUChar image[], simxInt resX, simxInt resY) {
 bool VDC::imageVrepToOpencv(int cam,Mat &imageVrep) {
     simxInt res[2]; // vai entender esse vrep  ?                                                                                                                                                                                                                                                                    não.
     simxUChar* image;
+    
  
     
     //                   _______________________________________________________________________________

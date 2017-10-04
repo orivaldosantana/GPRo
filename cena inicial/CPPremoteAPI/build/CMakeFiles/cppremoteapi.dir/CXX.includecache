@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,23 +6,67 @@
 
 #IncludeRegexTransform: 
 
+../Toninho/Toninho.h
+
+../Toninho/ToninhoVrep.h
+Toninho.h
+-
+Vdc.h
+-
+
+../Vdc/Vdc.h
+extApi.h
+-
+string
+-
+iostream
+-
+vector
+-
+
 ../include/v_repConst.h
 
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/main.cpp
-remoteApi/extApi.h
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApi.h
+../remoteApi/extApi.h
+extApiPlatform.h
+../remoteApi/extApiPlatform.h
+v_repConst.h
+../remoteApi/v_repConst.h
+
+../remoteApi/extApiPlatform.h
+stdint.h
+-
+
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Toninho/ToninhoVrep.cpp
+ToninhoVrep.h
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Toninho/ToninhoVrep.h
+
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Toninho/ToninhoVrep.h
+Toninho.h
+-
+Vdc.h
+-
+
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Vdc/Vdc.cpp
+Vdc.h
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Vdc/Vdc.h
+
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/Vdc/Vdc.h
+extApi.h
+-
+string
+-
+iostream
+-
+vector
+-
+
+/home/samuel/Documentos/Repositories/GPRo/cena inicial/CPPremoteAPI/main.cpp
 iostream
 -
 string
 -
-
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApi.h
-extApiPlatform.h
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApiPlatform.h
-v_repConst.h
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/v_repConst.h
-
-/home/samuel/Documentos/Simulador/cena inicial/CPPremoteAPI/remoteApi/extApiPlatform.h
-stdint.h
+Toninho.h
+-
+ToninhoVrep.h
 -
 
