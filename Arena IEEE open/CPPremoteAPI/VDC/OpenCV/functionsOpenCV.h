@@ -33,6 +33,8 @@ vector<float> angles, anglesP;
 int width = 640;
 int height = 480;
 float RX;
+int R22x = -1;
+int R22y = -1;
 // ---------  COISAS PARA K-MEANS  -----------
 // SET DE DADOS PARA IA
 
@@ -44,10 +46,10 @@ const int nCICLOS = 250;
 //////////////////////////////////////////////////////////////////////////////////////////////7
 
 void PDControl(int x, int y) {
-   float erro = x - (width / 2);
+    float erro = x - (width / 2);
     erro = erro / (width / 2);
     RX = erro;
-     cout << "error: " << erro << endl;
+    cout << "error: " << erro << endl;
     int to_show;
     if (erro < 0.01) { // go left
         to_show = (int) (-100 * erro);
@@ -240,7 +242,9 @@ void kmeans_training(vector<Point2f> corners) {
     int X = int((c[0][0] + c[1][0]) / 2.0);
     int Y = int((c[0][1] + c[1][1]) / 2.0);
 
-    PDControl(X, Y);
+    // PDControl(X, Y);
+    R22x = X;
+    R22y = Y;
 
 
     circle(mitNeural, Point(X, Y), 20, Scalar(255, 0, 0), -1, 8, 0);
@@ -554,7 +558,7 @@ void find_corners() { // NAO MEXE NOS PARAMETROS PELO AMOR DE DEUS
     }
 }
 
-float findCow(Mat image) {
+void findCow(Mat image, int &R21x, int &R21y) {
 
     frame = image;
 
@@ -569,18 +573,23 @@ float findCow(Mat image) {
     find_corners(); // usa o algoritmo shi pra achar pontos de interesse (quinas)
     istInDerLinie(); // mantém as linhas que cruzam os pontos achados na funcao anterior
 
-    namedWindow("Original", CV_WINDOW_AUTOSIZE);
-    namedWindow("Mit Neural", CV_WINDOW_AUTOSIZE);
 
-    if (frame.data && mitNeural.data) {
+
+    if (!mitNeural.empty()) {
+        namedWindow("Mit Neural", CV_WINDOW_AUTOSIZE);
         imshow("Mit Neural", mitNeural);
-        imshow("Original", frame);
 
-        waitKey(30);
+
+        waitKey(25);
 
 
     }
-    return RX;
+
+    R21x = R22x;
+    R21y = R22y;
+
+
+
 
 
 
@@ -720,6 +729,6 @@ void findRedColorMass(Mat Vrep, int &rx, int &ry) {
 
     waitKey(25); // 25 frames por segundo
 
-    
+
 
 }

@@ -1,4 +1,4 @@
-/*
+ /*
     Client of V-REP simulation server (remoteApi)
     Copyright (C) 2015  Rafael Alceste Berri rafaelberri@gmail.com
 
@@ -51,12 +51,14 @@ int main(int argc, char **argv) {
         }
     
    
+    vrep.seguirParedeSOM();
              // vrep.testJunta();
               // vrep.seguidorDeParede();
             //  vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-            vrep.controlTheRobot();
+          //  vrep.controlTheRobot();
+    //vrep.collectDataforNetWork();
    /// vrep.OpenTheClawCloseTheClaw(false);
            // vrep.verDistancia(0);
           // vrep.seguirParedeMLP();

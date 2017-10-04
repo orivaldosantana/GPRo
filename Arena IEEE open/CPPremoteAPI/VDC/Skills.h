@@ -38,10 +38,12 @@ public:
     void controlTheRobot();
     void seguirParedeSOM();
     void OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw);
+    void camilaSeguirLinha();
 
     
     
 private:
+    bool visionInfo();
     void trainingSOM(int size,std::string input);
     bool controlerRobot();
     void setVelocityInRobot(float velocityRight, float velocityLeft);
@@ -51,6 +53,7 @@ private:
     double degree(double Degree);
     bool trained = false;
     std::string controlData;
+    std::string visionData;
     int countImage =0;
     
      // MOTORES e juntas

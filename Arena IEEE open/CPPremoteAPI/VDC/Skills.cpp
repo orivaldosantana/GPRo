@@ -10,6 +10,7 @@
 #include <neuron.h>
 #include <SOM.h>
 #include <sys/stat.h>
+#include <bits/basic_string.h>
 
 using namespace cv;
 using namespace std;
@@ -60,7 +61,7 @@ void SKILLS::connectToRobot() {
     for (int i = 4; i < 8; i++) {
         angle[i - 4] = vdc.getJointPosition(joint[i]);
         if (debug)
-            std::cout << "i: "<< i << " angle[" << i - 4 << "] = " << angle[i - 4] << std::endl;
+            std::cout << "i: " << i << " angle[" << i - 4 << "] = " << angle[i - 4] << std::endl;
     }
 
 
@@ -234,11 +235,12 @@ void SKILLS::goToTank() {
 void SKILLS::WhereIsTheCow() {
     Mat image;
     float rx = 123;
+    int x, y;
     float velocityLeft = 1;
     float velocityRight = 1;
 
     if (vdc.imageVrepToOpencv(Webcam, image)) {
-        rx = findCow(image);
+        findCow(image, x, y);
         cout << rx << endl;
 
 
@@ -491,29 +493,62 @@ bool SKILLS::controlerRobot() {
 void SKILLS::collectDataforNetWork() {
     Extras extras;
     string data;
-    string header = "sensor1,sensor2,sensor3,sensor4,sensor5,sensor6,motorRight,motorLeft";
+    string header = "sensor1,sensor2,sensor3,sensor4,sensor5,sensor6,motorRight,motorLeft,rx,ry";
     string fileName = "inputSOM.csv";
     double distance[6];
 
+
+
     while (VDC::simulationIsActive()) {
 
-        for (int i = 0; i < 6; i++) {
-            distance[i] = VDC::getDistance(sensor[i]);
-        }
-        if (SKILLS::controlerRobot()) {
-            data = to_string(distance[0]);
-            data += "," + to_string(distance[1]);
-            data += "," + to_string(distance[2]);
-            data += "," + to_string(distance[3]);
-            data += "," + to_string(distance[4]);
-            data += "," + to_string(distance[5]);
-            data += controlData;
 
-            extras.logCsv(data.c_str(), fileName.c_str(), header.c_str());
-        }
 
+        if (SKILLS::visionInfo()) {
+            printf("true\n");
+
+            for (int i = 0; i < 6; i++) {
+                distance[i] = VDC::getDistance(sensor[i]);
+            }
+
+            if (SKILLS::controlerRobot()) {
+                data = to_string(distance[0]);
+                data += "," + to_string(distance[1]);
+                data += "," + to_string(distance[2]);
+                data += "," + to_string(distance[3]);
+                data += "," + to_string(distance[4]);
+                data += "," + to_string(distance[5]);
+                data += controlData;
+                data += visionData;
+
+
+
+                extras.logCsv(data.c_str(), fileName.c_str(), header.c_str());
+            }
+
+        }
     }
 
+
+}
+
+bool ::SKILLS::visionInfo() {
+    int x = -1;
+    int y = -1;
+    cv::Mat vrep;
+
+    if (vdc.imageVrepToOpencv(Webcam, vrep)) {
+        findCow(vrep, x, y);
+
+        if (x != -1 && y != -1) {
+            
+            visionData = "," + std::to_string(x) + "," + std::to_string(y);
+            printf("x: %d y: %d",x,y);
+            return true;
+        } else
+            return false;
+
+    }
+    return false;
 
 
 }
@@ -558,11 +593,11 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
                 angle[0] += 0.003;
             else
                 angle[0] -= 0.003;
-            
-             if (angle[0] < 0)
+
+            if (angle[0] < 0)
                 angle[0] = 0;
-             else if(angle[0] > 0.698131701)
-                 angle[0] = 0.698131701;
+            else if (angle[0] > 0.698131701)
+                angle[0] = 0.698131701;
 
             vdc.setJointPosition(joint[4], angle[0]);
             controlData = "," + std::to_string(angle[0]);
@@ -572,11 +607,11 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
                 angle[1] += 0.0005;
             else
                 angle[1] -= 0.0005;
-            
-             if (angle[1] < 0)
+
+            if (angle[1] < 0)
                 angle[1] = 0;
-             else if(angle[1] > 0.09)
-                 angle[1] = 0.09;
+            else if (angle[1] > 0.09)
+                angle[1] = 0.09;
 
             vdc.setJointPosition(joint[5], angle[1]);
             controlData = "," + std::to_string(angle[1]);
@@ -589,9 +624,9 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
                 angle[2] -= 0.01;
             if (angle[2] < 0)
                 angle[2] = 0;
-             else if(angle[2] > 6.28318531)
-                 angle[2] = 6.28318531;
-            
+            else if (angle[2] > 6.28318531)
+                angle[2] = 6.28318531;
+
             vdc.setJointPosition(joint[6], angle[2]);
             controlData = "," + std::to_string(angle[2]);
             return;
@@ -601,11 +636,11 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
                 angle[3] += 0.01;
             else
                 angle[3] -= 0.01;
-            
-             if (angle[3] < 0)
+
+            if (angle[3] < 0)
                 angle[3] = 0;
-             else if(angle[3] > 1.09955743)
-                 angle[3] = 1.09955743;
+            else if (angle[3] > 1.09955743)
+                angle[3] = 1.09955743;
 
             vdc.setJointPosition(joint[7], angle[3]);
             controlData = "," + std::to_string(angle[3]);
@@ -667,14 +702,15 @@ void SKILLS::trainingSOM(int size, std::string filename) {
 
 }
 
+
 void SKILLS::seguirParedeSOM() {
     SOM som(30);
 
 
-    // SKILLS::trainingSOM(30,"inputSOM2");
+    SKILLS::trainingSOM(30,"teste");
 
 
-    som.loadNodes("output/inputSOM2Size:30/output20000.csv");
+   // som.loadNodes("output/inputSOM2Size:30/output20000.csv");
 
     std::vector<double> input{0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -697,7 +733,7 @@ void SKILLS::seguirParedeSOM() {
 
 void SKILLS::OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw) {
 
-    
+
 
 
     if (OpenTheClawCloseTheClaw) {
@@ -730,5 +766,11 @@ void SKILLS::OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw) {
         }
 
     }
+
+}
+
+
+void SKILLS::camilaSeguirLinha(){
+    double sharpsBase[6];
 
 }

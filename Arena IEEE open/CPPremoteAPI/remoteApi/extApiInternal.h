@@ -1,6 +1,6 @@
 // This file is part of the REMOTE API
 // 
-// Copyright 2006-2014 Coppelia Robotics GmbH. All rights reserved. 
+// Copyright 2006-2017 Coppelia Robotics GmbH. All rights reserved. 
 // marc@coppeliarobotics.com
 // www.coppeliarobotics.com
 // 
@@ -24,7 +24,7 @@
 // along with the REMOTE API.  If not, see <http://www.gnu.org/licenses/>.
 // -------------------------------------------------------------------
 //
-// This file was automatically created for V-REP release V3.2.0 on Feb. 3rd 2015
+// This file was automatically created for V-REP release V3.4.0 rev. 1 on April 5th 2017
 
 #ifndef __EXTAPIINTERNAL_
 #define __EXTAPIINTERNAL_
@@ -78,5 +78,8 @@ simxInt _connectionID[MAX_EXT_API_CONNECTIONS];
 const simxChar* _tempConnectionAddress[MAX_EXT_API_CONNECTIONS];
 simxInt _tempConnectionPort[MAX_EXT_API_CONNECTIONS];
 simxUChar _tempDoNotReconnectOnceDisconnected[MAX_EXT_API_CONNECTIONS];
+
+simxUChar* _tmpBuffer[MAX_EXT_API_CONNECTIONS];
+
 
 #endif /* __EXTAPIINTERNAL_ */
