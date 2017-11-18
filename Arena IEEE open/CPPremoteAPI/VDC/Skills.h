@@ -3,7 +3,8 @@
 #ifndef SKILLS_H
 #define SKILLS_H
 
-#include <VDC.h>
+#include "Vdc.h"
+#include "VrepToOpencv.h"
 #include <string>
 #include <iostream>
 extern "C" {
@@ -11,17 +12,10 @@ extern "C" {
 }
 
 
-class SKILLS: public VDC {
+class SKILLS {
 public:
     
-    SKILLS(std::string serverIP,int serverPort){
-        
-        this->clientID =simxStart((simxChar*)serverIP.c_str(),serverPort,true,true,2000,5);
-      
-      
-   
-        
-    }
+    SKILLS(std::string serverIP, int serverPort);
      
     void seguidorDeParede();
     void connectToRobot();
@@ -43,6 +37,8 @@ public:
     
     
 private:
+    Vdc* vrep;
+    VrepToOpencv* visionSensor;
     bool visionInfo();
     void trainingSOM(int size,std::string input);
     bool controlerRobot();
@@ -52,6 +48,7 @@ private:
     void takePhotos();
     double degree(double Degree);
     bool trained = false;
+    bool debug;
     std::string controlData;
     std::string visionData;
     int countImage =0;

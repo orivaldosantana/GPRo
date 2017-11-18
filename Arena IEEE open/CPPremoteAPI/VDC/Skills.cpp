@@ -6,66 +6,85 @@
 #include <opencv2/opencv.hpp>
 #include <math.h>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <functionsOpenCV.h>
+//#include <functionsOpenCV.h>
 #include <neuron.h>
 #include <SOM.h>
 #include <sys/stat.h>
 #include <bits/basic_string.h>
+#include <string>
 
-using namespace cv;
-using namespace std;
+#include "VrepToOpencv.h"
 
 
-VDC vdc;
 
-/*
-SKILLS::SKILLS() {
+
+
+
+SKILLS::SKILLS(std::string serverIP, int serverPort) {
     sensor[8] = {};
     joint[9] = {};
     angle[5] = {};
-
+    debug = false;
+    
+    vrep = new Vdc(serverIP.c_str(),serverPort );
+    
+    if (vrep->simulationIsActive())
+        connectToRobot();
+    else
+        std::cout << "connection fail " << std::endl;
 
 
 }
- */
+ 
 
 void SKILLS::connectToRobot() {
 
-    /* inicialização dos motores do lado esquerdo 
-    NOME DO JOIN MOTOR  \/ AONDE ELE VAI GUARDAR \/                               */
-    vdc.conectJoints("Motor_esquerdo_Tras", joint[1]);
-    vdc.conectJoints("Motor_esquerdo_frente", joint[3]);
+    // inicialização dos motores do lado esquerdo 
+ // NOME DO JOIN MOTOR  \/ AONDE ELE VAI GUARDAR \/   
+ 
+    
+    vrep->conectpiece("Motor_esquerdo_Tras",joint[1]);
+    
+    
+    vrep->conectpiece("Motor_esquerdo_frente",joint[3]);
+    
 
-
+    
     // inicialização dos motores do lado direito 
-    vdc.conectJoints("Motor_direito_frente", joint[0]);
-    vdc.conectJoints("Motor_direito_Tras", joint[2]);
+    vrep->conectpiece("Motor_direito_frente",joint[0]);
+    
+    
+    vrep->conectpiece("Motor_direito_Tras",joint[2]);
+    
 
 
 
     //  juntas da GARRA
     for (int i = 4; i < 8; i++) { // 
-        vdc.conectJoints("Joint#" + std::to_string(i - 3), joint[i]);
+        vrep->conectpiece("Joint#" + std::to_string(i - 3), joint[i]);
 
 
     }
 
     // inicialização dos sensores de proximidade  (remoteApi)
     for (int i = 0; i < 8; i++) {
-        vdc.conectProximitySensors("Proximity_sensor_" + std::to_string(i + 1), sensor[i]);
+        vrep->conectpiece("Proximity_sensor_" + std::to_string(i + 1), sensor[i]);
     }
 
-    vdc.conectJoints("Webcam", Webcam);
+   vrep->conectpiece("Webcam", Webcam);
 
+   
 
     for (int i = 4; i < 8; i++) {
-        angle[i - 4] = vdc.getJointPosition(joint[i]);
+        float position;
+        vrep->getJointPosition(joint[i], position);
+        angle[i - 4] = position;
         if (debug)
             std::cout << "i: " << i << " angle[" << i - 4 << "] = " << angle[i - 4] << std::endl;
     }
 
 
-
+   visionSensor = new VrepToOpencv (vrep->getClientID(),Webcam);
 
 
 
@@ -83,8 +102,7 @@ void SKILLS::seguidorDeParede() {
 
 
     for (int i = 0; i < 8; i++) {
-
-        dist[i] = vdc.getDistance(sensor[i]);
+        vrep->readProximitySensor(sensor[i], dist[i]);
         // sensor[0] =  Proximity_sensor_1 , sensor[1] = Proximity_sensor_2 ... 
     }
 
@@ -131,22 +149,22 @@ void SKILLS::seguidorDeParede() {
 
 void SKILLS::testJunta() {
 
-    while (vdc.simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
 
         for (int i = 4; i < 9; i++) {
             if (i == 5 && angle[1] < 0.09) //Joint#2 movimento linear
             {
                 angle[1] += 0.0005;
-                vdc.setJointPosition(joint[i], angle[1]);
+                vrep->setJointPosition(joint[i], angle[1]);
 
             } else if (i == 6 && angle[2] < degree(180) && angle[1] >= 0.030) // Joint#3
             {
                 angle[2] += 0.01;
-                vdc.setJointPosition(joint[i], angle[2]);
+                 vrep->setJointPosition(joint[i], angle[2]);
             } else if (i == 4 && angle[0] < degree(40) && angle[4] >= 0.030 && angle[2] >= degree(90)) //joint#1
             {
                 angle[0] += 0.003;
-                vdc.setJointPosition(joint[i], angle[0]);
+                 vrep->setJointPosition(joint[i], angle[0]);
 
             }
             //
@@ -154,7 +172,7 @@ void SKILLS::testJunta() {
 
             if (i == 8 && angle[4] < degree(41.83)) {
                 angle[4] += 0.01;
-                vdc.setJointPosition(joint[7], angle[4]);
+                 vrep->setJointPosition(joint[7], angle[4]);
 
             }
 
@@ -162,52 +180,42 @@ void SKILLS::testJunta() {
 
         }
 
-        vdc.delay(100);
+        vrep->delay(100);
 
     }
 
 }
 
 void SKILLS::testGetImage() {
-    Mat image;
-    vdc.debug = true;
-    if (vdc.imageVrepToOpencv(Webcam, image)) {
-
-    }
-
-
+    visionSensor->showImage("Cam");
 
 }
 
 void SKILLS::testSetImage() {
-    vdc.setImageVisionSensor(Webcam);
+  //  SKILLS::setImageVisionSensor(Webcam);
 }
 
 void SKILLS::testReadCam() {
-    vdc.readVisionSensor(Webcam);
+    
+//    SKILLS::readVisionSensor(Webcam);
 }
 
 void SKILLS::goToTank() {
-    Mat imageVrep;
-    int rx, ry;
+     
+   
+    double rx, ry;
     int q3 = 240; // dividi o eixo x da imagem em 7 quartis  
     int q5 = 400;
     float velocityRight = 1;
     float velocityLeft = 1;
 
-    while (vdc.simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
         velocityRight = 1;
         velocityLeft = 1;
 
-        if (vdc.imageVrepToOpencv(Webcam, imageVrep)) {
-            if (imageVrep.data && debug) {
-
-                namedWindow("vrep2", CV_WINDOW_AUTOSIZE);
-                imshow("vrep2", imageVrep);
-                waitKey(30);
-
-            }
-            findRedColorMass(imageVrep, rx, ry);
+        if (visionSensor->findRedColorMass(rx,ry) ) {
+                      
+//          findRedColorMass(imageVrep, rx, ry);
 
             if (debug) {
                 cout << "posição x do tank: " << rx << " y: " << ry << endl;
@@ -233,14 +241,15 @@ void SKILLS::goToTank() {
 }
 
 void SKILLS::WhereIsTheCow() {
-    Mat image;
+/*
+   cv::Mat image;
     float rx = 123;
     int x, y;
     float velocityLeft = 1;
     float velocityRight = 1;
 
-    if (vdc.imageVrepToOpencv(Webcam, image)) {
-        findCow(image, x, y);
+    if (SKILLS::imageVrepToOpencv(Webcam, image)) {
+       // findCow(image, x, y);
         cout << rx << endl;
 
 
@@ -253,7 +262,7 @@ void SKILLS::WhereIsTheCow() {
 
     }
 
-
+*/
 
 
 }
@@ -261,11 +270,12 @@ void SKILLS::WhereIsTheCow() {
 void SKILLS::setVelocityInRobot(float velocityRight, float velocityLeft) {
 
     // atualiza velocidades dos motores
-    vdc.setJointVelocity(joint[0], velocityRight);
-    vdc.setJointVelocity(joint[2], velocityRight);
+ 
+    vrep->setJointVelocity(joint[0], velocityRight);
+    vrep->setJointVelocity(joint[2], velocityRight);
 
-    vdc.setJointVelocity(joint[1], velocityLeft);
-    vdc.setJointVelocity(joint[3], velocityLeft);
+    vrep->setJointVelocity(joint[1], velocityLeft);
+    vrep->setJointVelocity(joint[3], velocityLeft);
     //*/
 
 
@@ -345,17 +355,21 @@ void SKILLS::seguirParedeMLP() {
     //red.Mostrar_Pesos(); //Mostramos los pesos definitivos
 
     //Mostrar los outputs:
-    for (int i = 0; i < entrenador1.size(); i++)
+    for ( unsigned int i = 0; i < entrenador1.size(); i++)
         red.Calcular_Output(entrenador1[i]);
     //red.Mostrar_Output();
 
 
 
-    while (VDC::simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
 
 
-        for (int i = 0; i < 6; i++)
-            inputs[i] = VDC::getDistance(sensor[i]);
+        for (int i = 0; i < 6; i++){
+            float distance;
+            vrep->readProximitySensor(sensor[i],distance );
+            inputs[i] = distance;
+        }
+          //  inputs[i] = SKILLS::getDistance(sensor[i]);
 
 
 
@@ -387,7 +401,9 @@ void SKILLS::seguirParedeMLP() {
 }
 
 void SKILLS::verDistancia(int i) {
-    double teste = VDC::getDistance(sensor[i]);
+    float teste;
+    vrep->readProximitySensor(sensor[i],teste);
+ //   double teste = SKILLS::getDistance(sensor[i]);
     cout << "distancia entre 0 e 1:  " << teste << endl;
 
 }
@@ -480,7 +496,7 @@ bool SKILLS::controlerRobot() {
 
         case 'e':
             system("stty cooked");
-            VDC::finish();
+            vrep->finish();
             return false;
 
 
@@ -491,6 +507,7 @@ bool SKILLS::controlerRobot() {
 }
 
 void SKILLS::collectDataforNetWork() {
+    /*
     Extras extras;
     string data;
     string header = "sensor1,sensor2,sensor3,sensor4,sensor5,sensor6,motorRight,motorLeft,rx,ry";
@@ -499,7 +516,7 @@ void SKILLS::collectDataforNetWork() {
 
 
 
-    while (VDC::simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
 
 
 
@@ -507,7 +524,7 @@ void SKILLS::collectDataforNetWork() {
             printf("true\n");
 
             for (int i = 0; i < 6; i++) {
-                distance[i] = VDC::getDistance(sensor[i]);
+                distance[i] = SKILLS::getDistance(sensor[i]);
             }
 
             if (SKILLS::controlerRobot()) {
@@ -528,16 +545,17 @@ void SKILLS::collectDataforNetWork() {
         }
     }
 
-
+*/
 }
 
 bool ::SKILLS::visionInfo() {
+    /*
     int x = -1;
     int y = -1;
     cv::Mat vrep;
 
-    if (vdc.imageVrepToOpencv(Webcam, vrep)) {
-        findCow(vrep, x, y);
+    if (SKILLS::imageVrepToOpencv(Webcam, vrep)) {
+      //  findCow(vrep, x, y);
 
         if (x != -1 && y != -1) {
             
@@ -550,20 +568,23 @@ bool ::SKILLS::visionInfo() {
     }
     return false;
 
-
+*/
+    return true;
 }
 
 void SKILLS::takePhotos() {
-    Mat vrep;
-    string nameImage = "ImageFromVrep" + to_string(countImage) + ".jpg";
-
-    if (VDC::imageVrepToOpencv(Webcam, vrep))
-        imwrite(nameImage.c_str(), vrep);
+   
+    string nameImage = "ImageFromVrep" + to_string(countImage) + ".png";
+    
+    visionSensor->takePhotos(nameImage.c_str());
+    
+     
+ 
 }
 
 void SKILLS::controlTheRobot() {
 
-    while (VDC::simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
 
         SKILLS::controlerRobot();
 
@@ -578,7 +599,7 @@ void SKILLS::setVelocityForControler(float velocityRight, float velocityLeft) {
 
 
 
-    VDC::delay(for1sec);
+    vrep->delay(for1sec);
 
     SKILLS::setVelocityInRobot(0.0, 0.0);
 
@@ -599,7 +620,7 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
             else if (angle[0] > 0.698131701)
                 angle[0] = 0.698131701;
 
-            vdc.setJointPosition(joint[4], angle[0]);
+            vrep->setJointPosition(joint[4], angle[0]);
             controlData = "," + std::to_string(angle[0]);
             return;
         case 2: //joint#2
@@ -613,7 +634,7 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
             else if (angle[1] > 0.09)
                 angle[1] = 0.09;
 
-            vdc.setJointPosition(joint[5], angle[1]);
+            vrep->setJointPosition(joint[5], angle[1]);
             controlData = "," + std::to_string(angle[1]);
             return;
 
@@ -627,7 +648,7 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
             else if (angle[2] > 6.28318531)
                 angle[2] = 6.28318531;
 
-            vdc.setJointPosition(joint[6], angle[2]);
+            vrep->setJointPosition(joint[6], angle[2]);
             controlData = "," + std::to_string(angle[2]);
             return;
 
@@ -642,7 +663,7 @@ void SKILLS::setPositionForControler(int _joint, bool positive) {
             else if (angle[3] > 1.09955743)
                 angle[3] = 1.09955743;
 
-            vdc.setJointPosition(joint[7], angle[3]);
+            vrep->setJointPosition(joint[7], angle[3]);
             controlData = "," + std::to_string(angle[3]);
 
 
@@ -678,7 +699,7 @@ void SKILLS::trainingSOM(int size, std::string filename) {
     // std::cout<< "data:: " << data->getSampleSize() << std::endl;
     som.initializeNodes(data->getSampleSize(), true, maxFeatureInitialValue);
 
-    int iterations = 20000;
+    int iterations = 1000000;
 
 
     // Execute many iterations 
@@ -707,17 +728,20 @@ void SKILLS::seguirParedeSOM() {
     SOM som(30);
 
 
-    SKILLS::trainingSOM(30,"teste");
+    SKILLS::trainingSOM(18,"teste_seguirParede");
 
 
    // som.loadNodes("output/inputSOM2Size:30/output20000.csv");
 
     std::vector<double> input{0, 0, 0, 0, 0, 0, 0, 0};
 
-    while (VDC::simulationIsActive()) {
+    while (vrep->simulationIsActive()) {
 
         for (int i = 0; i < 6; i++) {
-            input[i] = VDC::getDistance(sensor[i]);
+            float distance;
+            vrep->readProximitySensor(sensor[i], distance);
+            input[i] = distance;
+            
         }
 
         som.findBest(input, 0, 5);
@@ -737,32 +761,32 @@ void SKILLS::OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw) {
 
 
     if (OpenTheClawCloseTheClaw) {
-        while (vdc.simulationIsActive()) {
+        while (vrep->simulationIsActive()) {
 
 
             if (angle[3] < degree(41.83)) {
 
                 angle[3] += 0.01;
-                vdc.setJointPosition(joint[7], angle[3]);
+                vrep->setJointPosition(joint[7], angle[3]);
 
             } else
                 return;
 
-            vdc.delay(100);
+            vrep->delay(100);
 
         }
 
 
     } else {
-        while (vdc.simulationIsActive()) {
+        while (vrep->simulationIsActive()) {
 
             if (angle[3] > 0) {
                 angle[3] -= 0.01;
-                vdc.setJointPosition(joint[7], angle[3]);
+                vrep->setJointPosition(joint[7], angle[3]);
             } else
                 return;
 
-            vdc.delay(100);
+             vrep->delay(100);
         }
 
     }
@@ -771,6 +795,6 @@ void SKILLS::OpenTheClawCloseTheClaw(bool OpenTheClawCloseTheClaw) {
 
 
 void SKILLS::camilaSeguirLinha(){
-    double sharpsBase[6];
+ 
 
 }

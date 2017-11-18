@@ -45,19 +45,16 @@ int main(int argc, char **argv) {
     SKILLS vrep("127.0.0.1",19999);
     
     
-        if ( vrep.connection_is_OK()){
-            cout << "Servidor conectado!" << std::endl;
-            vrep.connectToRobot();
-        }
+      
     
    
-    vrep.seguirParedeSOM();
+//    vrep.seguirParedeSOM();
              // vrep.testJunta();
               // vrep.seguidorDeParede();
             //  vrep.goToTank();
             // vrep.WhereIsTheCow();
            // vrep.testSetImage();
-          //  vrep.controlTheRobot();
+            vrep.controlTheRobot();
     //vrep.collectDataforNetWork();
    /// vrep.OpenTheClawCloseTheClaw(false);
            // vrep.verDistancia(0);

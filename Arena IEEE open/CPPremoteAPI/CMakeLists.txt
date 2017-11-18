@@ -16,7 +16,7 @@ set(SOURCES
     remoteApi/extApi.c
     #remoteApi/extApiCustom.c
     remoteApi/extApiPlatform.c
-    VDC/VDC.cpp
+    VDC/Vdc.cpp
     VDC/Skills.cpp
     VDC/Neuron/neuron.cpp
     VDC/extras.cpp
@@ -24,6 +24,7 @@ set(SOURCES
     VDC/SOM/SOM.cpp
     VDC/SOM/Node.cpp
     VDC/SOM/Sample.cpp
+    VDC/VrepToOpencv.cpp
    
 )
 
@@ -34,11 +35,12 @@ set(HEADERS
     remoteApi/extApiPlatform.h
     include/v_repConst.h
     include/v_repLib.h
-    VDC/VDC.h
+    VDC/Vdc.h
     VDC/Skills.h
     VDC/OpenCV/functionsOpenCV.h
     VDC/Neuron/neuron.h
     VDC/extras.h
+    VDC/VrepToOpencv.h
     VDC/SOM/SOM.h
     VDC/SOM/DataSet.h
     VDC/SOM/Node.h

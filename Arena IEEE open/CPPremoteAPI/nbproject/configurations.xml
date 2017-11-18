@@ -32,7 +32,8 @@
           <in>Test.cpp</in>
         </df>
         <in>Skills.cpp</in>
-        <in>VDC.cpp</in>
+        <in>Vdc.cpp</in>
+        <in>VrepToOpencv.cpp</in>
         <in>extras.cpp</in>
       </df>
       <in>main.cpp</in>
@@ -127,7 +128,11 @@
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="VDC/VDC.cpp" ex="false" tool="1" flavor2="8">
+      <item path="VDC/Vdc.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="VDC/VrepToOpencv.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
